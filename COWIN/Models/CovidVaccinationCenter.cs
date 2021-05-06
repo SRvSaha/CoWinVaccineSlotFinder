@@ -36,6 +36,7 @@ namespace CoWiN.Models
             var endpoint = _configuration["CoWinAPI:BaseUrl"] + $"?district_id={districtId}&date={currentDate}";
             var client = new RestClient(endpoint);
             client.Timeout = -1;
+            client.UserAgent = _configuration["CoWinAPI:SpoofedUserAgentToBypassWAF"];
             if (Convert.ToBoolean(_configuration["Proxy:IsToBeUsed"]))
             {
                 client.Proxy = new WebProxy { 
