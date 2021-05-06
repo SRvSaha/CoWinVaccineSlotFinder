@@ -1,5 +1,5 @@
-# CoWinVaccineSlotFinder
-Console App to Fetch the Available Slots & Booking the Appointment Schedule for COVID-19 Vaccination using the Publically available [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
+# CoWinVaccineSlotFind
+Console App to Fetch the Available Slots & Booking the Appointment Schedule for COVID-19 Vaccination using the Publicly available [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
 
 FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
