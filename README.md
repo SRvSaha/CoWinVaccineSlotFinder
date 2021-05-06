@@ -46,7 +46,9 @@ I'll be more than happy to have PRs with modifications.
 
 ### For Folks who just want to get shit done
 
-Go to the Releases Section of the Application, download the ZIP file, exact it, Modify the Setting inside appsettings.json ,Run the Executable (EXE in case of Windows) . Enjoy!
+Go to the Releases Section of the Application, download the ZIP file, exact it, Modify the Setting inside appsettings.json, Run the Executable (EXE in case of Windows).
+
+Enjoy!
 
 If you'd like to do it the hard way, clone it, build it and run it.
 
