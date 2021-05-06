@@ -21,7 +21,7 @@ namespace CoWiN.Models
             IRestResponse response = FetchAllSlotsForDistict(districtId, currentDate, vaccineType);
             if(response.StatusCode == HttpStatusCode.OK)
             {
-                var covidVaccinationCenters = CovidVaccinationCenters.FromJson(response.Content);
+                var covidVaccinationCenters = Deserialize.FromJson(response.Content);
                 GetAvailableSlots(covidVaccinationCenters);
             }
             else
