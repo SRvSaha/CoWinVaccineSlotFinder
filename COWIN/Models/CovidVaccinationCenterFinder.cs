@@ -33,6 +33,7 @@ namespace CoWin.Models
         {
             for (int i = 1; i < Convert.ToInt32(_configuration["CoWinAPI:TotalIterations"]); i++)
             {
+                Console.ResetColor();
                 Console.WriteLine($"Fetching Resources, Try #{i}");
                 foreach (var district in districtsToSearch)
                 {

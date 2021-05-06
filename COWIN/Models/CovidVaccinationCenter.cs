@@ -25,7 +25,9 @@ namespace CoWiN.Models
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\n[ERROR] ResponseStatus: {response.StatusDescription}, ResponseContent: {response.Content}\n");
+                Console.ResetColor();
             }
         }
 
@@ -87,15 +89,23 @@ namespace CoWiN.Models
 
         private static void DisplaySlotInfo(Center cvc, Session session)
         {
+            Console.ResetColor();
             Console.WriteLine("***************************************************************************************************************");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Name: " + cvc.Name);
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Address: " + cvc.Address);
-            Console.WriteLine("District: " + cvc.DistrictName);
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("PIN: " + cvc.Pincode);
+            Console.ResetColor();
+            Console.WriteLine("District: " + cvc.DistrictName);
             Console.WriteLine("FeeType: " + cvc.FeeType);
             Console.WriteLine("VaccineType: " + session.Vaccine);
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("AvailableCapacity: " + session.AvailableCapacity);
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("DateOfAvailability: " + session.Date);
+            Console.ResetColor();
             Console.WriteLine("Slots Available: " + string.Join(", ", session.Slots));
             Console.WriteLine("***************************************************************************************************************\n");
         }
