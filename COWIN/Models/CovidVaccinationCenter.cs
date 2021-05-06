@@ -38,7 +38,7 @@ namespace CoWiN.Models
             }
             else
             {
-                endpoint = _configuration["CoWinAPI:BaseUrl"] + $"?district_id={districtId}&date={currentDate}";
+                endpoint = _configuration["CoWinAPI:PublicAPIBaseUrl"] + $"?district_id={districtId}&date={currentDate}";
             }
             
             var client = new RestClient(endpoint);
@@ -56,9 +56,13 @@ namespace CoWiN.Models
             IRestRequest request = new RestRequest(Method.GET);
             request.AddHeader("accept", "application/json");
             request.AddHeader("Accept-Language", "en_US");
-            request.AddHeader("Origin", _configuration["CoWinAPI:SelfRegistrationPortal"]);
-            request.AddHeader("Referer", _configuration["CoWinAPI:SelfRegistrationPortal"]);
-            request.AddHeader("Authorization", $"Bearer {_configuration["CoWinAPI:ProtectedAPI:BearerToken"]}");
+
+            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
+            {
+                request.AddHeader("Origin", _configuration["CoWinAPI:SelfRegistrationPortal"]);
+                request.AddHeader("Referer", _configuration["CoWinAPI:SelfRegistrationPortal"]);
+                request.AddHeader("Authorization", $"Bearer {_configuration["CoWinAPI:ProtectedAPI:BearerToken"]}");
+            }
 
             IRestResponse response = client.Execute(request);
             return response;
