@@ -19,11 +19,6 @@ namespace CoWin.Models
         public List<string> Beneficiaries { get; set; }
     }
 
-    public partial class BookingModel
-    {
-        public static BookingModel FromJson(string json) => JsonConvert.DeserializeObject<BookingModel>(json);
-    }
-
     public static class Serialize
     {
         public static string ToJson(this BookingModel self) => JsonConvert.SerializeObject(self);

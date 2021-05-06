@@ -92,7 +92,11 @@ namespace CoWiN.Models
                             var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot);
 
                             if (isBookingSuccessful == true)
+                            {
+                                DisplaySlotInfo(cvc, session);
                                 break;
+                            }
+                             
                         }
                         DisplaySlotInfo(cvc, session);
                     }
@@ -103,7 +107,7 @@ namespace CoWiN.Models
         private static void DisplaySlotInfo(Center cvc, Session session)
         {
             Console.ResetColor();
-            Console.WriteLine("***************************************************************************************************************");
+            Console.WriteLine("\n***************************************************************************************************************");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Name: " + cvc.Name);
             Console.ForegroundColor = ConsoleColor.Gray;
@@ -119,7 +123,7 @@ namespace CoWiN.Models
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("DateOfAvailability: " + session.Date);
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("DateOfAvailability: " + session.SessionId);
+            Console.WriteLine("SessionId: " + session.SessionId);
             Console.ResetColor();
             Console.WriteLine("Slots Available: " + string.Join(", ", session.Slots));
             Console.WriteLine("***************************************************************************************************************\n");
