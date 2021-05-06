@@ -4,7 +4,7 @@ Console App to Fetch the Available Slots & Booking the Appointment Schedule for 
 
 ## Technical Details
 
-It's a simple Console Application being developed using .NET Core 3.1 and C#.
+It's a simple Cross-Platform Console Application being developed using .NET Core 3.1 and C#.
 
 Currently, only the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) is integrated to get all the available slots in a particular district and to book the slot in First-Come-First-Serve Basic, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
@@ -42,7 +42,7 @@ I'll be more than happy to have PRs with modifications.
 
 ### For Folks who just want to get shit done
 
-Go to the Releases Section of the Application, download the Package, Run it. Enjoy!
+Go to the Releases Section of the Application, download the ZIP file, exact it, Modify the Setting inside appsettings.json ,Run the Executable (EXE in case of Windows) . Enjoy!
 
 If you'd like to do it the hard way, clone it, build it and run it.
 
