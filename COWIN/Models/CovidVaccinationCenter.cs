@@ -105,6 +105,8 @@ namespace CoWiN.Models
             Console.WriteLine("AvailableCapacity: " + session.AvailableCapacity);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("DateOfAvailability: " + session.Date);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("DateOfAvailability: " + session.SessionId);
             Console.ResetColor();
             Console.WriteLine("Slots Available: " + string.Join(", ", session.Slots));
             Console.WriteLine("***************************************************************************************************************\n");
