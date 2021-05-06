@@ -21,7 +21,9 @@ Make use of the Network Tab inside F12 Window wisely, and you are good to go!
 
 Settings are configurable and can be modified from appsettings.json
 
-You'll need to grab your beneficiaryId, Auth Token and that's it. Rest of the stuff are self-explanatory.
+You'll need to grab your beneficiaryId, Auth Token and that's it. 
+
+Rest of the stuff are self-explanatory.
 
 ## How to Use:
 
