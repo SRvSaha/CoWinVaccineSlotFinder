@@ -4,10 +4,24 @@ Console App to Fetch the Available Slots & Booking the Appointment using the Pub
 
 ## Technical Details
 
-It's a simple Console Application being developed using .NET Core 3.1 and C# and 
-Currently, only calenderByDistrict API (https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) is integrated to get all the available slots in a particular district.
+It's a simple Console Application being developed using .NET Core 3.1 and C#.
+
+Currently, only the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) is integrated to get all the available slots in a particular district and to book the slot in First-Come-First-Serve Basic, the
+ [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
+ 
+We have both Public APIs and Protected APIs exposed, but a general observation was the Public APIs return stale data and since the slots are gone literally in seconds, so I had to use the Protected APIs.
+
+Well, what's probably going on in your mind is, how do I get the Authentication Information to call the Protected APIs?
+
+The answer lies in how well you know to use the F12 Developer Tools of your brower.
+
+You'll be able to get the Bearer Token (Authentication Token) after you have signed in using your Mobile Number and OTP, in the Sessions Tab or in the Response of  OTP Verification Request you are making. 
+
+Make use of the Network Tab inside F12 Window wisely, and you are good to go!
 
 Settings are configurable and can be modified from appsettings.json
+
+You'll need to grab your beneficiaryId, Auth Token and that's it. Rest of the stuffs are self-explanatory.
 
 ## How to Use:
 
