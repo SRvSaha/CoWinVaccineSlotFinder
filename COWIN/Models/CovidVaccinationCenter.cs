@@ -89,7 +89,10 @@ namespace CoWiN.Models
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - Date: {session.Date} - Slot: {slot}");
                             Console.ResetColor();
-                            BookAvailableSlot(session.SessionId, slot);
+                            var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot);
+
+                            if (isBookingSuccessful == true)
+                                break;
                         }
                         DisplaySlotInfo(cvc, session);
                     }
@@ -122,9 +125,10 @@ namespace CoWiN.Models
             Console.WriteLine("***************************************************************************************************************\n");
         }
 
-        private void BookAvailableSlot(string sessionId, string slot)
+        private bool BookAvailableSlot(string sessionId, string slot)
         {
             string endpoint = "";
+            bool isBookingSuccessful = false;
             List<string> beneficiaries = new List<string>();
             
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
@@ -172,13 +176,17 @@ namespace CoWiN.Models
             if(response.StatusCode == HttpStatusCode.OK)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"[INFO] CONGRATULATIONS! Booking Success - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
+                Console.ResetColor();
+                isBookingSuccessful = true;
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[ERROR] Sorry, Booking Failed - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
+                isBookingSuccessful = false;
             }
-            Console.WriteLine($"[INFO] BOOKING - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
-            Console.ResetColor();
+            return isBookingSuccessful;
         }
     }
 }
