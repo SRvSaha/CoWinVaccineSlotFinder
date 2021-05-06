@@ -15,9 +15,9 @@ namespace CoWiN.Models
             _configuration = configuration;
         }
 
-        public void GetSlotsByDistrictId(string districtId, string currentDate)
+        public void GetSlotsByDistrictId(string districtId, string currentDate, string vaccineType)
         {
-            IRestResponse response = FetchAllSlotsForDistict(districtId, currentDate);
+            IRestResponse response = FetchAllSlotsForDistict(districtId, currentDate, vaccineType);
             if(response.StatusCode == HttpStatusCode.OK)
             {
                 var covidVaccinationCenters = CovidVaccinationCenters.FromJson(response.Content);
@@ -29,14 +29,22 @@ namespace CoWiN.Models
             }
         }
 
-        private IRestResponse FetchAllSlotsForDistict(string districtId, string currentDate)
+        private IRestResponse FetchAllSlotsForDistict(string districtId, string currentDate, string vaccineType)
         {
+            string endpoint = "";
+            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
+            {
+                endpoint = _configuration["CoWinAPI:ProtectedAPI:Url"] + $"?district_id={districtId}&date={currentDate}&vaccine={vaccineType}";
+            }
+            else
+            {
+                endpoint = _configuration["CoWinAPI:BaseUrl"] + $"?district_id={districtId}&date={currentDate}";
+            }
             
-
-            var endpoint = _configuration["CoWinAPI:BaseUrl"] + $"?district_id={districtId}&date={currentDate}";
             var client = new RestClient(endpoint);
             client.Timeout = -1;
             client.UserAgent = _configuration["CoWinAPI:SpoofedUserAgentToBypassWAF"];
+            
             if (Convert.ToBoolean(_configuration["Proxy:IsToBeUsed"]))
             {
                 client.Proxy = new WebProxy { 
@@ -48,6 +56,9 @@ namespace CoWiN.Models
             IRestRequest request = new RestRequest(Method.GET);
             request.AddHeader("accept", "application/json");
             request.AddHeader("Accept-Language", "en_US");
+            request.AddHeader("Origin", _configuration["CoWinAPI:SelfRegistrationPortal"]);
+            request.AddHeader("Referer", _configuration["CoWinAPI:SelfRegistrationPortal"]);
+            request.AddHeader("Authorization", $"Bearer {_configuration["CoWinAPI:ProtectedAPI:BearerToken"]}");
 
             IRestResponse response = client.Execute(request);
             return response;

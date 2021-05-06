@@ -14,6 +14,7 @@ namespace CoWin.Models
         private IConfiguration _configuration;
         private List<string> districtsToSearch = new List<string>();
         private string currentDate;
+        private string vaccineType;
         public CovidVaccinationCenterFinder()
         {
             _configuration = new ConfigurationBuilder()
@@ -35,7 +36,7 @@ namespace CoWin.Models
                 Console.WriteLine($"Fetching Resources, Try #{i}");
                 foreach (var district in districtsToSearch)
                 {
-                    new CovidVaccinationCenter(_configuration).GetSlotsByDistrictId(district, currentDate);
+                    new CovidVaccinationCenter(_configuration).GetSlotsByDistrictId(district, currentDate, vaccineType);
                 }
 
                 Thread.Sleep(Convert.ToInt32(_configuration["CoWinAPI:SleepIntervalInMilliseconds"]));
@@ -48,7 +49,8 @@ namespace CoWin.Models
             {
                 districtsToSearch.Add(item.Value);
             }
-            currentDate = DateTime.Now.ToString("dd-MM-yyyy");
+            currentDate = DateTime.Now.AddDays(1).ToString("dd-MM-yyyy");
+            vaccineType = _configuration["CoWinAPI:VaccineType"];
         }
 
     }
