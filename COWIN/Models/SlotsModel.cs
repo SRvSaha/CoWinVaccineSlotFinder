@@ -59,7 +59,7 @@ namespace CoWin.Models
     public partial class Session
     {
         [JsonProperty("session_id")]
-        public Guid SessionId { get; set; }
+        public string SessionId { get; set; }
 
         [JsonProperty("date")]
         public string Date { get; set; }

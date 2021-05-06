@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using RestSharp;
 using System;
+using System.Collections.Generic;
 using System.Net;
 
 namespace CoWiN.Models
@@ -33,10 +34,10 @@ namespace CoWiN.Models
 
         private IRestResponse FetchAllSlotsForDistict(string districtId, string currentDate, string vaccineType)
         {
-            string endpoint = "";
+            string endpoint;
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
             {
-                endpoint = _configuration["CoWinAPI:ProtectedAPI:Url"] + $"?district_id={districtId}&date={currentDate}&vaccine={vaccineType}";
+                endpoint = _configuration["CoWinAPI:ProtectedAPI:FetchUrl"] + $"?district_id={districtId}&date={currentDate}&vaccine={vaccineType}";
             }
             else
             {
@@ -79,8 +80,17 @@ namespace CoWiN.Models
                     if (session.MinAgeLimit >= Convert.ToInt16(_configuration["CoWinAPI:MinAgeLimit"]) && 
                         session.MinAgeLimit < Convert.ToInt16(_configuration["CoWinAPI:MaxAgeLimit"]) && 
                         session.AvailableCapacity >= Convert.ToInt16(_configuration["CoWinAPI:MinimumVaccineAvailability"]) &&
-                        session.Vaccine == _configuration["CoWinAPI:VaccineType"])
+                        session.Vaccine == _configuration["CoWinAPI:VaccineType"] &&
+                        cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"] )
                     {
+                        foreach(var slot in session.Slots)
+                        {
+                            Console.ResetColor();
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - Date: {session.Date} - Slot: {slot}");
+                            Console.ResetColor();
+                            BookAvailableSlot(session.SessionId, slot);
+                        }
                         DisplaySlotInfo(cvc, session);
                     }
                 }
@@ -110,6 +120,65 @@ namespace CoWiN.Models
             Console.ResetColor();
             Console.WriteLine("Slots Available: " + string.Join(", ", session.Slots));
             Console.WriteLine("***************************************************************************************************************\n");
+        }
+
+        private void BookAvailableSlot(string sessionId, string slot)
+        {
+            string endpoint = "";
+            List<string> beneficiaries = new List<string>();
+            
+            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
+            {
+                endpoint = _configuration["CoWinAPI:ProtectedAPI:ScheduleAppointmentUrl"];
+            }
+
+            var client = new RestClient(endpoint);
+            client.Timeout = -1;
+            client.UserAgent = _configuration["CoWinAPI:SpoofedUserAgentToBypassWAF"];
+
+            if (Convert.ToBoolean(_configuration["Proxy:IsToBeUsed"]))
+            {
+                client.Proxy = new WebProxy
+                {
+                    Address = new Uri(_configuration["Proxy:Address"]),
+                    UseDefaultCredentials = true
+                };
+            }
+
+            IRestRequest request = new RestRequest(Method.POST);
+            request.AddHeader("accept", "application/json");
+            request.AddHeader("Accept-Language", "en_US");
+            request.AddHeader("Content-Type", "application/json");
+
+            beneficiaries.Add(_configuration["CoWinAPI:ProtectedAPI:BeneficiaryId"]);
+
+            request.AddParameter("application/json", Serialize.ToJson(new BookingModel
+            {
+                Dose = Convert.ToInt32(_configuration["CoWinAPI:DoseType"]),
+                SessionId = sessionId,
+                Slot = slot,
+                Beneficiaries = beneficiaries
+            }), ParameterType.RequestBody);
+
+            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
+            {
+                request.AddHeader("Origin", _configuration["CoWinAPI:SelfRegistrationPortal"]);
+                request.AddHeader("Referer", _configuration["CoWinAPI:SelfRegistrationPortal"]);
+                request.AddHeader("Authorization", $"Bearer {_configuration["CoWinAPI:ProtectedAPI:BearerToken"]}");
+            }
+
+            IRestResponse response = client.Execute(request);
+
+            if(response.StatusCode == HttpStatusCode.OK)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            Console.WriteLine($"[INFO] BOOKING - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
+            Console.ResetColor();
         }
     }
 }
