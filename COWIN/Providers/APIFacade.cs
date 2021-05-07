@@ -1,8 +1,6 @@
 ﻿using RestSharp;
 using System;
-using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
-using System.Text;
 using System.Net;
 
 namespace CoWin.Providers
