@@ -95,21 +95,22 @@ namespace CoWiN.Models
                         session.Vaccine == _configuration["CoWinAPI:VaccineType"] &&
                         cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"] )
                     {
-                        foreach(var slot in session.Slots)
-                        {
-                            Console.ResetColor();
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
-                            Console.ResetColor();
-                            var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot);
+                        // Commented this as currently due to Captcha Requirement in Booking APIs, we are unable to create the Booking Automatically
+                        //foreach(var slot in session.Slots)
+                        //{
+                        //    Console.ResetColor();
+                        //    Console.ForegroundColor = ConsoleColor.Yellow;
+                        //    Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
+                        //    Console.ResetColor();
+                        //    var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot);
 
-                            if (isBookingSuccessful == true)
-                            {
-                                DisplaySlotInfo(cvc, session);
-                                break;
-                            }
+                        //    if (isBookingSuccessful == true)
+                        //    {
+                        //        DisplaySlotInfo(cvc, session);
+                        //        break;
+                        //    }
                              
-                        }
+                        //}
                         DisplaySlotInfo(cvc, session);
                     }
                 }
