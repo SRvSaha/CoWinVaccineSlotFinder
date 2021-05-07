@@ -4,6 +4,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using CoWin.Providers;
 
 namespace CoWiN.Models
 {
@@ -16,9 +17,9 @@ namespace CoWiN.Models
             _configuration = configuration;
         }
 
-        public void GetSlotsByDistrictId(string districtId, string currentDate, string vaccineType)
+        public void GetSlotsByDistrictId(string districtId, string searchDate, string vaccineType)
         {
-            IRestResponse response = FetchAllSlotsForDistict(districtId, currentDate, vaccineType);
+            IRestResponse response = FetchAllSlotsForDistict(districtId, searchDate, vaccineType);
             if(response.StatusCode == HttpStatusCode.OK)
             {
                 var covidVaccinationCenters = Deserialize.FromJson(response.Content);
@@ -32,42 +33,53 @@ namespace CoWiN.Models
             }
         }
 
-        private IRestResponse FetchAllSlotsForDistict(string districtId, string currentDate, string vaccineType)
+        public void GetSlotsByPINCode(string pinCode, string searchDate, string vaccineType)
+        {
+            IRestResponse response = FetchAllSlotsForPINCode(pinCode, searchDate, vaccineType);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var covidVaccinationCenters = Deserialize.FromJson(response.Content);
+                GetAvailableSlots(covidVaccinationCenters);
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\n[ERROR] ResponseStatus: {response.StatusDescription}, ResponseContent: {response.Content}\n");
+                Console.ResetColor();
+            }
+        }
+
+        private IRestResponse FetchAllSlotsForDistict(string districtId, string searchDate, string vaccineType)
         {
             string endpoint;
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
             {
-                endpoint = _configuration["CoWinAPI:ProtectedAPI:FetchUrl"] + $"?district_id={districtId}&date={currentDate}&vaccine={vaccineType}";
+                endpoint = _configuration["CoWinAPI:ProtectedAPI:FetchCalenderByDistrictUrl"] + $"?district_id={districtId}&date={searchDate}&vaccine={vaccineType}";
             }
             else
             {
-                endpoint = _configuration["CoWinAPI:PublicAPIBaseUrl"] + $"?district_id={districtId}&date={currentDate}";
+                endpoint = _configuration["CoWinAPI:PublicAPI:FetchCalenderByDistrictUrl"] + $"?district_id={districtId}&date={searchDate}";
             }
-            
-            var client = new RestClient(endpoint);
-            client.Timeout = -1;
-            client.UserAgent = _configuration["CoWinAPI:SpoofedUserAgentToBypassWAF"];
-            
-            if (Convert.ToBoolean(_configuration["Proxy:IsToBeUsed"]))
-            {
-                client.Proxy = new WebProxy { 
-                                                Address = new Uri(_configuration["Proxy:Address"]),
-                                                UseDefaultCredentials = true 
-                                            };
-            }
-            
-            IRestRequest request = new RestRequest(Method.GET);
-            request.AddHeader("accept", "application/json");
-            request.AddHeader("Accept-Language", "en_US");
 
+            IRestResponse response = new APIFacade(_configuration).Get(endpoint);
+
+            return response;
+        }
+
+        private IRestResponse FetchAllSlotsForPINCode(string pinCode, string searchDate, string vaccineType)
+        {
+            string endpoint;
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
             {
-                request.AddHeader("Origin", _configuration["CoWinAPI:SelfRegistrationPortal"]);
-                request.AddHeader("Referer", _configuration["CoWinAPI:SelfRegistrationPortal"]);
-                request.AddHeader("Authorization", $"Bearer {_configuration["CoWinAPI:ProtectedAPI:BearerToken"]}");
+                endpoint = _configuration["CoWinAPI:ProtectedAPI:FetchCalenderByPINUrl"] + $"?pincode={pinCode}&date={searchDate}&vaccine={vaccineType}";
+            }
+            else
+            {
+                endpoint = _configuration["CoWinAPI:PublicAPI:FetchCalenderByPINUrl"] + $"?pincode={pinCode}&date={searchDate}";
             }
 
-            IRestResponse response = client.Execute(request);
+            IRestResponse response = new APIFacade(_configuration).Get(endpoint);
+
             return response;
         }
 
@@ -87,7 +99,7 @@ namespace CoWiN.Models
                         {
                             Console.ResetColor();
                             Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - Date: {session.Date} - Slot: {slot}");
+                            Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
                             Console.ResetColor();
                             var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot);
 
@@ -140,42 +152,17 @@ namespace CoWiN.Models
                 endpoint = _configuration["CoWinAPI:ProtectedAPI:ScheduleAppointmentUrl"];
             }
 
-            var client = new RestClient(endpoint);
-            client.Timeout = -1;
-            client.UserAgent = _configuration["CoWinAPI:SpoofedUserAgentToBypassWAF"];
-
-            if (Convert.ToBoolean(_configuration["Proxy:IsToBeUsed"]))
-            {
-                client.Proxy = new WebProxy
-                {
-                    Address = new Uri(_configuration["Proxy:Address"]),
-                    UseDefaultCredentials = true
-                };
-            }
-
-            IRestRequest request = new RestRequest(Method.POST);
-            request.AddHeader("accept", "application/json");
-            request.AddHeader("Accept-Language", "en_US");
-            request.AddHeader("Content-Type", "application/json");
-
             beneficiaries.Add(_configuration["CoWinAPI:ProtectedAPI:BeneficiaryId"]);
 
-            request.AddParameter("application/json", Serialize.ToJson(new BookingModel
+            string requestBody = Serialize.ToJson(new BookingModel
             {
                 Dose = Convert.ToInt32(_configuration["CoWinAPI:DoseType"]),
                 SessionId = sessionId,
                 Slot = slot,
                 Beneficiaries = beneficiaries
-            }), ParameterType.RequestBody);
+            });
 
-            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
-            {
-                request.AddHeader("Origin", _configuration["CoWinAPI:SelfRegistrationPortal"]);
-                request.AddHeader("Referer", _configuration["CoWinAPI:SelfRegistrationPortal"]);
-                request.AddHeader("Authorization", $"Bearer {_configuration["CoWinAPI:ProtectedAPI:BearerToken"]}");
-            }
-
-            IRestResponse response = client.Execute(request);
+            IRestResponse response = new APIFacade(_configuration).Post(endpoint, requestBody);
 
             if(response.StatusCode == HttpStatusCode.OK)
             {

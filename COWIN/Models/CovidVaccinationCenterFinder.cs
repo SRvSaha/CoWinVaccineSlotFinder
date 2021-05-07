@@ -13,7 +13,8 @@ namespace CoWin.Models
     {
         private IConfiguration _configuration;
         private List<string> districtsToSearch = new List<string>();
-        private string currentDate;
+        private List<string> pinCodesToSearch = new List<string>();
+        private string searchDate;
         private string vaccineType;
         public CovidVaccinationCenterFinder()
         {
@@ -35,9 +36,20 @@ namespace CoWin.Models
             {
                 Console.ResetColor();
                 Console.WriteLine($"Fetching Resources, Try #{i}");
-                foreach (var district in districtsToSearch)
+
+                if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
                 {
-                    new CovidVaccinationCenter(_configuration).GetSlotsByDistrictId(district, currentDate, vaccineType);
+                    foreach (var district in districtsToSearch)
+                    {
+                        new CovidVaccinationCenter(_configuration).GetSlotsByDistrictId(district, searchDate, vaccineType);
+                    }
+                }
+                else if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
+                {
+                    foreach (var pinCode in pinCodesToSearch)
+                    {
+                        new CovidVaccinationCenter(_configuration).GetSlotsByPINCode(pinCode, searchDate, vaccineType);
+                    }
                 }
 
                 Thread.Sleep(Convert.ToInt32(_configuration["CoWinAPI:SleepIntervalInMilliseconds"]));
@@ -46,11 +58,28 @@ namespace CoWin.Models
 
         private void ConfigureSearchCriteria()
         {
-            foreach(var item in _configuration.GetSection("Districts").GetChildren())
+            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
             {
-                districtsToSearch.Add(item.Value);
+                foreach (var item in _configuration.GetSection("Districts").GetChildren())
+                {
+                    districtsToSearch.Add(item.Value);
+                }
             }
-            currentDate = DateTime.Now.AddDays(1).ToString("dd-MM-yyyy");
+            else if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
+            {
+                foreach (var item in _configuration.GetSection("PINCodes").GetChildren())
+                {
+                    pinCodesToSearch.Add(item.Value);
+                }
+            }
+            if (!string.IsNullOrEmpty(_configuration["CoWinAPI:DateToSearch"]))
+            {
+                searchDate = DateTime.Parse(_configuration["CoWinAPI:DateToSearch"]).ToString("dd-MM-yyyy");
+            }
+            else
+            {
+                searchDate = DateTime.Now.ToString("dd-MM-yyyy");
+            }
             vaccineType = _configuration["CoWinAPI:VaccineType"];
         }
 
