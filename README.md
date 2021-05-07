@@ -56,6 +56,6 @@ Enjoy!
 If you'd like to do it the hard way, clone it, build it and run it.
 
 
-> **NB:_**: appsettings.json play the major role for accessing and booking and filtration of searches. Fiddle with it! Appologies that the Code doesn't have inline documentation, but code is readable and self explanatory. In case of any issue, feel free to raise an Issue.
+> **_NB:_**: appsettings.json play the major role for accessing and booking and filtration of searches. Fiddle with it! Appologies that the Code doesn't have inline documentation, but code is readable and self explanatory. In case of any issue, feel free to raise an Issue.
 
 Cheers!
