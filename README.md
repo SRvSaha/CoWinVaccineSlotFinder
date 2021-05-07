@@ -48,6 +48,16 @@ I'll be more than happy to have PRs with modifications.
 
 Go to the Releases Section of the Application, download the ZIP file, exact it, Modify the settings inside appsettings.json, Run the Executable (EXE in case of Windows).
 
+### How to Get User Specific Information for appsetting.json
+
+1. Go to cowin.gov.in
+2. Generate OTP and keep the Network Tab Open with Filter on XHR Requests [F12 Window, Network Tab]
+3. Validate the OTP you received on your registered mobile number
+4. Check the Response JSON from /validateMobileOtp Endpoint and get the value inside "token", that's your Auth Token which is valid for 15 minutes. 
+5. To Get the Beneficiary ID: Check the response from /beneficiaries endpoint, you'll get the beneficiary ID. Another way to get the Beneficiary ID is to decode the AuthToken from jwt.io and get it from there.
+6. Put these values in the appsettings.json file
+7. Once all these are done! Run the Application EXE, and make sure to restart the application with new Auth Token.
+
 As simple as that!
 
 
@@ -56,6 +66,6 @@ Enjoy!
 If you'd like to do it the hard way, clone it, build it and run it.
 
 
-> **NB:_** appsettings.json play the major role for accessing and booking and filtration of searches. Fiddle with it! Appologies that the Code doesn't have inline documentation, but code is readable and self explanatory. In case of any suggestions or bugs or feature request, feel free to raise an Issue.
+> **NB:** appsettings.json play the major role for accessing and booking and filtration of searches. Fiddle with it! Appologies that the Code doesn't have inline documentation, but code is readable and self explanatory. In case of any suggestions or bugs or feature request, feel free to raise an Issue.
 
 Cheers!
