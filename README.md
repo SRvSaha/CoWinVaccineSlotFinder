@@ -79,6 +79,40 @@ KEY: VALUE
   }
 ```
 
+Be default, this is how the appsettings.json would look like this:
+``` javascript
+{
+  "CoWinAPI": {
+    "PublicAPIBaseUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict",
+    "MinAgeLimit": 18,
+    "MaxAgeLimit": 46,
+    "MinimumVaccineAvailability": 1,
+    "VaccineType": "COVISHIELD",
+    "DoseType":  1,
+    "VaccineFeeType": "Free",
+    "SleepIntervalInMilliseconds": 2000,
+    "TotalIterations": 10000,
+    "SpoofedUserAgentToBypassWAF": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+    "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
+    "ProtectedAPI": {
+      "IsToBeUsed": "true",
+      "FetchUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict",
+      "ScheduleAppointmentUrl": "https://cdn-api.co-vin.in/api/v2/appointment/schedule",
+      "BeneficiaryId": "<REPLACE_ME>",
+      "BearerToken": "<REPLACE_ME>"
+    }
+  },
+  "Districts": {
+    "Raigad": 393,
+    "Mumbai": 395,
+    "Thane": 392
+  },
+  "Proxy": {
+    "IsToBeUsed": "false",
+    "Address": ""
+  }
+}
+```
 As simple as that!
 
 
