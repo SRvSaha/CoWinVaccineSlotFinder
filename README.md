@@ -64,6 +64,9 @@ KEY: VALUE
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD in the <REPLACE_ME> section, by default COVISHIELD is selected
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Done
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid type of Vaccine in the <REPLACE_ME> section, by default Free is selected
+"IsSearchToBeDoneByDistrict": < REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected
+"IsSearchToBeDoneByPINCode": <REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. 
+"DateToSearch": <REPLACE_ME>",  // Use date in DD-MM-YYYY Format in the <REPLACE_ME> section, Blank implies current date, by default "" is selected to search for Current Date
 "IsToBeUsed": "<REPLACE_ME>", // Use true or false
 "BeneficiaryId": "<REPLACE_ME>", // You'll get the beneficiary ID from Step 5, Use it in the <REPLACE_ME> section
 "BearerToken": "<REPLACE_ME>" // You'll get the token from Step 4, Use it in the <REPLACE_ME> section
@@ -83,29 +86,45 @@ Be default, this is how the appsettings.json would look like this:
 ``` javascript
 {
   "CoWinAPI": {
-    "PublicAPIBaseUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict",
+    "PublicAPI": {
+      "FetchCalenderByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict",
+      "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin"
+    },
     "MinAgeLimit": 18,
     "MaxAgeLimit": 46,
-    "MinimumVaccineAvailability": 1,
+    "MinimumVaccineAvailability": 0,
     "VaccineType": "COVISHIELD",
-    "DoseType":  1,
+    "DoseType": "1",
     "VaccineFeeType": "Free",
     "SleepIntervalInMilliseconds": 2000,
     "TotalIterations": 10000,
     "SpoofedUserAgentToBypassWAF": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
     "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
+    "IsSearchToBeDoneByDistrict": false,
+    "IsSearchToBeDoneByPINCode": true,
+    "DateToSearch": "",  // DD-MM-YYYY Format, Blank implies current date
     "ProtectedAPI": {
       "IsToBeUsed": "true",
-      "FetchUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict",
+      "FetchCalenderByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict",
+      "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin",
       "ScheduleAppointmentUrl": "https://cdn-api.co-vin.in/api/v2/appointment/schedule",
       "BeneficiaryId": "<REPLACE_ME>",
       "BearerToken": "<REPLACE_ME>"
     }
   },
   "Districts": {
+    // "DistrictName": DistrictCode
     "Raigad": 393,
     "Mumbai": 395,
     "Thane": 392
+  },
+  "PINCodes": {
+    // "PlaceName": PinCode
+        "Nerul": 400706
+    //, "Andheri": 400058
+    //, "BKC": 400051
+    //, "Ghatkopar": 400077
+    //, "MumbaiCentral": 400008
   },
   "Proxy": {
     "IsToBeUsed": "false",
