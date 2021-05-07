@@ -48,7 +48,7 @@ I'll be more than happy to have PRs with modifications.
 
 Go to the Releases Section of the Application, download the ZIP file, exact it, Modify the settings inside appsettings.json, Run the Executable (EXE in case of Windows).
 
-### How to Get User Specific Information for appsetting.json
+### How to Get User Specific Information for appsettings.json
 
 1. Go to cowin.gov.in
 2. Generate OTP and keep the Network Tab Open with Filter on XHR Requests [F12 Window, Network Tab]
@@ -57,6 +57,27 @@ Go to the Releases Section of the Application, download the ZIP file, exact it, 
 5. To Get the Beneficiary ID: Check the response from /beneficiaries endpoint, you'll get the beneficiary ID. Another way to get the Beneficiary ID is to decode the AuthToken from jwt.io and get it from there.
 6. Put these values in the appsettings.json file
 7. Once all these are done! Run the Application EXE, and make sure to restart the application with new Auth Token.
+
+**_The values of the following items are to be modified in appsettings.json_**
+```
+KEY: VALUE
+"VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD in the <REPLACE_ME> section, by default COVISHIELD is selected
+"DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Done
+"VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid type of Vaccine in the <REPLACE_ME> section, by default Free is selected
+"IsToBeUsed": "<REPLACE_ME>", // Use true or false
+"BeneficiaryId": "<REPLACE_ME>", // You'll get the beneficiary ID from Step 5, Use it in the <REPLACE_ME> section
+"BearerToken": "<REPLACE_ME>" // You'll get the token from Step 4, Use it in the <REPLACE_ME> section
+"Districts": 
+ {
+	// "DistrictName": DistrictCode
+    "<REPLACE_ME_KEY>" : "<REPLACE_ME_VALUE>" 
+ } // You'll get the District Name and District Codes from the following APIs, as of now things are done for Mumbai and nearby districts. Example, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 395. Keep adding more, if you need for more districts.
+ "Proxy": 
+ {
+    "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, False if you not, in the <REPLACE_ME> section, by default false would be selected
+    "Address": "<REPLACE_ME>" // Use the THE PROXY ADDRESS IF YOU ARE BEHIND PROXY SERVER (usually in Office/Corporate Network) in the <REPLACE_ME> Section, by default this will be blank
+  }
+```
 
 As simple as that!
 
