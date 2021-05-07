@@ -8,10 +8,12 @@ FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.i
 
 It's a simple Cross-Platform Console Application being developed using .NET Core 3.1 and C#.
 
-Currently, only the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) is integrated to get all the available slots in a particular district and to book the slot on First-Come-First-Serve Basis, the
+Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
  
-We have got endpoints of both the Public and Protected APIs from APISetu, but a general observation was the Public APIs return stale data and since the slots are gone literally in seconds, so I had to use the Protected APIs.
+We have got endpoints of both the Public and Protected APIs from APISetu, but a general observation was the Public APIs return stale data as caching is done for around 30 minutes and there is API trolling of 100 requests/5 minutes from 1 IP Address.
+
+Since the slots are gone literally in seconds, so I had to use the Protected APIs for the application.
 
 Well, what's probably going on in your mind is, how do I get the Authentication Information to call the Protected APIs?
 
