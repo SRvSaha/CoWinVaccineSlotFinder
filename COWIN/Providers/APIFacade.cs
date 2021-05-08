@@ -38,7 +38,7 @@ namespace CoWin.Providers
             }
         }
 
-        public IRestResponse Post(string endpoint, string body)
+        public IRestResponse Post(string endpoint, string body = null)
         {
             RestClient client = InitHttpClient(endpoint);
 
@@ -57,7 +57,11 @@ namespace CoWin.Providers
         {
             request.AddHeader("Content-Type", "application/json");
 
-            request.AddParameter("application/json", body, ParameterType.RequestBody);
+            if(body != null)
+            {
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+            }
+            
         }
 
         private RestClient InitHttpClient(string endpoint)

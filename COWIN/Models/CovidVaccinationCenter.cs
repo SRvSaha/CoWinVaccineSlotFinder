@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using CoWin.Providers;
+using CoWin.Auth;
+using Newtonsoft.Json;
 
 namespace CoWiN.Models
 {
@@ -22,13 +24,13 @@ namespace CoWiN.Models
             IRestResponse response = FetchAllSlotsForDistict(districtId, searchDate, vaccineType);
             if(response.StatusCode == HttpStatusCode.OK)
             {
-                var covidVaccinationCenters = Deserialize.FromJson(response.Content);
+                var covidVaccinationCenters = JsonConvert.DeserializeObject<CovidVaccinationCenters>(response.Content);
                 GetAvailableSlots(covidVaccinationCenters);
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\n[ERROR] ResponseStatus: {response.StatusDescription}, ResponseContent: {response.Content}\n");
+                Console.WriteLine($"\n[ERROR] FETCH SLOTS ERROR ResponseStatus: {response.StatusDescription}, ResponseContent: {response.Content}\n");
                 Console.ResetColor();
             }
         }
@@ -38,13 +40,13 @@ namespace CoWiN.Models
             IRestResponse response = FetchAllSlotsForPINCode(pinCode, searchDate, vaccineType);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var covidVaccinationCenters = Deserialize.FromJson(response.Content);
+                var covidVaccinationCenters = JsonConvert.DeserializeObject<CovidVaccinationCenters>(response.Content);
                 GetAvailableSlots(covidVaccinationCenters);
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\n[ERROR] ResponseStatus: {response.StatusDescription}, ResponseContent: {response.Content}\n");
+                Console.WriteLine($"\n[ERROR] FETCH SLOTS ERROR ResponseStatus: {response.StatusDescription}, ResponseContent: {response.Content}\n");
                 Console.ResetColor();
             }
         }
@@ -95,22 +97,22 @@ namespace CoWiN.Models
                         session.Vaccine == _configuration["CoWinAPI:VaccineType"] &&
                         cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"] )
                     {
-                        // Commented this as currently due to Captcha Requirement in Booking APIs, we are unable to create the Booking Automatically
-                        //foreach(var slot in session.Slots)
-                        //{
-                        //    Console.ResetColor();
-                        //    Console.ForegroundColor = ConsoleColor.Yellow;
-                        //    Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
-                        //    Console.ResetColor();
-                        //    var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot);
+                        //Commented this as currently due to Captcha Requirement in Booking APIs, we are unable to create the Booking Automatically
+                        foreach (var slot in session.Slots)
+                        {
+                            Console.ResetColor();
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
+                            Console.ResetColor();
+                            var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot);
 
-                        //    if (isBookingSuccessful == true)
-                        //    {
-                        //        DisplaySlotInfo(cvc, session);
-                        //        break;
-                        //    }
-                             
-                        //}
+                            if (isBookingSuccessful == true)
+                            {
+                                DisplaySlotInfo(cvc, session);
+                                break;
+                            }
+
+                        }
                         DisplaySlotInfo(cvc, session);
                     }
                 }
@@ -145,6 +147,7 @@ namespace CoWiN.Models
         private bool BookAvailableSlot(string sessionId, string slot)
         {
             string endpoint = "";
+            string captcha = ""; // TODO Get the Captcha
             bool isBookingSuccessful = false;
             List<string> beneficiaries = new List<string>();
             
@@ -155,12 +158,15 @@ namespace CoWiN.Models
 
             beneficiaries.Add(_configuration["CoWinAPI:ProtectedAPI:BeneficiaryId"]);
 
-            string requestBody = Serialize.ToJson(new BookingModel
+            captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
+
+            string requestBody = JsonConvert.SerializeObject(new BookingModel
             {
                 Dose = Convert.ToInt32(_configuration["CoWinAPI:DoseType"]),
                 SessionId = sessionId,
                 Slot = slot,
-                Beneficiaries = beneficiaries
+                Beneficiaries = beneficiaries,
+                Captcha = captcha
             });
 
             IRestResponse response = new APIFacade(_configuration).Post(endpoint, requestBody);
@@ -175,10 +181,11 @@ namespace CoWiN.Models
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] Sorry, Booking Failed - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
+                Console.WriteLine($"[ERROR] BOOKING ERROR Sorry, Booking Failed - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
                 isBookingSuccessful = false;
             }
             return isBookingSuccessful;
         }
+
     }
 }

@@ -73,10 +73,4 @@ namespace CoWin.Models
         [JsonProperty("slots")]
         public List<string> Slots { get; set; }
     }
-
-    public partial class Deserialize
-    {
-        public static CovidVaccinationCenters FromJson(string json) => JsonConvert.DeserializeObject<CovidVaccinationCenters>(json);
-    }
-
 }

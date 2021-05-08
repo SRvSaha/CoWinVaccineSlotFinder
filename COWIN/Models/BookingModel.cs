@@ -17,11 +17,9 @@ namespace CoWin.Models
 
         [JsonProperty("beneficiaries")]
         public List<string> Beneficiaries { get; set; }
-    }
 
-    public static class Serialize
-    {
-        public static string ToJson(this BookingModel self) => JsonConvert.SerializeObject(self);
+        [JsonProperty("captcha")]
+        public string Captcha { get; set; }
     }
 
 }
