@@ -3,8 +3,9 @@ Console App to Fetch the Available Slots & Booking the Appointment Schedule for 
 
 FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
-### Update
-This party is now officially over. They implemented captcha for appointment booking related APIs.
+### DISCLAIMER :: Update 
+This party is now officially over. They implemented captcha for appointment booking related APIs. So automatically booking is not working anymore, however real-time slots availability finder still works. So, you can currently see the live slot status and go to either Aarogya Setu App or COWIN to book the slot for yourself.
+
 ![image](https://user-images.githubusercontent.com/63504047/117424006-f5b44f80-af3e-11eb-89fc-96a9ad47a461.png)
 
 ## Technical Details
