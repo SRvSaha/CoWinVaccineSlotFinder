@@ -4,8 +4,10 @@ Console App to Fetch the Available Slots & Booking the Appointment Schedule for 
 FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
 Glimpse of the Application:
-![Application Start](data/ApplicationStart.png)
-![Application Sample](data/Application.jpg)
+- Application Start
+* ![Application Start](data/ApplicationStart.png)
+- Application Slot Booking
+* ![Application Sample](data/Application.jpg)
 
 ### DISCLAIMER
 
