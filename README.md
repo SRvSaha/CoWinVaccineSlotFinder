@@ -8,6 +8,8 @@ Glimpse of the Application:
 * ![Application Start](data/ApplicationStart.png)
 - Application Slot Booking
 * ![Application Sample](data/Application.jpg)
+- Successful Booking Scenario
+* ![Application Sample](data/SuccessfulBooking.png)
 - Application Session Regeneration
 * ![Application Sample](data/SessionRegenaration.png)
 
