@@ -20,8 +20,8 @@ Glimpse of the Application:
 It's a simple Cross-Platform Console Application being developed using .NET Core 3.1, WinForms and C#.
 
 Therefore, to run the application, the following things are needed:
-1. Windows 7 SP2 or higher
-2.[.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime)
+- Windows 7 SP2 or higher
+- [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime)
 
 
 Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district and to book the slot on First-Come-First-Serve Basis, the
