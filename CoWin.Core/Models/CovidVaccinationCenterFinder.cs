@@ -43,6 +43,7 @@ namespace CoWin.Models
                 {
                     break;
                 }
+
                 Console.ResetColor();
                 Console.WriteLine($"Fetching Resources, Try #{i}");
 
@@ -51,6 +52,12 @@ namespace CoWin.Models
                     foreach (var district in districtsToSearch)
                     {
                         new CovidVaccinationCenter(_configuration).GetSlotsByDistrictId(district, searchDate, vaccineType);
+                        
+                        if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
+                        {
+                            return;
+                        }
+
                     }
                 }
                 else if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
@@ -58,6 +65,12 @@ namespace CoWin.Models
                     foreach (var pinCode in pinCodesToSearch)
                     {
                         new CovidVaccinationCenter(_configuration).GetSlotsByPINCode(pinCode, searchDate, vaccineType);
+                        
+                        if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
+                        {
+                            return;
+                        }
+
                     }
                 }
 

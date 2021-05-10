@@ -125,7 +125,7 @@ namespace CoWiN.Models
 
                             if (IS_BOOKING_SUCCESSFUL == true)
                             {
-                                break;
+                                return;
                             }
 
                         }
@@ -139,7 +139,7 @@ namespace CoWiN.Models
         {
             Console.ResetColor();
             Console.WriteLine("\n***************************************************************************************************************");
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Name: " + cvc.Name);
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Address: " + cvc.Address);
@@ -149,10 +149,11 @@ namespace CoWiN.Models
             Console.WriteLine("District: " + cvc.DistrictName);
             Console.WriteLine("FeeType: " + cvc.FeeType);
             Console.WriteLine("VaccineType: " + session.Vaccine);
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("AvailableCapacity: " + session.AvailableCapacity);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("DateOfAvailability: " + session.Date);
+            Console.ResetColor();
             Console.WriteLine("Slots Available: " + string.Join(", ", session.Slots));
             Console.WriteLine("***************************************************************************************************************\n");
         }
@@ -200,7 +201,8 @@ namespace CoWiN.Models
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"[ERROR] BOOKING ERROR Sorry, Booking Failed - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
-                isBookingSuccessful = false;
+                //isBookingSuccessful = false;
+                isBookingSuccessful = true;
             }
             return isBookingSuccessful;
         }
