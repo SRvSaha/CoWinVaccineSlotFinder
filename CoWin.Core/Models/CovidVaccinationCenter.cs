@@ -13,6 +13,7 @@ namespace CoWiN.Models
     public class CovidVaccinationCenter
     {
         private readonly IConfiguration _configuration;
+        public static bool IS_BOOKING_SUCCESSFUL = false;
         public CovidVaccinationCenter(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -120,9 +121,9 @@ namespace CoWiN.Models
 
                             captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
 
-                            var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot, captcha);
+                            IS_BOOKING_SUCCESSFUL = BookAvailableSlot(session.SessionId, slot, captcha);
 
-                            if (isBookingSuccessful == true)
+                            if (IS_BOOKING_SUCCESSFUL == true)
                             {
                                 break;
                             }
