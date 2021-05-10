@@ -88,7 +88,6 @@
 
         private System.Windows.Forms.PictureBox captchaDisplayer;
         private System.Windows.Forms.TextBox captchaInputFromUser;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button captchaSubmit;
     }
 }
