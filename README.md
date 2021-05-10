@@ -10,7 +10,7 @@ Glimpse of the Application:
 ### DISCLAIMER
 
 ### Important: 
-- This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Use at your own risk.**
+- This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; Use at your own risk.**
 - This CANNOT book slots automatically. It doesn't skip any of the steps that a normal user would have to take on the official portal. You will still have to enter the OTP/Token and Captcha. This just helps to do it from Console rather than through Office WebApps/Apps.
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
 - AUTO BOOKING is ON by default, so it books the slot after a valid captcha is entered by user for the Slot which is display. In case, user doesn't want to book the slot, user just has to close the Captcha Popup, it will try to book the next available slots in First-Come-First-Serve Basis.
@@ -22,7 +22,7 @@ It's a simple Cross-Platform Console Application being developed using .NET Core
 Therefore, to run the application, the following things are needed:
 - Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported
 - [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime)
-- _FOR DEVELOPERS_ [.NET Core 3. SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
+- _FOR DEVELOPERS_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
 
 *Currently, application is bundled as Single Executable with Runtime Included. However, it will only work on Windows Machines now*
 
