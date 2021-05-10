@@ -37,7 +37,7 @@ Well, what's probably going on in your mind is, how do I get the Authentication 
 
 We're generating the OTP and then Validating it using the same method as CoWIN App.
 
-On validation of OTP, we get get the AuthToken which is further used for the Authentication Purpose.
+On validation of OTP, we get the AuthToken which is further used for the Authentication Purpose.
 
 Rest of the stuff are self-explanatory.
 
