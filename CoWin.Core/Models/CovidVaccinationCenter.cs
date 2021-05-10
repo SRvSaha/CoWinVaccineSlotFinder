@@ -13,7 +13,6 @@ namespace CoWiN.Models
     public class CovidVaccinationCenter
     {
         private readonly IConfiguration _configuration;
-        private string _bearerToken;
         public CovidVaccinationCenter(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -119,7 +118,7 @@ namespace CoWiN.Models
                             Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
                             Console.ResetColor();
 
-                            captcha = new Captcha(_configuration, _bearerToken).GetCurrentCaptchaDetails();
+                            captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
 
                             var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot, captcha);
 

@@ -1,5 +1,4 @@
-﻿using CoWin.Auth;
-using CoWin.Models;
+﻿using CoWin.Models;
 using System;
 
 namespace CoWin
