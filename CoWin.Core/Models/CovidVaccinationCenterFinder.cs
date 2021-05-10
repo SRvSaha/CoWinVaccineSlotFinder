@@ -41,7 +41,7 @@ namespace CoWin.Models
             {
                 if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
                 {
-                    break;
+                    return;
                 }
 
                 Console.ResetColor();
