@@ -98,7 +98,7 @@ namespace CoWiN.Models
                         session.Vaccine == _configuration["CoWinAPI:VaccineType"] &&
                         cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"] )
                     {
-                        captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
+                        DisplaySlotInfo(cvc, session);
 
                         foreach (var slot in session.Slots)
                         {
@@ -106,16 +106,18 @@ namespace CoWiN.Models
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
                             Console.ResetColor();
+
+                            captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
+
                             var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot, captcha);
 
                             if (isBookingSuccessful == true)
                             {
-                                DisplaySlotInfo(cvc, session);
                                 break;
                             }
 
                         }
-                        DisplaySlotInfo(cvc, session);
+                        
                     }
                 }
             }

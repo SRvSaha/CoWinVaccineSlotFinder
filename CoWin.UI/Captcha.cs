@@ -16,7 +16,7 @@ namespace CoWin.UI
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void captchaSubmit_Click(object sender, EventArgs e)
         {
             captchaValue = captchaInputFromUser.Text;
             if (!string.IsNullOrEmpty(captchaValue))
@@ -29,7 +29,7 @@ namespace CoWin.UI
 
         public string GetCaptchaValue(Image image)
         {
-            pictureBox1.Image = image;
+            captchaDisplayer.Image = image;
             ShowDialog();
             return captchaValue;
         }

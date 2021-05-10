@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.captchaDisplayer = new System.Windows.Forms.PictureBox();
             this.captchaInputFromUser = new System.Windows.Forms.TextBox();
             this.captchaSubmit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.captchaDisplayer)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // captchaDisplayer
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBox1.Location = new System.Drawing.Point(30, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(208, 68);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.captchaDisplayer.BackColor = System.Drawing.SystemColors.Window;
+            this.captchaDisplayer.Location = new System.Drawing.Point(30, 17);
+            this.captchaDisplayer.Margin = new System.Windows.Forms.Padding(4);
+            this.captchaDisplayer.Name = "captchaDisplayer";
+            this.captchaDisplayer.Size = new System.Drawing.Size(208, 68);
+            this.captchaDisplayer.TabIndex = 0;
+            this.captchaDisplayer.TabStop = false;
             // 
             // captchaInputFromUser
             // 
@@ -63,7 +63,7 @@
             this.captchaSubmit.TabIndex = 2;
             this.captchaSubmit.Text = "Submit";
             this.captchaSubmit.UseVisualStyleBackColor = true;
-            this.captchaSubmit.Click += new System.EventHandler(this.button1_Click);
+            this.captchaSubmit.Click += new System.EventHandler(this.captchaSubmit_Click);
             // 
             // Captcha
             // 
@@ -73,12 +73,12 @@
             this.ClientSize = new System.Drawing.Size(260, 234);
             this.Controls.Add(this.captchaSubmit);
             this.Controls.Add(this.captchaInputFromUser);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.captchaDisplayer);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Captcha";
             this.Text = "Captcha";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.captchaDisplayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,7 +86,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox captchaDisplayer;
         private System.Windows.Forms.TextBox captchaInputFromUser;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button captchaSubmit;
