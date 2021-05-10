@@ -20,9 +20,11 @@ Glimpse of the Application:
 It's a simple Cross-Platform Console Application being developed using .NET Core 3.1, WinForms and C#.
 
 Therefore, to run the application, the following things are needed:
-- Windows 7 SP2 or higher
+- Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported
 - [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime)
+- _FOR DEVELOPERS_ [.NET Core 3. SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
 
+*Currently, application is bundled as Single Executable with Runtime Included. However, it will only work on Windows Machines now*
 
 Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
@@ -33,15 +35,9 @@ Since the slots are gone literally in seconds, so I had to use the Protected API
 
 Well, what's probably going on in your mind is, how do I get the Authentication Information to call the Protected APIs?
 
-The answer lies in how well you know to use the F12 Developer Tools of your brower.
+We're generating the OTP and then Validating it using the same method as CoWIN App.
 
-You'll be able to get the Bearer Token (Authentication Token) after you have signed in using your Mobile Number and OTP, in the Sessions Tab or in the Response of  OTP Verification Request you are making. 
-
-Make use of the Network Tab inside F12 Window wisely, and you are good to go!
-
-Settings are configurable and can be modified from appsettings.json
-
-You'll need to grab your beneficiaryId, Auth Token and that's it. 
+On validation of OTP, we get get the AuthToken which is further used for the Authentication Purpose.
 
 Rest of the stuff are self-explanatory.
 
@@ -53,7 +49,9 @@ If you have Visual Studio installed, go ahead an Clone the Repository, Open the 
 
 Well, not interesting right?
 
-Yeah, basically you've this Project Named COWIN which has appsettings.json which does most of the magic.
+Yeah, basically you've this Project Named CoWin.Core which has appsettings.json which does most of the magic.
+CoWin.UI is just a small project for handling the Captcha.
+
 Rest of the Business Logic are there inside the Models directory.
 
 Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documenentation, duh! 
@@ -64,7 +62,7 @@ I'll be more than happy to have PRs with modifications.
 
 ### For Folks who just want to get shit done
 
-Go to the Releases Section of the Application, download the ZIP file, exact it, Modify the settings inside appsettings.json, Run the Executable (EXE in case of Windows).
+Go to the Releases Section of the Application, download the ZIP file, exact it, Modify the settings inside appsettings.json, Run the Executable (EXE in case of Windows, application will be named as CoWin.Core ).
 
 ### How to Get User Specific Information for appsettings.json
 
@@ -103,7 +101,7 @@ KEY: VALUE
 "BearerToken": "<REPLACE_ME>" // You'll get the token from Step 4, Use it in the <REPLACE_ME> section
 "Districts": 
  {
-	// "DistrictName": DistrictCode
+    // "DistrictName": DistrictCode
     "<REPLACE_ME_KEY>" : "<REPLACE_ME_VALUE>" 
  } // You'll get the District Name and District Codes from the following APIs, as of now things are done for Mumbai and nearby districts. Example, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 395. Keep adding more, if you need for more districts.
  "Proxy": 
@@ -121,41 +119,42 @@ Be default, this is how the appsettings.json would look like this:
       "FetchCalenderByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict",
       "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin"
     },
+    "ProtectedAPI": {
+      "IsToBeUsed": true,
+      "FetchCalenderByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict",
+      "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin",
+      "ScheduleAppointmentUrl": "https://cdn-api.co-vin.in/api/v2/appointment/schedule",
+      "CaptchaGenerationUrl": "https://cdn-api.co-vin.in/api/v2/auth/getRecaptcha",
+      "BeneficiaryId": "<REPLACE_WITH_YOUR_BENEFICIARY_ID>"
+    },
+    "Auth": {
+      "IsToBeUsed": true,
+      "OTPGeneratorUrl": "https://cdn-api.co-vin.in/api/v2/auth/generateMobileOTP",
+      "OTPValidatorUrl": "https://cdn-api.co-vin.in/api/v2/auth/validateMobileOtp",
+      "Secret": "U2FsdGVkX18vDwDor+oOIG7vSUnINtlc/pxQcNiBulCm8LT5Sza+aIISKLqImbpMnRYgsN2QACPhggLWgZEpQg==",
+      "Mobile": "<REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO>"
+    },
     "MinAgeLimit": 18,
-    "MaxAgeLimit": 46,
-    "MinimumVaccineAvailability": 0,
+    "MaxAgeLimit": 45,
+    "MinimumVaccineAvailability": 1,
     "VaccineType": "COVISHIELD",
-    "DoseType": "1",
+    "DoseType": 1,
     "VaccineFeeType": "Free",
     "SleepIntervalInMilliseconds": 2000,
     "TotalIterations": 10000,
     "SpoofedUserAgentToBypassWAF": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
     "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
-    "IsSearchToBeDoneByDistrict": false,
-    "IsSearchToBeDoneByPINCode": true,
-    "DateToSearch": "",  // DD-MM-YYYY Format, Blank implies current date
-    "ProtectedAPI": {
-      "IsToBeUsed": "true",
-      "FetchCalenderByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict",
-      "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin",
-      "ScheduleAppointmentUrl": "https://cdn-api.co-vin.in/api/v2/appointment/schedule",
-      "BeneficiaryId": "<REPLACE_ME>",
-      "BearerToken": "<REPLACE_ME>"
-    }
+    "IsSearchToBeDoneByDistrict": true,
+    "IsSearchToBeDoneByPINCode": false,
+    "DateToSearch": "<REPLACE_WITH_DATE_TO_SEARCH_VACCINATION_SLOT>" // DD-MM-YYYY Format, Blank implies current date
   },
   "Districts": {
-    // "DistrictName": DistrictCode
-    "Raigad": 393,
     "Mumbai": 395,
     "Thane": 392
   },
   "PINCodes": {
-    // "PlaceName": PinCode
-        "Nerul": 400706
-    //, "Andheri": 400058
-    //, "BKC": 400051
-    //, "Ghatkopar": 400077
-    //, "MumbaiCentral": 400008
+    "Andheri": 400058,
+    "BKC": 400051
   },
   "Proxy": {
     "IsToBeUsed": "false",
