@@ -22,9 +22,9 @@ It's a simple Cross-Platform Console Application being developed using .NET Core
 Therefore, to run the application, the following things are needed:
 - Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported
 - [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime)
-- _FOR DEVELOPERS_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
+- *FOR DEVELOPERS* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
 
-*Currently, application is bundled as Single Executable with Runtime Included. However, it will only work on Windows Machines now*
+*_Currently, application is bundled as Single Executable with Runtime Included. However, it will only work on Windows Machines now_*
 
 Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
@@ -54,7 +54,7 @@ CoWin.UI is just a small project for handling the Captcha.
 
 Rest of the Business Logic are there inside the Models directory.
 
-Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documenentation, duh! 
+Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh! 
 
 I know, I know, it's not cool, but see it's all about quick Time to Market first and then doing one thing at a time, to improve the product. 
 
