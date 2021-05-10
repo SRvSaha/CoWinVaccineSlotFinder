@@ -3,6 +3,10 @@ Console App to Fetch the Available Slots & Booking the Appointment Schedule for 
 
 FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
+Glimpse of the Application:
+
+![Application Sample](Samples/BookingSample.jpg)
+
 ### DISCLAIMER
 
 ### Important: 
@@ -142,10 +146,6 @@ Be default, this is how the appsettings.json would look like this:
 }
 ```
 As simple as that!
-
-Once Setup is done properly, application would then try to do booking like this:
-
-![Application Sample](Samples/BookingSample.jpg)
 
 Enjoy!
 
