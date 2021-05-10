@@ -17,14 +17,14 @@ Glimpse of the Application:
 
 ![Application Sample](data/SuccessfulBooking.png)
 
-*Application Session Regeneration* 
+*Application Session Regeneration on TimeOut* 
 
 ![Application Sample](data/SessionRegenaration.png)
 
 ### DISCLAIMER
 
 ### Important: 
-- This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; Use at your own risk.**
+- This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; Use at your own risk. I SHOULD NOT BE DEEMED RESPONSIBLE FOR ANY LEGAL CONCERNS**
 - This CANNOT book slots automatically. It doesn't skip any of the steps that a normal user would have to take on the official portal. You will still have to enter the OTP and Captcha. This just helps to do it from Console rather than through Official WebApps/Apps.
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
 - AUTO BOOKING is ON by default, so it books the slot after a valid captcha is entered by user for the Slot which is displayed. In case, user doesn't want to book the slot, user just has to close the Captcha Popup, it will try to book the next available slots in First-Come-First-Serve Basis.
@@ -33,17 +33,18 @@ Glimpse of the Application:
 
 It's a simple Cross-Platform Console Application being developed using .NET Core 3.1, WinForms and C#.
 
-Therefore, to run the application, the following things are needed:
+*_Currently, application is bundled as Single Executable EXE with Runtime included. However, it will only work on Windows Machines now_*
+
+In General, to run the application, the following things are needed:
 - Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported
 - [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime)
-- *FOR DEVELOPERS* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
+- *FOR DEVELOPERS TO BUILD/MODIFY* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
 
-*_Currently, application is bundled as Single Executable with Runtime Included. However, it will only work on Windows Machines now_*
 
 Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
  
-We have got endpoints of both the Public and Protected APIs from APISetu, but a general observation was the Public APIs return stale data as caching is done for around 30 minutes and there is API trolling of 100 requests/5 minutes from 1 IP Address.
+We have got endpoints of both the Public and Protected APIs from APISetu, but a general observation was the Public APIs return stale data as caching is done for around 30 minutes and there is API throttling of 100 requests/5 minutes from 1 IP Address.
 
 Since the slots are gone literally in seconds, so I had to use the Protected APIs for the application.
 
@@ -76,7 +77,7 @@ I'll be more than happy to have PRs with modifications.
 
 ### For Folks who just want to get shit done
 
-Go to the Releases Section of the Application, download the ZIP file, exact it, Modify the settings inside appsettings.json, Run the Executable (EXE in case of Windows, application will be named as CoWin.Core ).
+Go to the Releases Section of the Application, download the ZIP file of the latest release for your Operating System, extract it, Modify the settings inside appsettings.json, Run the Executable (EXE in case of Windows, application will be named as CoWin.Core ).
 
 ### How to Get User Specific Information for appsettings.json
 
@@ -111,7 +112,6 @@ KEY: VALUE
 "IsSearchToBeDoneByPINCode": <REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. 
 "DateToSearch": <REPLACE_ME>",  // Use date in DD-MM-YYYY Format in the <REPLACE_ME> section, Blank implies current date, by default "" is selected to search for Current Date
 "IsToBeUsed": "<REPLACE_ME>", // Use true or false
-"BeneficiaryId": "<REPLACE_ME>", // You'll get the beneficiary ID from Step 5, Use it in the <REPLACE_ME> section
 "BearerToken": "<REPLACE_ME>" // You'll get the token from Step 4, Use it in the <REPLACE_ME> section
 "Districts": 
  {
