@@ -3,10 +3,16 @@ Console App to Fetch the Available Slots & Booking the Appointment Schedule for 
 
 FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
-### DISCLAIMER 
+### DISCLAIMER
+
 **NOTE** They implemented captcha for appointment booking related APIs. So automatically booking is not working anymore using this app, however real-time slots availability finder still works. So, you can currently see the live slot status and go to either Aarogya Setu App or COWIN to book the slot for yourself.
 
 ![image](https://user-images.githubusercontent.com/63504047/117424006-f5b44f80-af3e-11eb-89fc-96a9ad47a461.png)
+
+#### Important: 
+- This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Use at your own risk.**
+- This CANNOT book slots automatically. It doesn't skip any of the steps that a normal user would have to take on the official portal. You will still have to enter the OTP and Captcha.
+- Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
 
 ## Technical Details
 
