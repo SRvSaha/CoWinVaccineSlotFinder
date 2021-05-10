@@ -69,14 +69,29 @@ Go to the Releases Section of the Application, download the ZIP file, exact it, 
 ### How to Get User Specific Information for appsettings.json
 
 1. Go to cowin.gov.in
-2. Generate OTP and keep the Network Tab Open with Filter on XHR Requests [F12 Window, Network Tab]
-3. Validate the OTP you received on your registered mobile number
-4. Check the Response JSON from /validateMobileOtp Endpoint and get the value inside "token", that's your Auth Token which is valid for 15 minutes. 
-5. To Get the Beneficiary ID: Check the response from /beneficiaries endpoint, you'll get the beneficiary ID. Another way to get the Beneficiary ID is to decode the AuthToken from jwt.io and get it from there.
-6. Put these values in the appsettings.json file
-7. Once all these are done! Run the Application EXE, and make sure to restart the application with new Auth Token.
+2. Generate OTP for your registered mobile number. You need to provide this mobile number in the appsettings.json file.
+3. Validate the OTP
+4. After you are logged in, you'll see a dashboard like this, get the highlighted number RID, which is your beneficary ID and would be required in your appsettings.json ![BeneficiaryID](data/BeneficiaryDetails.jpg)
+5. Also, Once all these details are fetched, put them in the appsettings.json.
+6. Run the Application CoWin.Core.EXE, that's it.
 
-**_The values of the following items are to be modified in appsettings.json_**
+**_The values of the following items MUST to be modified in appsettings.json_**
+```
+KEY: VALUE
+"Mobile": "<REPLACE_ME>", // Use your registered mobile number used for generation of OTP in Step 2 above
+"IsSearchToBeDoneByDistrict": "< REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected
+"IsSearchToBeDoneByPINCode": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. 
+"BeneficiaryId": "<REPLACE_ME>", // You'll get the beneficiary ID from Step 4, Use it in the <REPLACE_ME> section
+"PINCodes": 
+{
+// "PlaceName": PinCode
+"<REPLACE_ME_KEY>" : "<REPLACE_ME_VALUE>" 
+} 
+ // You can use anythin in PlaceName, PINCode is to be the PINCode you wish to search for, as of now things are done for Mumbai and nearby districts. Example, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 400008. Keep adding more, if you need for more PIN Codes.
+
+```
+
+**_The values of the following items may be to be modified in appsettings.json_, default values are set**
 ```
 KEY: VALUE
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD in the <REPLACE_ME> section, by default COVISHIELD is selected
