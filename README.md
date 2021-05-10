@@ -79,8 +79,6 @@ Go to the Releases Section of the Application, download the ZIP file, exact it, 
 ```
 KEY: VALUE
 "Mobile": "<REPLACE_ME>", // Use your registered mobile number used for generation of OTP in Step 2 above
-"IsSearchToBeDoneByDistrict": "< REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected
-"IsSearchToBeDoneByPINCode": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. 
 "BeneficiaryId": "<REPLACE_ME>", // You'll get the beneficiary ID from Step 4, Use it in the <REPLACE_ME> section
 "PINCodes": 
 {
