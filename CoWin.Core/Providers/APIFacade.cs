@@ -2,6 +2,7 @@
 using System;
 using Microsoft.Extensions.Configuration;
 using System.Net;
+using CoWin.Auth;
 
 namespace CoWin.Providers
 {
@@ -34,7 +35,7 @@ namespace CoWin.Providers
             {
                 request.AddHeader("Origin", _configuration["CoWinAPI:SelfRegistrationPortal"]);
                 request.AddHeader("Referer", _configuration["CoWinAPI:SelfRegistrationPortal"]);
-                request.AddHeader("Authorization", $"Bearer {_configuration["CoWinAPI:ProtectedAPI:BearerToken"]}");
+                request.AddHeader("Authorization", $"Bearer {OTPAuthenticator.BEARER_TOKEN}");
             }
         }
 

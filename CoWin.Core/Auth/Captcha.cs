@@ -15,9 +15,11 @@ namespace CoWin.Auth
     public class Captcha
     {
         private readonly IConfiguration _configuration;
-        public Captcha(IConfiguration configuration)
+        private string _bearerToken;
+        public Captcha(IConfiguration configuration, string bearerToken)
         {
             _configuration = configuration;
+            _bearerToken = bearerToken;
         }
         public string GetCurrentCaptchaDetails()
         {

@@ -13,7 +13,7 @@ namespace CoWiN.Models
     public class CovidVaccinationCenter
     {
         private readonly IConfiguration _configuration;
-
+        private string _bearerToken;
         public CovidVaccinationCenter(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -26,6 +26,12 @@ namespace CoWiN.Models
             {
                 var covidVaccinationCenters = JsonConvert.DeserializeObject<CovidVaccinationCenters>(response.Content);
                 GetAvailableSlots(covidVaccinationCenters);
+            }
+            else if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"[WARNING] Session Expired : Regenerating Auth Token");
+                new OTPAuthenticator(_configuration).ValidateUser();
             }
             else
             {
@@ -42,6 +48,12 @@ namespace CoWiN.Models
             {
                 var covidVaccinationCenters = JsonConvert.DeserializeObject<CovidVaccinationCenters>(response.Content);
                 GetAvailableSlots(covidVaccinationCenters);
+            }
+            else if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"[WARNING] Session Expired : Regenerating Auth Token");
+                new OTPAuthenticator(_configuration).ValidateUser();
             }
             else
             {
@@ -107,7 +119,7 @@ namespace CoWiN.Models
                             Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
                             Console.ResetColor();
 
-                            captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
+                            captcha = new Captcha(_configuration, _bearerToken).GetCurrentCaptchaDetails();
 
                             var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot, captcha);
 
@@ -141,9 +153,6 @@ namespace CoWiN.Models
             Console.WriteLine("AvailableCapacity: " + session.AvailableCapacity);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("DateOfAvailability: " + session.Date);
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("SessionId: " + session.SessionId);
-            Console.ResetColor();
             Console.WriteLine("Slots Available: " + string.Join(", ", session.Slots));
             Console.WriteLine("***************************************************************************************************************\n");
         }
@@ -180,6 +189,12 @@ namespace CoWiN.Models
                 Console.WriteLine($"[INFO] CONGRATULATIONS! Booking Success - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
                 Console.ResetColor();
                 isBookingSuccessful = true;
+            }
+            else if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"[WARNING] Session Expired : Regenerating Auth Token");
+                new OTPAuthenticator(_configuration).ValidateUser();
             }
             else
             {

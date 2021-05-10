@@ -15,6 +15,7 @@ namespace CoWin.Models
         private List<string> pinCodesToSearch = new List<string>();
         private string searchDate;
         private string vaccineType;
+        
         public CovidVaccinationCenterFinder()
         {
             _configuration = new ConfigurationBuilder()
@@ -22,11 +23,16 @@ namespace CoWin.Models
                 .AddJsonFile("appsettings.json", false, true)
                 .Build();
         }
-
         public void FindSlot()
         {
+            AuthenticateUser();
             ConfigureSearchCriteria();
             SearchForAvailableSlots();
+        }
+
+        private void AuthenticateUser()
+        {
+            new OTPAuthenticator(_configuration).ValidateUser();
         }
 
         private void SearchForAvailableSlots()

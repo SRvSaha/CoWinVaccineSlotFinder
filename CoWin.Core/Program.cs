@@ -1,4 +1,5 @@
-﻿using CoWin.Models;
+﻿using CoWin.Auth;
+using CoWin.Models;
 using System;
 
 namespace CoWin
@@ -7,6 +8,7 @@ namespace CoWin
     {   
         public static void Main()
         {
+            
             new CovidVaccinationCenterFinder().FindSlot();
             Console.WriteLine("Press Enter to Exit");
             Console.ReadKey();
