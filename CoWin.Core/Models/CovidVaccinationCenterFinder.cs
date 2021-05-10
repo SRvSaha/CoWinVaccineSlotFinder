@@ -39,6 +39,10 @@ namespace CoWin.Models
         {
             for (int i = 1; i < Convert.ToInt32(_configuration["CoWinAPI:TotalIterations"]); i++)
             {
+                if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
+                {
+                    break;
+                }
                 Console.ResetColor();
                 Console.WriteLine($"Fetching Resources, Try #{i}");
 
