@@ -5,7 +5,7 @@ FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.i
 
 Glimpse of the Application:
 
-![Application Sample](Samples/BookingSample.jpg)
+![Application Sample](data/Application.jpg)
 
 ### DISCLAIMER
 
