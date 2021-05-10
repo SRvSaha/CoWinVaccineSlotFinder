@@ -26,7 +26,7 @@ namespace CoWin.Auth
             return captchaAfterProcessing;
         }
 
-        public string GenerateCaptcha()
+        private string GenerateCaptcha()
         {
             string endpoint = "";
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
@@ -50,7 +50,7 @@ namespace CoWin.Auth
 
             return "";
         }
-        public string ProcessCaptcha(string captchaSvg)
+        private string ProcessCaptcha(string captchaSvg)
         {
             string captchaWithoutNoise = RemoveNoiseFromCaptcha(captchaSvg);
             Bitmap bitmapImage = ConvertCaptchSvgToImage(captchaWithoutNoise);
