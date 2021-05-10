@@ -87,6 +87,7 @@ namespace CoWiN.Models
 
         private void GetAvailableSlots(CovidVaccinationCenters covidVaccinationCenters)
         {
+            string captcha = ""; 
             foreach (var cvc in covidVaccinationCenters.Centers)
             {
                 foreach (var session in cvc?.Sessions)
@@ -97,14 +98,15 @@ namespace CoWiN.Models
                         session.Vaccine == _configuration["CoWinAPI:VaccineType"] &&
                         cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"] )
                     {
-                        //Commented this as currently due to Captcha Requirement in Booking APIs, we are unable to create the Booking Automatically
+                        captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
+
                         foreach (var slot in session.Slots)
                         {
                             Console.ResetColor();
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
                             Console.ResetColor();
-                            var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot);
+                            var isBookingSuccessful = BookAvailableSlot(session.SessionId, slot, captcha);
 
                             if (isBookingSuccessful == true)
                             {
@@ -144,10 +146,9 @@ namespace CoWiN.Models
             Console.WriteLine("***************************************************************************************************************\n");
         }
 
-        private bool BookAvailableSlot(string sessionId, string slot)
+        private bool BookAvailableSlot(string sessionId, string slot, string captcha)
         {
             string endpoint = "";
-            string captcha = ""; // TODO Get the Captcha
             bool isBookingSuccessful = false;
             List<string> beneficiaries = new List<string>();
             
@@ -158,7 +159,7 @@ namespace CoWiN.Models
 
             beneficiaries.Add(_configuration["CoWinAPI:ProtectedAPI:BeneficiaryId"]);
 
-            captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
+            
 
             string requestBody = JsonConvert.SerializeObject(new BookingModel
             {

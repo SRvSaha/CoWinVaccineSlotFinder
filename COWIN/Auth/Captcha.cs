@@ -4,9 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
+using Svg;
+using System.Text.RegularExpressions;
+using System.Xml;
+using System.Drawing;
 
 namespace CoWin.Auth
 {
@@ -24,7 +26,7 @@ namespace CoWin.Auth
             return captchaAfterProcessing;
         }
 
-        private string GenerateCaptcha()
+        public string GenerateCaptcha()
         {
             string endpoint = "";
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
@@ -48,10 +50,29 @@ namespace CoWin.Auth
 
             return "";
         }
-        private string ProcessCaptcha(string captchaSvg)
+        public string ProcessCaptcha(string captchaSvg)
         {
-            // TODO Incorporate the Logic to Display and Enter the Captcha to User or to Auto-Read Captcha details from SVG Captcha
-            return "";
+            string captchaWithoutNoise = RemoveNoiseFromCaptcha(captchaSvg);
+            Bitmap bitmapImage = ConvertCaptchSvgToImage(captchaWithoutNoise);
+            var captchadata = new UI.Captcha().GetCaptchaValue(bitmapImage);
+            return captchadata;
+        }
+
+        private static Bitmap ConvertCaptchSvgToImage(string captchaWithoutNoise)
+        {
+            XmlDocument svgXml = new XmlDocument();
+            svgXml.LoadXml(captchaWithoutNoise);
+
+            var svgDocument = SvgDocument.Open(svgXml);
+            var bitmapImage = svgDocument.Draw();
+            return bitmapImage;
+        }
+
+        private static string RemoveNoiseFromCaptcha(string captchaSvg)
+        {
+            var patternForNoise = "<path d=.*?fill=\"none\"/>";
+            var captchaWithoutNoise = Regex.Replace(captchaSvg, patternForNoise, string.Empty);
+            return captchaWithoutNoise;
         }
     }
 }

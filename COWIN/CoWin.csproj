@@ -16,11 +16,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspose.SVG" Version="21.4.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="106.11.7" />
+    <PackageReference Include="Svg" Version="3.2.3" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoWin.UI\CoWin.UI.csproj" />
   </ItemGroup>
 
 </Project>
