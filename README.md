@@ -91,7 +91,7 @@ Go to the Releases Section of the Application, download the ZIP file of the late
 **_The values of the following items MUST to be modified in appsettings.json_**
 ```
 KEY: VALUE
-"Mobile": "<REPLACE_ME>", // Use your registered mobile number used for generation of OTP in Step 2 above
+"Mobile": "<REPLACE_ME>", // Use your registered mobile number used for generation of OTP in Step 2 above, , Use it in the <REPLACE_ME> section
 "BeneficiaryId": "<REPLACE_ME>", // You'll get the beneficiary ID from Step 4, Use it in the <REPLACE_ME> section
 "PINCodes": 
 {
