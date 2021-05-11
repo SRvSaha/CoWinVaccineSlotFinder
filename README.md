@@ -41,7 +41,7 @@ In General, to run the application, the following things are needed:
 - *FOR DEVELOPERS TO BUILD/MODIFY* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
 
 
-Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district and to book the slot on First-Come-First-Serve Basis, the
+Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
  
 We have got endpoints of both the Public and Protected APIs from APISetu, but a general observation was the Public APIs return stale data as caching is done for around 30 minutes and there is API throttling of 100 requests/5 minutes from 1 IP Address.
@@ -84,7 +84,7 @@ Go to the Releases Section of the Application, download the ZIP file of the late
 1. Go to cowin.gov.in
 2. Generate OTP for your registered mobile number. You need to provide this mobile number in the appsettings.json file.
 3. Validate the OTP
-4. After you are logged in, you'll see a dashboard like this, get the highlighted number RID, which is your beneficary ID and would be required in your appsettings.json ![BeneficiaryID](data/BeneficiaryDetails.jpg)
+4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json ![BeneficiaryID](data/BeneficiaryDetails.jpg)
 5. Also, Once all these details are fetched, put them in the appsettings.json.
 6. Run the Application CoWin.Core.EXE, that's it.
 
