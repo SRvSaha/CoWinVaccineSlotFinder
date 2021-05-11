@@ -12,7 +12,7 @@ namespace CoWin.UI
     public partial class Captcha : Form
     {
         private string captchaValue = "";
-        private bool isCaptchaEntered = false;
+        private bool isNotifierToBeStopped = false;
         public Captcha()
         {
             InitializeComponent();
@@ -23,26 +23,26 @@ namespace CoWin.UI
             captchaValue = captchaInputFromUser.Text;
             if (!string.IsNullOrEmpty(captchaValue))
             {
-                isCaptchaEntered = true;
                 DialogResult = DialogResult.OK;
                 Close();
-            }
-                
+            }   
         }
 
         public string GetCaptchaValue(Image image)
         {
             // TO RUN THE NOTIFIER IN A DIFFERENT THREAD SO THAT IT CAN KEEP NOTIFYING TILL CAPTCHA IS NOT ENTERED
             new Thread(new ThreadStart(NotifyUser)).Start();
+            
             captchaDisplayer.Image = image;
             ShowDialog();
-            
+
+            isNotifierToBeStopped = true; // Always Close the Notified BEEP BEEP when going out, so it doesn't create issue
             return captchaValue;
         }
 
         private void NotifyUser()
         {
-            while (!isCaptchaEntered)
+            while (!isNotifierToBeStopped)
             {
                 Thread.Sleep(500);
                 Console.Beep();
