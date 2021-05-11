@@ -172,8 +172,8 @@ Be default, this is how the appsettings.json would look like this:
     "TotalIterations": 10000,
     "SpoofedUserAgentToBypassWAF": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
     "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
-    "IsSearchToBeDoneByDistrict": true,
-    "IsSearchToBeDoneByPINCode": false,
+    "IsSearchToBeDoneByDistrict": false,
+    "IsSearchToBeDoneByPINCode": true,
     "DateToSearch": "<REPLACE_WITH_DATE_TO_SEARCH_VACCINATION_SLOT>" // DD-MM-YYYY Format, Blank implies current date
   },
   "Districts": {
