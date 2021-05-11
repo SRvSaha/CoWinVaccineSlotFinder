@@ -27,7 +27,9 @@ FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.i
 
 #### PRO TIP
 
-*While Booking when Captcha is popped up, directly use your keyboard and start typing. It'll automatically be in the screen to take the input. Once captcha is entered, press Tab to go to the Submit Button and press Enter to submit. This way, it is faster than operating via Mouse, as every second matters!*
+> *While Booking when Captcha is popped up, directly use your keyboard and start typing. It'll automatically be in the screen to take the input. Once captcha is entered, press Tab to go to the Submit Button and press Enter to submit. This way, it is faster than operating via Mouse, as every second matters!*
+
+`Enjoy and feel free to Star the Repo, if it could help you in any way!`
 
 ### DISCLAIMER
 
@@ -92,7 +94,7 @@ CoWin.UI is just a small project for handling the Captcha.
 
 Rest of the Business Logic are there inside the Models directory.
 
-Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh! 
+`Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!`
 
 I know, I know, it's not cool, but see it's all about quick Time to Market first and then doing one thing at a time, to improve the product. 
 
@@ -138,7 +140,6 @@ Modification can be done and file to be saved again with the same name and File 
 
 **_The values of the following items may be to be modified in appsettings.json_, default values are set**
 ```
-KEY: VALUE
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD in the <REPLACE_ME> section, by default COVISHIELD is selected
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Done
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid type of Vaccine in the <REPLACE_ME> section, by default Free is selected
@@ -212,9 +213,9 @@ Be default, this is how the appsettings.json would look like this:
 ```
 As simple as that!
 
-Enjoy!
+Enjoy and feel free to Star the Repo, if it could help you in any way!
 
-If you'd like to do it the hard way, clone it, build it and run it.
+If you'd like to do it the hard way, clone it, build it and run it. Make sure you've the dependencies required to run the Application as mentioned in [Technical Details Section](#technical-details)
 
 
 > **NB:** appsettings.json play the major role for accessing and booking and filtration of searches. Fiddle with it! Appologies that the Code doesn't have inline documentation, but code is readable and self explanatory. In case of any suggestions or bugs or feature request, feel free to raise an Issue.
