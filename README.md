@@ -31,8 +31,8 @@ FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.i
 - This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; Use at your own risk. I SHOULD NOT BE DEEMED RESPONSIBLE FOR ANY LEGAL CONCERNS**
 - This CANNOT book slots automatically. It doesn't skip any of the steps that a normal user would have to take on the official portal. You will still have to enter the OTP and Captcha. This just helps to do it from Console rather than through Official WebApps/Apps.
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
-- When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Dose, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
-- AUTO BOOKING is ON by default, so it books the slot after a valid captcha is entered by user for the Slot which is displayed. In case, user doesn't want to book the slot, user just has to close the Captcha Popup, it will try to book the next available slots in First-Come-First-Serve Basis.
+- When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Vaccine, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
+- AUTO BOOKING is ON by default, so it books the slot after a valid captcha is entered by user for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s). In case, user doesn't want to book the slot, user just has to close the Captcha Popup, it will try to book the next available slots in First-Come-First-Serve Basis.
 
 ## Technical Details
 
