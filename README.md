@@ -94,9 +94,10 @@ Modification can be done and file to be saved again with the same name and File 
 1. Go to cowin.gov.in
 2. Generate OTP for your registered mobile number. You need to provide this mobile number in the appsettings.json file.
 3. Validate the OTP
-4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json ![BeneficiaryID](data/BeneficiaryDetails.jpg). If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
-5. Also, Once all these details are fetched, put them in the appsettings.json.
-6. Run the Application CoWin.Core.EXE, that's it.
+4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json. If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
+![BeneficiaryID](data/BeneficiaryDetails.jpg)
+6. Also, Once all these details are fetched, put them in the appsettings.json. 
+7. Run the Application CoWin.Core.EXE, that's it.
 
 **_The values of the following items MUST to be modified in appsettings.json_**
 ```
