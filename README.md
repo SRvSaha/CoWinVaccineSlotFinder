@@ -153,14 +153,14 @@ Be default, this is how the appsettings.json would look like this:
       "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin",
       "ScheduleAppointmentUrl": "https://cdn-api.co-vin.in/api/v2/appointment/schedule",
       "CaptchaGenerationUrl": "https://cdn-api.co-vin.in/api/v2/auth/getRecaptcha",
-      "BeneficiaryIds": [ "<REPLACE_WITH_YOUR_BENEFICIARY_ID_1>", "<REPLACE_WITH_YOUR_BENEFICIARY_ID_2>" ]
+      "BeneficiaryIds": [ "REPLACE_WITH_YOUR_BENEFICIARY_ID_1", "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" ]
     },
     "Auth": {
       "IsToBeUsed": true,
       "OTPGeneratorUrl": "https://cdn-api.co-vin.in/api/v2/auth/generateMobileOTP",
       "OTPValidatorUrl": "https://cdn-api.co-vin.in/api/v2/auth/validateMobileOtp",
       "Secret": "U2FsdGVkX18vDwDor+oOIG7vSUnINtlc/pxQcNiBulCm8LT5Sza+aIISKLqImbpMnRYgsN2QACPhggLWgZEpQg==",
-      "Mobile": "<REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO>"
+      "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO"
     },
     "MinAgeLimit": 18,
     "MaxAgeLimit": 45,
@@ -174,7 +174,7 @@ Be default, this is how the appsettings.json would look like this:
     "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
     "IsSearchToBeDoneByDistrict": false,
     "IsSearchToBeDoneByPINCode": true,
-    "DateToSearch": "<REPLACE_WITH_DATE_TO_SEARCH_VACCINATION_SLOT>" // DD-MM-YYYY Format, Blank implies current date
+    "DateToSearch": "REPLACE_WITH_DATE_TO_SEARCH_VACCINATION_SLOT" // DD-MM-YYYY Format, Blank implies current date
   },
   "Districts": {
     "Mumbai": 395,
