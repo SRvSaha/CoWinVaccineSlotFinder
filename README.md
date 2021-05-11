@@ -58,6 +58,9 @@ Following are some of the main features of the App:
 - [x] OTP Regeneration/Validation on Timeout/Session Expiry 
 - [x] Zero Setup Application, Just Download and Run! Easy to Use!
 - [x] No specialized Software required for modification of Config file
+- [x] Integration of Notification Engine with Telegram Bot
+- [x] Integration of Notification Engine with Mail Service
+- [x] Integration of Notification Engine with Mobile Push notification example by using IFTTT Service 
  
 ## Technical Details
 
