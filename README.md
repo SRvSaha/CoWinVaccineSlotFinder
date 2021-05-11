@@ -34,7 +34,7 @@ FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin
 
 > *When the Captcha pops up in the process of booking, you can start typing it immediately as the app would remain ready to accept your input. Once captcha is entered, press Tab to go to the Submit Button and then press Enter to submit. This way, it is faster than operating via Mouse, as every second matters!*
 
-`Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot(after hiding personal information) as a New Pull Request in the data/ folder in case you could successfully book through the App. That'll be used as References/Testimonials in the Application and will increase the credibility of the App`
+Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot(after hiding personal information) as a New Pull Request in the /data/ folder in case you could successfully book through the App. Otherwise, just comment/share/like in the associated [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/). That'll be used as References/Testimonials in the Application and will increase the credibility of the App
 
 ### DISCLAIMER
 
