@@ -31,6 +31,7 @@ FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.i
 - This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; Use at your own risk. I SHOULD NOT BE DEEMED RESPONSIBLE FOR ANY LEGAL CONCERNS**
 - This CANNOT book slots automatically. It doesn't skip any of the steps that a normal user would have to take on the official portal. You will still have to enter the OTP and Captcha. This just helps to do it from Console rather than through Official WebApps/Apps.
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
+- When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Dose, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
 - AUTO BOOKING is ON by default, so it books the slot after a valid captcha is entered by user for the Slot which is displayed. In case, user doesn't want to book the slot, user just has to close the Captcha Popup, it will try to book the next available slots in First-Come-First-Serve Basis.
 
 ## Technical Details
@@ -93,7 +94,7 @@ Modification can be done and file to be saved again with the same name and File 
 1. Go to cowin.gov.in
 2. Generate OTP for your registered mobile number. You need to provide this mobile number in the appsettings.json file.
 3. Validate the OTP
-4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json ![BeneficiaryID](data/BeneficiaryDetails.jpg)
+4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json ![BeneficiaryID](data/BeneficiaryDetails.jpg). If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
 5. Also, Once all these details are fetched, put them in the appsettings.json.
 6. Run the Application CoWin.Core.EXE, that's it.
 
@@ -101,7 +102,7 @@ Modification can be done and file to be saved again with the same name and File 
 ```
 KEY: VALUE
 "Mobile": "<REPLACE_ME>", // Use your registered mobile number used for generation of OTP in Step 2 above, , Use it in the <REPLACE_ME> section
-"BeneficiaryId": "<REPLACE_ME>", // You'll get the beneficiary ID from Step 4, Use it in the <REPLACE_ME> section
+"BeneficiaryIds": ["<REPLACE_ME_1>", "REPLACE_ME_2"] // You'll get the beneficiary ID from Step 4. If you have only 1 beneficiary ID then Use it in the <REPLACE_ME_1> section and remove rest eg. ["1111111111111111"]. If you have multiple beneficiaries for which you want to do booking, added them comma separated eg. ["11111111111111", "22222222222222", "33333333333333"]
 "PINCodes": 
 {
 // "PlaceName": PinCode
@@ -148,7 +149,7 @@ Be default, this is how the appsettings.json would look like this:
       "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin",
       "ScheduleAppointmentUrl": "https://cdn-api.co-vin.in/api/v2/appointment/schedule",
       "CaptchaGenerationUrl": "https://cdn-api.co-vin.in/api/v2/auth/getRecaptcha",
-      "BeneficiaryId": "<REPLACE_WITH_YOUR_BENEFICIARY_ID>"
+      "BeneficiaryIds": [ "<REPLACE_WITH_YOUR_BENEFICIARY_ID_1>", "<REPLACE_WITH_YOUR_BENEFICIARY_ID_2>" ]
     },
     "Auth": {
       "IsToBeUsed": true,
