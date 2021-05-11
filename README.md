@@ -109,7 +109,8 @@ KEY: VALUE
 // "PlaceName": PinCode
 "<REPLACE_ME_KEY>" : "<REPLACE_ME_VALUE>" 
 } 
- // You can use anythin in PlaceName, PINCode is to be the PINCode you wish to search for, as of now things are done for Mumbai and nearby districts. Example, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 400008. Keep adding more, if you need for more PIN Codes.
+ // You can use anything in PlaceName, PINCode is to be the PIN you wish to search for, as of now things are done for Mumbai and nearby areas. If you want to search say for a particular PIN Code of Mumbai let's say 400008 then the entry would look like this : "PINCodes": { "Mumbai": 400008 }. In case you want to search for multiple PIN Codes say 400008 and 400007, it would look something like this "PINCodes": { "Mumbai-1st": 400008, "Mumbai-2nd" : 400007 }
+
 
 ```
 
