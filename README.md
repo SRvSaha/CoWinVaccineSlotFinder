@@ -127,7 +127,7 @@ Modification can be done and file to be saved again with the same name and File 
 7. Run the Application CoWin.Core.EXE, that's it.
 
 **_The values of the following items MUST to be modified in appsettings.json_**
-```
+``` javascript
 "Mobile": "<REPLACE_ME>", // Use your registered mobile number used for generation of OTP in Step 2 above, , Use it in the <REPLACE_ME> section
 "BeneficiaryIds": ["<REPLACE_ME_1>", "REPLACE_ME_2"] // You'll get the beneficiary ID from Step 4. If you have only 1 beneficiary ID then Use it in the <REPLACE_ME_1> section and remove rest eg. ["1111111111111111"]. If you have multiple beneficiaries for which you want to do booking, added them comma separated eg. ["11111111111111", "22222222222222", "33333333333333"]
 "PINCodes": 
@@ -144,7 +144,7 @@ Modification can be done and file to be saved again with the same name and File 
 ```
 
 **_The values of the following items may be to be modified in appsettings.json_, default values are set**
-```
+``` javascript
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD in the <REPLACE_ME> section, by default COVISHIELD is selected
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Done
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid type of Vaccine in the <REPLACE_ME> section, by default Free is selected
