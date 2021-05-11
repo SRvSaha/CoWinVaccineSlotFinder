@@ -1,11 +1,11 @@
 # Vaccine Slots Finder
 
-Console App to Fetch the Available Slots & Book the Appointment Schedule for COVID-19 Vaccination using the Publicly available [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
+Console app to fetch the available slots & book the appointment schedule for COVID-19 Vaccination using the publicly available [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
 
 ![Application Banner](data/Banner.png) 
 
 
-FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
+FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
 ### Glimpse of the Application:
 
@@ -27,9 +27,9 @@ FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.i
 
 #### PRO TIP
 
-> *While Booking when Captcha is popped up, directly use your keyboard and start typing. It'll automatically be in the screen to take the input. Once captcha is entered, press Tab to go to the Submit Button and press Enter to submit. This way, it is faster than operating via Mouse, as every second matters!*
+> *When the Captcha pops up in the process of booking, you can start typing it immediately as the app would remain ready to accept your input. Once captcha is entered, press Tab to go to the Submit Button and then press Enter to submit. This way, it is faster than operating via Mouse, as every second matters!*
 
-`Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot(after hiding personal information) as a New Issue in case your booking could be done successfully using the App. That'll be used as References/Testimonials in the Application and will increase the credibility of the App`
+`Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot(after hiding personal information) as a New Issue in case you could successfully book through the App.. That'll be used as References/Testimonials in the Application and will increase the credibility of the App`
 
 ### DISCLAIMER
 
@@ -38,7 +38,7 @@ FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.i
 - This CANNOT book slots automatically. It doesn't skip any of the steps that a normal user would have to take on the official portal. You will still have to enter the OTP and Captcha. This just helps to do it from Console rather than through Official WebApps/Apps.
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
 - When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Vaccine, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
-- AUTO BOOKING is ON by default, so it books the slot after a valid captcha is entered by user for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s). In case, user doesn't want to book the slot, user just has to close the Captcha Popup, it will try to book the next available slots in First-Come-First-Serve Basis.
+- AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s). In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
 
 ## Application Features
 
@@ -87,16 +87,16 @@ Rest of the stuff are self-explanatory.
 
 If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Ctrl + F5 and Boom!
 
-Well, not interesting right?
+Well, want to dig deeper?
 
-Yeah, basically you've this Project Named CoWin.Core which has appsettings.json which does most of the magic.
+So basically, you've this Project Named CoWin.Core which contains appsettings.json which performs most of the magic.
 CoWin.UI is just a small project for handling the Captcha.
 
 Rest of the Business Logic are there inside the Models directory.
 
 `Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!`
 
-I know, I know, it's not cool, but see it's all about quick Time to Market first and then doing one thing at a time, to improve the product. 
+I know, I know, it's unacceptable, but folks, it's all about quick Time to Market first and then doing one thing at a time, to improve the product. 
 
 I'll be more than happy to have PRs with modifications.
 
