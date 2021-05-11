@@ -83,6 +83,11 @@ I'll be more than happy to have PRs with modifications.
 
 Go to the Releases Section of the Application, download the ZIP file of the latest release for your Operating System, extract it, Modify the settings inside appsettings.json, Run the Executable (EXE in case of Windows, application will be named as CoWin.Core ).
 
+### How to Open appsettings.json
+
+In layman terms, it is just like any other txt file which can be opened in any text editor like Notepad, Wordpad, VS Code, Sublime Text, Notepad++ etc.
+Modification can be done and file to be saved again with the same name and File Types as "All Files"
+
 ### How to Get User Specific Information for appsettings.json
 
 1. Go to cowin.gov.in
