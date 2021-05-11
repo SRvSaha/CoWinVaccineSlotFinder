@@ -38,6 +38,20 @@ FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.i
 - When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Vaccine, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
 - AUTO BOOKING is ON by default, so it books the slot after a valid captcha is entered by user for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s). In case, user doesn't want to book the slot, user just has to close the Captcha Popup, it will try to book the next available slots in First-Come-First-Serve Basis.
 
+## Application Features
+
+Following are some of the main features of the App:
+
+- [x] OTP Generation/Validation
+- [x] Search by Either PINCode or District
+- [x] Auto Retry To Fetch Slots Every 2 Seconds
+- [x] BEEP BEEP User Notifier On Slot Availability To Book the Available Slot
+- [x] Captcha Popup Entry for Booking Slot
+- [x] Booking for Multiple Beneficiaries linked to a Registered Mobile Number 
+- [x] OTP Regeneration/Validation on Timeout/Session Expiry 
+- [x] Zero Setup Application, Just Download and Run! Easy to Use!
+- [x] No specialized Software required for modification of Config file needed
+ 
 ## Technical Details
 
 It's a simple Cross-Platform Console Application being developed using .NET Core 3.1, WinForms and C#.
