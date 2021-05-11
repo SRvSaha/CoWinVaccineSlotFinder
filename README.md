@@ -52,7 +52,7 @@ Following are some of the main features of the App:
 - [x] Booking for Multiple Beneficiaries linked to a Registered Mobile Number 
 - [x] OTP Regeneration/Validation on Timeout/Session Expiry 
 - [x] Zero Setup Application, Just Download and Run! Easy to Use!
-- [x] No specialized Software required for modification of Config file needed
+- [x] No specialized Software required for modification of Config file
  
 ## Technical Details
 
