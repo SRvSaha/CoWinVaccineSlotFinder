@@ -3,7 +3,7 @@ Console App to Fetch the Available Slots & Booking the Appointment Schedule for 
 
 FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
-Glimpse of the Application:
+### Glimpse of the Application:
 
 *Application Start*:
 
@@ -20,6 +20,10 @@ Glimpse of the Application:
 *Application Session Regeneration on TimeOut* 
 
 ![Application Sample](data/SessionRegenaration.png)
+
+#### PRO TIP
+
+*While Booking when Captcha is popped up, directly use your keyboard and start typing. It'll automatically be in the screen to take the input. Once captcha is entered, press Tab to go to the Submit Button and press Enter to submit. This way, it is faster than operating via Mouse, as every second matters!*
 
 ### DISCLAIMER
 
@@ -41,7 +45,7 @@ In General, to run the application, the following things are needed:
 - *FOR DEVELOPERS TO BUILD/MODIFY* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
 
 
-Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district and to book the slot on First-Come-First-Serve Basis, the
+Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
  
 We have got endpoints of both the Public and Protected APIs from APISetu, but a general observation was the Public APIs return stale data as caching is done for around 30 minutes and there is API throttling of 100 requests/5 minutes from 1 IP Address.
@@ -79,19 +83,24 @@ I'll be more than happy to have PRs with modifications.
 
 Go to the Releases Section of the Application, download the ZIP file of the latest release for your Operating System, extract it, Modify the settings inside appsettings.json, Run the Executable (EXE in case of Windows, application will be named as CoWin.Core ).
 
+### How to Open appsettings.json
+
+In layman terms, it is just like any other txt file which can be opened in any text editor like Notepad, Wordpad, VS Code, Sublime Text, Notepad++ etc.
+Modification can be done and file to be saved again with the same name and File Types as "All Files"
+
 ### How to Get User Specific Information for appsettings.json
 
 1. Go to cowin.gov.in
 2. Generate OTP for your registered mobile number. You need to provide this mobile number in the appsettings.json file.
 3. Validate the OTP
-4. After you are logged in, you'll see a dashboard like this, get the highlighted number RID, which is your beneficary ID and would be required in your appsettings.json ![BeneficiaryID](data/BeneficiaryDetails.jpg)
+4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json ![BeneficiaryID](data/BeneficiaryDetails.jpg)
 5. Also, Once all these details are fetched, put them in the appsettings.json.
 6. Run the Application CoWin.Core.EXE, that's it.
 
 **_The values of the following items MUST to be modified in appsettings.json_**
 ```
 KEY: VALUE
-"Mobile": "<REPLACE_ME>", // Use your registered mobile number used for generation of OTP in Step 2 above
+"Mobile": "<REPLACE_ME>", // Use your registered mobile number used for generation of OTP in Step 2 above, , Use it in the <REPLACE_ME> section
 "BeneficiaryId": "<REPLACE_ME>", // You'll get the beneficiary ID from Step 4, Use it in the <REPLACE_ME> section
 "PINCodes": 
 {
