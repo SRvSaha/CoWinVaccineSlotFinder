@@ -21,6 +21,11 @@ FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin
 
 ![Application Sample](data/SuccessfulBooking.png)
 
+
+*Unsuccessful Booking - All Slots Full*
+
+![Application Sample](data/BookingSlotFull.png)
+
 *Application Session Regeneration on TimeOut* 
 
 ![Application Sample](data/SessionRegenaration.png)
