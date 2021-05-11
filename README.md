@@ -29,7 +29,7 @@ FYI, these APIs are used directly from the WebApp of [CoWIN](https://cowin.gov.i
 
 > *While Booking when Captcha is popped up, directly use your keyboard and start typing. It'll automatically be in the screen to take the input. Once captcha is entered, press Tab to go to the Submit Button and press Enter to submit. This way, it is faster than operating via Mouse, as every second matters!*
 
-`Enjoy and feel free to Star the Repo, if it could help you in any way!`
+`Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot(after hiding personal information) as a New Issue in case your booking could be done successfully using the App. That'll be used as References/Testimonials in the Application and will increase the credibility of the App`
 
 ### DISCLAIMER
 
