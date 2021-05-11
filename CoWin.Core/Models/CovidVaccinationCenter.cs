@@ -7,6 +7,7 @@ using System.Net;
 using CoWin.Providers;
 using CoWin.Auth;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace CoWiN.Models
 {
@@ -169,9 +170,7 @@ namespace CoWiN.Models
                 endpoint = _configuration["CoWinAPI:ProtectedAPI:ScheduleAppointmentUrl"];
             }
 
-            beneficiaries.Add(_configuration["CoWinAPI:ProtectedAPI:BeneficiaryId"]);
-
-            
+            beneficiaries.AddRange(_configuration.GetSection("CoWinAPI:ProtectedAPI:BeneficiaryIds").Get<List<string>>());
 
             string requestBody = JsonConvert.SerializeObject(new BookingModel
             {
