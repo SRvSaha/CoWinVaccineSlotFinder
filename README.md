@@ -21,6 +21,10 @@ Glimpse of the Application:
 
 ![Application Sample](data/SessionRegenaration.png)
 
+#### PRO TIP
+
+*While Booking when Captcha is popped up, directly use your keyboard and start typing. It'll automatically be in the screen to take the input. Once captcha is entered, press Tab to go to the Submit Button and press Enter to submit. This way, it is faster than operating via Mouse, as every second matters!*
+
 ### DISCLAIMER
 
 ### Important: 
