@@ -18,6 +18,7 @@ namespace CoWin.Auth
     {
         private IConfiguration _configuration;
         public static string BEARER_TOKEN;
+        private bool isOTPEntered = false;
         public OTPAuthenticator(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -41,9 +42,18 @@ namespace CoWin.Auth
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 Console.WriteLine($"[INFO] OTP Generated for Mobile No: {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now}");
+                
+                // TO Start Beeping OTP to User so that it can be entered.
+                new Thread(new ThreadStart(OTPNotifier)).Start();
+
                 var txnID = JsonConvert.DeserializeObject<OtpModel>(response.Content);
                 endpoint = _configuration["CoWinAPI:Auth:OTPValidatorUrl"];
-                otp = ComputeSha256Hash(ReadUserInput("Please Enter OTP: "));
+                var enteredOtp = ReadUserInput("Please Enter OTP: ");
+
+                if (!string.IsNullOrEmpty(enteredOtp))
+                    isOTPEntered = true;
+
+                otp = ComputeSha256Hash(enteredOtp);
                 requestBody = JsonConvert.SerializeObject(new OtpModel
                 {
                     TransactionId = txnID.TransactionId,
@@ -103,6 +113,16 @@ namespace CoWin.Auth
                     builder.Append(bytes[i].ToString("x2"));
                 }
                 return builder.ToString();
+            }
+        }
+        private void OTPNotifier()
+        {
+            while(!isOTPEntered)
+            {
+                Thread.Sleep(500);
+                Console.Beep(500, 200);
+                Console.Beep(1000, 300);
+                Console.Beep(2000, 400);
             }
         }
     }
