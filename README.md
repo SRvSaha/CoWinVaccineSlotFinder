@@ -54,7 +54,7 @@ Enjoy and feel free to Star the Repo, if it could help you in any way! Also, fee
 - If you're selecting multiple beneficiaries, make sure all are of the same age group (45+ or 18+) as defined by the govt.
   Please do not try to club together booking for younger and older beneficiaries.
 - AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s). In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
-- If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://cowin.gov.in) and cancel or re-schedule the booking.
+- If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://selfregistration.cowin.gov.in/) and cancel or re-schedule the booking.
 
 ## Application Features
 
