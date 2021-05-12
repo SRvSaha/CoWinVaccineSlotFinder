@@ -158,7 +158,9 @@ Modification can be done and file to be saved again with the same name and File 
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid type of Vaccine in the <REPLACE_ME> section, by default Free is selected
 "IsSearchToBeDoneByDistrict": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected
 "IsSearchToBeDoneByPINCode": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. 
-"DateToSearch": "<REPLACE_ME>",  // Use date format of your system in the <REPLACE_ME> section separted by hyphen, for example if date in your system is in format of MM/DD/YYYY (05/12/2021) shown in task bar right hand side,then enter DateToSearch as "05-12-2021" (hyphen separated). "" implies tomorrow's date, by default "" is selected to search for tomorrow's date.
+"DateToSearch": "<REPLACE_ME>",  // Use date format of your system in the <REPLACE_ME> section separted by hyphen, for example if date in your system is in format of MM/DD/YYYY (05/12/2021) shown in task bar right hand side,then enter DateToSearch as "05-12-2021" (hyphen separated). "" implies tomorrow's date, by default "" is selected to search for tomorrow's date. 
+![date](data/date_screenshot.jpg)
+
 "IsToBeUsed": "<REPLACE_ME>", // Use true or false
 "BearerToken": "<REPLACE_ME>" // You'll get the token from Step 4, Use it in the <REPLACE_ME> section
 "Districts": 
