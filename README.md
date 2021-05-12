@@ -4,7 +4,6 @@ Console app to fetch the available slots & book the appointment schedule for COV
 
 ![Application Banner](data/Banner.png) 
 
-
 FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
 ### Glimpse of the Application:
