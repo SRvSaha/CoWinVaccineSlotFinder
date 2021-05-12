@@ -104,10 +104,10 @@ If you have Visual Studio installed, go ahead an Clone the Repository, Open the 
 
 Well, want to dig deeper?
 
-So basically, you've this Project Named CoWin.Core which contains appsettings.json which performs most of the magic.
-CoWin.UI is just a small project for handling the Captcha.
+So basically, you've this Project Named `CoWin.Core` which contains `appsettings.json` which performs most of the magic.
+`CoWin.UI` is just a small project for handling the Captcha.
 
-Rest of the Business Logic are there inside the Models directory.
+Rest of the Business Logic are there inside the  `/Models` directory.
 
 `Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!`
 
@@ -133,8 +133,8 @@ Modification can be done and file to be saved again with the same name and File 
 3. Validate the OTP
 4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json. If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
 ![BeneficiaryID](data/BeneficiaryDetails.jpg)
-6. Also, Once all these details are fetched, put them in the appsettings.json. 
-7. Run the Application CoWin.Core.EXE, that's it.
+5. Also, Once all these details are fetched, put them in the appsettings.json. 
+6. Run the Application CoWin.Core.EXE, that's it.
 
 **_The values of the following items MUST to be modified in appsettings.json_**
 ``` javascript
