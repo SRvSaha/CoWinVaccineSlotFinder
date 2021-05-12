@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Captcha));
             this.captchaDisplayer = new System.Windows.Forms.PictureBox();
             this.captchaInputFromUser = new System.Windows.Forms.TextBox();
             this.captchaSubmit = new System.Windows.Forms.Button();
@@ -49,10 +50,12 @@
             this.captchaInputFromUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.captchaInputFromUser.Location = new System.Drawing.Point(30, 116);
             this.captchaInputFromUser.Margin = new System.Windows.Forms.Padding(4);
+            this.captchaInputFromUser.MaxLength = 5;
             this.captchaInputFromUser.Name = "captchaInputFromUser";
             this.captchaInputFromUser.PlaceholderText = "Enter Captcha Here";
             this.captchaInputFromUser.Size = new System.Drawing.Size(208, 29);
-            this.captchaInputFromUser.TabIndex = 1;
+            this.captchaInputFromUser.TabIndex = 0;
+            this.captchaInputFromUser.WordWrap = false;
             // 
             // captchaSubmit
             // 
@@ -67,17 +70,23 @@
             // 
             // Captcha
             // 
+            this.AcceptButton = this.captchaSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(260, 234);
-            this.Controls.Add(this.captchaSubmit);
             this.Controls.Add(this.captchaInputFromUser);
+            this.Controls.Add(this.captchaSubmit);
             this.Controls.Add(this.captchaDisplayer);
+            this.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Captcha";
             this.Text = "Captcha";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.captchaDisplayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

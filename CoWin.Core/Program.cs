@@ -10,7 +10,7 @@ namespace CoWin
             
             new CovidVaccinationCenterFinder().FindSlot();
             Console.ResetColor();
-            Console.WriteLine("\nPress Any Key to Exit The Application .....");
+            Console.WriteLine("\nPress Enter Key to Exit The Application .....");
             Console.ReadLine();
         }
     }

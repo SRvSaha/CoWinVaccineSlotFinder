@@ -25,9 +25,10 @@ namespace CoWin.UI
             {
                 DialogResult = DialogResult.OK;
                 Close();
+                Dispose();
             }   
         }
-
+        
         public string GetCaptchaValue(Image image)
         {
             // TO RUN THE NOTIFIER IN A DIFFERENT THREAD SO THAT IT CAN KEEP NOTIFYING TILL CAPTCHA IS NOT ENTERED
