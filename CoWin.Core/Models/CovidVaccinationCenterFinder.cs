@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using CoWin.Auth;
+using System.Globalization;
 
 namespace CoWin.Models
 {
@@ -105,7 +106,7 @@ namespace CoWin.Models
 
             if (!string.IsNullOrEmpty(_configuration["CoWinAPI:DateToSearch"]))
             {
-                searchDate = DateTime.Parse(_configuration["CoWinAPI:DateToSearch"]).ToString("dd-MM-yyyy");
+                searchDate = DateTime.ParseExact(_configuration["CoWinAPI:DateToSearch"], "dd-MM-yyyy", new CultureInfo("en-US")).ToString("dd-MM-yyyy");
             }
             else
             {
