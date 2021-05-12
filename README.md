@@ -1,4 +1,4 @@
-# Vaccine Slots Finder
+# Vaccine Slot Finder
 
 Console app to fetch the available slots & book the appointment schedule for COVID-19 Vaccination using the publicly available [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
 
