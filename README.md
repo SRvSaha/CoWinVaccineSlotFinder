@@ -62,7 +62,7 @@ Following are some of the main features of the App:
 - [ ] Integration of Notification Engine with Telegram Bot
 - [ ] Integration of Notification Engine with Mail Service
 - [ ] Integration of Notification Engine with Mobile Push notification example by using IFTTT Service 
-- [ ] Metric of Booking Information for Updating WebHook with Details to see how the App is helping others
+- [ ] Telemerry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
  
 ## Technical Details
 
