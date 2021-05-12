@@ -47,6 +47,22 @@ namespace CoWin.Models
                 Console.ResetColor();
                 Console.WriteLine($"Fetching Resources, Try #{i}");
 
+                /* Seaching with be either by PIN or District or Both; By Default by PIN.
+                 * If Both are selected for searching, PIN will be given Preference Over District
+                 */
+                if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
+                {
+                    foreach (var pinCode in pinCodesToSearch)
+                    {
+                        new CovidVaccinationCenter(_configuration).GetSlotsByPINCode(pinCode, searchDate, vaccineType);
+
+                        if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
+                        {
+                            return;
+                        }
+
+                    }
+                }
                 if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
                 {
                     foreach (var district in districtsToSearch)
@@ -60,26 +76,17 @@ namespace CoWin.Models
 
                     }
                 }
-                else if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
-                {
-                    foreach (var pinCode in pinCodesToSearch)
-                    {
-                        new CovidVaccinationCenter(_configuration).GetSlotsByPINCode(pinCode, searchDate, vaccineType);
-                        
-                        if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
-                        {
-                            return;
-                        }
-
-                    }
-                }
-
+                
                 Thread.Sleep(Convert.ToInt32(_configuration["CoWinAPI:SleepIntervalInMilliseconds"]));
             }
         }
 
         private void ConfigureSearchCriteria()
         {
+            /* Seaching with be either by PIN or District or Both; By Default by PIN.
+            * If Both are selected for searching, PIN will be given Preference Over District
+            */
+
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
             {
                 foreach (var item in _configuration.GetSection("Districts").GetChildren())
@@ -87,20 +94,23 @@ namespace CoWin.Models
                     districtsToSearch.Add(item.Value);
                 }
             }
-            else if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
+
+            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
             {
                 foreach (var item in _configuration.GetSection("PINCodes").GetChildren())
                 {
                     pinCodesToSearch.Add(item.Value);
                 }
             }
+
             if (!string.IsNullOrEmpty(_configuration["CoWinAPI:DateToSearch"]))
             {
                 searchDate = DateTime.Parse(_configuration["CoWinAPI:DateToSearch"]).ToString("dd-MM-yyyy");
             }
             else
             {
-                searchDate = DateTime.Now.ToString("dd-MM-yyyy");
+                // BY DEFAULT, When CoWinAPI:DateToSearch is Blank, Next Day is chosen as the default date to search for Vaccine
+                searchDate = DateTime.Now.AddDays(1).ToString("dd-MM-yyyy");
             }
             vaccineType = _configuration["CoWinAPI:VaccineType"];
         }

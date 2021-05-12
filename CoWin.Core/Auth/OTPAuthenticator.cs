@@ -83,7 +83,7 @@ namespace CoWin.Auth
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"[ERROR] OTP Error  - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
+                Console.WriteLine($"[ERROR] OTP Error - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
             }
         }
         private string ReadUserInput(string message)
