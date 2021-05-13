@@ -50,8 +50,7 @@ namespace CoWin.Auth
                 endpoint = _configuration["CoWinAPI:Auth:OTPValidatorUrl"];
                 var enteredOtp = ReadUserInput("Please Enter OTP: ");
 
-                if (!string.IsNullOrEmpty(enteredOtp))
-                    isOTPEntered = true;
+                isOTPEntered = true; // Always Close the Notified BEEP BEEP when going out, so that Notifier doesn't keep on beeping
 
                 otp = ComputeSha256Hash(enteredOtp);
                 requestBody = JsonConvert.SerializeObject(new OtpModel

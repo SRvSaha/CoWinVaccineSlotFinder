@@ -16,9 +16,15 @@ namespace CoWin.UI
         public Captcha()
         {
             InitializeComponent();
+            this.Shown += Captcha_Shown;
         }
 
-        private void captchaSubmit_Click(object sender, EventArgs e)
+        private void Captcha_Shown(object sender, EventArgs e)
+        {
+            this.Activate(); // To Resolve the Issue of Diaglog not being Activated whenever there is a Console.ReadLine before it
+        }
+
+        private void CaptchaSubmit_Click(object sender, EventArgs e)
         {
             captchaValue = captchaInputFromUser.Text;
             if (!string.IsNullOrEmpty(captchaValue))
@@ -36,8 +42,8 @@ namespace CoWin.UI
             
             captchaDisplayer.Image = image;
             ShowDialog();
+            isNotifierToBeStopped = true; // Always Close the Notified BEEP BEEP when going out, so that Notifies doesn't keep on beeping
 
-            isNotifierToBeStopped = true; // Always Close the Notified BEEP BEEP when going out, so it doesn't create issue
             return captchaValue;
         }
 

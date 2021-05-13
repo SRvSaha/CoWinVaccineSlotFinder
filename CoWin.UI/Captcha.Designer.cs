@@ -66,7 +66,7 @@
             this.captchaSubmit.TabIndex = 2;
             this.captchaSubmit.Text = "Submit";
             this.captchaSubmit.UseVisualStyleBackColor = true;
-            this.captchaSubmit.Click += new System.EventHandler(this.captchaSubmit_Click);
+            this.captchaSubmit.Click += new System.EventHandler(this.CaptchaSubmit_Click);
             // 
             // Captcha
             // 
