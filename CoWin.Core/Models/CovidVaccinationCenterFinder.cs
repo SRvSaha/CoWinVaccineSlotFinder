@@ -90,7 +90,7 @@ namespace CoWin.Models
 
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
             {
-                foreach (var item in _configuration.GetSection("Districts").GetChildren())
+                foreach (var item in _configuration.GetSection("CoWinAPI:Districts").GetChildren())
                 {
                     districtsToSearch.Add(item.Value);
                 }
@@ -98,7 +98,7 @@ namespace CoWin.Models
 
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
             {
-                foreach (var item in _configuration.GetSection("PINCodes").GetChildren())
+                foreach (var item in _configuration.GetSection("CoWinAPI:PINCodes").GetChildren())
                 {
                     pinCodesToSearch.Add(item.Value);
                 }

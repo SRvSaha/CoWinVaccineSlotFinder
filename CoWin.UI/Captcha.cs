@@ -45,8 +45,8 @@ namespace CoWin.UI
         {
             while (!isNotifierToBeStopped)
             {
-                Thread.Sleep(500);
-                Console.Beep();
+                Thread.Sleep(300);
+                Console.Beep(); // Default Frequency: 800 Hz, Default Duration of Beep: 200 ms
             }
         }
     }

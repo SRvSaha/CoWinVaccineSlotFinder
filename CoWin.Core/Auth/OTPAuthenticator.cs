@@ -119,7 +119,7 @@ namespace CoWin.Auth
         {
             while(!isOTPEntered)
             {
-                Thread.Sleep(500);
+                Thread.Sleep(900);
                 Console.Beep(500, 200);
                 Console.Beep(1000, 300);
                 Console.Beep(2000, 400);
