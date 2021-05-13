@@ -225,9 +225,10 @@ Be default, this is how the appsettings.json would look like this:
     "MinAgeLimit": 18,
     "MaxAgeLimit": 45,
     "MinimumVaccineAvailability": 1,
-    "VaccineType": "COVISHIELD",
+    "VaccineType": "", // Blank Implies Any VaccineType: COVISHIELD OR COVAXIN; Default is Both
     "DoseType": 1,
-    "VaccineFeeType": "Free",
+    "VaccineFeeType": "Free", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free
+    "VaccinationCentreName": "", // Blank implies All Vaccination Centres in the District/PINCodes, which is default
     "IsSearchToBeDoneByPINCode": true,
     "PINCodes": {
       "Andheri": 400058,
@@ -245,6 +246,7 @@ Be default, this is how the appsettings.json would look like this:
     "Address": ""
   }
 }
+
 ```
 As simple as that!
 
