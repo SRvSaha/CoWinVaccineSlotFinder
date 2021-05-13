@@ -8,11 +8,19 @@ FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin
 
 ### Glimpse of the Application:
 
-*Application Start*:
+*Application With Bare Miminum Configuration Changes*
+
+![Application_Default](data/ApplicationWithConfig.png)
+
+*Application Start - OTP Generation*:
 
 ![Application Start](data/ApplicationStart.png)
  
-*Application Slot Booking*
+*Application OTP Retrigger In Case OTP is not received within time. Press `Enter` to Retrigger OTP*
+
+![Application Start](data/RetriggerOTPScenario.png)
+
+*Application Slot Booking - Captcha Input*
  
 ![Application Sample](data/Application.jpg)
  
@@ -30,7 +38,7 @@ FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin
 
 *Application Session Regeneration on TimeOut* 
 
-![Application Sample](data/SessionRegenaration.png)
+![Application Sample](data/SessionRegenerate_After15Minutes.jpg)
 
 #### PRO TIP
 
