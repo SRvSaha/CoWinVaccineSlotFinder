@@ -169,7 +169,6 @@ Modification can be done and file to be saved again with the same name and File 
 "IsSearchToBeDoneByDistrict": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected
 "IsSearchToBeDoneByPINCode": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. 
 "DateToSearch": "<REPLACE_ME>",  // Use date in DD-MM-YYYY Format in the <REPLACE_ME> section, Blank implies date of next day (i.e, tomorrow), by default "" is selected to search for Next Day
-"IsToBeUsed": "<REPLACE_ME>", // Use true or false
 "Districts": 
  {
     // "DistrictName": DistrictCode
@@ -205,27 +204,27 @@ Be default, this is how the appsettings.json would look like this:
       "Secret": "U2FsdGVkX18vDwDor+oOIG7vSUnINtlc/pxQcNiBulCm8LT5Sza+aIISKLqImbpMnRYgsN2QACPhggLWgZEpQg==",
       "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO"
     },
+    "SleepIntervalInMilliseconds": 2000,
+    "TotalIterations": 10000,
+    "SpoofedUserAgentToBypassWAF": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+    "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
     "MinAgeLimit": 18,
     "MaxAgeLimit": 45,
     "MinimumVaccineAvailability": 1,
     "VaccineType": "COVISHIELD",
     "DoseType": 1,
     "VaccineFeeType": "Free",
-    "SleepIntervalInMilliseconds": 2000,
-    "TotalIterations": 10000,
-    "SpoofedUserAgentToBypassWAF": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
-    "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
-    "IsSearchToBeDoneByDistrict": true,
     "IsSearchToBeDoneByPINCode": true,
-    "DateToSearch": "" // Use date in DD-MM-YYYY Format, Blank implies tomorrow's date
-  },
-  "Districts": {
-    "Mumbai": 395,
-    "Thane": 392
-  },
-  "PINCodes": {
-    "Andheri": 400058,
-    "BKC": 400051
+    "PINCodes": {
+      "Andheri": 400058,
+      "Bhandara": 441906
+    },
+    "IsSearchToBeDoneByDistrict": false,
+    "Districts": {
+      "Mumbai": 395,
+      "Thane": 392
+    },
+    "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day
   },
   "Proxy": {
     "IsToBeUsed": "false",
