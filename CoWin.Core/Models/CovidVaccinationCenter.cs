@@ -7,14 +7,16 @@ using System.Net;
 using CoWin.Providers;
 using CoWin.Auth;
 using Newtonsoft.Json;
-using System.Configuration;
+using System.Web;
+using System.Collections.Specialized;
 
 namespace CoWiN.Models
 {
     public class CovidVaccinationCenter
     {
         private readonly IConfiguration _configuration;
-        public static bool IS_BOOKING_SUCCESSFUL = false;
+        public static bool IS_BOOKING_SUCCESSFUL = false;        
+
         public CovidVaccinationCenter(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -66,15 +68,28 @@ namespace CoWiN.Models
 
         private IRestResponse FetchAllSlotsForDistict(string districtId, string searchDate, string vaccineType)
         {
-            string endpoint;
+            UriBuilder builder;
+            NameValueCollection queryString;
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
             {
-                endpoint = _configuration["CoWinAPI:ProtectedAPI:FetchCalenderByDistrictUrl"] + $"?district_id={districtId}&date={searchDate}&vaccine={vaccineType}";
+                builder = new UriBuilder(_configuration["CoWinAPI:ProtectedAPI:FetchCalenderByDistrictUrl"]);
+                queryString = HttpUtility.ParseQueryString(builder.Query);
+
+                if (!string.IsNullOrEmpty(vaccineType)){
+                    queryString["vaccine"] = vaccineType;
+                }
             }
             else
             {
-                endpoint = _configuration["CoWinAPI:PublicAPI:FetchCalenderByDistrictUrl"] + $"?district_id={districtId}&date={searchDate}";
+                builder = new UriBuilder(_configuration["CoWinAPI:PublicAPI:FetchCalenderByDistrictUrl"]);
+                queryString = HttpUtility.ParseQueryString(builder.Query);
             }
+
+            queryString["district_id"] = districtId;
+            queryString["date"] = searchDate;
+            builder.Query = queryString.ToString();
+
+            string endpoint = builder.ToString();
 
             IRestResponse response = new APIFacade(_configuration).Get(endpoint);
 
@@ -83,15 +98,29 @@ namespace CoWiN.Models
 
         private IRestResponse FetchAllSlotsForPINCode(string pinCode, string searchDate, string vaccineType)
         {
-            string endpoint;
+            UriBuilder builder;
+            NameValueCollection queryString;
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
             {
-                endpoint = _configuration["CoWinAPI:ProtectedAPI:FetchCalenderByPINUrl"] + $"?pincode={pinCode}&date={searchDate}&vaccine={vaccineType}";
+                builder = new UriBuilder(_configuration["CoWinAPI:ProtectedAPI:FetchCalenderByPINUrl"]);
+                queryString = HttpUtility.ParseQueryString(builder.Query);
+
+                if (!string.IsNullOrEmpty(vaccineType))
+                {
+                    queryString["vaccine"] = vaccineType;
+                }
             }
             else
             {
-                endpoint = _configuration["CoWinAPI:PublicAPI:FetchCalenderByPINUrl"] + $"?pincode={pinCode}&date={searchDate}";
+                builder = new UriBuilder(_configuration["CoWinAPI:PublicAPI:FetchCalenderByPINUrl"]);
+                queryString = HttpUtility.ParseQueryString(builder.Query);
             }
+
+            queryString["pincode"] = pinCode;
+            queryString["date"] = searchDate;
+            builder.Query = queryString.ToString();
+
+            string endpoint = builder.ToString();
 
             IRestResponse response = new APIFacade(_configuration).Get(endpoint);
 
@@ -105,11 +134,7 @@ namespace CoWiN.Models
             {
                 foreach (var session in cvc?.Sessions)
                 {
-                    if (session.MinAgeLimit >= Convert.ToInt16(_configuration["CoWinAPI:MinAgeLimit"]) && 
-                        session.MinAgeLimit < Convert.ToInt16(_configuration["CoWinAPI:MaxAgeLimit"]) && 
-                        session.AvailableCapacity >= Convert.ToInt16(_configuration["CoWinAPI:MinimumVaccineAvailability"]) &&
-                        session.Vaccine == _configuration["CoWinAPI:VaccineType"] &&
-                        cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"] )
+                    if (IsFiltrationCriteraSatisfied(cvc, session))
                     {
                         DisplaySlotInfo(cvc, session);
 
@@ -130,10 +155,29 @@ namespace CoWiN.Models
                             }
 
                         }
-                        
+
                     }
                 }
             }
+        }
+
+        private bool IsFiltrationCriteraSatisfied(Center cvc, Session session)
+        {
+            var minimumAgeLimitFilter = (session.MinAgeLimit >= Convert.ToInt16(_configuration["CoWinAPI:MinAgeLimit"]));
+            var maximumAgeLimitFilter = (session.MinAgeLimit < Convert.ToInt16(_configuration["CoWinAPI:MaxAgeLimit"]));
+            var minimumVaccineAvailabiltyFilter = session.AvailableCapacity >= Convert.ToInt16(_configuration["CoWinAPI:MinimumVaccineAvailability"]);
+            
+            var mandatoryFilters = minimumAgeLimitFilter && maximumAgeLimitFilter && minimumVaccineAvailabiltyFilter;
+
+            // Filter Based on VaccineFeeType only when fee type is provided; otherwise don't filter. Keep both Paid and Free Slots
+            var vaccineFeeTypeFilter = string.IsNullOrEmpty(_configuration["CoWinAPI:VaccineFeeType"]) || (cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"]);
+
+            // Filter Based on VaccinationCentreName when there are multiple CVCs in one PIN/District but user wants slot in a specific CVC
+            var vaccinationCentreNameWiseFilter = string.IsNullOrEmpty(_configuration["CoWinAPI:VaccinationCentreName"]) || (cvc.Name == _configuration["CoWinAPI:VaccinationCentreName"]);          
+            
+            var optionalFilters = vaccineFeeTypeFilter && vaccinationCentreNameWiseFilter;
+        
+            return mandatoryFilters && optionalFilters;
         }
 
         private static void DisplaySlotInfo(Center cvc, Session session)
