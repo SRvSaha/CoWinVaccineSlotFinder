@@ -4,7 +4,6 @@ Console app to fetch the available slots & book the appointment schedule for COV
 
 ![Application Banner](data/Banner.png) 
 
-
 FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
 ### Glimpse of the Application:
@@ -35,9 +34,11 @@ FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin
 
 #### PRO TIP
 
-> *When the Captcha pops up in the process of booking, you can start typing it immediately as the app would remain ready to accept your input. Once captcha is entered, press Tab to go to the Submit Button and then press Enter to submit. This way, it is faster than operating via Mouse, as every second matters!*
+> *When the Captcha pops up in the process of booking, first time you need to use your mouse to click on the Popup, then you can start typing it immediately as the app would remain ready to accept your input. Once captcha is entered, then press Enter to submit. This way, it is faster than operating via Mouse, as every second matters! In case, you are unable to get your booking successful in first try, when subsequent captch pops up, you will NOT need to use your mouse and click on Popup, you can right away start trying the captcha characters and press Enter! Boom, it'll work*
 
-Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot (after hiding personal information) as a New Pull Request in the /data/ folder in case you could successfully book through the App. Also share your feedback through issues or just comment/share/like in the associated [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/). That'll be used as References/Testimonials in the Application and will increase the credibility of the App
+Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot (after hiding personal information) as a New Pull Request in the /data/ folder in case you could successfully book through the App. Also share your feedback through issues or just comment/share/like in the associated [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/). That'll be used as References/Testimonials in the Application and will increase the credibility of the App.
+
+<a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 ### DISCLAIMER
 
@@ -46,16 +47,24 @@ Enjoy and feel free to Star the Repo, if it could help you in any way! Also, fee
 - This CANNOT book slots automatically. It doesn't skip any of the steps that a normal user would have to take on the official portal. You will still have to enter the OTP and Captcha. This just helps to do it from Console rather than through Official WebApps/Apps.
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
 - When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Vaccine, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
+- While selecting beneficiaries, make sure that selected beneficiaries are all taking the same dose: either first OR second.
+  Please do no try to club together booking for first dose for one beneficiary and second dose for another beneficiary.
+- While selecting beneficiaries, also make sure that beneficiaries selected for second dose are all taking the same vaccine: COVISHIELD OR COVAXIN.
+  Please do no try to club together booking for beneficiary taking COVISHIELD with beneficiary taking COVAXIN.
+- If you're selecting multiple beneficiaries, make sure all are of the same age group (45+ or 18+) as defined by the govt.
+  Please do not try to club together booking for younger and older beneficiaries.
 - AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s). In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
+- If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://selfregistration.cowin.gov.in/) and cancel or re-schedule the booking.
 
 ## Application Features
 
 Following are some of the main features of the App:
 
 - [x] OTP Generation/Validation
-- [x] Search by Either PINCode or District
+- [x] Search by Either PINCode or District or Both PINCode and District with preference to PINCode for better Searching
 - [x] Auto Retry To Fetch Slots Every 2 Seconds
 - [x] BEEP BEEP User Notifier On Slot Availability To Book the Available Slot
+- [x] OTP Notifier for New Session & On Timeout
 - [x] Captcha Popup Entry for Booking Slot
 - [x] Booking for Multiple Beneficiaries linked to a Registered Mobile Number 
 - [x] OTP Regeneration/Validation on Timeout/Session Expiry 
@@ -65,7 +74,8 @@ Following are some of the main features of the App:
 - [ ] Integration of Notification Engine with Telegram Bot
 - [ ] Integration of Notification Engine with Mail Service
 - [ ] Integration of Notification Engine with Mobile Push notification example by using IFTTT Service 
-- [ ] Telemerry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
+- [ ] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
+- [ ] Debug Mode to be Developed to trace any bug/issue reported in User's Machine while running the Application
  
 ## Technical Details
 
@@ -79,7 +89,7 @@ In General, to run the application, the following things are needed:
 - *FOR DEVELOPERS TO BUILD/MODIFY* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
 
 
-Currently, searching using the the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
+Currently, searching using the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
  
 We have got endpoints of both the Public and Protected APIs from APISetu, but a general observation was the Public APIs return stale data as caching is done for around 30 minutes and there is API throttling of 100 requests/5 minutes from 1 IP Address.
@@ -102,10 +112,10 @@ If you have Visual Studio installed, go ahead an Clone the Repository, Open the 
 
 Well, want to dig deeper?
 
-So basically, you've this Project Named CoWin.Core which contains appsettings.json which performs most of the magic.
-CoWin.UI is just a small project for handling the Captcha.
+So basically, you've this Project Named `CoWin.Core` which contains `appsettings.json` which performs most of the magic.
+`CoWin.UI` is just a small project for handling the Captcha.
 
-Rest of the Business Logic are there inside the Models directory.
+Rest of the Business Logic are there inside the  `/Models` directory.
 
 `Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!`
 
@@ -131,8 +141,8 @@ Modification can be done and file to be saved again with the same name and File 
 3. Validate the OTP
 4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json. If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
 ![BeneficiaryID](data/BeneficiaryDetails.jpg)
-6. Also, Once all these details are fetched, put them in the appsettings.json. 
-7. Run the Application CoWin.Core.EXE, that's it.
+5. Also, Once all these details are fetched, put them in the appsettings.json. 
+6. Run the Application CoWin.Core.EXE, that's it.
 
 **_The values of the following items MUST to be modified in appsettings.json_**
 ``` javascript
@@ -147,7 +157,7 @@ Modification can be done and file to be saved again with the same name and File 
 // You can use anything in PlaceName, PINCode is to be the PIN you wish to search for, as of now things are done for Mumbai and nearby areas. 
 // If you want to search say for a particular PIN Code of Mumbai let's say 400008 then the entry would look like this : "PINCodes": { "Mumbai": 400008 }.
 // Basically, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 400008.
-//In case you want to search for multiple PIN Codes say 400008 and 400007, it would look something like this "PINCodes": { "Mumbai-1st": 400008, "Mumbai-2nd" : 400007}
+// In case you want to search for multiple PIN Codes say 400008 and 400007, it would look something like this "PINCodes": { "Mumbai-1st": 400008, "Mumbai-2nd" : 400007}
 
 ```
 
@@ -158,14 +168,13 @@ Modification can be done and file to be saved again with the same name and File 
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid type of Vaccine in the <REPLACE_ME> section, by default Free is selected
 "IsSearchToBeDoneByDistrict": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected
 "IsSearchToBeDoneByPINCode": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. 
-"DateToSearch": "<REPLACE_ME>",  // Use date in DD-MM-YYYY Format in the <REPLACE_ME> section, Blank implies current date, by default "" is selected to search for Current Date
+"DateToSearch": "<REPLACE_ME>",  // Use date in DD-MM-YYYY Format in the <REPLACE_ME> section, Blank implies date of next day (i.e, tomorrow), by default "" is selected to search for Next Day
 "IsToBeUsed": "<REPLACE_ME>", // Use true or false
-"BearerToken": "<REPLACE_ME>" // You'll get the token from Step 4, Use it in the <REPLACE_ME> section
 "Districts": 
  {
     // "DistrictName": DistrictCode
     "<REPLACE_ME_KEY>" : "<REPLACE_ME_VALUE>" 
- } // You'll get the District Name and District Codes from the following APIs, as of now things are done for Mumbai and nearby districts. Example, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 395. Keep adding more, if you need for more districts.
+ } // You'll get the District Name and District Codes CoWIN's websit, as of now things are done for Mumbai and nearby districts. Example, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 395. Keep adding more, if you need for more districts.
  "Proxy": 
  {
     "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, False if you not, in the <REPLACE_ME> section, by default false would be selected
@@ -206,9 +215,9 @@ Be default, this is how the appsettings.json would look like this:
     "TotalIterations": 10000,
     "SpoofedUserAgentToBypassWAF": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
     "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
-    "IsSearchToBeDoneByDistrict": false,
+    "IsSearchToBeDoneByDistrict": true,
     "IsSearchToBeDoneByPINCode": true,
-    "DateToSearch": "REPLACE_WITH_DATE_TO_SEARCH_VACCINATION_SLOT" // DD-MM-YYYY Format, Blank implies current date
+    "DateToSearch": "" // Use date in DD-MM-YYYY Format, Blank implies tomorrow's date
   },
   "Districts": {
     "Mumbai": 395,
