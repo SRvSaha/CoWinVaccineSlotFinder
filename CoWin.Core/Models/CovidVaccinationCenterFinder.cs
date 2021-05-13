@@ -11,9 +11,9 @@ namespace CoWin.Models
 {
     public class CovidVaccinationCenterFinder
     {
-        private IConfiguration _configuration;
-        private List<string> districtsToSearch = new List<string>();
-        private List<string> pinCodesToSearch = new List<string>();
+        private readonly IConfiguration _configuration;
+        private readonly List<string> districtsToSearch = new List<string>();
+        private readonly List<string> pinCodesToSearch = new List<string>();
         private string searchDate;
         private string vaccineType;
         

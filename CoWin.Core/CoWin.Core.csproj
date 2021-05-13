@@ -4,10 +4,33 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon>logo.ico</ApplicationIcon>
+    <PackageIcon>Banner.png</PackageIcon>
+    <RepositoryType>Github Public Repository</RepositoryType>
+    <RepositoryUrl>https://github.com/SRvSaha/CoWinVaccineSlotFinder</RepositoryUrl>
+    <Company>Open Source</Company>
+    <Product>Vaccine Slot Finder</Product>
+    <Description>Windows Application to Fetch the Available Slots &amp; Booking the Appointment Schedule for COVID-19 Vaccination using the Publicly available APISetu APIs from Govt Of India</Description>
+    <Authors>SRvSaha, PSuyog97, priyanka1111, Ipshita2207</Authors>
+    <Copyright>Saurav Saha</Copyright>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>3.0.0</Version>
+    <PackageProjectUrl>https://srvsaha.github.io/CoWinVaccineSlotFinder/</PackageProjectUrl>
+    <NeutralLanguage></NeutralLanguage>
+    <PackageId>VaccineSlotFinder</PackageId>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Include="..\data\Banner.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

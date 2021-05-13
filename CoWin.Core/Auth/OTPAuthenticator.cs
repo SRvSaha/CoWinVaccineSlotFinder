@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
-using CoWiN.Models;
 using Microsoft.Extensions.Configuration;
-using System.IO;
 using System.Threading;
 using Newtonsoft.Json;
 using CoWin.Models;
@@ -61,7 +58,7 @@ namespace CoWin.Auth
                 response = ValidateOTP(endpoint, requestBody);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    Console.WriteLine($"[INFO] User Validated with Mobile No {_configuration["CoWinAPI:Auth:Mobile"]}");
+                    Console.WriteLine($"[INFO] User Validated with Mobile No {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now}");
                     BEARER_TOKEN = JsonConvert.DeserializeObject<OtpModel>(response.Content).BearerToken;
                 }
                 else
