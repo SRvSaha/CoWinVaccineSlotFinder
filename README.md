@@ -40,6 +40,10 @@ FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin
 
 ![Application Sample](data/SessionRegenerate_After15Minutes.jpg)
 
+*Application OTP Validity Expired (`Expiry Time 3 Minutes from Generation`) when user enter the OTP for validation*
+
+![Application Sample](data/OTPValidityExpired.png)
+
 #### PRO TIP
 
 > *When the Captcha pops up in the process of booking, first time you need to use your mouse to click on the Popup, then you can start typing it immediately as the app would remain ready to accept your input. Once captcha is entered, then press Enter to submit. This way, it is faster than operating via Mouse, as every second matters! In case, you are unable to get your booking successful in first try, when subsequent captch pops up, you will NOT need to use your mouse and click on Popup, you can right away start trying the captcha characters and press Enter! Boom, it'll work*
