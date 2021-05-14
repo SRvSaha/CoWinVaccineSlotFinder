@@ -187,13 +187,14 @@ Modification can be done and file to be saved again with the same name and File 
  {
     // "DistrictName": DistrictCode
     "<REPLACE_ME_KEY>" : "<REPLACE_ME_VALUE>" 
- } // You'll get the District Name and District Codes from CoWIN's website, as of now things are done for Mumbai and nearby districts. Example, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 395. Keep adding more, if you need for more districts.
+ } // You'll get the District Name and District Codes from the link below this block, as of now things are done for Mumbai and nearby districts. Example, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 395. Keep adding more, if you need for more districts.
  "Proxy": 
  {
     "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, False if you not, in the <REPLACE_ME> section, by default false would be selected
     "Address": "<REPLACE_ME>" // Use the THE PROXY ADDRESS IF YOU ARE BEHIND PROXY SERVER (usually in Office/Corporate Network) in the <REPLACE_ME> Section, by default this will be blank
   }
 ```
+[District Codes](data/resources/State_District_DistrictCode_Mapping.json)
 
 Be default, this is how the appsettings.json would look like this:
 ``` javascript
