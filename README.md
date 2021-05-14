@@ -8,7 +8,7 @@ A Console Application to fetch the available slots & book the appointment schedu
 
 FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
-> __*Download Latest Version of the Software by clicking*__ [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest)
+> __*Download Latest Version of the Software by clicking*__ [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) and __*kindly follow the steps mentioned in*__ [How To Use Section](#for-folks-who-just-want-to-get-shit-done)
 
 ## Glimpse of the Application:
 
@@ -125,32 +125,20 @@ Rest of the stuff are self-explanatory.
 
 ## How to Use:
 
-### For Developers or Curious Minds:
-
-If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Ctrl + F5 and Boom!
-
-Well, want to dig deeper?
-
-So basically, you've this Project Named `CoWin.Core` which contains `appsettings.json` which performs most of the magic.
-`CoWin.UI` is just a small project for handling the Captcha.
-
-Rest of the Business Logic are there inside the  `/Models` directory.
-
-`Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!`
-
-I know, I know, it's unacceptable, but folks, it's all about quick Time to Market first and then doing one thing at a time, to improve the product. 
-
-I'll be more than happy to have PRs with modifications.
-
 ### For Folks who just want to get shit done
 
-Go to the Releases Section of the Application, download the ZIP file of the latest release for your Operating System, extract it, Modify the settings inside appsettings.json, Run the Executable (EXE in case of Windows, application will be named as CoWin.Core ).
-
-![Application Release](data/ReleaseStructure.jpg)
+- Go to the Releases Section of the Application
+- Download the ZIP file of the Latest release for your Operating System
+- Extract the Release, you'll find two file like this:
+  
+ ![Application Release](data/ReleaseStructure.jpg)
+ 
+- Modify the settings inside appsettings.json
+- Double Click `CoWin.Core.exe` to RUN the Application.
 
 ### How to Open appsettings.json
 
-In layman terms, it is just like any other txt file which can be opened in any text editor like Notepad, Wordpad, VS Code, Sublime Text, Notepad++ etc.
+In layman terms, it is just like any other text file which can be opened in any text editor like Notepad, Wordpad, VS Code, Sublime Text, Notepad++ etc.
 Modification can be done and file to be saved again with the same name and File Types as "All Files"
 
 ### How to Get User Specific Information for appsettings.json
@@ -159,7 +147,9 @@ Modification can be done and file to be saved again with the same name and File 
 2. Generate OTP for your registered mobile number. You need to provide this mobile number in the appsettings.json file.
 3. Validate the OTP
 4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json. If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
+
 ![BeneficiaryID](data/BeneficiaryDetails.jpg)
+
 5. Also, Once all these details are fetched, put them in the appsettings.json. 
 6. Run the Application CoWin.Core.EXE, that's it.
 
@@ -259,9 +249,27 @@ Be default, this is how the appsettings.json would look like this:
 }
 
 ```
+
 As simple as that!
 
 Enjoy and feel free to Star the Repo, if it could help you in any way!
+
+### For Developers or Curious Minds:
+
+If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Ctrl + F5 and Boom!
+
+Well, want to dig deeper?
+
+So basically, you've this Project Named `CoWin.Core` which contains `appsettings.json` which performs most of the magic.
+`CoWin.UI` is just a small project for handling the Captcha.
+
+Rest of the Business Logic are there inside the  `/Models` directory.
+
+`Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!`
+
+I know, I know, it's unacceptable, but folks, it's all about quick Time to Market first and then doing one thing at a time, to improve the product. 
+
+I'll be more than happy to have PRs with modifications.
 
 If you'd like to do it the hard way, clone it, build it and run it. Make sure you've the dependencies required to run the Application as mentioned in [Technical Details Section](#technical-details)
 
