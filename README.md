@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/2f71adda3569758bbb11dc15977aed9e1c069f57/data/Banner.png" alt="CoWIN Vaccine Slot Finder Logo" />
+  <img src="https://raw.githubusercontent.com/SRvSaha/CoWinVaccineSlotFinder/master/data/Banner.png" alt="CoWIN Vaccine Slot Finder Logo" />
 </p>
 
 # A Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
