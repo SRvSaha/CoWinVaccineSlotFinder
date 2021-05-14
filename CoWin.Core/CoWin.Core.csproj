@@ -10,7 +10,7 @@
     <Company>Open Source</Company>
     <Product>Vaccine Slot Finder</Product>
     <Description>Windows Application to Fetch the Available Slots &amp; Booking the Appointment Schedule for COVID-19 Vaccination using the Publicly available APISetu APIs from Govt Of India</Description>
-    <Authors>SRvSaha, PSuyog97, priyanka1111, Ipshita2207</Authors>
+    <Authors>SRvSaha, PSuyog97, priyanka1111</Authors>
     <Copyright>Saurav Saha</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -19,6 +19,11 @@
     <NeutralLanguage></NeutralLanguage>
     <PackageId>VaccineSlotFinder</PackageId>
     <SignAssembly>true</SignAssembly>
+    <PackageReleaseNotes>- Fixed Issue with Captcha Popup Focus; Now whenever Captcha is popped up, focus in on Captcha Form's TextBox, User can right away type the Captch and Press Enter to Submit
+- Added Feature of Searching Slot for Specific Vaccination Center by Name within a PINCode/District
+- Added Feature of Searching for any type of Vacccine or Both; By Defaut Searching will be on Any Type of Vaccine
+- Added Feature of Searching for VaccinationFee Type; By Default Free Vaccination Centres are search; Can be search for Free/Paid/Both
+- Fixed minor bugs; improved UX</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
