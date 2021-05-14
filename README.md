@@ -8,6 +8,8 @@ A Console Application to fetch the available slots & book the appointment schedu
 
 FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
+:loudspeaker: Download Latest Version on :computer: by clicking [here :inbox_tray: ](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest)
+
 ## Glimpse of the Application:
 
 *Application With Bare Miminum Configuration Changes*
