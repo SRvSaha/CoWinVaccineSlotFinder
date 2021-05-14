@@ -102,9 +102,10 @@ It's a simple Cross-Platform Console Application being developed using .NET Core
 *_Currently, application is bundled as Single Executable EXE with Runtime included. However, it will only work on Windows Machines now_*
 
 In General, to run the application, the following things are needed:
-- Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported
-- [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime)
-- *FOR DEVELOPERS TO BUILD/MODIFY* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required
+- Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
+
+> [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundles in the Release so no other external depencies to run the Application.
+  _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations
 
 
 Currently, searching using the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
