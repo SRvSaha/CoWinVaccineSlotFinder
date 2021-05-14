@@ -194,7 +194,7 @@ Modification can be done and file to be saved again with the same name and File 
 }
 ```
 
-*You can get the District Name and District Code Mapping from [State-District-DistrictCode Mapping](data/resources/State_District_DistrictCode_Mapping.json). Just copy the values of the DistictName : DistrictCode from this file and paste it in the `appsettings.json` file's {"Districts"}*
+*You can get the District Name and District Code Mapping from [State-District-DistrictCode Mapping](data/resources/State_District_DistrictCode_Mapping.json). Just copy the values of the DistictName : DistrictCode from the file and paste it in the `appsettings.json` file's {"Districts"}*
 
 Be default, this is how the appsettings.json would look like this:
 ``` javascript
