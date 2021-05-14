@@ -1,12 +1,14 @@
-# Vaccine Slot Finder
+<p align="center">
+  <img src="https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/2f71adda3569758bbb11dc15977aed9e1c069f57/data/Banner.png" alt="CoWIN Vaccine Slot Finder Logo" />
+</p>
 
-Console app to fetch the available slots & book the appointment schedule for COVID-19 Vaccination using the publicly available [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
+# A Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-![Application Banner](data/Banner.png) 
+A Console Application to fetch the available slots & book the appointment schedule for COVID-19 Vaccination using the publicly available [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
 
 FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
-### Glimpse of the Application:
+## Glimpse of the Application:
 
 *Application With Bare Miminum Configuration Changes*
 
