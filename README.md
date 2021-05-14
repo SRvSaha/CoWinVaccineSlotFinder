@@ -194,7 +194,7 @@ Modification can be done and file to be saved again with the same name and File 
     "Address": "<REPLACE_ME>" // Use the THE PROXY ADDRESS IF YOU ARE BEHIND PROXY SERVER (usually in Office/Corporate Network) in the <REPLACE_ME> Section, by default this will be blank
   }
 ```
-[District Codes](data/DistrictCodes.json)
+[District Codes](data/resources/DistrictCodes.json)
 
 Be default, this is how the appsettings.json would look like this:
 ``` javascript
