@@ -88,12 +88,12 @@ Following are some of the main features of the App:
 - [x] OTP Regeneration/Validation on Timeout/Session Expiry 
 - [x] Zero Setup Application, Just Download and Run! Easy to Use!
 - [x] No specialized Software required for modification of Config file
-- [ ] Allow Any Vaccine Type and Any Fee Type for Booking Slots; Remove Mandatory Filters on VaccineType and FeeType
-- [ ] Integration of Notification Engine with Telegram Bot
-- [ ] Integration of Notification Engine with Mail Service
-- [ ] Integration of Notification Engine with Mobile Push notification example by using IFTTT Service 
+- [x] Allow Any Vaccine Type and Any Fee Type for Booking Slots; Remove Mandatory Filters on VaccineType and FeeType
 - [ ] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
 - [ ] Debug Mode to be Developed to trace any bug/issue reported in User's Machine while running the Application
+- [ ] Integration of Notification Engine with Telegram Bot/Mail Service/Webhook Endpoint
+- [ ] Addition of Automated Tests, CI/CD Pipeline
+- [ ] Application Lastest Version Check Automatically before proceeding
  
 ## Technical Details
 
