@@ -154,7 +154,7 @@ Modification can be done and file to be saved again with the same name and File 
 5. Also, Once all these details are fetched, put them in the `appsettings.json`. 
 6. Run the Application CoWin.Core.EXE, that's it.
 
-## Confuguration Changes
+## Configuration Changes
 
 ### _**The values of the following items MUST BE MODIFIED in `appsettings.json`**_
 
