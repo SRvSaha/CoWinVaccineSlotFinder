@@ -10,7 +10,7 @@ FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin
 
 > _**Download Latest Version of the Software by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
-> **NOTE:** _**Please make sure [these changes](https://github.com/SRvSaha/CoWinVaccineSlotFinder#configuration-changes) are done in [Config file `appsettings.json`](https://github.com/SRvSaha/CoWinVaccineSlotFinder#configuration-changes) before running the application**_
+> **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the application**_
 
 ## Glimpse of the Application:
 
@@ -154,7 +154,7 @@ Modification can be done and file to be saved again with the same name and File 
 5. Also, Once all these details are fetched, put them in the `appsettings.json`. 
 6. Run the Application CoWin.Core.EXE, that's it.
 
-## CONFIGURATION CHANGES
+## Confuguration Changes
 
 ### _**The values of the following items MUST BE MODIFIED in `appsettings.json`**_
 
