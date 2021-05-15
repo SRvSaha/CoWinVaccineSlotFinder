@@ -4,7 +4,7 @@
 
 # Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-A Console Application to fetch the available slots & book the appointment schedule for COVID-19 Vaccination using the publicly available [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
+A Console Application to fetch the available slots & book the appointment schedule for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
 
 FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
@@ -152,7 +152,7 @@ Modification can be done and file to be saved again with the same name and File 
 5. Also, Once all these details are fetched, put them in the appsettings.json. 
 6. Run the Application CoWin.Core.EXE, that's it.
 
-**_The values of the following items MUST to be modified in appsettings.json_**
+### **_The values of the following items MUST to be modified in appsettings.json_**
 ``` javascript
 "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO", 
 // Use your registered mobile number used for generation of OTP in Step 2 above.
