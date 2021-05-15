@@ -127,9 +127,9 @@ Rest of the stuff are self-explanatory.
 
 ### For Folks who just want to get shit done
 
-- Go to the Releases Section of the Application
+- Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) or from Releases Section
 - Download the ZIP file of the Latest release for your Operating System
-- Extract the Release, you'll find two file like this:
+- Extract the ZIP file, you'll find two file like this:
   
  ![Application Release](data/ReleaseStructure.jpg)
  
