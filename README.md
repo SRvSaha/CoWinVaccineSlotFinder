@@ -8,9 +8,9 @@ Windows Software to fetch the available slots & book the appointment schedule fo
 
 FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
-> __*Download Latest Version of the Software by clicking*__ [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) __* & kindly follow the steps mentioned in*__ [How To Use](#for-folks-who-just-want-to-get-shit-done). 
+> _**Download Latest Version of the Software by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
-> **NOTE:** __*Please make sure [these changes](https://github.com/SRvSaha/CoWinVaccineSlotFinder#the-values-of-the-following-items-must-to-be-modified-in-appsettingsjson) are done in [Config file `appsettings.json`](https://github.com/SRvSaha/CoWinVaccineSlotFinder#the-values-of-the-following-items-must-to-be-modified-in-appsettingsjson) before running the application*__
+> **NOTE:** _**Please make sure [these changes](https://github.com/SRvSaha/CoWinVaccineSlotFinder#configuration-changes) are done in [Config file `appsettings.json`](https://github.com/SRvSaha/CoWinVaccineSlotFinder#configuration-changes) before running the application**_
 
 ## Glimpse of the Application:
 
