@@ -10,7 +10,7 @@ FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin
 
 > __*Download Latest Version of the Software by clicking*__ [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) and __*kindly follow the steps mentioned in*__ [How To Use](#for-folks-who-just-want-to-get-shit-done). 
 
-> **NOTE** __*Please make sure [these changes](https://github.com/SRvSaha/CoWinVaccineSlotFinder#the-values-of-the-following-items-must-to-be-modified-in-appsettingsjson) are done in Config file `appsetting.json` before running the application*__
+> **NOTE:** __*Please make sure [these changes](https://github.com/SRvSaha/CoWinVaccineSlotFinder#the-values-of-the-following-items-must-to-be-modified-in-appsettingsjson) are done in [Config file `appsettings.json`](https://github.com/SRvSaha/CoWinVaccineSlotFinder#the-values-of-the-following-items-must-to-be-modified-in-appsettingsjson) before running the application*__
 
 ## Glimpse of the Application:
 
@@ -147,14 +147,14 @@ Modification can be done and file to be saved again with the same name and File 
 1. Go to `cowin.gov.in`
 2. Generate OTP for your registered mobile number. You need to provide this mobile number in the `appsettings.json` file.
 3. Validate the OTP
-4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json. If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
+4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your `appsettings.json`. If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
 
-![BeneficiaryID](data/BeneficiaryDetails.jpg)
+  ![BeneficiaryID](data/BeneficiaryDetails.jpg)
 
-5. Also, Once all these details are fetched, put them in the appsettings.json. 
+5. Also, Once all these details are fetched, put them in the `appsettings.json`. 
 6. Run the Application CoWin.Core.EXE, that's it.
 
-### **_The values of the following items MUST to be modified in appsettings.json_**
+## **_The values of the following items MUST BE MODIFIED in `appsettings.json_`**
 ``` javascript
 "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO", 
 // Use your registered mobile number used for generation of OTP in Step 2 above.
@@ -176,7 +176,7 @@ Modification can be done and file to be saved again with the same name and File 
 
 ```
 
-**_The values of the following items may be to be modified in appsettings.json_, default values are set**
+**_The values of the following items MAY BE MODIFIED in appsettings.json_, default values are set**
 ``` javascript
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD or "" in the <REPLACE_ME> section, by default "" is selected with means both
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
@@ -202,7 +202,7 @@ Modification can be done and file to be saved again with the same name and File 
 
 *You can get the District Name and District Code Mapping from [State-District-DistrictCode Mapping](data/resources/State_District_DistrictCode_Mapping.json). Just copy the values of the DistictName : DistrictCode from the file and paste it in the `appsettings.json` file's {"Districts"}*
 
-Be default, this is how the appsettings.json would look like this:
+Be default, this is how the `appsettings.json` would look like this:
 ``` javascript
 {
   "CoWinAPI": {
