@@ -93,14 +93,14 @@ Following are some of the main features of the App:
 - [ ] Debug Mode to be Developed to trace any bug/issue reported in User's Machine while running the Application
 - [ ] Verbose Mode to be Developed so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
 - [ ] Integration of Notification Engine with Telegram Bot/Mail Service/Webhook Endpoint
-- [ ] Addition of Automated Tests, CI/CD Pipeline
-- [ ] Application Lastest Version Check Automatically before proceeding
+- [ ] Addition of Automated Tests, CI/CD Pipeline, Auto increment of version
+- [ ] Application Latest Version Check Automatically before proceeding
  
 ## Technical Details
 
-It's a simple Cross-Platform Console Application being developed using .NET Core 3.1, WinForms and C#.
+It's a simple hybrid Console + WinForms Application being developed using .NET Core 3.1, WinForms and C#.
 
-*_Currently, application is bundled as Single Standalone Executable EXE with Runtime included and therefore no installations are needed to run the Application. However, it will only work on Windows Machines now due to dependency on WinForms for Captcha Popup_*
+*_Currently, application is bundled as a Single Standalone Executable EXE file with Runtime included and therefore no installations are needed to run the Application. However, it will only work on Windows Machines only, due to dependency on WinForms for Captcha Popup_*
 
 In General, to run the application, the following things are needed:
 - Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
