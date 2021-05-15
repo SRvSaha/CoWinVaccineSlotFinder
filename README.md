@@ -4,11 +4,11 @@
 
 # Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-A Console Application to fetch the available slots & book the appointment schedule for COVID-19 Vaccination using the publicly available [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
+Windows Software to fetch the available slots & book the appointment for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India.
 
-FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
+> _**Download Latest Version of the Software by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
-> __*Download Latest Version of the Software by clicking*__ [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) and __*kindly follow the steps mentioned in*__ [How To Use Section](#for-folks-who-just-want-to-get-shit-done)
+> **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
 ## Glimpse of the Application:
 
@@ -88,25 +88,25 @@ Following are some of the main features of the App:
 - [x] OTP Regeneration/Validation on Timeout/Session Expiry 
 - [x] Zero Setup Application, Just Download and Run! Easy to Use!
 - [x] No specialized Software required for modification of Config file
-- [ ] Allow Any Vaccine Type and Any Fee Type for Booking Slots; Remove Mandatory Filters on VaccineType and FeeType
-- [ ] Integration of Notification Engine with Telegram Bot
-- [ ] Integration of Notification Engine with Mail Service
-- [ ] Integration of Notification Engine with Mobile Push notification example by using IFTTT Service 
+- [x] Allow Any Vaccine Type and Any Fee Type for Booking Slots; Remove Mandatory Filters on VaccineType and FeeType
 - [ ] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
 - [ ] Debug Mode to be Developed to trace any bug/issue reported in User's Machine while running the Application
+- [ ] Verbose Mode to be Developed so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
+- [ ] Integration of Notification Engine with Telegram Bot/Mail Service/Webhook Endpoint
+- [ ] Addition of Automated Tests, CI/CD Pipeline, Auto increment of version
+- [ ] Application Latest Version Check Automatically before proceeding
  
 ## Technical Details
 
-It's a simple Cross-Platform Console Application being developed using .NET Core 3.1, WinForms and C#.
+It's a simple hybrid Console + WinForms Application being developed using .NET Core 3.1, WinForms and C#.
 
-*_Currently, application is bundled as Single Executable EXE with Runtime included. However, it will only work on Windows Machines now_*
+*_Currently, application is bundled as a Single Standalone Executable EXE file with Runtime included and therefore no installations are needed to run the Application. However, it will only work on Windows Machines only, due to dependency on WinForms for Captcha Popup_*
 
 In General, to run the application, the following things are needed:
 - Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
 
-> [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundles in the Release so no other external depencies to run the Application.
-  _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations
-
+> [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundled in the Release so no other external dependencies to run the Application.
+  _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations. Use of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) is recommended for the purpose of development. 
 
 Currently, searching using the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
@@ -127,9 +127,9 @@ Rest of the stuff are self-explanatory.
 
 ### For Folks who just want to get shit done
 
-- Go to the Releases Section of the Application
+- Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) or from Releases Section
 - Download the ZIP file of the Latest release for your Operating System
-- Extract the Release, you'll find two file like this:
+- Extract the ZIP file, you'll find two file like this:
   
  ![Application Release](data/ReleaseStructure.jpg)
  
@@ -146,17 +146,25 @@ Modification can be done and file to be saved again with the same name and File 
 1. Go to `cowin.gov.in`
 2. Generate OTP for your registered mobile number. You need to provide this mobile number in the `appsettings.json` file.
 3. Validate the OTP
-4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your appsettings.json. If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
+4. After you are logged in, you'll see a dashboard like this, get the highlighted number REF ID, which is your beneficary ID and would be required in your `appsettings.json`. If you have multiple members added in your registered mobile number, you will get multiple REF IDs. Use the REF IDs for which you want to do booking
 
-![BeneficiaryID](data/BeneficiaryDetails.jpg)
+  ![BeneficiaryID](data/BeneficiaryDetails.jpg)
 
-5. Also, Once all these details are fetched, put them in the appsettings.json. 
+5. Also, Once all these details are fetched, put them in the `appsettings.json`. 
 6. Run the Application CoWin.Core.EXE, that's it.
 
-**_The values of the following items MUST to be modified in appsettings.json_**
+## Configuration Changes
+
+### _**The values of the following items MUST BE MODIFIED in `appsettings.json`**_
+
 ``` javascript
-"Mobile": "<REPLACE_ME>", // Use your registered mobile number used for generation of OTP in Step 2 above, , Use it in the <REPLACE_ME> section
-"BeneficiaryIds": ["<REPLACE_ME_1>", "REPLACE_ME_2"] // You'll get the beneficiary ID from Step 4. If you have only 1 beneficiary ID then Use it in the <REPLACE_ME_1> section and remove rest eg. ["1111111111111111"]. If you have multiple beneficiaries for which you want to do booking, added them comma separated eg. ["11111111111111", "22222222222222", "33333333333333"]
+"Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO", 
+// Use your registered mobile number used for generation of OTP in Step 2 above.
+// Use it in the REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO section. Suppose your Mobile Number is 8888333388 then it'll be like "Mobile" : "8888333388" 
+"BeneficiaryIds": [ "REPLACE_WITH_YOUR_BENEFICIARY_ID_1", "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" ] 
+// You'll get the beneficiary ID from Step 4 above. 
+// If you have only 1 beneficiary ID then Use it in the <REPLACE_WITH_YOUR_BENEFICIARY_ID_1> section and remove rest like "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" eg. ["1111111111111111"]. 
+// If you have multiple beneficiaries for which you want to do booking, added them comma separated eg. ["11111111111111", "22222222222222", "33333333333333"]
 "PINCodes": 
 {
 // "PlaceName": PinCode
@@ -170,7 +178,8 @@ Modification can be done and file to be saved again with the same name and File 
 
 ```
 
-**_The values of the following items may be to be modified in appsettings.json_, default values are set**
+### _**The values of the following items MAY BE MODIFIED in `appsettings.json`, default values are set**_
+
 ``` javascript
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD or "" in the <REPLACE_ME> section, by default "" is selected with means both
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
@@ -196,7 +205,7 @@ Modification can be done and file to be saved again with the same name and File 
 
 *You can get the District Name and District Code Mapping from [State-District-DistrictCode Mapping](data/resources/State_District_DistrictCode_Mapping.json). Just copy the values of the DistictName : DistrictCode from the file and paste it in the `appsettings.json` file's {"Districts"}*
 
-Be default, this is how the appsettings.json would look like this:
+Be default, this is how the `appsettings.json` would look like this:
 ``` javascript
 {
   "CoWinAPI": {
@@ -256,16 +265,17 @@ Enjoy and feel free to Star the Repo, if it could help you in any way!
 
 ### For Developers or Curious Minds:
 
-If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Ctrl + F5 and Boom!
+If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Make changes in  `appsettings.json`, Ctrl + F5 and Boom!
 
 Well, want to dig deeper?
 
 So basically, you've this Project Named `CoWin.Core` which contains `appsettings.json` which performs most of the magic.
 `CoWin.UI` is just a small project for handling the Captcha.
 
-Rest of the Business Logic are there inside the  `/Models` directory.
+Rest of the Business Logic are there inside the  `/Models` directory. Authentication & Authorization stuffs can be found in `/Auth` directory. API consumption stuffs can be found in `/Providers` directory.
+Application begins from `Program.cs` from the `CoWin.Core` project.
 
-`Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!`
+> Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!
 
 I know, I know, it's unacceptable, but folks, it's all about quick Time to Market first and then doing one thing at a time, to improve the product. 
 
