@@ -265,16 +265,17 @@ Enjoy and feel free to Star the Repo, if it could help you in any way!
 
 ### For Developers or Curious Minds:
 
-If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Ctrl + F5 and Boom!
+If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Make changes in  `appsettings.json`, Ctrl + F5 and Boom!
 
 Well, want to dig deeper?
 
 So basically, you've this Project Named `CoWin.Core` which contains `appsettings.json` which performs most of the magic.
 `CoWin.UI` is just a small project for handling the Captcha.
 
-Rest of the Business Logic are there inside the  `/Models` directory.
+Rest of the Business Logic are there inside the  `/Models` directory. Authentication & Authorization stuffs can be found in `/Auth` directory. API consumption stuffs can be found in `/Providers` directory.
+Application begins from `Program.cs` from the `CoWin.Core` project.
 
-`Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!`
+> Clean Coding Practices have been followed during the development of the Application within a span of 2 days after Office Hours. So, you won't find proper Exception Handling, using Dependency Injection or Logging or even Documentation, duh!
 
 I know, I know, it's unacceptable, but folks, it's all about quick Time to Market first and then doing one thing at a time, to improve the product. 
 
