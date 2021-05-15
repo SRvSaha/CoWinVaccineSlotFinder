@@ -4,11 +4,13 @@
 
 # Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-A Console Application to fetch the available slots & book the appointment schedule for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
+A Windows Software to fetch the available slots & book the appointment schedule for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
 
 FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
-> __*Download Latest Version of the Software by clicking*__ [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) and __*kindly follow the steps mentioned in*__ [How To Use Section](#for-folks-who-just-want-to-get-shit-done)
+> __*Download Latest Version of the Software by clicking*__ [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) and __*kindly follow the steps mentioned in*__ [How To Use](#for-folks-who-just-want-to-get-shit-done). 
+
+> **NOTE** __*Please make sure [these changes](https://github.com/SRvSaha/CoWinVaccineSlotFinder#the-values-of-the-following-items-must-to-be-modified-in-appsettingsjson) are done in Config file `appsetting.json` before running the application*__
 
 ## Glimpse of the Application:
 
