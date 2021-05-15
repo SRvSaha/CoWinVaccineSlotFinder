@@ -4,11 +4,11 @@
 
 # Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-A Windows Software to fetch the available slots & book the appointment schedule for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
+Windows Software to fetch the available slots & book the appointment schedule for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India. 
 
 FYI, these APIs are being directly used from the WebApp of [CoWIN](https://cowin.gov.in/) and [Aarogya Setu](https://www.aarogyasetu.gov.in/)
 
-> __*Download Latest Version of the Software by clicking*__ [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) and __*kindly follow the steps mentioned in*__ [How To Use](#for-folks-who-just-want-to-get-shit-done). 
+> __*Download Latest Version of the Software by clicking*__ [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) __* & kindly follow the steps mentioned in*__ [How To Use](#for-folks-who-just-want-to-get-shit-done). 
 
 > **NOTE:** __*Please make sure [these changes](https://github.com/SRvSaha/CoWinVaccineSlotFinder#the-values-of-the-following-items-must-to-be-modified-in-appsettingsjson) are done in [Config file `appsettings.json`](https://github.com/SRvSaha/CoWinVaccineSlotFinder#the-values-of-the-following-items-must-to-be-modified-in-appsettingsjson) before running the application*__
 
@@ -154,7 +154,10 @@ Modification can be done and file to be saved again with the same name and File 
 5. Also, Once all these details are fetched, put them in the `appsettings.json`. 
 6. Run the Application CoWin.Core.EXE, that's it.
 
-## **_The values of the following items MUST BE MODIFIED in `appsettings.json_`**
+## CONFIGURATION CHANGES
+
+### _**The values of the following items MUST BE MODIFIED in `appsettings.json`**_
+
 ``` javascript
 "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO", 
 // Use your registered mobile number used for generation of OTP in Step 2 above.
@@ -176,7 +179,8 @@ Modification can be done and file to be saved again with the same name and File 
 
 ```
 
-**_The values of the following items MAY BE MODIFIED in appsettings.json_, default values are set**
+### _**The values of the following items MAY BE MODIFIED in `appsettings.json`, default values are set**_
+
 ``` javascript
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD or "" in the <REPLACE_ME> section, by default "" is selected with means both
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
