@@ -223,7 +223,7 @@ namespace CoWiN.Models
         {
             Console.ResetColor();
             Console.WriteLine("\n***************************************************************************************************************");
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("Name: " + cvc.Name);
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Address: " + cvc.Address);

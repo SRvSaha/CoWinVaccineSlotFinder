@@ -20,9 +20,20 @@ namespace CoWin.Core.Validators.Tests
         }
 
         [TestMethod()]
-        public void IsValid_Should_ReturnFalse_When_DistrictIsDefault()
+        [DataRow("<REPLACE_ME_DISTRICT_CODE_1>")]
+        [DataRow("<REPLACE_ME_DISTRICT_CODE_2>")]
+        public void IsValid_Should_ReturnFalse_When_DistrictIsDefault(string userEnteredDistrict)
         {
-            var userEnteredDistrict = "<REPLACE_ME_DISTRICT_CODE_1>";
+            var isValid = _validator.IsValid(userEnteredDistrict);
+
+            Assert.IsFalse(isValid);
+        }
+
+        [TestMethod()]
+        [DataRow("Mumbai")]
+        [DataRow("Mumbai-395")]
+        public void IsValid_Should_ReturnFalse_When_DistrictIsNonDefaultAndNotInteger(string userEnteredDistrict)
+        {
 
             var isValid = _validator.IsValid(userEnteredDistrict);
 
@@ -30,9 +41,9 @@ namespace CoWin.Core.Validators.Tests
         }
 
         [TestMethod()]
-        public void IsValid_Should_ReturnTrue_When_DistrictIsNonDefault()
+        [DataRow("395")]
+        public void IsValid_Should_ReturnTrue_When_DistrictIsNonDefaultAndInteger(string userEnteredDistrict)
         {
-            var userEnteredDistrict = "Mumbai";
 
             var isValid = _validator.IsValid(userEnteredDistrict);
 

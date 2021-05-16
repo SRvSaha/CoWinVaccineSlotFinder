@@ -19,7 +19,7 @@ namespace CoWin.Models
         private readonly List<string> pinCodesToSearch = new List<string>();
         private string searchDate;
         private string vaccineType;                
-        private readonly IValidator<string> _pinValidator, _districtValidator;
+        private readonly IValidator<string> _pinValidator, _districtValidator, _mobileNumberValidator, _beneficiaryValidator;
 
         public CovidVaccinationCenterFinder()
         {
@@ -31,36 +31,63 @@ namespace CoWin.Models
                         .Build();
                 _pinValidator = new PinCodeValidator();
                 _districtValidator = new DistrictValidator();
+                _mobileNumberValidator = new MobileNumberValidator();
+                _beneficiaryValidator = new BeneficiaryValidator();
             }
-            catch (FormatException)
+            catch (FormatException e)
             {
-                throw new ConfigurationNotInitializedException();
+                throw new ConfigurationNotInitializedException("Oops! appsettings.json file is not in proper JSON format.", e);
             }
         }
         public void FindSlot()
         {
-            AuthenticateUser();
             ConfigureSearchCriteria();
             ValidateSearchCriteria();
+            ValidateAuthCriteria();
+            AuthenticateUser();
             SearchForAvailableSlots();
+        }
+
+        private void ValidateAuthCriteria()
+        {
+
+            if (!_mobileNumberValidator.IsValid(_configuration["CoWinAPI:Auth:Mobile"]))
+            {
+                throw new InvalidMobileNumberException("Invalid Mobile Number: " + _configuration["CoWinAPI:Auth:Mobile"] + " found in your config file");
+            };
+
+            foreach (var beneficiary in _configuration.GetSection("CoWinAPI:ProtectedAPI:BeneficiaryIds").Get<List<string>>())
+            {
+                if (!_beneficiaryValidator.IsValid(beneficiary))
+                {
+                    throw new InvalidBeneficiaryException("Invalid BeneficiaryId: " + beneficiary + " found in your config file.");
+                }
+            }
         }
 
         private void ValidateSearchCriteria()
         {
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
             {
-                if (districtsToSearch.Any(x => !_districtValidator.IsValid(x)))
+                foreach (var district in districtsToSearch)
                 {
-                    throw new InvalidDistrictException();
+                    if (!_districtValidator.IsValid(district))
+                    {
+                        throw new InvalidDistrictException("Invalid District: " + district + " found in your config file");
+                    }
                 }
             }
 
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
-            {                
-                if (pinCodesToSearch.Any(x => !_pinValidator.IsValid(x)))
+            {
+                foreach (var pinCode in pinCodesToSearch)
                 {
-                    throw new InvalidPinCodeException();
+                    if (!_pinValidator.IsValid(pinCode))
+                    {
+                        throw new InvalidDistrictException("Invalid PINCode: " + pinCode + " found in your config file");
+                    }
                 }
+
             }
         }
 

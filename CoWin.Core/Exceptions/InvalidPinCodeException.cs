@@ -4,7 +4,10 @@ using System.Text;
 
 namespace CoWin.Core.Exceptions
 {
-    public class InvalidPinCodeException: ConfigurationNotInitializedException
+    public class InvalidPinCodeException : ConfigurationNotInitializedException
     {
+        public InvalidPinCodeException(string message) : base(message)
+        {
+        }
     }
 }
