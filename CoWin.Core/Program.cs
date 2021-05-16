@@ -16,8 +16,7 @@ namespace CoWin
             catch (ConfigurationNotInitializedException)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Configuration needs to be changed with your personal details. Please read the one time instructions at https://shawt.io/r/sYt for initial setup.");
-                //TODO: Check if browser can be opened automatically                
+                Console.WriteLine("Configuration needs to be changed with your personal details. Please read the one time instructions at https://shawt.io/r/sYt for initial setup.");            
                 Process.Start(new ProcessStartInfo("https://shawt.io/r/sYt") { UseShellExecute = true });
             }
             Console.ResetColor();
