@@ -248,20 +248,20 @@ Be default, this is how the `appsettings.json` would look like this:
     "MinAgeLimit": 18,
     "MaxAgeLimit": 45,
     "MinimumVaccineAvailability": 1,
-    "VaccineType": "", // Blank Implies Any VaccineType: COVISHIELD OR COVAXIN OR SPUTNIK V; Default is Both
-    "DoseType": 1,
+    "VaccineType": "", // Blank Implies Any VaccineType: "COVISHIELD" OR "COVAXIN" OR "SPUTNIK V"; Default is Both
+    "DoseType": 1, // FirstDose => 1, SecondDose => 2
     "VaccineFeeType": "Free", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free
     "VaccinationCentreName": "", // Blank implies All Vaccination Centres in the District/PINCodes, which is default
     "IsSearchToBeDoneByPINCode": true, // Set this as True if you want to set by PINCode
-    "PINCodes": {
-      "Andheri": 400058,
-      "Bhandara": 441906
-    },
+    "PINCodes": [
+      400058,
+      441906
+    ],
     "IsSearchToBeDoneByDistrict": false,  // Set this is True if you want to search By District
-    "Districts": {
-      "Mumbai": 395,
-      "Thane": 392
-    },
+    "Districts": [
+      395,
+      392
+    ],
     "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day; Date Searched is upto 7 days from the date in DateToSearch
   },
   "Proxy": {
