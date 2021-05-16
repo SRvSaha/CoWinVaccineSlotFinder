@@ -172,12 +172,13 @@ Modification can be done and file to be saved again with the same name and File 
 "PINCodes": 
 {
 // "PlaceName": PinCode
-"<REPLACE_ME_KEY>" : "<REPLACE_ME_VALUE>" 
+"<REPLACE_ME_KEY-1st>" : "<REPLACE_ME_VALUE-1st>", 
+"<REPLACE_ME_KEY-2nd>" : "<REPLACE_ME_VALUE-2nd>" 
 } 
 
 // You can use anything in PlaceName, PINCode is to be the PIN you wish to search for, as of now things are done for Mumbai and nearby areas. 
 // If you want to search say for a particular PIN Code of Mumbai let's say 400008 then the entry would look like this : "PINCodes": { "Mumbai": 400008 }.
-// Basically, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 400008.
+// Basically, Replace <REPLACE_ME_KEY-1st> WITH "Mumbai" and <REPLACE_ME_VALUE-2nd> WITH 400008. and remove everything else.
 // In case you want to search for multiple PIN Codes say 400008 and 400007, it would look something like this "PINCodes": { "Mumbai-1st": 400008, "Mumbai-2nd" : 400007}
 
 ```
@@ -185,7 +186,7 @@ Modification can be done and file to be saved again with the same name and File 
 ### _**The values of the following items MAY BE MODIFIED in `appsettings.json`, default values are set**_
 
 ``` javascript
-"VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD or "" in the <REPLACE_ME> section, by default "" is selected with means both
+"VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means both
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid or "" in the <REPLACE_ME> section, by default "Free" is selected, blank implies both Free and Paid
 "VaccinationCentreName": "<REPLACE_ME>", // Use Name of Vaccination Centre or "" in the <REPLACE_ME> section, by default Blank would be selected which implies All Vaccination Centres in the District/PINCodes.
@@ -195,10 +196,11 @@ Modification can be done and file to be saved again with the same name and File 
 "Districts": 
 {
     // "DistrictName": DistrictCode
-    "<REPLACE_ME_KEY>" : "<REPLACE_ME_VALUE>" 
+    "<REPLACE_ME_KEY-1st>" : "<REPLACE_ME_VALUE-1st>", 
+    "<REPLACE_ME_KEY-2nd>" : "<REPLACE_ME_VALUE-2nd>" 
 } 
 // You'll get the District Name and District Codes from the link below this block, as of now things are done for Mumbai and nearby districts. 
-// Basically, Replace <REPLACE_ME_KEY> WITH "Mumbai" and <REPLACE_ME_VALUE> WITH 395, then the entry would look like this : "Districts": { "Mumbai": 395 }.
+// Basically, Replace <REPLACE_ME_KEY-1st> WITH "Mumbai" and <REPLACE_ME_VALUE-1st> WITH 395, then the entry would look like this : "Districts": { "Mumbai": 395 }.
 // In case you want to search for multiple Districts say Mumbai and Thane, get the District-District Code Mapping from below "State-District-DistrictCode Mapping", // you'll get the DistrictCode of Mumbai as 395 and of Thane as 392. So it would look something like this "Districts": { "Mumbai": 395, "Thane" : 392}
 "Proxy": 
 {
@@ -239,21 +241,21 @@ Be default, this is how the `appsettings.json` would look like this:
     "MinAgeLimit": 18,
     "MaxAgeLimit": 45,
     "MinimumVaccineAvailability": 1,
-    "VaccineType": "", // Blank Implies Any VaccineType: COVISHIELD OR COVAXIN; Default is Both
+    "VaccineType": "", // Blank Implies Any VaccineType: COVISHIELD OR COVAXIN OR SPUTNIK V; Default is Both
     "DoseType": 1,
     "VaccineFeeType": "Free", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free
     "VaccinationCentreName": "", // Blank implies All Vaccination Centres in the District/PINCodes, which is default
-    "IsSearchToBeDoneByPINCode": true,
+    "IsSearchToBeDoneByPINCode": true, // Set this as True if you want to set by PINCode
     "PINCodes": {
       "Andheri": 400058,
       "Bhandara": 441906
     },
-    "IsSearchToBeDoneByDistrict": false,
+    "IsSearchToBeDoneByDistrict": false,  // Set this is True if you want to search By District
     "Districts": {
       "Mumbai": 395,
       "Thane": 392
     },
-    "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day
+    "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day; Date Searched is upto 7 days from the date in DateToSearch
   },
   "Proxy": {
     "IsToBeUsed": "false",
