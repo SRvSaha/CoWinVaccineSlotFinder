@@ -72,5 +72,11 @@ namespace CoWin.Models
 
         [JsonProperty("slots")]
         public List<string> Slots { get; set; }
+
+        [JsonProperty("available_capacity_dose1")]
+        public long AvailableCapacityFirstDose { get; set; }
+
+        [JsonProperty("available_capacity_dose2")]
+        public long AvailableCapacitySecondDose { get; set; }
     }
 }

@@ -27,6 +27,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\UserInputModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appsettings.json" />
     <None Include="..\data\Banner.png">
       <Pack>True</Pack>

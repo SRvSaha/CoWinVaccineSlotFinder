@@ -9,13 +9,14 @@ using CoWin.Auth;
 using Newtonsoft.Json;
 using System.Web;
 using System.Collections.Specialized;
+using CoWin.Core.Models;
 
 namespace CoWiN.Models
 {
     public class CovidVaccinationCenter
     {
         private readonly IConfiguration _configuration;
-        public static bool IS_BOOKING_SUCCESSFUL = false;        
+        public static bool IS_BOOKING_SUCCESSFUL = false;
 
         public CovidVaccinationCenter(IConfiguration configuration)
         {
@@ -25,7 +26,7 @@ namespace CoWiN.Models
         public void GetSlotsByDistrictId(string districtId, string searchDate, string vaccineType)
         {
             IRestResponse response = FetchAllSlotsForDistict(districtId, searchDate, vaccineType);
-            if(response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 var covidVaccinationCenters = JsonConvert.DeserializeObject<CovidVaccinationCenters>(response.Content);
                 GetAvailableSlots(covidVaccinationCenters);
@@ -75,7 +76,8 @@ namespace CoWiN.Models
                 builder = new UriBuilder(_configuration["CoWinAPI:ProtectedAPI:FetchCalenderByDistrictUrl"]);
                 queryString = HttpUtility.ParseQueryString(builder.Query);
 
-                if (!string.IsNullOrEmpty(vaccineType)){
+                if (!string.IsNullOrEmpty(vaccineType))
+                {
                     queryString["vaccine"] = vaccineType;
                 }
             }
@@ -129,7 +131,7 @@ namespace CoWiN.Models
 
         private void GetAvailableSlots(CovidVaccinationCenters covidVaccinationCenters)
         {
-            string captcha = ""; 
+            string captcha = "";
             foreach (var cvc in covidVaccinationCenters.Centers)
             {
                 foreach (var session in cvc?.Sessions)
@@ -163,24 +165,61 @@ namespace CoWiN.Models
 
         private bool IsFiltrationCriteraSatisfied(Center cvc, Session session)
         {
-            var minimumAgeLimitFilter = (session.MinAgeLimit >= Convert.ToInt16(_configuration["CoWinAPI:MinAgeLimit"]));
-            var maximumAgeLimitFilter = (session.MinAgeLimit < Convert.ToInt16(_configuration["CoWinAPI:MaxAgeLimit"]));
-            var minimumVaccineAvailabiltyFilter = session.AvailableCapacity >= Convert.ToInt16(_configuration["CoWinAPI:MinimumVaccineAvailability"]);
-            
-            var mandatoryFilters = minimumAgeLimitFilter && maximumAgeLimitFilter && minimumVaccineAvailabiltyFilter;
+            bool isAgeCriteriaMet = IsAgeFilterSatisfied(session);
+            bool isVaccineAvailable = IsMinimumVaccinateAvailabilityFilterSatisfied(session);
+            bool vaccineFeeTypeFilter = IsVacineFeeTypeFilterSatisfied(cvc);
+            bool vaccinationCentreNameWiseFilter = IsVaccinationCentreNameFilterSatified(cvc);
+            return FilteredResult(isAgeCriteriaMet, isVaccineAvailable, vaccineFeeTypeFilter, vaccinationCentreNameWiseFilter);
+        }
 
-            // Filter Based on VaccineFeeType only when fee type is provided; otherwise don't filter. Keep both Paid and Free Slots
-            var vaccineFeeTypeFilter = string.IsNullOrEmpty(_configuration["CoWinAPI:VaccineFeeType"]) || (cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"]);
-
-            // Filter Based on VaccinationCentreName when there are multiple CVCs in one PIN/District but user wants slot in a specific CVC
-            var vaccinationCentreNameWiseFilter = string.IsNullOrEmpty(_configuration["CoWinAPI:VaccinationCentreName"]) || (cvc.Name == _configuration["CoWinAPI:VaccinationCentreName"]);          
-            
+        private static bool FilteredResult(bool isAgeCriteriaMet, bool isVaccineAvailable, bool vaccineFeeTypeFilter, bool vaccinationCentreNameWiseFilter)
+        {
+            var mandatoryFilters = isAgeCriteriaMet && isVaccineAvailable;
             var optionalFilters = vaccineFeeTypeFilter && vaccinationCentreNameWiseFilter;
-        
+
             return mandatoryFilters && optionalFilters;
         }
 
-        private static void DisplaySlotInfo(Center cvc, Session session)
+        private bool IsVaccinationCentreNameFilterSatified(Center cvc)
+        {
+            // Filter Based on VaccinationCentreName when there are multiple CVCs in one PIN/District but user wants slot in a specific CVC
+            return string.IsNullOrEmpty(_configuration["CoWinAPI:VaccinationCentreName"]) || (cvc.Name == _configuration["CoWinAPI:VaccinationCentreName"]);
+        }
+
+        private bool IsVacineFeeTypeFilterSatisfied(Center cvc)
+        {
+            // Filter Based on VaccineFeeType only when fee type is provided; otherwise don't filter. Keep both Paid and Free Slots
+            return string.IsNullOrEmpty(_configuration["CoWinAPI:VaccineFeeType"]) || (cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"]);
+        }
+
+        private bool IsAgeFilterSatisfied(Session session)
+        {
+            bool minimumAgeLimitFilter = (session.MinAgeLimit >= Convert.ToInt16(_configuration["CoWinAPI:MinAgeLimit"]));
+            bool maximumAgeLimitFilter = (session.MinAgeLimit < Convert.ToInt16(_configuration["CoWinAPI:MaxAgeLimit"]));
+            return minimumAgeLimitFilter && maximumAgeLimitFilter;
+        }
+
+        private bool IsMinimumVaccinateAvailabilityFilterSatisfied(Session session)
+        {
+            bool minimumVaccineAvailabiltyFilter;
+            var availableVaccines = GetVaccineAvailabiltyForDoseType(session);
+            minimumVaccineAvailabiltyFilter = availableVaccines >= Convert.ToInt16(_configuration["CoWinAPI:MinimumVaccineAvailability"]);
+            return minimumVaccineAvailabiltyFilter;
+        }
+
+        private long GetVaccineAvailabiltyForDoseType(Session session)
+        {
+            if (Convert.ToInt16(_configuration["CoWinAPI:MinimumVaccineAvailability"]) == (int)DoseTypeModel.FIRSTDOSE)
+            {
+                return session.AvailableCapacityFirstDose;
+            }
+            else
+            {
+                return session.AvailableCapacitySecondDose;
+            }
+        }
+
+        private void DisplaySlotInfo(Center cvc, Session session)
         {
             Console.ResetColor();
             Console.WriteLine("\n***************************************************************************************************************");
@@ -193,9 +232,10 @@ namespace CoWiN.Models
             Console.ResetColor();
             Console.WriteLine("District: " + cvc.DistrictName);
             Console.WriteLine("FeeType: " + cvc.FeeType);
+            Console.WriteLine("DoseType: " + Enum.GetName(typeof(DoseTypeModel), Convert.ToInt16(_configuration["CoWinAPI:MinimumVaccineAvailability"])));
             Console.WriteLine("VaccineType: " + session.Vaccine);
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("AvailableCapacity: " + session.AvailableCapacity);
+            Console.WriteLine("AvailableCapacity: " + GetVaccineAvailabiltyForDoseType(session).ToString());
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("DateOfAvailability: " + session.Date);
             Console.ResetColor();
@@ -208,7 +248,7 @@ namespace CoWiN.Models
             string endpoint = "";
             bool isBookingSuccessful = false;
             List<string> beneficiaries = new List<string>();
-            
+
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
             {
                 endpoint = _configuration["CoWinAPI:ProtectedAPI:ScheduleAppointmentUrl"];
@@ -227,7 +267,7 @@ namespace CoWiN.Models
 
             IRestResponse response = new APIFacade(_configuration).Post(endpoint, requestBody);
 
-            if(response.StatusCode == HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"[INFO] CONGRATULATIONS! Booking Success - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
