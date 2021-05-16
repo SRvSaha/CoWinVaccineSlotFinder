@@ -216,7 +216,7 @@ Entries in the [State-District-DistrictCode Mapping](data/resources/State_Distri
     "North and Middle Andaman": 1,
     "South Andaman": 2
   }
-```. 
+``` 
 
 Be default, this is how the `appsettings.json` would look like this:
 ``` javascript
