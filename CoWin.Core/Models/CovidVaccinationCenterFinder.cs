@@ -17,7 +17,7 @@ namespace CoWin.Models
         private readonly List<string> pinCodesToSearch = new List<string>();
         private string searchDate;
         private string vaccineType;
-        
+
         public CovidVaccinationCenterFinder()
         {
             try
@@ -28,7 +28,7 @@ namespace CoWin.Models
                         .Build();
             }
             catch (FormatException)
-            {                
+            {
                 throw new ConfigurationNotInitializedException();
             }
         }
@@ -77,7 +77,7 @@ namespace CoWin.Models
                     foreach (var district in districtsToSearch)
                     {
                         new CovidVaccinationCenter(_configuration).GetSlotsByDistrictId(district, searchDate, vaccineType);
-                        
+
                         if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
                         {
                             return;
@@ -85,7 +85,7 @@ namespace CoWin.Models
 
                     }
                 }
-                
+
                 Thread.Sleep(Convert.ToInt32(_configuration["CoWinAPI:SleepIntervalInMilliseconds"]));
             }
         }
@@ -95,20 +95,19 @@ namespace CoWin.Models
             /* Seaching with be either by PIN or District or Both; By Default by PIN.
             * If Both are selected for searching, PIN will be given Preference Over District
             */
-
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
-            {
-                foreach (var item in _configuration.GetSection("CoWinAPI:Districts").GetChildren())
+            {                
+                foreach (var item in _configuration.GetSection("CoWinAPI:Districts").Get<List<string>>())
                 {
-                    districtsToSearch.Add(item.Value);
+                    districtsToSearch.Add(item);
                 }
             }
 
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
-            {
-                foreach (var item in _configuration.GetSection("CoWinAPI:PINCodes").GetChildren())
+            {             
+                foreach (var item in _configuration.GetSection("CoWinAPI:PINCodes").Get<List<string>>())
                 {
-                    pinCodesToSearch.Add(item.Value);
+                    pinCodesToSearch.Add(item);
                 }
             }
 
