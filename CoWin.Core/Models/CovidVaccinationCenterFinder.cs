@@ -7,6 +7,8 @@ using System.Threading;
 using CoWin.Auth;
 using System.Globalization;
 using CoWin.Core.Exceptions;
+using System.Linq;
+using CoWin.Core.Validators;
 
 namespace CoWin.Models
 {
@@ -16,7 +18,8 @@ namespace CoWin.Models
         private readonly List<string> districtsToSearch = new List<string>();
         private readonly List<string> pinCodesToSearch = new List<string>();
         private string searchDate;
-        private string vaccineType;
+        private string vaccineType;                
+        private readonly IValidator<string> _pinValidator, _districtValidator;
 
         public CovidVaccinationCenterFinder()
         {
@@ -26,6 +29,8 @@ namespace CoWin.Models
                         .SetBasePath(Directory.GetCurrentDirectory())
                         .AddJsonFile("appsettings.json", false, true)
                         .Build();
+                _pinValidator = new PinCodeValidator();
+                _districtValidator = new DistrictValidator();
             }
             catch (FormatException)
             {
@@ -36,7 +41,27 @@ namespace CoWin.Models
         {
             AuthenticateUser();
             ConfigureSearchCriteria();
+            ValidateSearchCriteria();
             SearchForAvailableSlots();
+        }
+
+        private void ValidateSearchCriteria()
+        {
+            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
+            {
+                if (districtsToSearch.Any(x => !_districtValidator.IsValid(x)))
+                {
+                    throw new InvalidDistrictException();
+                }
+            }
+
+            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
+            {                
+                if (pinCodesToSearch.Any(x => !_pinValidator.IsValid(x)))
+                {
+                    throw new InvalidPinCodeException();
+                }
+            }
         }
 
         private void AuthenticateUser()
@@ -96,7 +121,7 @@ namespace CoWin.Models
             * If Both are selected for searching, PIN will be given Preference Over District
             */
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
-            {                
+            {
                 foreach (var item in _configuration.GetSection("CoWinAPI:Districts").Get<List<string>>())
                 {
                     districtsToSearch.Add(item);
@@ -104,7 +129,7 @@ namespace CoWin.Models
             }
 
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
-            {             
+            {
                 foreach (var item in _configuration.GetSection("CoWinAPI:PINCodes").Get<List<string>>())
                 {
                     pinCodesToSearch.Add(item);

@@ -3,7 +3,7 @@
 ################################################################################
 
 /.vs
-/CoWin.UI/bin/Debug/netcoreapp3.1
-/CoWin.UI/obj/Debug/netcoreapp3.1
-/CoWin.UI/obj/Release/netcoreapp3.1
+/CoWin.UI/bin
 /CoWin.UI/obj
+/CoWin.Tests/bin
+/CoWin.Tests/obj
