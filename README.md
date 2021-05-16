@@ -36,6 +36,10 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 
 ![Application Sample](data/BookingSlotFull.png)
 
+*Unsuccessful Booking - Beneficiary Details Incorrect*
+
+![Application Sample](data/ApplicationBookingFailed.png)
+
 *Unsuccessful Booking - Server Under Heavy Load*
 
 ![Application Sample](data/ServerLoaded.png)
