@@ -250,7 +250,7 @@ Be default, this is how the `appsettings.json` would look like this:
     "MinAgeLimit": 18,
     "MaxAgeLimit": 45,
     "MinimumVaccineAvailability": 1,
-    "VaccineType": "", // Blank Implies Any VaccineType: "COVISHIELD" OR "COVAXIN" OR "SPUTNIK V"; Default is Both
+    "VaccineType": "", // Blank Implies Any VaccineType: "COVISHIELD" OR "COVAXIN" OR "SPUTNIK V"; Default is any types of Vaccine
     "DoseType": 1, // FirstDose => 1, SecondDose => 2
     "VaccineFeeType": "Free", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free
     "VaccinationCentreName": "", // Blank implies All Vaccination Centres in the District/PINCodes, which is default
