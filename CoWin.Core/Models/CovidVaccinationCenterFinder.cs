@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading;
 using CoWin.Auth;
 using System.Globalization;
+using CoWin.Core.Exceptions;
 
 namespace CoWin.Models
 {
@@ -19,10 +20,17 @@ namespace CoWin.Models
         
         public CovidVaccinationCenterFinder()
         {
-            _configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", false, true)
-                .Build();
+            try
+            {
+                _configuration = new ConfigurationBuilder()
+                        .SetBasePath(Directory.GetCurrentDirectory())
+                        .AddJsonFile("appsettings.json", false, true)
+                        .Build();
+            }
+            catch (FormatException)
+            {                
+                throw new ConfigurationNotInitializedException();
+            }
         }
         public void FindSlot()
         {

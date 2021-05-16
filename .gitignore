@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/CoWin.UI/bin/Debug/netcoreapp3.1
+/CoWin.UI/obj/Debug/netcoreapp3.1
+/CoWin.UI/obj/Release/netcoreapp3.1
+/CoWin.UI/obj
