@@ -285,7 +285,7 @@ If you have Visual Studio installed, go ahead an Clone the Repository, Open the 
 Well, want to dig deeper?
 
 So basically, you've this Project Named `CoWin.Core` which contains `appsettings.json` which performs most of the magic.
-`CoWin.UI` is just a small project for handling the Captcha.
+`CoWin.UI` is just a small project for handling the Captcha. `CoWin.Tests` is used for Automated Unit Tests.
 
 Rest of the Business Logic are there inside the  `/Models` directory. Authentication & Authorization stuffs can be found in `/Auth` directory. API consumption stuffs can be found in `/Providers` directory.
 Application begins from `Program.cs` from the `CoWin.Core` project.
