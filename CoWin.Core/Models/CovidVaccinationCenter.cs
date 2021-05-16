@@ -136,7 +136,7 @@ namespace CoWiN.Models
             {
                 foreach (var session in cvc?.Sessions)
                 {
-                    if (IsFiltrationCriteraSatisfied(cvc, session))
+                    if (IsFiltrationCriteriaSatisfied(cvc, session))
                     {
                         DisplaySlotInfo(cvc, session);
 
@@ -163,7 +163,7 @@ namespace CoWiN.Models
             }
         }
 
-        private bool IsFiltrationCriteraSatisfied(Center cvc, Session session)
+        private bool IsFiltrationCriteriaSatisfied(Center cvc, Session session)
         {
             bool isAgeCriteriaMet = IsAgeFilterSatisfied(session);
             bool isVaccineAvailable = IsMinimumVaccinateAvailabilityFilterSatisfied(session);

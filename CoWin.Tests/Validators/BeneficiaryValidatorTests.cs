@@ -33,7 +33,7 @@ namespace CoWin.Tests.Validators
         [DataRow("395")]
         [DataRow("Mumbai")]
         [DataRow("njn8893jjkfnsljdn")]
-        public void IsValid_Should_ReturnFalse_When_DistrictIsNonDefaultButNotOf14Characters(string userEnteredDistrict)
+        public void IsValid_Should_ReturnFalse_When_BeneficiaryIdIsNonDefaultButNotOf14Characters(string userEnteredDistrict)
         {
 
             var isValid = _validator.IsValid(userEnteredDistrict);
@@ -44,7 +44,7 @@ namespace CoWin.Tests.Validators
         [TestMethod()]
         [DataRow("99999999999999")]
         [DataRow("12121212121212")]
-        public void IsValid_Should_ReturnFalse_When_DistrictIsNonDefaultAnd14Characters(string userEnteredDistrict)
+        public void IsValid_Should_ReturnFalse_When_BeneficiaryIdIsNonDefaultAnd14Characters(string userEnteredDistrict)
         {
 
             var isValid = _validator.IsValid(userEnteredDistrict);
