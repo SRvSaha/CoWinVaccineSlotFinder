@@ -56,7 +56,7 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 
 > *When the Captcha pops up in the process of booking, DO NOT use your mouse to click on the Popup, you can start typing it immediately as the app would remain ready to accept your input. Once captcha is entered, then press Enter to submit. This way, it is faster than operating via Mouse, as every second matters! In case, you are unable to get your booking successful in first try, when subsequent captch pops up, you will NOT need to use your mouse and click on Popup, you can right away start typing the 5 captcha characters and press Enter! Boom, it'll work*
 
-Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot (after hiding personal information) as a New Pull Request in the /data/ folder in case you could successfully book through the App. Also share your feedback through issues or just comment/share/like in the associated [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/). That'll be used as References/Testimonials in the Application and will increase the credibility of the App.
+Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot (after hiding personal information) as a New `Pull Request` in the /data/ folder or a `New Issue` in case you could successfully book through the App. Also share your feedback through issues or just comment/share/like in the associated [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/). That'll be used as References/Testimonials in the Application and will increase the credibility of the App.
 
 <a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
@@ -106,7 +106,7 @@ Following are some of the main features of the App:
 
 It's a simple hybrid Console + WinForms Application being developed using .NET Core 3.1, WinForms and C#.
 
-*_Currently, application is bundled as a Single Standalone Executable EXE file with Runtime included and therefore no installations are needed to run the Application. However, it will only work on Windows Machines only, due to dependency on WinForms for Captcha Popup_*
+_**Currently, application is bundled as a Single Standalone Executable EXE file with Runtime included and therefore no installations are needed to run the Application. However, it will only work on Windows Machines only, due to dependency on WinForms for Captcha Popup**_
 
 In General, to run the application, the following things are needed:
 - Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
