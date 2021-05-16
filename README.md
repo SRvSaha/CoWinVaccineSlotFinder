@@ -169,17 +169,16 @@ Modification can be done and file to be saved again with the same name and File 
 // You'll get the beneficiary ID from Step 4 above. 
 // If you have only 1 beneficiary ID then Use it in the <REPLACE_WITH_YOUR_BENEFICIARY_ID_1> section and remove rest like "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" eg. ["1111111111111111"]. 
 // If you have multiple beneficiaries for which you want to do booking, added them comma separated eg. ["11111111111111", "22222222222222", "33333333333333"]
-"PINCodes": 
-{
-// "PlaceName": PinCode
-"<REPLACE_ME_KEY-1st>" : "<REPLACE_ME_VALUE-1st>", 
-"<REPLACE_ME_KEY-2nd>" : "<REPLACE_ME_VALUE-2nd>" 
-} 
-
+"DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
+"PINCodes": [
+  "<REPLACE_ME_PIN_CODE_1>",
+  "<REPLACE_ME_PIN_CODE_2>"
+]
 // You can use anything in PlaceName, PINCode is to be the PIN you wish to search for, as of now things are done for Mumbai and nearby areas. 
-// If you want to search say for a particular PIN Code of Mumbai let's say 400008 then the entry would look like this : "PINCodes": { "Mumbai": 400008 }.
-// Basically, Replace <REPLACE_ME_KEY-1st> WITH "Mumbai" and <REPLACE_ME_VALUE-2nd> WITH 400008. and remove everything else.
-// In case you want to search for multiple PIN Codes say 400008 and 400007, it would look something like this "PINCodes": { "Mumbai-1st": 400008, "Mumbai-2nd" : 400007}
+// If you want to search say for a particular PIN Code of Mumbai let's say 400008 then the entry would look like this : "PINCodes": [ "400008" ].
+// Basically, Replace <REPLACE_ME_PIN_CODE_1> WITH 400008. and remove everything else.
+// In case you want to search for multiple PIN Codes say 400008 and 400007, 
+// you'll have to remove <REPLACE_ME_PIN_CODE_1> with 400008 and <REPLACE_ME_PIN_CODE_2> with 40007 and so in, it would look something like this "PINCodes": [ "400008", "400007" ]
 
 ```
 
@@ -187,21 +186,19 @@ Modification can be done and file to be saved again with the same name and File 
 
 ``` javascript
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means both
-"DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid or "" in the <REPLACE_ME> section, by default "Free" is selected, blank implies both Free and Paid
 "VaccinationCentreName": "<REPLACE_ME>", // Use Name of Vaccination Centre or "" in the <REPLACE_ME> section, by default Blank would be selected which implies All Vaccination Centres in the District/PINCodes.
-"IsSearchToBeDoneByPINCode": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. 
+"IsSearchToBeDoneByPINCode": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. Set this is True if you want to search By PIN Code
 "DateToSearch": "<REPLACE_ME>",  // Use date in DD-MM-YYYY Format in the <REPLACE_ME> section, Blank implies date of next day (i.e, tomorrow), by default "" is selected to search for Next Day
-"IsSearchToBeDoneByDistrict": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected
-"Districts": 
-{
-    // "DistrictName": DistrictCode
-    "<REPLACE_ME_KEY-1st>" : "<REPLACE_ME_VALUE-1st>", 
-    "<REPLACE_ME_KEY-2nd>" : "<REPLACE_ME_VALUE-2nd>" 
-} 
+"IsSearchToBeDoneByDistrict": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected, Set this is True if you want to search By District
+"Districts": [
+  "<REPLACE_ME_DISTRICT_CODE_1>",
+  "<REPLACE_ME_DISTRICT_CODE_2>"
+],
 // You'll get the District Name and District Codes from the link below this block, as of now things are done for Mumbai and nearby districts. 
-// Basically, Replace <REPLACE_ME_KEY-1st> WITH "Mumbai" and <REPLACE_ME_VALUE-1st> WITH 395, then the entry would look like this : "Districts": { "Mumbai": 395 }.
-// In case you want to search for multiple Districts say Mumbai and Thane, get the District-District Code Mapping from below "State-District-DistrictCode Mapping", // you'll get the DistrictCode of Mumbai as 395 and of Thane as 392. So it would look something like this "Districts": { "Mumbai": 395, "Thane" : 392}
+// Basically, Replace <REPLACE_ME_DISTRICT_CODE_1> 395, then the entry would look like this : "Districts": [ "395" ].
+// In case you want to search for multiple Districts say Mumbai and Thane, get the District-District Code Mapping from below "State-District-DistrictCode Mapping", // you'll get the DistrictCode of Mumbai as 395 and of Thane as 392.
+// You'll have to remove <REPLACE_ME_DISTRICT_CODE_1> with 395 and <REPLACE_ME_PIN_CODE_2> with 400070, it would look something like this "Districts": [ "395", "392"]
 "Proxy": 
 {
    "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, False if you're not, in the <REPLACE_ME> section, by default false would be selected
@@ -209,7 +206,17 @@ Modification can be done and file to be saved again with the same name and File 
 }
 ```
 
-*You can get the District Name and District Code Mapping from [State-District-DistrictCode Mapping](data/resources/State_District_DistrictCode_Mapping.json). Just copy the values of the DistictName : DistrictCode from the file and paste it in the `appsettings.json` file's {"Districts"}*
+*You can get the District Name and District Code Mapping from [State-District-DistrictCode Mapping](data/resources/State_District_DistrictCode_Mapping.json). Just copy the values of the `DistrictCode` from the file and paste it in the `appsettings.json` file's {"Districts"}* Or, you can refer the readable [State-District-DistrictCode Markdown](data/resources/State_District_DistrictCode_Mapping.md)] file and get the values of District Codes from there.
+
+Entries in the [State-District-DistrictCode Mapping](data/resources/State_District_DistrictCode_Mapping.json) file would be like below. In this case, the DistrictCode will 3, 1 and 2.
+
+```javascript 
+  "Andaman and Nicobar Islands": {
+    "Nicobar": 3,
+    "North and Middle Andaman": 1,
+    "South Andaman": 2
+  }
+```. 
 
 Be default, this is how the `appsettings.json` would look like this:
 ``` javascript
