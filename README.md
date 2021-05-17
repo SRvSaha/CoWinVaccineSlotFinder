@@ -164,18 +164,19 @@ Modification can be done and file to be saved again with the same name and File 
 ### _**The values of the following items MUST BE MODIFIED in `appsettings.json`**_
 
 ``` javascript
-"Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO", 
-// Use your registered mobile number used for generation of OTP in Step 2 above.
-// Use it in the REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO section. Suppose your Mobile Number is 8888333388 then it'll be like "Mobile" : "8888333388" 
 "BeneficiaryIds": [ "REPLACE_WITH_YOUR_BENEFICIARY_ID_1", "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" ] 
 // You'll get the beneficiary ID from Step 4 above. 
 // If you have only 1 beneficiary ID then Use it in the <REPLACE_WITH_YOUR_BENEFICIARY_ID_1> section and remove rest like "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" eg. ["1111111111111111"]. 
 // If you have multiple beneficiaries for which you want to do booking, added them comma separated eg. ["11111111111111", "22222222222222", "33333333333333"]
+"Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO", 
+// Use your registered mobile number used for generation of OTP in Step 2 above.
+// Use it in the REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO section. Suppose your Mobile Number is 8888333388 then it'll be like "Mobile" : "8888333388". 
+// *NOTE* Don't use +91 infront of your mobile number, use only 10 digit mobile number
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
 "PINCodes": [
   "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
   "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
-],
+]
 // You can use anything in PlaceName, PINCode is to be the PIN you wish to search for, as of now things are done for Mumbai and nearby areas. 
 // If you want to search say for a particular PIN Code of Mumbai let's say 400008 then the entry would look like this : "PINCodes": [ "400008" ].
 // Basically, Replace REPLACE_ME_WITH_YOUR_PIN_CODE_1 WITH 400008. and remove everything else.
@@ -256,13 +257,13 @@ Be default, this is how the `appsettings.json` would look like this:
     "VaccinationCentreName": "", // Blank implies All Vaccination Centres in the District/PINCodes, which is default
     "IsSearchToBeDoneByPINCode": true, // Set this as True if you want to set by PINCode
     "PINCodes": [
-      400058,
-      441906
+      "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
+      "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
     ],
-    "IsSearchToBeDoneByDistrict": false,  // Set this is True if you want to search By District
+    "IsSearchToBeDoneByDistrict": false, // Set this is True if you want to search By District
     "Districts": [
-      395,
-      392
+      "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1",
+      "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2"
     ],
     "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day; Date Searched is upto 7 days from the date in DateToSearch
   },
