@@ -9,6 +9,7 @@ using System.Globalization;
 using CoWin.Core.Exceptions;
 using System.Linq;
 using CoWin.Core.Validators;
+using CoWin.Core.Models;
 
 namespace CoWin.Models
 {
@@ -19,7 +20,9 @@ namespace CoWin.Models
         private readonly List<string> pinCodesToSearch = new List<string>();
         private string searchDate;
         private string vaccineType;                
-        private readonly IValidator<string> _pinValidator, _districtValidator, _mobileNumberValidator, _beneficiaryValidator;
+        private readonly IValidator<string> _pinCodeValidator, _districtValidator, _mobileNumberValidator, _beneficiaryValidator;
+        private readonly IValidator<SearchByDistrictModel> _searchByDistrictValidator;
+        private readonly IValidator<SearchByPINCodeModel> _searchByPINCodeValidator;
 
         public CovidVaccinationCenterFinder()
         {
@@ -29,10 +32,12 @@ namespace CoWin.Models
                         .SetBasePath(Directory.GetCurrentDirectory())
                         .AddJsonFile("appsettings.json", false, true)
                         .Build();
-                _pinValidator = new PinCodeValidator();
+                _pinCodeValidator = new PINCodeValidator();
                 _districtValidator = new DistrictValidator();
                 _mobileNumberValidator = new MobileNumberValidator();
                 _beneficiaryValidator = new BeneficiaryValidator();
+                _searchByDistrictValidator = new SearchByDistrictValidator(_districtValidator);
+                _searchByPINCodeValidator = new SearchByPINCodeValidator(_pinCodeValidator);
             }
             catch (FormatException e)
             {
@@ -67,6 +72,62 @@ namespace CoWin.Models
 
         private void ValidateSearchCriteria()
         {
+            DistrictValidation();
+
+            PINCodeValidation();
+
+            SearchByDistrictValidation();
+
+            SearchByPINCodeValidation();
+
+        }
+
+        private void SearchByPINCodeValidation()
+        {
+            var userEnteredSearchByPINCodeDto = new SearchByPINCodeModel
+            {
+                IsSearchToBeDoneByPINCode = Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]),
+                PINCodes = pinCodesToSearch
+            };
+
+            if (!_searchByPINCodeValidator.IsValid(userEnteredSearchByPINCodeDto))
+            {
+                throw new InvalidMobileNumberException("Invalid Configuration for Searching by PINCode: \"IsSearchToBeDoneByPINCode\": " + userEnteredSearchByPINCodeDto.IsSearchToBeDoneByPINCode.ToString() + ", \"PINCodes\": [ " + string.Join(", ", pinCodesToSearch) + " ] found in your config file. If you want to search by PINCode, please set IsSearchToBeDoneByPINCode as true and provide proper valid values for PINCodes");
+            }
+        }
+
+        private void SearchByDistrictValidation()
+        {
+            var userEnteredSearchByDistrictDto = new SearchByDistrictModel
+            {
+                IsSearchToBeDoneByDistrict = Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]),
+                Districts = districtsToSearch
+
+            };
+
+            if (!_searchByDistrictValidator.IsValid(userEnteredSearchByDistrictDto))
+            {
+                throw new InvalidMobileNumberException("Invalid Configuration for Searching by District: \"IsSearchToBeDoneByDistrict\": " + userEnteredSearchByDistrictDto.IsSearchToBeDoneByDistrict.ToString() + ", \"Districts\": [ " + string.Join(", ", districtsToSearch) + " ] found in your config file. If you want to search by District, please set IsSearchToBeDoneByDistrict as true and provide proper valid values for Districts");
+            }
+        }
+
+        private void PINCodeValidation()
+        {
+            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
+            {
+                foreach (var pinCode in pinCodesToSearch)
+                {
+                    if (!_pinCodeValidator.IsValid(pinCode))
+                    {
+                        throw new InvalidDistrictException("Invalid PINCode: " + pinCode + " found in your config file");
+                    }
+                }
+
+            }
+        }
+
+        private void DistrictValidation()
+        {
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
             {
                 foreach (var district in districtsToSearch)
@@ -76,18 +137,6 @@ namespace CoWin.Models
                         throw new InvalidDistrictException("Invalid District: " + district + " found in your config file");
                     }
                 }
-            }
-
-            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
-            {
-                foreach (var pinCode in pinCodesToSearch)
-                {
-                    if (!_pinValidator.IsValid(pinCode))
-                    {
-                        throw new InvalidDistrictException("Invalid PINCode: " + pinCode + " found in your config file");
-                    }
-                }
-
             }
         }
 
@@ -147,20 +196,14 @@ namespace CoWin.Models
             /* Seaching with be either by PIN or District or Both; By Default by PIN.
             * If Both are selected for searching, PIN will be given Preference Over District
             */
-            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
+            foreach (var item in _configuration.GetSection("CoWinAPI:Districts").Get<List<string>>())
             {
-                foreach (var item in _configuration.GetSection("CoWinAPI:Districts").Get<List<string>>())
-                {
-                    districtsToSearch.Add(item);
-                }
+                districtsToSearch.Add(item);
             }
 
-            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
+            foreach (var item in _configuration.GetSection("CoWinAPI:PINCodes").Get<List<string>>())
             {
-                foreach (var item in _configuration.GetSection("CoWinAPI:PINCodes").Get<List<string>>())
-                {
-                    pinCodesToSearch.Add(item);
-                }
+                pinCodesToSearch.Add(item);
             }
 
             if (!string.IsNullOrEmpty(_configuration["CoWinAPI:DateToSearch"]))
