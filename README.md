@@ -99,7 +99,6 @@ Following are some of the main features of the App:
 - [ ] Addition of Automated Tests, CI/CD Pipeline, Auto increment of version
 - [ ] Debug Mode to be Developed to trace any bug/issue reported in User's Machine while running the Application
 - [ ] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
-
 - [ ] Auto Notifier/Auto OTP Reading functionality to be added for seamless flow
  
 ## Technical Details
