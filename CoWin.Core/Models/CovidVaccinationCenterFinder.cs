@@ -46,11 +46,19 @@ namespace CoWin.Models
         }
         public void FindSlot()
         {
+            CheckSoftwareVersion();
             ConfigureSearchCriteria();
             ValidateSearchCriteria();
             ValidateAuthCriteria();
             AuthenticateUser();
             SearchForAvailableSlots();
+        }
+
+        private void CheckSoftwareVersion()
+        {
+            var shouldAppBeAllowedToRun = new VersionChecker(_configuration).EvaluateCurrentSoftwareVersion();
+            if (shouldAppBeAllowedToRun == false)
+                Environment.Exit(0);
         }
 
         private void ValidateAuthCriteria()

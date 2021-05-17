@@ -13,25 +13,25 @@ namespace CoWin.Providers
         {
             _configuration = configuration;
         }
-        public IRestResponse Get(string endpoint)
+        public IRestResponse Get(string endpoint, bool isCowinRelatedHeadersToBeUsed = true)
         {
-            RestClient client = InitHttpClient(endpoint);
+            RestClient client = InitHttpClient(endpoint, isCowinRelatedHeadersToBeUsed);
 
             IRestRequest request = new RestRequest(Method.GET);
 
-            AddGenericHeaders(request);
+            AddGenericHeaders(request, isCowinRelatedHeadersToBeUsed);
 
             IRestResponse response = client.Execute(request);
 
             return response;
         }
 
-        private void AddGenericHeaders(IRestRequest request)
+        private void AddGenericHeaders(IRestRequest request, bool isCowinRelatedHeadersToBeUsed = true)
         {
             request.AddHeader("accept", "application/json");
             request.AddHeader("Accept-Language", "en_US");
 
-            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
+            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]) && isCowinRelatedHeadersToBeUsed)
             {
                 request.AddHeader("Origin", _configuration["CoWinAPI:SelfRegistrationPortal"]);
                 request.AddHeader("Referer", _configuration["CoWinAPI:SelfRegistrationPortal"]);
@@ -65,11 +65,14 @@ namespace CoWin.Providers
             
         }
 
-        private RestClient InitHttpClient(string endpoint)
+        private RestClient InitHttpClient(string endpoint, bool isCowinRelatedHeadersToBeUsed = true)
         {
             var client = new RestClient(endpoint);
             client.Timeout = -1;
-            client.UserAgent = _configuration["CoWinAPI:SpoofedUserAgentToBypassWAF"];
+            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]) && isCowinRelatedHeadersToBeUsed)
+            {
+                client.UserAgent = _configuration["CoWinAPI:SpoofedUserAgentToBypassWAF"];
+            }
 
             if (Convert.ToBoolean(_configuration["Proxy:IsToBeUsed"]))
             {
