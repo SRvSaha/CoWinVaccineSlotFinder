@@ -164,13 +164,14 @@ Modification can be done and file to be saved again with the same name and File 
 ### _**The values of the following items MUST BE MODIFIED in `appsettings.json`**_
 
 ``` javascript
-"Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO", 
-// Use your registered mobile number used for generation of OTP in Step 2 above.
-// Use it in the REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO section. Suppose your Mobile Number is 8888333388 then it'll be like "Mobile" : "8888333388" 
 "BeneficiaryIds": [ "REPLACE_WITH_YOUR_BENEFICIARY_ID_1", "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" ] 
 // You'll get the beneficiary ID from Step 4 above. 
 // If you have only 1 beneficiary ID then Use it in the <REPLACE_WITH_YOUR_BENEFICIARY_ID_1> section and remove rest like "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" eg. ["1111111111111111"]. 
 // If you have multiple beneficiaries for which you want to do booking, added them comma separated eg. ["11111111111111", "22222222222222", "33333333333333"]
+"Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO", 
+// Use your registered mobile number used for generation of OTP in Step 2 above.
+// Use it in the REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO section. Suppose your Mobile Number is 8888333388 then it'll be like "Mobile" : "8888333388". 
+// *NOTE* Don't use +91 infront of your mobile number, use only 10 digit mobile number
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
 "PINCodes": [
   "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
