@@ -257,13 +257,13 @@ Be default, this is how the `appsettings.json` would look like this:
     "VaccinationCentreName": "", // Blank implies All Vaccination Centres in the District/PINCodes, which is default
     "IsSearchToBeDoneByPINCode": true, // Set this as True if you want to set by PINCode
     "PINCodes": [
-      400058,
-      441906
+      "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
+      "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
     ],
-    "IsSearchToBeDoneByDistrict": false,  // Set this is True if you want to search By District
+    "IsSearchToBeDoneByDistrict": false, // Set this is True if you want to search By District
     "Districts": [
-      395,
-      392
+      "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1",
+      "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2"
     ],
     "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day; Date Searched is upto 7 days from the date in DateToSearch
   },
