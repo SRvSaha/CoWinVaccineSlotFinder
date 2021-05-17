@@ -176,7 +176,7 @@ Modification can be done and file to be saved again with the same name and File 
 "PINCodes": [
   "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
   "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
-],
+]
 // You can use anything in PlaceName, PINCode is to be the PIN you wish to search for, as of now things are done for Mumbai and nearby areas. 
 // If you want to search say for a particular PIN Code of Mumbai let's say 400008 then the entry would look like this : "PINCodes": [ "400008" ].
 // Basically, Replace REPLACE_ME_WITH_YOUR_PIN_CODE_1 WITH 400008. and remove everything else.
