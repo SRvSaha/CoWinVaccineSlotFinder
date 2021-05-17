@@ -20,8 +20,8 @@ namespace CoWin.Core.Validators.Tests
         }
 
         [TestMethod()]
-        [DataRow("REPLACE_ME_PIN_CODE_1")]
-        [DataRow("SomeRandomPin")]
+        [DataRow("REPLACE_ME_WITH_YOUR_PIN_CODE_1>")]
+        [DataRow("REPLACE_ME_WITH_YOUR_PIN_CODE_2")]
         public void IsValid_Should_ReturnFalse_When_PinCodeIsDefaultOrNonInteger(string userEnteredPinCode)
         {            
             var isValid = _validator.IsValid(userEnteredPinCode);
@@ -30,7 +30,18 @@ namespace CoWin.Core.Validators.Tests
         }
 
         [TestMethod()]
-        public void IsValid_Should_ReturnTrue_When_PinCodeIsNonDefault()
+        [DataRow("SomeRandomPin")]
+        [DataRow("Mumbai-400001")]
+        [DataRow("Mumbai: 400001")]
+        public void IsValid_Should_ReturnTrue_When_PinCodeIsNonDefaultAndNotInteger(string userEnteredPinCode)
+        {
+            var isValid = _validator.IsValid(userEnteredPinCode);
+
+            Assert.IsFalse(isValid);
+        }
+
+        [TestMethod()]
+        public void IsValid_Should_ReturnTrue_When_PinCodeIsNonDefaultAndInteger()
         {
             var userEnteredPinCode = "400001";
 

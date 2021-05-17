@@ -20,8 +20,8 @@ namespace CoWin.Core.Validators.Tests
         }
 
         [TestMethod()]
-        [DataRow("<REPLACE_ME_DISTRICT_CODE_1>")]
-        [DataRow("<REPLACE_ME_DISTRICT_CODE_2>")]
+        [DataRow("REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1")]
+        [DataRow("REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2")]
         public void IsValid_Should_ReturnFalse_When_DistrictIsDefault(string userEnteredDistrict)
         {
             var isValid = _validator.IsValid(userEnteredDistrict);

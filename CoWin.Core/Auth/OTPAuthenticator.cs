@@ -45,7 +45,7 @@ namespace CoWin.Auth
 
                 var txnID = JsonConvert.DeserializeObject<OtpModel>(response.Content);
                 endpoint = _configuration["CoWinAPI:Auth:OTPValidatorUrl"];
-                var enteredOtp = ReadUserInput("Please Enter OTP: ");
+                var enteredOtp = ReadUserInput("Please Enter OTP:  [In Case you haven't received OTP, press Enter to Resend OTP]");
 
                 isOTPEntered = true; // Always Close the Notified BEEP BEEP when going out, so that Notifier doesn't keep on beeping
 
