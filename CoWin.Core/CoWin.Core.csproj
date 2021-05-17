@@ -14,16 +14,18 @@
     <Copyright>Saurav Saha</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>3.0.0</Version>
+    <Version>4.0.0</Version>
     <PackageProjectUrl>https://srvsaha.github.io/CoWinVaccineSlotFinder/</PackageProjectUrl>
     <NeutralLanguage></NeutralLanguage>
     <PackageId>VaccineSlotFinder</PackageId>
     <SignAssembly>true</SignAssembly>
-    <PackageReleaseNotes>- Fixed Issue with Captcha Popup Focus; Now whenever Captcha is popped up, focus in on Captcha Form's TextBox, User can right away type the Captch and Press Enter to Submit
-- Added Feature of Searching Slot for Specific Vaccination Center by Name within a PINCode/District
-- Added Feature of Searching for any type of Vacccine or Both; By Defaut Searching will be on Any Type of Vaccine
-- Added Feature of Searching for VaccinationFee Type; By Default Free Vaccination Centres are search; Can be search for Free/Paid/Both
-- Fixed minor bugs; improved UX</PackageReleaseNotes>
+    <PackageReleaseNotes>1. Feature for Booking of SPUTNIK V type of Vaccine
+2. Feature for Checking and Validation of Configuration File
+3. Integration of New Availability of Vaccine Based on Dose Type integrated newly in CoWIN Fetch APIs
+4. Automatic Checking of Latest Version of the Release and Ask for Update to User
+5. Improved UX and minor bug fixes</PackageReleaseNotes>
+    <FileVersion>4.0.0.0</FileVersion>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

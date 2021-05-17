@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CoWin.Tests.Validators
+namespace CoWin.Core.Validators.Tests
 {
     [TestClass()]
     public class MobileNumberTests

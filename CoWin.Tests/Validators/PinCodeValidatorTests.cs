@@ -7,16 +7,16 @@ using System.Text;
 namespace CoWin.Core.Validators.Tests
 {
     [TestClass()]
-    public class PinCodeValidatorTests
+    public class PINCodeValidatorTests
     {
         private readonly IValidator<string> _validator;
-        public PinCodeValidatorTests(IValidator<string> validator)
+        public PINCodeValidatorTests(IValidator<string> validator)
         {
             _validator = validator;
         }
-        public PinCodeValidatorTests()
+        public PINCodeValidatorTests()
         {
-            _validator = new PinCodeValidator();
+            _validator = new PINCodeValidator();
         }
 
         [TestMethod()]
