@@ -173,14 +173,14 @@ Modification can be done and file to be saved again with the same name and File 
 // If you have multiple beneficiaries for which you want to do booking, added them comma separated eg. ["11111111111111", "22222222222222", "33333333333333"]
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
 "PINCodes": [
-  "<REPLACE_ME_PIN_CODE_1>",
-  "<REPLACE_ME_PIN_CODE_2>"
-]
+  "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
+  "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
+],
 // You can use anything in PlaceName, PINCode is to be the PIN you wish to search for, as of now things are done for Mumbai and nearby areas. 
 // If you want to search say for a particular PIN Code of Mumbai let's say 400008 then the entry would look like this : "PINCodes": [ "400008" ].
-// Basically, Replace <REPLACE_ME_PIN_CODE_1> WITH 400008. and remove everything else.
+// Basically, Replace REPLACE_ME_WITH_YOUR_PIN_CODE_1 WITH 400008. and remove everything else.
 // In case you want to search for multiple PIN Codes say 400008 and 400007, 
-// you'll have to remove <REPLACE_ME_PIN_CODE_1> with 400008 and <REPLACE_ME_PIN_CODE_2> with 40007 and so in, it would look something like this "PINCodes": [ "400008", "400007" ]
+// you'll have to remove REPLACE_ME_WITH_YOUR_PIN_CODE_1 with 400008 and REPLACE_ME_WITH_YOUR_PIN_CODE_2 with 40007 and so in, it would look something like this "PINCodes": [ "400008", "400007" ]
 
 ```
 
@@ -194,13 +194,13 @@ Modification can be done and file to be saved again with the same name and File 
 "DateToSearch": "<REPLACE_ME>",  // Use date in DD-MM-YYYY Format in the <REPLACE_ME> section, Blank implies date of next day (i.e, tomorrow), by default "" is selected to search for Next Day
 "IsSearchToBeDoneByDistrict": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected, Set this is True if you want to search By District
 "Districts": [
-  "<REPLACE_ME_DISTRICT_CODE_1>",
-  "<REPLACE_ME_DISTRICT_CODE_2>"
+  "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1",
+  "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2"
 ],
 // You'll get the District Name and District Codes from the link below this block, as of now things are done for Mumbai and nearby districts. 
-// Basically, Replace <REPLACE_ME_DISTRICT_CODE_1> 395, then the entry would look like this : "Districts": [ "395" ].
+// Basically, Replace REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395, then the entry would look like this : "Districts": [ "395" ].
 // In case you want to search for multiple Districts say Mumbai and Thane, get the District-District Code Mapping from below "State-District-DistrictCode Mapping", // you'll get the DistrictCode of Mumbai as 395 and of Thane as 392.
-// You'll have to remove <REPLACE_ME_DISTRICT_CODE_1> with 395 and <REPLACE_ME_PIN_CODE_2> with 400070, it would look something like this "Districts": [ "395", "392"]
+// You'll have to remove REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395 and REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2 with 392, it would look something like this "Districts": [ "395", "392"]
 "Proxy": 
 {
    "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, False if you're not, in the <REPLACE_ME> section, by default false would be selected
