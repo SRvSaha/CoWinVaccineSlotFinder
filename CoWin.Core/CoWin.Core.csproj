@@ -10,7 +10,7 @@
     <Company>Open Source</Company>
     <Product>Vaccine Slot Finder</Product>
     <Description>Windows Application to Fetch the Available Slots &amp; Booking the Appointment Schedule for COVID-19 Vaccination using the Publicly available APISetu APIs from Govt Of India</Description>
-    <Authors>SRvSaha, PSuyog97, priyanka1111</Authors>
+    <Authors>SRvSaha, PSuyog97, priyanka1111, iSatishYadav</Authors>
     <Copyright>Saurav Saha</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
