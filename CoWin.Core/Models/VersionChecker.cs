@@ -33,7 +33,7 @@ namespace CoWin.Core.Models
                 if (IsVersionUpdateMandatory(serverVersion.Major, localVersion.Major))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"[WARNING] Your Software Version is outdated. You MUST update the software, your current version is {localVersion}");
+                    Console.WriteLine($"[FATAL] Your Software Version is outdated. You MUST update the software, your current version is {localVersion}");
                     ShowLatestVersionFeatureInfo(latestVersionDto, serverVersion);
                     Console.WriteLine($"Please press Y for Downloading the Latest Version {serverVersion}, any other key to exit the app");
                     var input = Console.ReadLine();
@@ -75,7 +75,15 @@ namespace CoWin.Core.Models
 
         private Version GetVersionInfoFromServer(VersionModel latestVersionDto)
         {
-            string processedVersion = latestVersionDto.TagName[1..] + ".0";
+            string processedVersion;
+            if (latestVersionDto.TagName.Contains("-"))
+            {
+                processedVersion = latestVersionDto.TagName[1..latestVersionDto.TagName.IndexOf("-")] + ".0";
+            }
+            else 
+            {
+                processedVersion = latestVersionDto.TagName[1..] + ".0";
+            }
             var lastestVersionOnServer = new Version(processedVersion);
             return lastestVersionOnServer;
         }
@@ -122,7 +130,7 @@ namespace CoWin.Core.Models
         {
             Console.WriteLine($"*************************************************************************************************************************************************************");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"Latest Version of the Software { latestVersionDto.Name} is { serverVersion }, Downloaded #{latestVersionDto.Assets[0].DownloadCount} times, Released on { latestVersionDto.PublishedAt} \n\nFeatures of the Updated Version:\n { latestVersionDto.Body}");
+            Console.WriteLine($"Latest Version of the Software { latestVersionDto.Name} is { serverVersion }, Downloaded #{latestVersionDto.Assets[0].DownloadCount} times, Released on { latestVersionDto.PublishedAt.LocalDateTime} \n\nFeatures of the Updated Version:\n{latestVersionDto.Body}");
             Console.WriteLine($"*************************************************************************************************************************************************************");
             Console.ResetColor();
 

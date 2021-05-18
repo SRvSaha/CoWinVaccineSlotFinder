@@ -21,6 +21,7 @@ namespace CoWin.Auth
             _configuration = configuration;
         }
 
+        // TODO: Needs Refactoring based on SRP
         public void ValidateUser()
         {
             string endpoint = "";
@@ -29,11 +30,23 @@ namespace CoWin.Auth
             {
                 endpoint = _configuration["CoWinAPI:Auth:OTPGeneratorUrl"];
             }
+
+            // Check if user already has a valid bearer token, if yes use it.
+            if (!string.IsNullOrEmpty(_configuration["CoWinAPI:Auth:BearerToken"]))
+            {
+                BEARER_TOKEN = _configuration["CoWinAPI:Auth:BearerToken"];
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"[INFO] Resuming Session for Mobile No: {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now} using the provided Bearer Token in config file");
+                Console.ResetColor();
+                return;
+            }
             string requestBody = JsonConvert.SerializeObject(new OtpModel
             {
                 Mobile = _configuration["CoWinAPI:Auth:Mobile"],
                 Secret = _configuration["CoWinAPI:Auth:Secret"]
             });
+
+
             var response = GenerateOTP(endpoint, requestBody);
             string otp = "";
             if (response.StatusCode == HttpStatusCode.OK)
@@ -59,7 +72,12 @@ namespace CoWin.Auth
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     Console.WriteLine($"[INFO] User Validated with Mobile No {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now}");
+                    
                     BEARER_TOKEN = JsonConvert.DeserializeObject<OtpModel>(response.Content).BearerToken;
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"[INFO] Your Bearer Token is \"{BEARER_TOKEN}\" valid for only 15 minutes. [In Case you want to re-use the Session, please Save the token, and put it in config file on subsequent run]");
+                    Console.ResetColor();
                 }
                 else
                 {

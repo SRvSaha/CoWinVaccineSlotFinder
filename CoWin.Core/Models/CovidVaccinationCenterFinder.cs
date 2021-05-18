@@ -204,14 +204,14 @@ namespace CoWin.Models
             /* Seaching with be either by PIN or District or Both; By Default by PIN.
             * If Both are selected for searching, PIN will be given Preference Over District
             */
-            foreach (var item in _configuration.GetSection("CoWinAPI:Districts").Get<List<string>>())
+            foreach (var item in _configuration.GetSection("CoWinAPI:Districts").GetChildren())
             {
-                districtsToSearch.Add(item);
+                districtsToSearch.Add(item.Value);
             }
 
-            foreach (var item in _configuration.GetSection("CoWinAPI:PINCodes").Get<List<string>>())
+            foreach (var item in _configuration.GetSection("CoWinAPI:PINCodes").GetChildren())
             {
-                pinCodesToSearch.Add(item);
+                pinCodesToSearch.Add(item.Value);
             }
 
             if (!string.IsNullOrEmpty(_configuration["CoWinAPI:DateToSearch"]))
