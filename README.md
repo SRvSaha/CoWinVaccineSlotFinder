@@ -197,6 +197,8 @@ Modification can be done and file to be saved again with the same name and File 
 // Use it in the REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO section. Suppose your Mobile Number is 8888333388 then it'll be like "Mobile" : "8888333388". 
 // *NOTE* Don't use +91 infront of your mobile number, use only 10 digit mobile number
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
+"AutoReadCaptcha": <REPLACE_ME>, // Use either true or false; By default false;
+// True means No need to enter captcha, Captcha will be automatically computed by AI Model, False means captcha needs to be entered manually in the Captcha Popup window
 "PINCodes": [
   "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
   "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
@@ -226,6 +228,8 @@ Modification can be done and file to be saved again with the same name and File 
 // Basically, Replace REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395, then the entry would look like this : "Districts": [ "395" ].
 // In case you want to search for multiple Districts say Mumbai and Thane, get the District-District Code Mapping from below "State-District-DistrictCode Mapping", // you'll get the DistrictCode of Mumbai as 395 and of Thane as 392.
 // You'll have to remove REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395 and REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2 with 392, it would look something like this "Districts": [ "395", "392"]
+"BearerToken": "", // If you already have bearer token, which you'll get from the App after entering OTP, you can put it here for subsequent usage till the Token is valid. 
+//Validity of the token is 15 minutes. But default, it will be blank which means new sessions will be generated and OTP would be needed
 "Proxy": 
 {
    "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, False if you're not, in the <REPLACE_ME> section, by default false would be selected
@@ -266,6 +270,8 @@ Be default, this is how the `appsettings.json` would look like this:
       "OTPGeneratorUrl": "https://cdn-api.co-vin.in/api/v2/auth/generateMobileOTP",
       "OTPValidatorUrl": "https://cdn-api.co-vin.in/api/v2/auth/validateMobileOtp",
       "Secret": "U2FsdGVkX18vDwDor+oOIG7vSUnINtlc/pxQcNiBulCm8LT5Sza+aIISKLqImbpMnRYgsN2QACPhggLWgZEpQg==",
+      "AutoReadCaptcha": false, // Use either true or false; By default false; True means No need to enter captcha, False means captcha needs to be entered manually
+      "BearerToken": "", // If you already have bearer token, which you'll get after entering OTP, you can put it here for subsequent usage. But default, it will be blank which means new sessions will be generated and OTP would be needed
       "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO"
     },
     "SleepIntervalInMilliseconds": 2000,
@@ -294,6 +300,11 @@ Be default, this is how the `appsettings.json` would look like this:
   "Proxy": {
     "IsToBeUsed": "false",
     "Address": ""
+  },
+  "App": {
+    "LatestVersion": {
+      "FetchDetailsAPIEndpoint": "https://api.github.com/repos/srvsaha/CoWINVaccineSlotFinder/releases/latest"
+    }
   }
 }
 
