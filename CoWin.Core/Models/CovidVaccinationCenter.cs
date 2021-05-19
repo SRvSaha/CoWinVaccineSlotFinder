@@ -325,7 +325,7 @@ namespace CoWiN.Models
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"[ERROR] BOOKING ERROR Sorry, Booking Failed - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
-                isBookingSuccessful = true;
+                isBookingSuccessful = false;
             }
             return isBookingSuccessful;
         }
