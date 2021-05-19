@@ -19,7 +19,11 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 *Application Start - OTP Generation*
 
 ![Application Start](data/ApplicationStart.png)
- 
+
+*Application Start - OTP Validated - BearerToken Generation*
+
+![Application Start](data/BearerToken.png)
+
 *Application OTP Retrigger In Case OTP is not received within time. Press `Enter` to Retrigger OTP*
 
 ![Application Start](data/RetriggerOTPScenario.png)
@@ -27,6 +31,18 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 *Application Slot Booking - Captcha Input*
  
 ![Application Sample](data/Application.jpg)
+
+*Application Slot Booking - Manual Captcha Input*
+ 
+![Application Sample](data/SlotBookingNewWithManualCaptcha.png)
+
+*Application Slot Booking - AI Assisted AutoCaptcha Feature*
+ 
+![Application Sample](data/BookingWithAutoCaptcha.png)
+
+*Application Slot Booking - Using Bearer Token for Session Resuse without new OTP*
+ 
+![Application Sample](data/BookingWithManualCaptchaByBearerToken.png)
  
 *Successful Booking Scenario*
 
