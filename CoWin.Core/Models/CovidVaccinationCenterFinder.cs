@@ -162,8 +162,9 @@ namespace CoWin.Models
                     return;
                 }
 
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"\nFinding Available Slots as per your request, Try #{i}\n");
                 Console.ResetColor();
-                Console.WriteLine($"Fetching Resources, Try #{i}");
 
                 /* Seaching with be either by PIN or District or Both; By Default by PIN.
                  * If Both are selected for searching, PIN will be given Preference Over District

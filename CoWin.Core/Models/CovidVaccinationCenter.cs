@@ -139,6 +139,9 @@ namespace CoWiN.Models
                     {
                         if (session.Slots.Count > 0)
                         {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"[INFO] HURRAY! Slots Available for search criteria: Age {_configuration["CoWinAPI:MinAgeLimit"]}-{_configuration["CoWinAPI:MaxAgeLimit"]} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Center : {cvc.Name}");
+                            Console.ResetColor();
                             DisplaySlotInfo(cvc, session);
                         }
 
@@ -147,7 +150,7 @@ namespace CoWiN.Models
                         {
                             Console.ResetColor();
                             Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {session.Slots[i]}");
+                            Console.WriteLine($"[INFO] Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {session.Slots[i]}");
                             Console.ResetColor();
 
                             captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
@@ -164,10 +167,10 @@ namespace CoWiN.Models
                     }
                     else
                     {
-                        Console.WriteLine($"No Slots Available for search criteria: Age {_configuration["CoWinAPI:MinAgeLimit"]}-{_configuration["CoWinAPI:MaxAgeLimit"]} - Date: {session.Date} - PIN: {cvc.Pincode} - District: {cvc.DistrictName}");
+                        Console.WriteLine($"[INFO] Sorry! No Slots Available for search criteria: Age {_configuration["CoWinAPI:MinAgeLimit"]}-{_configuration["CoWinAPI:MaxAgeLimit"]} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Center : {cvc.Name}");
                         Console.ResetColor();
                     }
-                }
+                }                
             }
         }
 

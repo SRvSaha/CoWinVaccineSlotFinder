@@ -90,7 +90,7 @@ namespace CoWin.Auth
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"[INFO] Your Bearer Token is \"{BEARER_TOKEN}\"");
                     Console.ResetColor();
-                    Console.WriteLine("Your BearerToken is valid for only 15 minutes. [In Case you want to re-use the Session, please copy the BearerToken, and put it in config file on subsequent run]\n");
+                    Console.WriteLine($"[INFO] Your BearerToken is valid for only 15 minutes and will expire on {GetTokenExpiryDate(BEARER_TOKEN)} [In Case you want to re-use the Session, please copy the BearerToken, and put it in config file on subsequent run]\n");
                 }
                 else
                 {
@@ -106,6 +106,15 @@ namespace CoWin.Auth
 
         private bool IsValidBearerToken(string bearerToken)
         {
+            DateTime expiryDateTime = GetTokenExpiryDate(bearerToken);
+            DateTime currentDateTime = DateTime.Now;
+            if (currentDateTime.CompareTo(expiryDateTime) < 0)
+                return true;
+            return false;
+        }
+
+        private static DateTime GetTokenExpiryDate(string bearerToken)
+        {
             var handler = new JwtSecurityTokenHandler();
 
             var jsonToken = handler.ReadJwtToken(bearerToken);
@@ -113,10 +122,7 @@ namespace CoWin.Auth
             var expiryTime = Convert.ToInt64(jsonToken.Claims.First(claim => claim.Type == "exp").Value);
 
             DateTime expiryDateTime = DateTimeOffset.FromUnixTimeSeconds(expiryTime).LocalDateTime;
-            DateTime currentDateTime = DateTime.Now;
-            if (currentDateTime.CompareTo(expiryDateTime) < 0)
-                return true;
-            return false;
+            return expiryDateTime;
         }
 
         private IRestResponse GenerateOTP(string endpoint, string requestBody)
