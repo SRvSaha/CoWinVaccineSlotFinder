@@ -10,11 +10,14 @@ using Newtonsoft.Json;
 using System.Web;
 using System.Collections.Specialized;
 using CoWin.Core.Models;
+using System.Diagnostics;
+
 namespace CoWiN.Models
 {
     public class CovidVaccinationCenter
     {
         private readonly IConfiguration _configuration;
+        private List<string> beneficiaries = new List<string>();
         public static bool IS_BOOKING_SUCCESSFUL = false;
 
         public CovidVaccinationCenter(IConfiguration configuration)
@@ -148,20 +151,33 @@ namespace CoWiN.Models
                         // Processing of Slot Booking in Reverse Order so that chances are higher to get the slot
                         for (int i = session.Slots.Count - 1; i >= 0; i--)
                         {
+                            var stopwatch = new Stopwatch();
+                            stopwatch.Start();
+
                             Console.ResetColor();
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine($"[INFO] Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {session.Slots[i]}");
                             Console.ResetColor();
-
+                            
                             captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
 
                             IS_BOOKING_SUCCESSFUL = BookAvailableSlot(session.SessionId, session.Slots[i], captcha);
 
                             if (IS_BOOKING_SUCCESSFUL == true)
                             {
+                                stopwatch.Stop();
+                                TimeSpan ts = stopwatch.Elapsed;
+                                new Notifier().Notify($"*SLOT BOOKED SUCCESSFULLY +1* \n\n" +
+                                                      $"*LocalAppVersion* : `{ new VersionChecker(_configuration).GetCurrentVersionFromSystem()}`\n" +
+                                                      $"*BookedOn* : `{ DateTime.Now}`\n" +
+                                                      $"*TimeTakeToBook* : `{ts.TotalSeconds} seconds`\n" +
+                                                      $"*PINCode* : `{cvc.Pincode}`\n" +
+                                                      $"*District* : `{ cvc.DistrictName}`\n" +
+                                                      $"*BeneficiaryCount* : `{ beneficiaries.Count}`\n" +
+                                                      $"*AgeGroup* : `{_configuration["CoWinAPI:MinAgeLimit"]} - {_configuration["CoWinAPI:MaxAgeLimit"]}`\n");
                                 return;
                             }
-
+                            stopwatch.Stop();
                         }
 
                     }
@@ -270,7 +286,7 @@ namespace CoWiN.Models
         {
             string endpoint = "";
             bool isBookingSuccessful = false;
-            List<string> beneficiaries = new List<string>();
+            beneficiaries.Clear(); 
 
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
             {

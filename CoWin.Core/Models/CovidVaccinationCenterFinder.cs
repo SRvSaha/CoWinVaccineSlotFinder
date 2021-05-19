@@ -7,7 +7,6 @@ using System.Threading;
 using CoWin.Auth;
 using System.Globalization;
 using CoWin.Core.Exceptions;
-using System.Linq;
 using CoWin.Core.Validators;
 using CoWin.Core.Models;
 

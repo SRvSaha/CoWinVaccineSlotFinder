@@ -24,9 +24,11 @@
 3. Bug Fixes in the Slot Finding Algorithm
 4. Verbose Information in UI for User Experience Improvement
 5. Optimization in Slot Booking Heuristics for better chances of getting a slot booked
+6. Integration with Telegram for Booking Success Telemetry Metadata for Statistics
 </PackageReleaseNotes>
-    <FileVersion>4.0.0.0</FileVersion>
+    <FileVersion>4.1.0.0</FileVersion>
     <AssemblyVersion>4.1.0.0</AssemblyVersion>
+    <UserSecretsId>107ac8ef-23d4-4f38-8773-00d3c45adaa5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -56,6 +58,7 @@
     <PackageReference Include="Svg" Version="3.2.3" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
+    <PackageReference Include="Telegram.Bot" Version="15.7.1" />
   </ItemGroup>
 
   <ItemGroup>

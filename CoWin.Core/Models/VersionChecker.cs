@@ -95,7 +95,7 @@ namespace CoWin.Core.Models
             return false;
         }
 
-        private Version GetCurrentVersionFromSystem()
+        public Version GetCurrentVersionFromSystem()
         {
             var localVersion = Assembly.GetExecutingAssembly().GetName().Version;
             return localVersion;
