@@ -167,10 +167,12 @@ namespace CoWiN.Models
                             {
                                 stopwatch.Stop();
                                 TimeSpan ts = stopwatch.Elapsed;
+                                var captchaMode = Convert.ToBoolean(_configuration["CoWinAPI:Auth:AutoReadCaptcha"]) == true ? "AI AutoCaptcha" : "Manual Captcha";
                                 new Notifier().Notify($"*SLOT BOOKED SUCCESSFULLY +1* \n\n" +
                                                       $"*LocalAppVersion* : `{ new VersionChecker(_configuration).GetCurrentVersionFromSystem()}`\n" +
                                                       $"*BookedOn* : `{ DateTime.Now}`\n" +
                                                       $"*TimeTakeToBook* : `{ts.TotalSeconds} seconds`\n" +
+                                                      $"*CaptchaMode* : `{captchaMode}`\n" +
                                                       $"*PINCode* : `{cvc.Pincode}`\n" +
                                                       $"*District* : `{ cvc.DistrictName}`\n" +
                                                       $"*BeneficiaryCount* : `{ beneficiaries.Count}`\n" +
@@ -323,7 +325,7 @@ namespace CoWiN.Models
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"[ERROR] BOOKING ERROR Sorry, Booking Failed - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
-                isBookingSuccessful = false;
+                isBookingSuccessful = true;
             }
             return isBookingSuccessful;
         }
