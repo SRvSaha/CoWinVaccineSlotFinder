@@ -40,7 +40,7 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
  
 ![Application Sample](data/BookingWithAutoCaptcha.png)
 
-*Application Slot Booking - Using Bearer Token for Session Resuse without new OTP*
+*Application Slot Booking - Using Bearer Token for Session Resuse with Manual Captcha*
  
 ![Application Sample](data/BookingWithManualCaptchaByBearerToken.png)
  
