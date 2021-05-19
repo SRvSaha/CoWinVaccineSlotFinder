@@ -76,8 +76,9 @@ namespace CoWin.Auth
                     BEARER_TOKEN = JsonConvert.DeserializeObject<OtpModel>(response.Content).BearerToken;
 
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"[INFO] Your Bearer Token is \"{BEARER_TOKEN}\" valid for only 15 minutes. [In Case you want to re-use the Session, please Save the token, and put it in config file on subsequent run]");
+                    Console.WriteLine($"[INFO] Your Bearer Token is \"{BEARER_TOKEN}\"");
                     Console.ResetColor();
+                    Console.WriteLine("Your BearerToken is valid for only 15 minutes. [In Case you want to re-use the Session, please copy the BearerToken, and put it in config file on subsequent run]");
                 }
                 else
                 {

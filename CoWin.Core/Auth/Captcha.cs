@@ -56,6 +56,12 @@ namespace CoWin.Auth
                 var captchaSvg = JsonConvert.DeserializeObject<CaptchaModel>(response.Content);
                 return captchaSvg.Captcha;
             }
+            else if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"[WARNING] Session Expired : Regenerating Auth Token");
+                new OTPAuthenticator(_configuration).ValidateUser();
+            }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -98,11 +104,20 @@ namespace CoWin.Auth
 
         private void ComputeCaptcha(Dictionary<decimal, string> indexInSvg, XmlNode item)
         {
-            var pathRawData = item.Attributes["d"].Value.ToUpper(); // Get Content within the SVG's path
-            var position = Convert.ToDecimal(pathRawData.Substring(1, pathRawData.IndexOf(' '))); // Get the Actual position of the Character in SVG
-            var encodedData = KeepOnlyAlphabets(pathRawData); // Remove useless data from path
-            var mappedCharacter = _mapping[encodedData]; // Get character from the encoded data
-            indexInSvg[position] = mappedCharacter; // Store the mapping in index for re-creating the order of captcha
+            // Get Content within the SVG's path
+            var pathRawData = item.Attributes["d"].Value.ToUpper();
+            
+            // Get the Actual position of the Character in SVG
+            var position = Convert.ToDecimal(pathRawData.Substring(1, pathRawData.IndexOf(' ')));
+            
+            // Remove useless data from path
+            var encodedData = KeepOnlyAlphabets(pathRawData);
+
+            // Get character from the encoded data
+            var mappedCharacter = _mapping[encodedData];
+
+            // Store the mapping in index for re-creating the order of captcha
+            indexInSvg[position] = mappedCharacter; 
         }
 
         private static Bitmap ConvertCaptchSvgToImage(string captchaWithoutNoise)
