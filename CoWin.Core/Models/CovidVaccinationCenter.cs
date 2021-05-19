@@ -10,7 +10,6 @@ using Newtonsoft.Json;
 using System.Web;
 using System.Collections.Specialized;
 using CoWin.Core.Models;
-
 namespace CoWiN.Models
 {
     public class CovidVaccinationCenter
@@ -134,22 +133,26 @@ namespace CoWiN.Models
             string captcha = "";
             foreach (var cvc in covidVaccinationCenters.Centers)
             {
-                foreach (var session in cvc?.Sessions)
+                foreach (var session in cvc.Sessions)
                 {
                     if (IsFiltrationCriteriaSatisfied(cvc, session))
                     {
-                        DisplaySlotInfo(cvc, session);
+                        if (session.Slots.Count > 0)
+                        {
+                            DisplaySlotInfo(cvc, session);
+                        }
 
-                        foreach (var slot in session.Slots)
+                        // Processing of Slot Booking in Reverse Order so that chances are higher to get the slot
+                        for (int i = session.Slots.Count - 1; i >= 0; i--)
                         {
                             Console.ResetColor();
                             Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {slot}");
+                            Console.WriteLine($"Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {session.Slots[i]}");
                             Console.ResetColor();
 
                             captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
 
-                            IS_BOOKING_SUCCESSFUL = BookAvailableSlot(session.SessionId, slot, captcha);
+                            IS_BOOKING_SUCCESSFUL = BookAvailableSlot(session.SessionId, session.Slots[i], captcha);
 
                             if (IS_BOOKING_SUCCESSFUL == true)
                             {
@@ -159,6 +162,11 @@ namespace CoWiN.Models
                         }
 
                     }
+                    else
+                    {
+                        Console.WriteLine($"No Slots Available for search criteria: Age {_configuration["CoWinAPI:MinAgeLimit"]}-{_configuration["CoWinAPI:MaxAgeLimit"]} - Date: {session.Date} - PIN: {cvc.Pincode} - District: {cvc.DistrictName}");
+                        Console.ResetColor();
+                    }
                 }
             }
         }
@@ -166,9 +174,21 @@ namespace CoWiN.Models
         private bool IsFiltrationCriteriaSatisfied(Center cvc, Session session)
         {
             bool isAgeCriteriaMet = IsAgeFilterSatisfied(session);
-            bool isVaccineAvailable = IsMinimumVaccinateAvailabilityFilterSatisfied(session);
+            if (!isAgeCriteriaMet)
+                return false;
+
+            bool isVaccineAvailable = IsMinimumVaccineAvailabilityFilterSatisfied(session);
+            if (!isVaccineAvailable)
+                return false;
+
             bool vaccineFeeTypeFilter = IsVacineFeeTypeFilterSatisfied(cvc);
+            if (!vaccineFeeTypeFilter)
+                return false;
+
             bool vaccinationCentreNameWiseFilter = IsVaccinationCentreNameFilterSatified(cvc);
+            if (!vaccinationCentreNameWiseFilter)
+                return false;
+
             return FilteredResult(isAgeCriteriaMet, isVaccineAvailable, vaccineFeeTypeFilter, vaccinationCentreNameWiseFilter);
         }
 
@@ -199,7 +219,7 @@ namespace CoWiN.Models
             return minimumAgeLimitFilter && maximumAgeLimitFilter;
         }
 
-        private bool IsMinimumVaccinateAvailabilityFilterSatisfied(Session session)
+        private bool IsMinimumVaccineAvailabilityFilterSatisfied(Session session)
         {
             bool minimumVaccineAvailabiltyFilter;
             var availableVaccines = GetVaccineAvailabiltyForDoseType(session);
@@ -209,7 +229,7 @@ namespace CoWiN.Models
 
         private long GetVaccineAvailabiltyForDoseType(Session session)
         {
-            if (Convert.ToInt16(_configuration["CoWinAPI:MinimumVaccineAvailability"]) == (int)DoseTypeModel.FIRSTDOSE)
+            if (Convert.ToInt16(_configuration["CoWinAPI:DoseType"]) == (int)DoseTypeModel.FIRSTDOSE)
             {
                 return session.AvailableCapacityFirstDose;
             }

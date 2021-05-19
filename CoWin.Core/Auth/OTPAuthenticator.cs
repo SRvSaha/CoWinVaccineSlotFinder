@@ -8,6 +8,8 @@ using RestSharp;
 using CoWin.Providers;
 using System.Net;
 using System.Security.Cryptography;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 
 namespace CoWin.Auth
 {
@@ -31,15 +33,25 @@ namespace CoWin.Auth
                 endpoint = _configuration["CoWinAPI:Auth:OTPGeneratorUrl"];
             }
 
-            // Check if user already has a valid bearer token, if yes use it.
             if (!string.IsNullOrEmpty(_configuration["CoWinAPI:Auth:BearerToken"]))
             {
-                BEARER_TOKEN = _configuration["CoWinAPI:Auth:BearerToken"];
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"[INFO] Resuming Session for Mobile No: {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now} using the provided Bearer Token in config file");
-                Console.ResetColor();
-                return;
+                // Check if user already has a valid bearer token, if yes use it.
+                if (IsValidBearerToken(_configuration["CoWinAPI:Auth:BearerToken"]))
+                {
+                    BEARER_TOKEN = _configuration["CoWinAPI:Auth:BearerToken"];
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"[INFO] Resuming Session for Mobile No: {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now} using the provided Bearer Token in config file");
+                    Console.ResetColor();
+                    return;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"[WARNING] Invalid/Expired Bearer Token provided in config file. Re-generating OTP to establish session!");
+                    Console.ResetColor();
+                }
             }
+            
             string requestBody = JsonConvert.SerializeObject(new OtpModel
             {
                 Mobile = _configuration["CoWinAPI:Auth:Mobile"],
@@ -78,7 +90,7 @@ namespace CoWin.Auth
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"[INFO] Your Bearer Token is \"{BEARER_TOKEN}\"");
                     Console.ResetColor();
-                    Console.WriteLine("Your BearerToken is valid for only 15 minutes. [In Case you want to re-use the Session, please copy the BearerToken, and put it in config file on subsequent run]");
+                    Console.WriteLine("Your BearerToken is valid for only 15 minutes. [In Case you want to re-use the Session, please copy the BearerToken, and put it in config file on subsequent run]\n");
                 }
                 else
                 {
@@ -90,6 +102,21 @@ namespace CoWin.Auth
                 DisplayErrorMessage(response);
             }
 
+        }
+
+        private bool IsValidBearerToken(string bearerToken)
+        {
+            var handler = new JwtSecurityTokenHandler();
+
+            var jsonToken = handler.ReadJwtToken(bearerToken);
+
+            var expiryTime = Convert.ToInt64(jsonToken.Claims.First(claim => claim.Type == "exp").Value);
+
+            DateTime expiryDateTime = DateTimeOffset.FromUnixTimeSeconds(expiryTime).LocalDateTime;
+            DateTime currentDateTime = DateTime.Now;
+            if (currentDateTime.CompareTo(expiryDateTime) < 0)
+                return true;
+            return false;
         }
 
         private IRestResponse GenerateOTP(string endpoint, string requestBody)
