@@ -24,6 +24,14 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 
 ![Application Start](data/BearerToken.png)
 
+*Application Start - OTP Validated - Invalid BearerToken provided in Config; Regeneration Session by Resending OTP*
+
+![Application Start](data/BearerTokenInvalid.png)
+
+*Application Start - Invaid OTP  Entered. Re-Generating new OTP*
+
+![Application Start](data/InvalidOTP.png)
+
 *Application OTP Retrigger In Case OTP is not received within time. Press `Enter` to Retrigger OTP*
 
 ![Application Start](data/RetriggerOTPScenario.png)
