@@ -19,7 +19,11 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 *Application Start - OTP Generation*
 
 ![Application Start](data/ApplicationStart.png)
- 
+
+*Application Start - OTP Validated - BearerToken Generation*
+
+![Application Start](data/BearerToken.png)
+
 *Application OTP Retrigger In Case OTP is not received within time. Press `Enter` to Retrigger OTP*
 
 ![Application Start](data/RetriggerOTPScenario.png)
@@ -27,6 +31,18 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 *Application Slot Booking - Captcha Input*
  
 ![Application Sample](data/Application.jpg)
+
+*Application Slot Booking - Manual Captcha Input*
+ 
+![Application Sample](data/SlotBookingNewWithManualCaptcha.png)
+
+*Application Slot Booking - AI Assisted AutoCaptcha Feature*
+ 
+![Application Sample](data/BookingWithAutoCaptcha.png)
+
+*Application Slot Booking - Using Bearer Token for Session Resuse with Manual Captcha*
+ 
+![Application Sample](data/BookingWithManualCaptchaByBearerToken.png)
  
 *Successful Booking Scenario*
 
@@ -93,8 +109,9 @@ Following are some of the main features of the App:
 - [x] Zero Setup Application, Just Download and Run! Easy to Use!
 - [x] No specialized Software required for modification of Config file
 - [x] Allow Any Vaccine Type and Any Fee Type for Booking Slots; Remove Mandatory Filters on VaccineType and FeeType
+- [x] AI Assisted Auto Captcha
+- [x] Application Latest Version Check Automatically before proceeding
 - [ ] Verbose Mode to be Developed so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
-- [ ] Application Latest Version Check Automatically before proceeding
 - [ ] Integration of Notification Engine with Telegram Bot/Mail Service/Webhook Endpoint
 - [ ] Addition of Automated Tests, CI/CD Pipeline, Auto increment of version
 - [ ] Debug Mode to be Developed to trace any bug/issue reported in User's Machine while running the Application
