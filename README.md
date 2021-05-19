@@ -197,7 +197,7 @@ Modification can be done and file to be saved again with the same name and File 
 // Use it in the REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO section. Suppose your Mobile Number is 8888333388 then it'll be like "Mobile" : "8888333388". 
 // *NOTE* Don't use +91 infront of your mobile number, use only 10 digit mobile number
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
-"AutoReadCaptcha": <REPLACE_ME>, // Use either true or false; By default false;
+"AutoReadCaptcha": "<REPLACE_ME>", // Use either true or false in the <REPLACE_ME> section; By default false;
 // True means No need to enter captcha, Captcha will be automatically computed by AI Model, False means captcha needs to be entered manually in the Captcha Popup window
 "PINCodes": [
   "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
