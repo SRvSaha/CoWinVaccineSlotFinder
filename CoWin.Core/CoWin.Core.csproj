@@ -14,18 +14,19 @@
     <Copyright>Saurav Saha</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>4.0.0</Version>
+    <Version>4.1.0</Version>
     <PackageProjectUrl>https://srvsaha.github.io/CoWinVaccineSlotFinder/</PackageProjectUrl>
     <NeutralLanguage></NeutralLanguage>
     <PackageId>VaccineSlotFinder</PackageId>
     <SignAssembly>true</SignAssembly>
-    <PackageReleaseNotes>1. Feature for Booking of SPUTNIK V type of Vaccine
-2. Feature for Checking and Validation of Configuration File
-3. Integration of New Availability of Vaccine Based on Dose Type integrated newly in CoWIN Fetch APIs
-4. Automatic Checking of Latest Version of the Release and Ask for Update to User
-5. Improved UX and minor bug fixes</PackageReleaseNotes>
+    <PackageReleaseNotes>1. Feature added for AI Assisted Auto Captcha while Scheduling Appointment
+2. Feature added to re-use sessions using Bearer Token
+3. Bug Fixes in the Slot Finding Algorithm
+4. Verbose Information in UI for User Experience Improvement
+5. Optimization in Slot Booking Heuristics for better chances of getting a slot booked
+</PackageReleaseNotes>
     <FileVersion>4.0.0.0</FileVersion>
-    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <AssemblyVersion>4.1.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
