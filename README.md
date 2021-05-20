@@ -327,7 +327,7 @@ Enjoy and feel free to Star the Repo, if it could help you in any way!
 2. Go to the app and create a new Applet.
 3. Configure the `if this...` part to [Android SMS](https://github.com/deepak-batra/CoWinVaccineSlotFinder.git)
 4. Select "New SMS received matches search" and use `CoWIN` as the search key
-5. In then `Then` part choose `Telegram` and select `send message` as an action.
+5. In the `Then` part choose `Telegram` and select `send message` as an action.
 6. In `Target Chat` select the channel with IFTTT bot as the admin
 7. For `Message Text` use `Insert Ingredients` and select `Text`.
 8. Save the applet. 
