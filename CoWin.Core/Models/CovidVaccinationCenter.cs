@@ -171,10 +171,13 @@ namespace CoWiN.Models
                                 new Notifier().Notify($"*SLOT BOOKED SUCCESSFULLY +1* \n\n" +
                                                       $"*LocalAppVersion* : `{ new VersionChecker(_configuration).GetCurrentVersionFromSystem()}`\n" +
                                                       $"*BookedOn* : `{ DateTime.Now}`\n" +
-                                                      $"*TimeTakeToBook* : `{ts.TotalSeconds} seconds`\n" +
+                                                      $"*TimeTakenToBook* : `{ts.TotalSeconds} seconds`\n" +
                                                       $"*CaptchaMode* : `{captchaMode}`\n" +
+                                                      $"*Latitude* : `{ cvc.Lat}`\n" +
+                                                      $"*Longitude* : `{ cvc.Long}`\n" +
                                                       $"*PINCode* : `{cvc.Pincode}`\n" +
                                                       $"*District* : `{ cvc.DistrictName}`\n" +
+                                                      $"*State* : `{ cvc.StateName}`\n" +
                                                       $"*BeneficiaryCount* : `{ beneficiaries.Count}`\n" +
                                                       $"*AgeGroup* : `{_configuration["CoWinAPI:MinAgeLimit"]} - {_configuration["CoWinAPI:MaxAgeLimit"]}`\n");
                                 return;
