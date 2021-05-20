@@ -203,7 +203,7 @@ Modification can be done and file to be saved again with the same name and File 
   "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
   "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
 ]
-// You can use anything in PlaceName, PINCode is to be the PIN you wish to search for, as of now things are done for Mumbai and nearby areas. 
+// You can use multiple PINCodes for which you wish to search for, examples are of Mumbai and nearby areas. 
 // If you want to search say for a particular PIN Code of Mumbai let's say 400008 then the entry would look like this : "PINCodes": [ "400008" ].
 // Basically, Replace REPLACE_ME_WITH_YOUR_PIN_CODE_1 WITH 400008. and remove everything else.
 // In case you want to search for multiple PIN Codes say 400008 and 400007, 
@@ -224,7 +224,7 @@ Modification can be done and file to be saved again with the same name and File 
   "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1",
   "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2"
 ],
-// You'll get the District Name and District Codes from the link below this block, as of now things are done for Mumbai and nearby districts. 
+// You'll get District Codes from the link below this block, examples are for Mumbai and nearby districts. 
 // Basically, Replace REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395, then the entry would look like this : "Districts": [ "395" ].
 // In case you want to search for multiple Districts say Mumbai and Thane, get the District-District Code Mapping from below "State-District-DistrictCode Mapping", // you'll get the DistrictCode of Mumbai as 395 and of Thane as 392.
 // You'll have to remove REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395 and REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2 with 392, it would look something like this "Districts": [ "395", "392"]
