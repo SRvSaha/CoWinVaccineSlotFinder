@@ -314,6 +314,27 @@ As simple as that!
 
 Enjoy and feel free to Star the Repo, if it could help you in any way!
 
+## For auto-OTP feature with Telegram and IFTTT
+
+### For Telegram 
+1. Create an account on [telegram](https://telegram.com)
+2. Create a new public channel.
+3. Make the IFTTT bot as one of the admins. [Here](https://help.ifttt.com/hc/en-us/articles/360003121113-How-to-get-started-using-IFTTT-with-Telegram) is a good tutorial to do this. 
+4. The Telegram channel link will be used in `appsettings.json`.
+
+### IFTTT (If this then that) is used to create an SMS trigger. More [info](https://ifttt.com)
+1. Create an account on ifttt.com. 
+2. Go to the app and create a new Applet.
+3. Configure the `if this...` part to [Android SMS](https://github.com/deepak-batra/CoWinVaccineSlotFinder.git)
+4. Select "New SMS received matches search" and use `CoWIN` as the search key
+5. In then `Then` part choose `Telegram` and select `send message` as an action.
+6. In `Target Chat` select the channel with IFTTT bot as the admin
+7. For `Message Text` use `Insert Ingredients` and select `Text`.
+8. Save the applet. 
+[Here](https://ifttt.com/applets/jpm6PfHk-sms-to-telegram) is a good example that you can modify to work.
+
+** Make sure the background optimisation for IFTTT app in android is switched off otherwise the behaviour is erratic.
+
 ### For Developers or Curious Minds:
 
 If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Make changes in  `appsettings.json`, Ctrl + F5 and Boom!
