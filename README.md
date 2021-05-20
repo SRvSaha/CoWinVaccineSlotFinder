@@ -52,9 +52,13 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
  
 ![Application Sample](data/BookingWithManualCaptchaByBearerToken.png)
  
-*Successful Booking Scenario*
+*Successful Booking Scenario - With Manual Captcha*
 
 ![Application Sample](data/SuccessfulBooking.png)
+
+*Successful Booking Scenario - With AI-Auto Captcha*
+
+![Application Sample](data/AutoCaptchaSuccessfulBooking.png)
 
 *Unsuccessful Booking - All Slots Full*
 
