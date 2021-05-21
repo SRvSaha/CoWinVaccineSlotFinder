@@ -274,5 +274,5 @@ Contact Us
 If you have any questions about this Agreement, You can contact Us:
 
 -   By visiting this page on our website:
-    [github.com/CoWinVaccineSlotFinder](github.com/CoWinVaccineSlotFinder)
+    [CoWinVaccineSlotFinder](https://srvsaha.github.io/CoWinVaccineSlotFinder)
 
