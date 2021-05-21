@@ -21,7 +21,7 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 - When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Vaccine, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
 - While selecting beneficiaries, make sure that selected beneficiaries are all taking the same dose: either first OR second.
   Please do no try to club together booking for first dose for one beneficiary and second dose for another beneficiary.
-- While selecting beneficiaries, also make sure that beneficiaries selected for second dose are all taking the same vaccine: COVISHIELD OR COVAXIN.
+- While selecting beneficiaries, also make sure that beneficiaries selected for second dose are all taking the same vaccine: COVISHIELD OR COVAXIN OR SPUTNIK V.
   Please do no try to club together booking for beneficiary taking COVISHIELD with beneficiary taking COVAXIN.
 - If you're selecting multiple beneficiaries, make sure all are of the same age group (45+ or 18+) as defined by the govt.
   Please do not try to club together booking for younger and older beneficiaries.
