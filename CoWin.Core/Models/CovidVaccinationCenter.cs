@@ -33,6 +33,16 @@ namespace CoWiN.Models
                 var covidVaccinationCenters = JsonConvert.DeserializeObject<CovidVaccinationCenters>(response.Content);
                 GetAvailableSlots(covidVaccinationCenters);
             }
+            else if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"[FATAL] Response From Server: Too many hits from your IP address, hence request has been blocked. You can try following options :\n1.Switch to a different network which will change your current IP address.\n2.Close the application and try again after sometime ");
+                Console.ResetColor();
+                Console.WriteLine("\nPress Enter Key to Exit The Application .....");
+                Console.ReadLine();
+                Environment.Exit(0);
+
+            }
             else if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -54,6 +64,16 @@ namespace CoWiN.Models
             {
                 var covidVaccinationCenters = JsonConvert.DeserializeObject<CovidVaccinationCenters>(response.Content);
                 GetAvailableSlots(covidVaccinationCenters);
+            }
+            else if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"[FATAL] Response From Server: Too many hits from your IP address, hence request has been blocked. You can try following options :\n1.Switch to a different network which will change your current IP address.\n2.Close the application and try again after sometime ");
+                Console.ResetColor();
+                Console.WriteLine("\nPress Enter Key to Exit The Application .....");
+                Console.ReadLine();
+                Environment.Exit(0);
+
             }
             else if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
@@ -317,6 +337,16 @@ namespace CoWiN.Models
                 Console.WriteLine($"[INFO] CONGRATULATIONS! Booking Success - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
                 Console.ResetColor();
                 isBookingSuccessful = true;
+            }
+            else if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"[FATAL] Response From Server: Too many hits from your IP address, hence request has been blocked. You can try following options :\n1.Switch to a different network which will change your current IP address.\n2.Close the application and try again after sometime ");
+                Console.ResetColor();
+                Console.WriteLine("\nPress Enter Key to Exit The Application .....");
+                Console.ReadLine();
+                Environment.Exit(0);
+
             }
             else if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
