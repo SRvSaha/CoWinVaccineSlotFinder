@@ -138,7 +138,17 @@ namespace CoWin.Auth
         }
         void DisplayErrorMessage(IRestResponse response)
         {
-            if (response.StatusCode != HttpStatusCode.OK)
+            if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"[FATAL] Response From Server: Too many hits from your IP address, hence request has been blocked. You can try following options :\n1.Switch to a different network which will change your current IP address.\n2.Close the application and try again after sometime ");
+                Console.ResetColor();
+                Console.WriteLine("\nPress Enter Key to Exit The Application .....");
+                Console.ReadLine();
+                Environment.Exit(0);
+
+            }
+            else 
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"[ERROR] OTP Error - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
