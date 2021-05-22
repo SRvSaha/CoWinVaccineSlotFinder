@@ -30,7 +30,7 @@ namespace CoWin.Core.Models
 
             if (IsUpdatedVersionAvailable(serverVersion, localVersion))
             {
-                if (IsVersionUpdateMandatory(serverVersion.Major, localVersion.Major))
+                if (IsVersionUpdateMandatory(serverVersion.Major, localVersion.Major, serverVersion.Minor, localVersion.Minor))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"[FATAL] Your Software Version is outdated. You MUST update the software, your current version is {localVersion}");
@@ -100,10 +100,14 @@ namespace CoWin.Core.Models
             var localVersion = Assembly.GetExecutingAssembly().GetName().Version;
             return localVersion;
         }
-        private bool IsVersionUpdateMandatory(int serverMajorVersion, int localMajorVersion)
+        private bool IsVersionUpdateMandatory(int serverMajorVersion, int localMajorVersion, int serverMinorVersion, int localMinorVersion)
         {
             if (serverMajorVersion != localMajorVersion)
                 return true;
+
+            if (serverMinorVersion != localMinorVersion)
+                return true;
+
             return false;
         }
 

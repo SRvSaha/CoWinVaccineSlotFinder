@@ -152,6 +152,9 @@ namespace CoWin.Auth
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"[ERROR] OTP Error - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"[WARNING] Could not establish Session : Regenerating Auth Token");
+                ValidateUser();
             }
         }
         private string ReadUserInput(string message)
