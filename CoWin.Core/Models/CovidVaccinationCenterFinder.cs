@@ -18,10 +18,12 @@ namespace CoWin.Models
         private readonly List<string> districtsToSearch = new List<string>();
         private readonly List<string> pinCodesToSearch = new List<string>();
         private string searchDate;
-        private string vaccineType;                
+        private string vaccineType;
         private readonly IValidator<string> _pinCodeValidator, _districtValidator, _mobileNumberValidator, _beneficiaryValidator;
         private readonly IValidator<SearchByDistrictModel> _searchByDistrictValidator;
         private readonly IValidator<SearchByPINCodeModel> _searchByPINCodeValidator;
+        private int totalSearchObjects = 0;
+        private double sleepInterval;
 
         public CovidVaccinationCenterFinder()
         {
@@ -49,6 +51,7 @@ namespace CoWin.Models
             ConfigureSearchCriteria();
             ValidateSearchCriteria();
             ValidateAuthCriteria();
+            SetSleepInterval();
             AuthenticateUser();
             SearchForAvailableSlots();
         }
@@ -122,6 +125,7 @@ namespace CoWin.Models
         {
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByPINCode"]))
             {
+                totalSearchObjects += pinCodesToSearch.Count;
                 foreach (var pinCode in pinCodesToSearch)
                 {
                     if (!_pinCodeValidator.IsValid(pinCode))
@@ -137,6 +141,7 @@ namespace CoWin.Models
         {
             if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneByDistrict"]))
             {
+                totalSearchObjects += districtsToSearch.Count;
                 foreach (var district in districtsToSearch)
                 {
                     if (!_districtValidator.IsValid(district))
@@ -194,9 +199,32 @@ namespace CoWin.Models
 
                     }
                 }
-
-                Thread.Sleep(Convert.ToInt32(_configuration["CoWinAPI:SleepIntervalInMilliseconds"]));
+                Thread.Sleep(Convert.ToInt32(sleepInterval));
             }
+        }
+
+        private void SetSleepInterval()
+        {
+
+            if (Convert.ToBoolean(_configuration["CoWinAPI:IsThrottlingToBeUsed"]))
+            {
+                if (totalSearchObjects == 1)
+                {
+                    sleepInterval = Convert.ToInt32(_configuration["CoWinAPI:SleepIntervalInMilliseconds"]);
+                }
+                else
+                {
+                    int throttlingThreshold = Convert.ToInt32(_configuration["CoWinAPI:ThrottlingThreshold"]);
+                    var throttlingIntervalInMilliSeconds = (Convert.ToInt32(_configuration["CoWinAPI:ThrottlingIntervalInMinutes"])) * 60 * 1000.0;
+                    int gitter = 100;
+                    sleepInterval = (Math.Ceiling(throttlingIntervalInMilliSeconds / throttlingThreshold) * totalSearchObjects) + gitter;
+                }
+            }
+            else
+            {
+                sleepInterval = Convert.ToInt32(_configuration["CoWinAPI:SleepIntervalInMilliseconds"]);
+            }
+            `
         }
 
         private void ConfigureSearchCriteria()
