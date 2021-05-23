@@ -28,8 +28,9 @@ namespace CoWin
             Console.WriteLine("\nPress Enter Key to Exit The Application .....");
             Console.ReadLine();
         }
-        public static bool IsDisclaimerAccepted()
+        private static bool IsDisclaimerAccepted()
         {
+            Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("######################################################################## DISCLAIMER ###################################################################################");
             Console.WriteLine("For the purposes of this End - User License Agreement:");

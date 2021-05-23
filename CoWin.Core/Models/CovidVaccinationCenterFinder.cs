@@ -9,6 +9,7 @@ using System.Globalization;
 using CoWin.Core.Exceptions;
 using CoWin.Core.Validators;
 using CoWin.Core.Models;
+using System.Diagnostics;
 
 namespace CoWin.Models
 {
@@ -164,6 +165,7 @@ namespace CoWin.Models
             {
                 if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
                 {
+                    ShowFeedback();
                     return;
                 }
 
@@ -182,6 +184,7 @@ namespace CoWin.Models
 
                         if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
                         {
+                            ShowFeedback();
                             return;
                         }
 
@@ -195,6 +198,7 @@ namespace CoWin.Models
 
                         if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
                         {
+                            ShowFeedback();
                             return;
                         }
 
@@ -261,6 +265,28 @@ namespace CoWin.Models
                 searchDate = DateTime.Now.AddDays(1).ToString("dd-MM-yyyy");
             }
             vaccineType = _configuration["CoWinAPI:VaccineType"];
+        }
+
+        private void ShowFeedback()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Greetings!");
+            Console.WriteLine("Glad that we were able to help you book your slot!");
+            Console.WriteLine("We’d love to know about your experience with CoWinVaccineSlotFinder.");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("If you appreciate our work and are willing to share your feedback, please do like, share and post a comment in LinkedIn/Facebook/Twitter with #CoWinVaccineSlotFinder, and star our Github Repository. We’d love to check that out!");
+            Console.WriteLine("Also, if you would like to support us, you may like to Buy us Coffee as we are converting Coffee to Code for you!");
+            Console.WriteLine("Thank you in advance for helping us out! Feel free to share the Application with your friends/family/circles so that it helps others as well to get the vaccine #covid19help");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Press Any Key to Open the Links in your Browser for supporting us through LinkedIn, Github, BuyMeACoffee and Exit the Application");
+            var input = Console.ReadLine();
+            if (input != null)
+            {
+                Process.Start(new ProcessStartInfo("https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/") { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo("https://github.com/SRvSaha/CoWinVaccineSlotFinder/") { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo("https://www.buymeacoffee.com/srvsaha") { UseShellExecute = true });
+                Environment.Exit(0);
+            }
         }
 
     }
