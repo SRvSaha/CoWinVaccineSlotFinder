@@ -17,6 +17,7 @@ namespace CoWin.Models
         private readonly IConfiguration _configuration;
         private readonly List<string> districtsToSearch = new List<string>();
         private readonly List<string> pinCodesToSearch = new List<string>();
+        private readonly List<string> vaccinationCentresToSearch = new List<string>();
         private string searchDate;
         private string vaccineType;
         private readonly IValidator<string> _pinCodeValidator, _districtValidator, _mobileNumberValidator, _beneficiaryValidator;
@@ -177,7 +178,7 @@ namespace CoWin.Models
                 {
                     foreach (var pinCode in pinCodesToSearch)
                     {
-                        new CovidVaccinationCenter(_configuration).GetSlotsByPINCode(pinCode, searchDate, vaccineType);
+                        new CovidVaccinationCenter(_configuration, vaccinationCentresToSearch).GetSlotsByPINCode(pinCode, searchDate, vaccineType);
 
                         if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
                         {
@@ -190,7 +191,7 @@ namespace CoWin.Models
                 {
                     foreach (var district in districtsToSearch)
                     {
-                        new CovidVaccinationCenter(_configuration).GetSlotsByDistrictId(district, searchDate, vaccineType);
+                        new CovidVaccinationCenter(_configuration, vaccinationCentresToSearch).GetSlotsByDistrictId(district, searchDate, vaccineType);
 
                         if (CovidVaccinationCenter.IS_BOOKING_SUCCESSFUL == true)
                         {
@@ -216,15 +217,14 @@ namespace CoWin.Models
                 {
                     int throttlingThreshold = Convert.ToInt32(_configuration["CoWinAPI:ThrottlingThreshold"]);
                     var throttlingIntervalInMilliSeconds = (Convert.ToInt32(_configuration["CoWinAPI:ThrottlingIntervalInMinutes"])) * 60 * 1000.0;
-                    int gitter = 100;
-                    sleepInterval = (Math.Ceiling(throttlingIntervalInMilliSeconds / throttlingThreshold) * totalSearchObjects) + gitter;
+                    int jitter = 100;
+                    sleepInterval = (Math.Ceiling(throttlingIntervalInMilliSeconds / throttlingThreshold) * totalSearchObjects) + jitter;
                 }
             }
             else
             {
                 sleepInterval = Convert.ToInt32(_configuration["CoWinAPI:SleepIntervalInMilliseconds"]);
-            }
-            `
+            }            
         }
 
         private void ConfigureSearchCriteria()
@@ -241,6 +241,15 @@ namespace CoWin.Models
             {
                 pinCodesToSearch.Add(item.Value);
             }
+
+            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneForVaccinationCentreNames"]))
+            {
+                foreach (var item in _configuration.GetSection("CoWinAPI:VaccinationCentreNames").GetChildren())
+                {
+                    vaccinationCentresToSearch.Add(item.Value.ToLower().Trim());
+                }
+            }
+            
 
             if (!string.IsNullOrEmpty(_configuration["CoWinAPI:DateToSearch"]))
             {

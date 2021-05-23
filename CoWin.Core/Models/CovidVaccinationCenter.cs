@@ -11,6 +11,7 @@ using System.Web;
 using System.Collections.Specialized;
 using CoWin.Core.Models;
 using System.Diagnostics;
+using System.Linq;
 
 namespace CoWiN.Models
 {
@@ -18,11 +19,13 @@ namespace CoWiN.Models
     {
         private readonly IConfiguration _configuration;
         private List<string> beneficiaries = new List<string>();
+        private readonly List<string> _vaccinationCentresToSearch;
         public static bool IS_BOOKING_SUCCESSFUL = false;
 
-        public CovidVaccinationCenter(IConfiguration configuration)
+        public CovidVaccinationCenter(IConfiguration configuration, List<string> vaccinationCentresToSearch)
         {
             _configuration = configuration;
+            _vaccinationCentresToSearch = vaccinationCentresToSearch;
         }
 
         public void GetSlotsByDistrictId(string districtId, string searchDate, string vaccineType)
@@ -153,7 +156,13 @@ namespace CoWiN.Models
 
         private void GetAvailableSlots(CovidVaccinationCenters covidVaccinationCenters)
         {
-            if (covidVaccinationCenters.Centers.Count == 0)
+            List<Center> vaccinationCentres = covidVaccinationCenters.Centers;
+            if (_vaccinationCentresToSearch.Count != 0)
+            {
+                vaccinationCentres = covidVaccinationCenters.Centers.Where(x => _vaccinationCentresToSearch.Any(centrename => centrename == x.Name.ToLower().Trim())).ToList();
+            }
+
+            if (vaccinationCentres.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"[WARNING] Sorry! No Vaccination Centers available for your search criteria");
@@ -161,7 +170,7 @@ namespace CoWiN.Models
                 return;
             }
 
-            foreach (var cvc in covidVaccinationCenters.Centers)
+            foreach (var cvc in vaccinationCentres)
             {
                 foreach (var session in cvc.Sessions)
                 {
@@ -196,7 +205,7 @@ namespace CoWiN.Models
                                 var captchaMode = Convert.ToBoolean(_configuration["CoWinAPI:Auth:AutoReadCaptcha"]) == true ? "AI AutoCaptcha" : "Manual Captcha";
                                 new Notifier().Notify($"*SLOT BOOKED SUCCESSFULLY +1* \n\n" +
                                                       $"*LocalAppVersion* : `{ new VersionChecker(_configuration).GetCurrentVersionFromSystem()}`\n" +
-                                                      $"*BookedOn* : `{ DateTime.Now}`\n" +
+                                                      $"*BookedOn* : `{ DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") }`\n" +
                                                       $"*TimeTakenToBook* : `{ts.TotalSeconds} seconds`\n" +
                                                       $"*CaptchaMode* : `{captchaMode}`\n" +
                                                       $"*Latitude* : `{ cvc.Lat}`\n" +
@@ -235,31 +244,21 @@ namespace CoWiN.Models
             if (!vaccineFeeTypeFilter)
                 return false;
 
-            bool vaccinationCentreNameWiseFilter = IsVaccinationCentreNameFilterSatified(cvc);
-            if (!vaccinationCentreNameWiseFilter)
-                return false;
-
-            return FilteredResult(isAgeCriteriaMet, isVaccineAvailable, vaccineFeeTypeFilter, vaccinationCentreNameWiseFilter);
+            return FilteredResult(isAgeCriteriaMet, isVaccineAvailable, vaccineFeeTypeFilter);
         }
 
-        private static bool FilteredResult(bool isAgeCriteriaMet, bool isVaccineAvailable, bool vaccineFeeTypeFilter, bool vaccinationCentreNameWiseFilter)
+        private static bool FilteredResult(bool isAgeCriteriaMet, bool isVaccineAvailable, bool vaccineFeeTypeFilter)
         {
             var mandatoryFilters = isAgeCriteriaMet && isVaccineAvailable;
-            var optionalFilters = vaccineFeeTypeFilter && vaccinationCentreNameWiseFilter;
+            var optionalFilters = vaccineFeeTypeFilter;
 
             return mandatoryFilters && optionalFilters;
-        }
-
-        private bool IsVaccinationCentreNameFilterSatified(Center cvc)
-        {
-            // Filter Based on VaccinationCentreName when there are multiple CVCs in one PIN/District but user wants slot in a specific CVC
-            return string.IsNullOrEmpty(_configuration["CoWinAPI:VaccinationCentreName"]) || (cvc.Name == _configuration["CoWinAPI:VaccinationCentreName"]);
         }
 
         private bool IsVacineFeeTypeFilterSatisfied(Center cvc)
         {
             // Filter Based on VaccineFeeType only when fee type is provided; otherwise don't filter. Keep both Paid and Free Slots
-            return string.IsNullOrEmpty(_configuration["CoWinAPI:VaccineFeeType"]) || (cvc.FeeType == _configuration["CoWinAPI:VaccineFeeType"]);
+            return string.IsNullOrEmpty(_configuration["CoWinAPI:VaccineFeeType"]) || (cvc.FeeType.ToLower() == _configuration["CoWinAPI:VaccineFeeType"].ToLower().Trim());
         }
 
         private bool IsAgeFilterSatisfied(Session session)
