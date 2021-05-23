@@ -6,7 +6,7 @@
 
 Windows Software to fetch the available slots & book the appointment for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India.
 
-> _**Please go through the [End User Lisence Agreement](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/EULA.md) & the [Data Privacy Policy](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/PrivacyPolicy.md), proceed further only if you accept the Terms and Conditions, please go ahead and use the App**_
+> _**Please go through the [Disclaimer](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/DISCLAIMER.md), [End User Lisence Agreement](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/EULA.md) & the [Data Privacy Policy](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/PrivacyPolicy.md), proceed further only if you accept the Terms and Conditions to use the App/Software**_
 
 > _**Download Latest Version of the Software by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
