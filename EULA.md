@@ -18,7 +18,7 @@ Definitions
 
 For the purposes of this End-User License Agreement:
 
-*   **Agreement** means this End-User License Agreement that forms the entire agreement between You and the Company regarding the use of the Application. This Agreement has been created with the help of the [EULA Generator](https://www.privacypolicies.com/eula-generator/).
+*   **Agreement** means this End-User License Agreement that forms the entire agreement between You and the Company regarding the use of the Application. 
     
 *   **Application** means the software program provided by the Company downloaded by You to a Device, named CoWinVaccineSlotFinder
     
