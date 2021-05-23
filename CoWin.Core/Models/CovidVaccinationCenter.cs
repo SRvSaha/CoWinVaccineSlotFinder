@@ -153,7 +153,14 @@ namespace CoWiN.Models
 
         private void GetAvailableSlots(CovidVaccinationCenters covidVaccinationCenters)
         {
-            string captcha = "";
+            if (covidVaccinationCenters.Centers.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"[WARNING] Sorry! No Vaccination Centers available for your search criteria");
+                Console.ResetColor();
+                return;
+            }
+
             foreach (var cvc in covidVaccinationCenters.Centers)
             {
                 foreach (var session in cvc.Sessions)
@@ -178,9 +185,8 @@ namespace CoWiN.Models
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine($"[INFO] Trying to Book Appointment for CVC: {cvc.Name} - PIN: {cvc.Pincode} - District: {cvc.DistrictName} - Date: {session.Date} - Slot: {session.Slots[i]}");
                             Console.ResetColor();
-                            
-                            captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
 
+                            string captcha = new Captcha(_configuration).GetCurrentCaptchaDetails();
                             IS_BOOKING_SUCCESSFUL = BookAvailableSlot(session.SessionId, session.Slots[i], captcha);
 
                             if (IS_BOOKING_SUCCESSFUL == true)
