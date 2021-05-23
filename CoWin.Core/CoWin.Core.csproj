@@ -14,20 +14,19 @@
     <Copyright>Saurav Saha</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>4.1.0</Version>
+    <Version>4.2.0</Version>
     <PackageProjectUrl>https://srvsaha.github.io/CoWinVaccineSlotFinder/</PackageProjectUrl>
     <NeutralLanguage></NeutralLanguage>
     <PackageId>VaccineSlotFinder</PackageId>
     <SignAssembly>true</SignAssembly>
-    <PackageReleaseNotes>1. Feature added for AI Assisted Auto Captcha while Scheduling Appointment
-2. Feature added to re-use sessions using Bearer Token
-3. Bug Fixes in the Slot Finding Algorithm
-4. Verbose Information in UI for User Experience Improvement
-5. Optimization in Slot Booking Heuristics for better chances of getting a slot booked
-6. Integration with Telegram for Booking Success Telemetry Metadata for Statistics
-</PackageReleaseNotes>
-    <FileVersion>4.1.0.0</FileVersion>
-    <AssemblyVersion>4.1.0.0</AssemblyVersion>
+    <PackageReleaseNotes>1. Feature for Filtering by Multiple Centre Names
+2. Fixes of Error Message for Wrong OTP, Vaccination Centre Empty
+3. Auto Handling of Sessions using Bearer Token 
+4. Handling of IP Throttling Issue Gracefully for better UX
+5. Randomization of User Agent for better UX
+6. Disclaimer, Feedback, Privacy Policy and End User Lisence Agreement</PackageReleaseNotes>
+    <FileVersion>4.2.0.0</FileVersion>
+    <AssemblyVersion>4.2.0.0</AssemblyVersion>
     <UserSecretsId>107ac8ef-23d4-4f38-8773-00d3c45adaa5</UserSecretsId>
   </PropertyGroup>
 
