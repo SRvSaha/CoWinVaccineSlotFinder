@@ -164,7 +164,7 @@ Rest of the stuff are self-explanatory.
 
 ### For Folks who just want to get shit done
 
-- Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) or from Releases Section
+- Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) or from Releases Section of Github
 - Download the ZIP file of the Latest release for your Operating System
 - Extract the ZIP file, you'll find two file like this:
   
@@ -223,7 +223,12 @@ Modification can be done and file to be saved again with the same name and File 
 ``` javascript
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means both
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid or "" in the <REPLACE_ME> section, by default "Free" is selected, blank implies both Free and Paid
-"VaccinationCentreName": "<REPLACE_ME>", // Use Name of Vaccination Centre or "" in the <REPLACE_ME> section, by default Blank would be selected which implies All Vaccination Centres in the District/PINCodes.
+"IsSearchToBeDoneForVaccinationCentreName": "<REPLACE_ME>", // se Either true or false in the <REPLACE_ME> section where True means you want to search for specific Centres within your PINCode/District and false means you don't want to search by CentreName. By default, false is selected
+"VaccinationCentreNames": [
+    "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1",
+    "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_2"
+], // You need to put the exact names of the Vaccination Centres for which you want to search in the REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1, REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_2 sections.
+// You'll get the names of the Centres from CoWIN Portal. By default all Vaccination Centres in the District/PINCodes are selected. Filter will work only if you set the IsSearchToBeDoneForVaccinationCentreName to true and provide proper exact names of the Centres for which you are searching slots
 "IsSearchToBeDoneByPINCode": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done using PIN Code, by default true is selected. Set this is True if you want to search By PIN Code
 "DateToSearch": "<REPLACE_ME>",  // Use date in DD-MM-YYYY Format in the <REPLACE_ME> section, Blank implies date of next day (i.e, tomorrow), by default "" is selected to search for Next Day
 "IsSearchToBeDoneByDistrict": "<REPLACE_ME>", // Use Either true or false in the <REPLACE_ME> section where True means searching is done by DistrictId, by default false is selected, Set this is True if you want to search By District
@@ -235,8 +240,13 @@ Modification can be done and file to be saved again with the same name and File 
 // Basically, Replace REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395, then the entry would look like this : "Districts": [ "395" ].
 // In case you want to search for multiple Districts say Mumbai and Thane, get the District-District Code Mapping from below "State-District-DistrictCode Mapping", // you'll get the DistrictCode of Mumbai as 395 and of Thane as 392.
 // You'll have to remove REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395 and REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2 with 392, it would look something like this "Districts": [ "395", "392"]
-"BearerToken": "", // If you already have bearer token, which you'll get from the App after entering OTP, you can put it here for subsequent usage till the Token is valid. 
-//Validity of the token is 15 minutes. But default, it will be blank which means new sessions will be generated and OTP would be needed
+"SleepIntervalInMilliseconds": <REPLACE_ME>, // In the <REPLACE_ME> Section, Use the Time Interval in Milliseconds you want the system to take rest after trying out your Search Criteria of PIN/District/CentreName once. This will help in lessening the chances of getting IP Throttled. Default is 3500
+"IsThrottlingToBeUsed": <REPLACE_ME>, // In the <REPLACE_ME> Section, Use either true or false; By default true; True means IP throttling is there, False means IP throttling has been removed
+"ThrottlingThreshold": <REPLACE_ME>, //In the <REPLACE_ME> Section, Use the Number of requests per IP allowed for ThrottlingInterval. By default it is set to 100
+// Say Throttling Interval is 5 minutes and ThrottlingThreshold is 100, that means, you are allowed for 20 Hits from your IP Address per minute. 
+// Change these values accordingly whenever you face the issue of IP being throlled by Server. 
+// You may even switch to a different network/IP/Proxy Server so that this can remove the IP Throttling issue for you
+"ThrottlingIntervalInMinutes": <REPLACE_ME>, // In the <REPLACE_ME> Section, use the Interval of Time that is being set for throttling of IP Address. By Default it is // set to 5 which means 5 minutes i.e, in Interval of 5 minutes, 100 requests from your IP Address/Software is allowed. After that you'll receive error unless you switch to another network.
 "Proxy": 
 {
    "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, False if you're not, in the <REPLACE_ME> section, by default false would be selected
