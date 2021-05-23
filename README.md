@@ -6,13 +6,13 @@
 
 Windows Software to fetch the available slots & book the appointment for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India.
 
-> **NOTE:** _Please go through the [Disclaimer](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/DISCLAIMER.md), [End User Lisence Agreement](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/EULA.md) & the [Privacy Policy](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/PRIVACYPOLICY.md), proceed further only if you accept the [Terms and Conditions](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/T&C.md) to use the Application/Software_
-
 > _**Download Latest Version of the Software by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
 ### DISCLAIMER
+
+> **NOTE:** _Please go through the [Disclaimer](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/DISCLAIMER.md), [End User Lisence Agreement](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/EULA.md) & the [Privacy Policy](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/PRIVACYPOLICY.md), proceed further only if you accept the [Terms and Conditions](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/T&C.md) to use the Application/Software_
 
 ### Important: 
 - This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. I SHOULD NOT BE DEEMED RESPONSIBLE FOR ANY LEGAL CONCERNS.**
