@@ -3,6 +3,7 @@ using System;
 using Microsoft.Extensions.Configuration;
 using System.Net;
 using CoWin.Auth;
+using CoWin.Core.Utilities;
 
 namespace CoWin.Providers
 {
@@ -30,6 +31,7 @@ namespace CoWin.Providers
         {
             request.AddHeader("accept", "application/json");
             request.AddHeader("Accept-Language", "en_US");
+            request.AddHeader("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
 
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]) && isCowinRelatedHeadersToBeUsed)
             {
@@ -71,7 +73,7 @@ namespace CoWin.Providers
             client.Timeout = -1;
             if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]) && isCowinRelatedHeadersToBeUsed)
             {
-                client.UserAgent = _configuration["CoWinAPI:SpoofedUserAgentToBypassWAF"];
+                client.UserAgent = RandomUserAgent.UserAgent;
             }
 
             if (Convert.ToBoolean(_configuration["Proxy:IsToBeUsed"]))

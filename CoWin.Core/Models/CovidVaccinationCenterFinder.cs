@@ -19,11 +19,12 @@ namespace CoWin.Models
         private readonly List<string> districtsToSearch = new List<string>();
         private readonly List<string> pinCodesToSearch = new List<string>();
         private readonly List<string> vaccinationCentresToSearch = new List<string>();
-        private string searchDate;
-        private string vaccineType;
-        private readonly IValidator<string> _pinCodeValidator, _districtValidator, _mobileNumberValidator, _beneficiaryValidator;
+        private readonly IValidator<string> _pinCodeValidator, _districtValidator, _mobileNumberValidator, _beneficiaryValidator, _vaccinationCentreNameValidator;
         private readonly IValidator<SearchByDistrictModel> _searchByDistrictValidator;
         private readonly IValidator<SearchByPINCodeModel> _searchByPINCodeValidator;
+        private readonly IValidator<SearchByVaccinationCentreNameModel> _searchByVaccinationCentreNameValidator;
+        private string searchDate;
+        private string vaccineType;
         private int totalSearchObjects = 0;
         private double sleepInterval;
 
@@ -41,6 +42,8 @@ namespace CoWin.Models
                 _beneficiaryValidator = new BeneficiaryValidator();
                 _searchByDistrictValidator = new SearchByDistrictValidator(_districtValidator);
                 _searchByPINCodeValidator = new SearchByPINCodeValidator(_pinCodeValidator);
+                _vaccinationCentreNameValidator = new VaccinationCentreNameValidator();
+                _searchByVaccinationCentreNameValidator = new SearchByVaccinationCentreNameValidator(_vaccinationCentreNameValidator);
             }
             catch (FormatException e)
             {
@@ -53,6 +56,7 @@ namespace CoWin.Models
             ConfigureSearchCriteria();
             ValidateSearchCriteria();
             ValidateAuthCriteria();
+            ValidateFilterCriteria();
             SetSleepInterval();
             AuthenticateUser();
             SearchForAvailableSlots();
@@ -63,6 +67,44 @@ namespace CoWin.Models
             var shouldAppBeAllowedToRun = new VersionChecker(_configuration).EvaluateCurrentSoftwareVersion();
             if (shouldAppBeAllowedToRun == false)
                 Environment.Exit(0);
+        }
+
+        private void ValidateFilterCriteria()
+        {
+
+            VaccinationCentreNameValidation();
+
+            SearchByVaccinationCentreNameValidation();
+
+        }
+
+        private void SearchByVaccinationCentreNameValidation()
+        {
+            var userEnteredSearchByVaccinationCentreNameDto = new SearchByVaccinationCentreNameModel
+            {
+                IsSearchToBeDoneByVaccinationCentreName = Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneForVaccinationCentreName"]),
+                VaccinationCentreNames = vaccinationCentresToSearch
+
+            };
+
+            if (!_searchByVaccinationCentreNameValidator.IsValid(userEnteredSearchByVaccinationCentreNameDto))
+            {
+                throw new InvalidMobileNumberException("Invalid Configuration for Filtering by VaccinationCentreNames: \"IsSearchToBeDoneForVaccinationCentreName\": " + userEnteredSearchByVaccinationCentreNameDto.IsSearchToBeDoneByVaccinationCentreName.ToString() + ", \"VaccinationCentreNames\": [ " + string.Join(", ", vaccinationCentresToSearch) + " ] found in your config file. If you want to search by District, please set IsSearchToBeDoneForVaccinationCentreName as true and provide proper valid values for VaccinationCentreNames");
+            }
+        }
+
+        private void VaccinationCentreNameValidation()
+        {
+            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneForVaccinationCentreName"]))
+            {
+                foreach (var vaccinationCentre in vaccinationCentresToSearch)
+                {
+                    if (!_vaccinationCentreNameValidator.IsValid(vaccinationCentre))
+                    {
+                        throw new InvalidVaccinationCentreException("Invalid VaccinationCentreName: " + vaccinationCentre + " found in your config file");
+                    }
+                }
+            }
         }
 
         private void ValidateAuthCriteria()
@@ -153,6 +195,7 @@ namespace CoWin.Models
                 }
             }
         }
+
 
         private void AuthenticateUser()
         {
@@ -246,12 +289,9 @@ namespace CoWin.Models
                 pinCodesToSearch.Add(item.Value);
             }
 
-            if (Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneForVaccinationCentreNames"]))
+            foreach (var item in _configuration.GetSection("CoWinAPI:VaccinationCentreNames").GetChildren())
             {
-                foreach (var item in _configuration.GetSection("CoWinAPI:VaccinationCentreNames").GetChildren())
-                {
-                    vaccinationCentresToSearch.Add(item.Value.ToLower().Trim());
-                }
+                vaccinationCentresToSearch.Add(item.Value.ToUpper().Trim());
             }
             
 
@@ -275,7 +315,7 @@ namespace CoWin.Models
             Console.WriteLine("Glad that we were able to help you book your slot!");
             Console.WriteLine("We’d love to know about your experience with CoWinVaccineSlotFinder.");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("If you appreciate our work and are willing to share your feedback, please do like, share and post a comment in LinkedIn/Facebook/Twitter with #CoWinVaccineSlotFinder, and star our Github Repository. We’d love to check that out!");
+            Console.WriteLine("If you appreciate our work and are willing to share your feedback, please do like, share and post a comment in LinkedIn/Facebook/Twitter/Instagram with #CoWinVaccineSlotFinder, and star our Github Repository. We’d love to check that out!");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Also, if you would like to support us, you may like to Buy us some Coffee as we are converting Coffee into Code for you through #OpenSource Contributions!");
             Console.WriteLine("Thank you in advance for helping us out! Feel free to share the Application with your friends/family/circles so that it helps others as well to get the vaccine #covid19help");

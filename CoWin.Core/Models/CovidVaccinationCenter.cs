@@ -157,9 +157,9 @@ namespace CoWiN.Models
         private void GetAvailableSlots(CovidVaccinationCenters covidVaccinationCenters)
         {
             List<Center> vaccinationCentres = covidVaccinationCenters.Centers;
-            if (_vaccinationCentresToSearch.Count != 0)
+            if (_vaccinationCentresToSearch.Count != 0 && Convert.ToBoolean(_configuration["CoWinAPI:IsSearchToBeDoneForVaccinationCentreName"]) == true)
             {
-                vaccinationCentres = covidVaccinationCenters.Centers.Where(x => _vaccinationCentresToSearch.Any(centrename => centrename == x.Name.ToLower().Trim())).ToList();
+                vaccinationCentres = covidVaccinationCenters.Centers.Where(x => _vaccinationCentresToSearch.Any(centrename => centrename == x.Name.ToUpper().Trim())).ToList();
             }
 
             if (vaccinationCentres.Count == 0)
@@ -258,7 +258,7 @@ namespace CoWiN.Models
         private bool IsVacineFeeTypeFilterSatisfied(Center cvc)
         {
             // Filter Based on VaccineFeeType only when fee type is provided; otherwise don't filter. Keep both Paid and Free Slots
-            return string.IsNullOrEmpty(_configuration["CoWinAPI:VaccineFeeType"]) || (cvc.FeeType.ToLower() == _configuration["CoWinAPI:VaccineFeeType"].ToLower().Trim());
+            return string.IsNullOrEmpty(_configuration["CoWinAPI:VaccineFeeType"]) || (cvc.FeeType.ToUpper() == _configuration["CoWinAPI:VaccineFeeType"].ToUpper().Trim());
         }
 
         private bool IsAgeFilterSatisfied(Session session)
