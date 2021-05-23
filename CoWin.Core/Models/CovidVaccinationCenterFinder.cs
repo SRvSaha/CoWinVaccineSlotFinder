@@ -89,7 +89,7 @@ namespace CoWin.Models
 
             if (!_searchByVaccinationCentreNameValidator.IsValid(userEnteredSearchByVaccinationCentreNameDto))
             {
-                throw new InvalidMobileNumberException("Invalid Configuration for Filtering by VaccinationCentreNames: \"IsSearchToBeDoneForVaccinationCentreName\": " + userEnteredSearchByVaccinationCentreNameDto.IsSearchToBeDoneByVaccinationCentreName.ToString() + ", \"VaccinationCentreNames\": [ " + string.Join(", ", vaccinationCentresToSearch) + " ] found in your config file. If you want to search by District, please set IsSearchToBeDoneForVaccinationCentreName as true and provide proper valid values for VaccinationCentreNames");
+                throw new InvalidMobileNumberException("Invalid Configuration for Filtering by VaccinationCentreNames: \"IsSearchToBeDoneForVaccinationCentreName\": " + userEnteredSearchByVaccinationCentreNameDto.IsSearchToBeDoneByVaccinationCentreName.ToString() + ", \"VaccinationCentreNames\": [ " + string.Join(", ", vaccinationCentresToSearch) + " ] found in your config file. If you want to search for only specific Vaccination Centres, please set IsSearchToBeDoneForVaccinationCentreName as true and provide proper valid values for VaccinationCentreNames from CoWIN Portal");
             }
         }
 
