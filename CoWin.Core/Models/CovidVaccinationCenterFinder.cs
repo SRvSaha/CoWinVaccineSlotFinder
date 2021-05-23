@@ -270,15 +270,18 @@ namespace CoWin.Models
         private void ShowFeedback()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Greetings!");
+            Console.WriteLine("\n**************************************************************************************************************************************************************************");
+            Console.WriteLine("\nGREETINGS!");
             Console.WriteLine("Glad that we were able to help you book your slot!");
             Console.WriteLine("We’d love to know about your experience with CoWinVaccineSlotFinder.");
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("If you appreciate our work and are willing to share your feedback, please do like, share and post a comment in LinkedIn/Facebook/Twitter with #CoWinVaccineSlotFinder, and star our Github Repository. We’d love to check that out!");
-            Console.WriteLine("Also, if you would like to support us, you may like to Buy us Coffee as we are converting Coffee to Code for you!");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Also, if you would like to support us, you may like to Buy us some Coffee as we are converting Coffee into Code for you through #OpenSource Contributions!");
             Console.WriteLine("Thank you in advance for helping us out! Feel free to share the Application with your friends/family/circles so that it helps others as well to get the vaccine #covid19help");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Press Any Key to Open the Links in your Browser for supporting us through LinkedIn, Github, BuyMeACoffee and Exit the Application");
+            Console.WriteLine("\n*************************************************************************************************************************************************************************");
+            Console.WriteLine("\nPress Any Key to Open the Links in your Browser for supporting us through LinkedIn, Github, BuyMeACoffee and Exit the Application");
             var input = Console.ReadLine();
             if (input != null)
             {
