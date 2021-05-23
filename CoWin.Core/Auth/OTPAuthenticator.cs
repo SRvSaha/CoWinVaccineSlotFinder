@@ -43,7 +43,7 @@ namespace CoWin.Auth
                 {
                     BEARER_TOKEN = token;
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"[INFO] Resuming Session for Mobile No: {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now} using the provided Bearer Token in auth.json config file");
+                    Console.WriteLine($"[INFO] Resuming Session for Mobile No: {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now} using the provided Bearer Token in {authTokenFilename} file");
                     Console.ResetColor();
                     return;
                 }
