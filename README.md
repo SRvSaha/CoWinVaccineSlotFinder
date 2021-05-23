@@ -190,6 +190,8 @@ Modification can be done and file to be saved again with the same name and File 
 5. Also, Once all these details are fetched, put them in the `appsettings.json`. 
 6. Run the Application CoWin.Core.EXE, that's it.
 
+> You may also see a file with the name `authToken.json` in your directory when you are running the Application. This is done so that your session information is stored locally in your device and you don't need to enter OTP manually until 15 minutes, in case you close the Application and run again, it will resume with your previous session. That is possible because of your data stored in this `authToken.json` file. However, that being said this doesn't mean that you don't have to enter OTP. You still have the dependency of entering OTP in the Application, just that if you have to close the Application due to IP Throttling or some other issue, you can resume if your Token is still valid without waiting for a new OTP.
+
 ## Configuration Changes
 
 ### _**The values of the following items MUST BE MODIFIED in `appsettings.json`**_
@@ -288,20 +290,25 @@ Be default, this is how the `appsettings.json` would look like this:
       "OTPValidatorUrl": "https://cdn-api.co-vin.in/api/v2/auth/validateMobileOtp",
       "Secret": "U2FsdGVkX18vDwDor+oOIG7vSUnINtlc/pxQcNiBulCm8LT5Sza+aIISKLqImbpMnRYgsN2QACPhggLWgZEpQg==",
       "AutoReadCaptcha": false, // Use either true or false; By default false; True means No need to enter captcha, False means captcha needs to be entered manually
-      "BearerToken": "", // If you already have bearer token, which you'll get after entering OTP, you can put it here for subsequent usage. But default, it will be blank which means new sessions will be generated and OTP would be needed
       "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO"
     },
-    "SleepIntervalInMilliseconds": 2000,
+    "SleepIntervalInMilliseconds": 3500,
+    "IsThrottlingToBeUsed": true, // Use either true or false; By default true; True means IP throttling is inplace, False means IP throttling has been removed
+    "ThrottlingThreshold": 100, //Number of request per IP allowed for ThrottlingInterval
+    "ThrottlingIntervalInMinutes": 5,
     "TotalIterations": 10000,
-    "SpoofedUserAgentToBypassWAF": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
     "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
     "MinAgeLimit": 18,
-    "MaxAgeLimit": 45,
+    "MaxAgeLimit": 44,
     "MinimumVaccineAvailability": 1,
-    "VaccineType": "", // Blank Implies Any VaccineType: "COVISHIELD" OR "COVAXIN" OR "SPUTNIK V"; Default is any types of Vaccine
-    "DoseType": 1, // FirstDose => 1, SecondDose => 2
-    "VaccineFeeType": "Free", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free
-    "VaccinationCentreName": "", // Blank implies All Vaccination Centres in the District/PINCodes, which is default
+    "VaccineType": "", // Blank Implies Any VaccineType: COVISHIELD OR COVAXIN OR SPUTNIK V; Default is any type of Vaccine
+    "DoseType": 1,
+    "VaccineFeeType": "Free", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free    
+    "IsSearchToBeDoneForVaccinationCentreName": false, // Set this is True if you want to search for specific Centres within your PINCode/District
+    "VaccinationCentreNames": [
+      "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1",
+      "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_2"
+    ], // You need to put the exact names of the Vaccination Centres for which you want to search. You'll get that from CoWIN Portal
     "IsSearchToBeDoneByPINCode": true, // Set this as True if you want to set by PINCode
     "PINCodes": [
       "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
@@ -324,6 +331,7 @@ Be default, this is how the `appsettings.json` would look like this:
     }
   }
 }
+
 
 ```
 
