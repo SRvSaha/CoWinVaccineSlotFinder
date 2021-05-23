@@ -118,10 +118,17 @@ namespace CoWin.Auth
                 var token = JsonConvert.DeserializeObject<OtpModel>(data);
                 return token.BearerToken;
             }
-            catch(Exception e)
+            catch(FileNotFoundException e)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"[WARNING] AuthToken file is missing in your machine, so unable to resume your existing session: {e.Message} {e.StackTrace}");
+                Console.WriteLine($"[WARNING] AuthToken file is missing in your machine, so unable to resume your existing session: {e.Message}");
+                Console.ResetColor();
+                return null;
+            }
+            catch(Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"[ERROR] GET BEARER TOKEN ERROR: {e.Message} {e.StackTrace}");
                 Console.ResetColor();
                 return null;
             }
