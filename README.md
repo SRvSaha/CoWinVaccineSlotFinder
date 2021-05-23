@@ -225,7 +225,7 @@ Modification can be done and file to be saved again with the same name and File 
 ``` javascript
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means both
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid or "" in the <REPLACE_ME> section, by default "Free" is selected, blank implies both Free and Paid
-"IsSearchToBeDoneForVaccinationCentreName": "<REPLACE_ME>", // se Either true or false in the <REPLACE_ME> section where True means you want to search for specific Centres within your PINCode/District and false means you don't want to search by CentreName. By default, false is selected
+"IsSearchToBeDoneForVaccinationCentreName": "<REPLACE_ME>", // se Either true or false in the <REPLACE_ME> section where true means you want to search for specific Centres within your PINCode/District and false means you don't want to search by CentreName. By default, false is selected
 "VaccinationCentreNames": [
     "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1",
     "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_2"
@@ -251,7 +251,7 @@ Modification can be done and file to be saved again with the same name and File 
 "ThrottlingIntervalInMinutes": <REPLACE_ME>, // In the <REPLACE_ME> Section, use the Interval of Time that is being set for throttling of IP Address. By Default it is // set to 5 which means 5 minutes i.e, in Interval of 5 minutes, 100 requests from your IP Address/Software is allowed. After that you'll receive error unless you switch to another network.
 "Proxy": 
 {
-   "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, False if you're not, in the <REPLACE_ME> section, by default false would be selected
+   "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, false if you're not, in the <REPLACE_ME> section, by default false would be selected
    "Address": "<REPLACE_ME>" // Use the THE PROXY ADDRESS IF YOU ARE BEHIND PROXY SERVER (usually in Office/Corporate Network) in the <REPLACE_ME> Section, by default this will be blank
 }
 ```
@@ -293,7 +293,7 @@ Be default, this is how the `appsettings.json` would look like this:
       "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO"
     },
     "SleepIntervalInMilliseconds": 3500,
-    "IsThrottlingToBeUsed": true, // Use either true or false; By default true; True means IP throttling is inplace, False means IP throttling has been removed
+    "IsThrottlingToBeUsed": true, // Use either true or false; By default true; true means IP throttling is inplace, False means IP throttling has been removed
     "ThrottlingThreshold": 100, //Number of request per IP allowed for ThrottlingInterval
     "ThrottlingIntervalInMinutes": 5,
     "TotalIterations": 10000,
@@ -304,17 +304,17 @@ Be default, this is how the `appsettings.json` would look like this:
     "VaccineType": "", // Blank Implies Any VaccineType: COVISHIELD OR COVAXIN OR SPUTNIK V; Default is any type of Vaccine
     "DoseType": 1,
     "VaccineFeeType": "Free", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free    
-    "IsSearchToBeDoneForVaccinationCentreName": false, // Set this is True if you want to search for specific Centres within your PINCode/District
+    "IsSearchToBeDoneForVaccinationCentreName": false, // Set this is true if you want to search for specific Centres within your PINCode/District
     "VaccinationCentreNames": [
       "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1",
       "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_2"
     ], // You need to put the exact names of the Vaccination Centres for which you want to search. You'll get that from CoWIN Portal
-    "IsSearchToBeDoneByPINCode": true, // Set this as True if you want to set by PINCode
+    "IsSearchToBeDoneByPINCode": true, // Set this as true if you want to set by PINCode
     "PINCodes": [
       "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
       "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
     ],
-    "IsSearchToBeDoneByDistrict": false, // Set this is True if you want to search By District
+    "IsSearchToBeDoneByDistrict": false, // Set this is true if you want to search By District
     "Districts": [
       "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1",
       "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2"
