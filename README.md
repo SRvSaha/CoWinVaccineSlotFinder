@@ -6,6 +6,26 @@
 
 Software to fetch the available slots & book the appointment for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+[contributors-shield]: https://img.shields.io/github/contributors/SRvSaha/CoWinVaccineSlotFinder.svg?style=flat-square
+[contributors-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/SRvSaha/CoWinVaccineSlotFinder?style=flat-square
+[forks-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/network/members
+[stars-shield]: https://img.shields.io/github/stars/blazorhero/CleanArchitecture.svg?style=flat-square
+[stars-url]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=flat-square
+[issues-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/issues
+[license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=flat-square
+[license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://shawt.io/r/sYx
+
 > _**Download Latest Version of the Software by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
