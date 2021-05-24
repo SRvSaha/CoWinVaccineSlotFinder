@@ -7,8 +7,8 @@
 Software to fetch the available slots & book the appointment for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
 
 [![LatestRelease][release-shield]][release-version-url]
-[![Forks][forks-shield]][forks-url]
 [![Downloads][downloads-shield]][downloads-url]
+[![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
