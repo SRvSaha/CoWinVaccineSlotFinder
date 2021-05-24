@@ -36,6 +36,14 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 
 ![Application_Default](data/ApplicationWithConfig.png)
 
+*Application Start - Software Update Notifier*
+
+![Application_Default](data/UpdateAvailable.png)
+
+*Application Start - Disclaimer, End-User Lisence Agreement, T&C, Privacy Policy Agreement Consent*
+
+![Application_Default](data/Disclaimer.png)
+
 *Application Start - OTP Generation*
 
 ![Application Start](data/ApplicationStart.png)
