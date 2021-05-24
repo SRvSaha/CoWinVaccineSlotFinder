@@ -128,8 +128,8 @@ Following are some of the main features of the App:
 - [x] Application Latest Version Check Automatically before proceeding
 - [x] Verbose Mode to be Developed so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
 - [x] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
-- [ ] Integration of Notification Engine with Telegram Bot/Mail Service/Webhook Endpoint
-- [ ] Addition of Automated Tests, CI/CD Pipeline, Auto increment of version
+- [ ] Cross Platform Support
+- [ ] Integration of Notification Engine with Telegram Bot/Webhook Endpoint
 - [ ] Debug Mode to be Developed to trace any bug/issue reported in User's Machine while running the Application
 - [ ] Auto Notifier/Auto OTP Reading functionality to be added for seamless flow
  
