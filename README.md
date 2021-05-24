@@ -18,10 +18,10 @@ Software to fetch the available slots & book the appointment for COVID-19 Vaccin
 [release-version-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest
 [forks-shield]: https://img.shields.io/github/forks/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
 [forks-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/network/members
-[downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total?style=for-the-badge
-[downloads-url]: https://github/downloads/SRvSaha/CoWinVaccineSlotFinder/total
+[downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge
+[downloads-url]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total
 [stars-shield]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
-[stars-url]: https://github.com/stars/SRvSaha/CoWinVaccineSlotFinder
+[stars-url]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder
 [issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
 [issues-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/issues
 [license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
