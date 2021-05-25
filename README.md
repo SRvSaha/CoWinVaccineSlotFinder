@@ -108,6 +108,10 @@ Software to fetch the available slots & book the appointment for COVID-19 Vaccin
 
 ![Application Sample](data/AutoCaptchaSuccessfulBooking.png)
 
+*Successful Booking Scenario - Showing Support & Sharing Word of Mouth*
+
+![Application SuccessfulBooking](data/SuccessfulBookingWithSupportMessage.png)
+
 *Unsuccessful Booking - All Slots Full*
 
 ![Application Sample](data/BookingSlotFull.png)
