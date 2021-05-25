@@ -4,7 +4,7 @@
 
 # Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-Software to fetch the available slots & book the appointment for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
+Software to fetch the available slots & book the appointment for COVID-19 Vaccination using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
 
 [![LatestRelease][release-shield]][release-version-url]
 [![Downloads][downloads-shield]][downloads-url]
