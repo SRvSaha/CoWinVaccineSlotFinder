@@ -16,7 +16,7 @@ Software to fetch the available slots & book the appointment for COVID-19 Vaccin
 [release-shield]: https://img.shields.io/github/v/release/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
 [release-version-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest
 [downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge
-[downloads-url]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total
+[downloads-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases
 [stars-shield]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
 [stars-url]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder
 [issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
