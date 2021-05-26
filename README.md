@@ -46,9 +46,9 @@ Software to fetch the available slots & book the appointment for COVID-19 Vaccin
   Please do no try to club together booking for beneficiary taking COVISHIELD with beneficiary taking COVAXIN.
 - If you're selecting multiple beneficiaries, make sure all are of the same age group (45+ or 18+) as defined by the govt.
   Please do not try to club together booking for younger and older beneficiaries.
-- AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s). In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
+- AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha (when AutoCaptcha is turned Off) for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s) or even by the Names of the Vaccination Centres within the PINCode. In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
 - If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://selfregistration.cowin.gov.in/) and cancel or re-schedule the booking. There is no option for reschedule or cancel of Booking of Slot available in the Application.
-- There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/) or [Aarogya Setu](https://www.aarogyasetu.gov.in/)
+- There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/).
 
 ## Glimpse of the Application:
 
@@ -162,7 +162,7 @@ Following are some of the main features of the App:
 - [x] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
 - [ ] Cross Platform Support
 - [ ] Integration of Notification Engine with Telegram Bot/Webhook Endpoint
-- [ ] Debug Mode to be Developed to trace any bug/issue reported in User's Machine while running the Application
+- [ ] Debug Mode Detailed Logging to be Developed to trace any bug/issue reported in User's Machine while running the Application
 - [ ] Auto Notifier/Auto OTP Reading functionality to be added for seamless flow
  
 ## Technical Details
@@ -253,6 +253,7 @@ Modification can be done and file to be saved again with the same name and File 
 ```
 
 ### _**The values of the following items MAY BE MODIFIED in `appsettings.json`, default values are set**_
+Please Note: DO NOT Change or remove to Defaut values if you are not going to use the setting for your Searching of Slot. 
 
 ``` javascript
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means any type of Vaccine
