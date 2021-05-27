@@ -163,6 +163,7 @@ Following are some of the main features of the App:
 - [x] Verbose Mode to be Developed so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
 - [x] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
 - [x] Integration of Notification Engine with Telegram Bot
+- [ ] Native Cross-Platform Support 
  
 ## Technical Details
 
