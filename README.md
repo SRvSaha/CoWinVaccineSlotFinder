@@ -4,7 +4,29 @@
 
 # Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-Windows Software to fetch the available slots & book the appointment for COVID-19 Vaccination, Co-WIN using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/) from Govt Of India.
+Software to fetch the available slots & book the appointment for COVID-19 Vaccination using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
+
+### *__DUE TO LATEST CHANGES IN THE API ACCESS POLICY BY [MoHFW](https://www.mohfw.gov.in/pdf/CoWINAPIGuidelinesFinal240521.pdf), THERE WILL BE NO MORE COMMITS/CONTRIBUTIONS/RELEASES/MAINTENANCE IN THE PROJECT. THE PROJECT HAS BEEN PUT ON INDEFINITE HOLD AND MAY BE TAKEN DOWN SOON. GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. WE RECOMMEND THAT YOU DON'T USE THE APP ANY LONGER TO SAVE YOURSELF YOUR LEGAL ISSUES.__*
+
+[![LatestRelease][release-shield]][release-version-url]
+[![Downloads][downloads-shield]][downloads-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+[release-shield]: https://img.shields.io/github/v/release/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
+[release-version-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest
+[downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge
+[downloads-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases
+[stars-shield]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
+[stars-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/stargazers
+[issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
+[issues-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/issues
+[license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
+[license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://shawt.io/r/sYx
 
 > _**Download Latest Version of the Software by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
@@ -26,15 +48,23 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
   Please do no try to club together booking for beneficiary taking COVISHIELD with beneficiary taking COVAXIN.
 - If you're selecting multiple beneficiaries, make sure all are of the same age group (45+ or 18+) as defined by the govt.
   Please do not try to club together booking for younger and older beneficiaries.
-- AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s). In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
-- If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://selfregistration.cowin.gov.in/) and cancel or re-schedule the booking. There is no option for reschedule or cancel of Booking of Slot available in the Application.
-- There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/) or [Aarogya Setu](https://www.aarogyasetu.gov.in/)
+- AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha (when AutoCaptcha is turned Off) for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s) or even by the Names of the Vaccination Centres within the PINCode. In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
+- If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://selfregistration.cowin.gov.in/) and cancel or re-schedule the booking. There is no option for reschedule or cancel of Booking of Slot available in the Application. There will be an X symbol on the right-top corner for each beneficiary to cancel from CoWIN Portal.
+- There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/).
 
 ## Glimpse of the Application:
 
 *Application With Bare Miminum Configuration Changes*
 
 ![Application_Default](data/ApplicationWithConfig.png)
+
+*Application Start - Software Update Notifier*
+
+![Application_Default](data/UpdateAvailable.png)
+
+*Application Start - Disclaimer, End-User Lisence Agreement, T&C, Privacy Policy Agreement Consent*
+
+![Application_Default](data/Disclaimer.png)
 
 *Application Start - OTP Generation*
 
@@ -79,6 +109,10 @@ Windows Software to fetch the available slots & book the appointment for COVID-1
 *Successful Booking Scenario - With AI-Auto Captcha*
 
 ![Application Sample](data/AutoCaptchaSuccessfulBooking.png)
+
+*Successful Booking Scenario - Showing Support & Sharing Word of Mouth*
+
+![Application SuccessfulBooking](data/SuccessfulBookingWithSupportMessage.png)
 
 *Unsuccessful Booking - All Slots Full*
 
@@ -128,10 +162,7 @@ Following are some of the main features of the App:
 - [x] Application Latest Version Check Automatically before proceeding
 - [x] Verbose Mode to be Developed so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
 - [x] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
-- [ ] Integration of Notification Engine with Telegram Bot/Mail Service/Webhook Endpoint
-- [ ] Addition of Automated Tests, CI/CD Pipeline, Auto increment of version
-- [ ] Debug Mode to be Developed to trace any bug/issue reported in User's Machine while running the Application
-- [ ] Auto Notifier/Auto OTP Reading functionality to be added for seamless flow
+- [x] Integration of Notification Engine with Telegram Bot
  
 ## Technical Details
 
@@ -221,10 +252,11 @@ Modification can be done and file to be saved again with the same name and File 
 ```
 
 ### _**The values of the following items MAY BE MODIFIED in `appsettings.json`, default values are set**_
+Please Note: DO NOT Change or remove to Defaut values if you are not going to use the setting for your Searching of Slot. 
 
 ``` javascript
-"VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means both
-"VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid or "" in the <REPLACE_ME> section, by default "Free" is selected, blank implies both Free and Paid
+"VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means any type of Vaccine
+"VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid or "" in the <REPLACE_ME> section, by default "Free" is selected, blank implies both Free and Paid types
 "IsSearchToBeDoneForVaccinationCentreName": "<REPLACE_ME>", // se Either true or false in the <REPLACE_ME> section where true means you want to search for specific Centres within your PINCode/District and false means you don't want to search by CentreName. By default, false is selected
 "VaccinationCentreNames": [
     "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1",
@@ -242,13 +274,13 @@ Modification can be done and file to be saved again with the same name and File 
 // Basically, Replace REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395, then the entry would look like this : "Districts": [ "395" ].
 // In case you want to search for multiple Districts say Mumbai and Thane, get the District-District Code Mapping from below "State-District-DistrictCode Mapping", // you'll get the DistrictCode of Mumbai as 395 and of Thane as 392.
 // You'll have to remove REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1 with 395 and REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2 with 392, it would look something like this "Districts": [ "395", "392"]
-"SleepIntervalInMilliseconds": <REPLACE_ME>, // In the <REPLACE_ME> Section, Use the Time Interval in Milliseconds you want the system to take rest after trying out your Search Criteria of PIN/District/CentreName once. This will help in lessening the chances of getting IP Throttled. Default is 3500
-"IsThrottlingToBeUsed": <REPLACE_ME>, // In the <REPLACE_ME> Section, Use either true or false; By default true; True means IP throttling is there, False means IP throttling has been removed
-"ThrottlingThreshold": <REPLACE_ME>, //In the <REPLACE_ME> Section, Use the Number of requests per IP allowed for ThrottlingInterval. By default it is set to 100
+"SleepIntervalInMilliseconds": "<REPLACE_ME>", // In the <REPLACE_ME> Section, Use the Time Interval in Milliseconds you want the system to take rest after trying out your Search Criteria of PIN/District/CentreName once. This will help in lessening the chances of getting IP Throttled. Default is 3500
+"IsThrottlingToBeUsed": "<REPLACE_ME>", // In the <REPLACE_ME> Section, Use either true or false; By default true; True means IP throttling is there, False means IP throttling has been removed
+"ThrottlingThreshold": "<REPLACE_ME>", //In the <REPLACE_ME> Section, Use the Number of requests per IP allowed for ThrottlingInterval. By default it is set to 100
 // Say Throttling Interval is 5 minutes and ThrottlingThreshold is 100, that means, you are allowed for 20 Hits from your IP Address per minute. 
 // Change these values accordingly whenever you face the issue of IP being throlled by Server. 
 // You may even switch to a different network/IP/Proxy Server so that this can remove the IP Throttling issue for you
-"ThrottlingIntervalInMinutes": <REPLACE_ME>, // In the <REPLACE_ME> Section, use the Interval of Time that is being set for throttling of IP Address. By Default it is // set to 5 which means 5 minutes i.e, in Interval of 5 minutes, 100 requests from your IP Address/Software is allowed. After that you'll receive error unless you switch to another network.
+"ThrottlingIntervalInMinutes": "<REPLACE_ME>", // In the <REPLACE_ME> Section, use the Interval of Time that is being set for throttling of IP Address. By Default it is // set to 5 which means 5 minutes i.e, in Interval of 5 minutes, 100 requests from your IP Address/Software is allowed. After that you'll receive error unless you switch to another network.
 "Proxy": 
 {
    "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, false if you're not, in the <REPLACE_ME> section, by default false would be selected
