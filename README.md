@@ -375,6 +375,10 @@ Enjoy and feel free to Star the Repo, if it could help you in any way!
 ### For Developers or Curious Minds:
 
 If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Make changes in  `appsettings.json`, Ctrl + F5 and Boom!
+It will do the searching for you, but if you have turned on Auto-Captcha your booking won't work and you'll get `System.IO.InvalidDataException` exception. Reason for this is that AutoCaptcha needs an Base64 encoded Encrypted Trained Model which will be used for getting the captcha. Since it's not a good practice to HardCode it in Source Code, so it won't work unless you get the Encrypted Model and the Secret Key. 
+> Still curious about that, check out https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/CaptchaModel.cs and https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/Crypto.cs
+
+However the standalone release for Windows has all these dependencies handled so you don't need to worry about anything! Everything will work seamlessly, we got your back!
 
 Well, want to dig deeper?
 
