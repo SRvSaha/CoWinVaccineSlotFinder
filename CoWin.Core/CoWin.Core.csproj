@@ -9,24 +9,22 @@
     <RepositoryUrl>https://github.com/SRvSaha/CoWinVaccineSlotFinder</RepositoryUrl>
     <Company>Open Source</Company>
     <Product>Vaccine Slot Finder</Product>
-    <Description>Windows Application to Fetch the Available Slots &amp; Booking the Appointment Schedule for COVID-19 Vaccination using the Publicly available APISetu APIs from Govt Of India</Description>
+    <Description>Cross-Platform Application to Fetch the Available Slots &amp; Booking the Appointment Schedule for COVID-19 Vaccination India using the Publicly available APISetu APIs</Description>
     <Authors>SRvSaha, PSuyog97, priyanka1111, iSatishYadav</Authors>
     <Copyright>Saurav Saha</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>4.2.0</Version>
+    <Version>5.0.0</Version>
     <PackageProjectUrl>https://srvsaha.github.io/CoWinVaccineSlotFinder/</PackageProjectUrl>
     <NeutralLanguage></NeutralLanguage>
     <PackageId>VaccineSlotFinder</PackageId>
     <SignAssembly>true</SignAssembly>
-    <PackageReleaseNotes>1. Feature for Filtering by Multiple Centre Names
-2. Fixes of Error Message for Wrong OTP, Vaccination Centre Empty
-3. Auto Handling of Sessions using Bearer Token 
-4. Handling of IP Throttling Issue Gracefully for better UX
-5. Randomization of User Agent for better UX
-6. Disclaimer, Feedback, Privacy Policy and End User Lisence Agreement</PackageReleaseNotes>
-    <FileVersion>4.2.0.0</FileVersion>
-    <AssemblyVersion>4.2.0.0</AssemblyVersion>
+    <PackageReleaseNotes>1. Cross-Platform Software - now runs on Windows, Linux, MacOS
+2. Telemetry &amp; Performance Improvements
+3. Auto Handling of IP Throttling Issue Gracefully for better UX
+</PackageReleaseNotes>
+    <FileVersion>5.0.0.0</FileVersion>
+    <AssemblyVersion>5.0.0.0</AssemblyVersion>
     <UserSecretsId>107ac8ef-23d4-4f38-8773-00d3c45adaa5</UserSecretsId>
     <AssemblyName>CoWinVaccineSlotFinder</AssemblyName>
   </PropertyGroup>
