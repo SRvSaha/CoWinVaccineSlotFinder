@@ -237,7 +237,6 @@ namespace CoWiN.Models
                                 new Telemetry(_configuration).SendStatistics(telemetryMetadata);
 
                                 new Notifier().Notify($"*SLOT BOOKED SUCCESSFULLY +1* \n\n" +
-                                                      $"*UniqueId* : `{ uniqueId }`\n" +
                                                       $"*LocalAppVersion* : `{ appVersion }`\n" +
                                                       $"*BookedOn* : `{ bookDate }`\n" +
                                                       $"*TimeTakenToBook* : `{ timeTakenToBook } seconds`\n" +
@@ -248,7 +247,8 @@ namespace CoWiN.Models
                                                       $"*District* : `{ cvc.DistrictName}`\n" +
                                                       $"*State* : `{ cvc.StateName}`\n" +
                                                       $"*BeneficiaryCount* : `{ beneficiaries.Count}`\n" +
-                                                      $"*AgeGroup* : `{_configuration["CoWinAPI:MinAgeLimit"]} - {_configuration["CoWinAPI:MaxAgeLimit"]}`\n");
+                                                      $"*AgeGroup* : `{_configuration["CoWinAPI:MinAgeLimit"]} - {_configuration["CoWinAPI:MaxAgeLimit"]}`\n" +
+                                                      $"*UniqueId* : `{ uniqueId }`\n");
                                 return;
                             }
                             stopwatch.Stop();
