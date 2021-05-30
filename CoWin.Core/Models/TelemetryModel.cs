@@ -8,6 +8,7 @@ namespace CoWin.Core.Models
     {
         public Guid UniqueId { get; set; }
         public string AppVersion { get; set; }
+        public string Source { get; set; }
         public DateTime BookedOn { get; set; }
         public double TimeTakenToBookInSeconds { get; set; }
         public string CaptchaMode { get; set; }
