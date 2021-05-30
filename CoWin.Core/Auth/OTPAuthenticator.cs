@@ -16,10 +16,11 @@ namespace CoWin.Auth
 {
     class OTPAuthenticator
     {
-        private IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
         public static string BEARER_TOKEN;
         private bool isOTPEntered = false;
-        private string authTokenFilename = "authToken.json";
+        private readonly string authTokenFilename = "authToken.json";
+        private bool isIPThrottled = false;
         public OTPAuthenticator(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -28,6 +29,7 @@ namespace CoWin.Auth
         // TODO: Needs Refactoring based on SRP
         public void ValidateUser()
         {
+            isOTPEntered = false;
             string endpoint = "";
 
             if (Convert.ToBoolean(_configuration["CoWinAPI:Auth:IsToBeUsed"]))
@@ -177,15 +179,16 @@ namespace CoWin.Auth
         }
         void DisplayErrorMessage(IRestResponse response)
         {
-            if (response.StatusCode == HttpStatusCode.Forbidden)
+            if (response.StatusCode == HttpStatusCode.Forbidden || response.StatusCode == HttpStatusCode.TooManyRequests)
             {
+                isIPThrottled = false;
+                new Thread(new ThreadStart(IPThrolledNotifier)).Start();
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine($"[FATAL] Response From Server: Too many hits from your IP address, hence request has been blocked. You can try following options :\n1.Switch to a different network which will change your current IP address.\n2.Close the application and try again after sometime ");
+                Console.WriteLine($"[FATAL] Response From Server: Too many hits from your IP address, hence request has been blocked. You can try following options :\n1.(By Default) Wait for {_configuration["CoWinAPI:ThrottlingRefreshTimeInSeconds"]} seconds, the Application will Automatically resume working.\n2.Switch to a different network which will change your current IP address.\n3.Close the application and try again after sometime");
                 Console.ResetColor();
-                Console.WriteLine("\nPress Enter Key to Exit The Application .....");
-                Console.ReadLine();
-                Environment.Exit(0);
-
+                Console.WriteLine($"[INFO] If you want to change the duration of refresh time, you can increase/decrease the value of ThrottlingRefreshTimeInSeconds in Config file and restart the Application");
+                Thread.Sleep(Convert.ToInt32(_configuration["CoWinAPI:ThrottlingRefreshTimeInSeconds"]) * 1000);
+                isIPThrottled = true;
             }
             else 
             {
@@ -193,6 +196,7 @@ namespace CoWin.Auth
                 Console.WriteLine($"[ERROR] OTP Error - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"[WARNING] Could not establish Session : Regenerating Auth Token");
+                Console.ResetColor();
                 ValidateUser();
             }
         }
@@ -219,10 +223,18 @@ namespace CoWin.Auth
         {
             while(!isOTPEntered)
             {
-                Thread.Sleep(900);
                 Console.Beep(500, 200);
                 Console.Beep(1000, 300);
                 Console.Beep(2000, 400);
+                Thread.Sleep(900);
+            }
+        }
+        private void IPThrolledNotifier()
+        {
+            while (!isIPThrottled)
+            {
+                Console.Beep(); // Default Frequency: 800 Hz, Default Duration of Beep: 200 ms
+                Thread.Sleep(300);
             }
         }
     }

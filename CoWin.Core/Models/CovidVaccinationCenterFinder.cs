@@ -312,22 +312,24 @@ namespace CoWin.Models
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n**************************************************************************************************************************************************************************");
             Console.WriteLine("\nGREETINGS!");
+            Console.ResetColor();
             Console.WriteLine("Glad that we were able to help you book your slot!");
             Console.WriteLine("We’d love to know about your experience with CoWinVaccineSlotFinder.");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("If you appreciate our work and are willing to share your feedback and share your words of mouth, please do like, share and post a comment in LinkedIn/Facebook/Twitter/Instagram/Social Media of your Choise with #CoWinVaccineSlotFinder, and star our Github Repository. We’d love to check that out!");
             Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("If you appreciate our work and are willing to share your feedback and word of mouth, please do like, share and post a comment in LinkedIn/Facebook/Twitter/Instagram/Social Media of your Choice with #CoWinVaccineSlotFinder, and star our Github Repository. We’d love to check that out!");
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Also, if you would like to support us, you may like to Buy us some Coffee as we are converting Coffee into Code for you through #OpenSource Contributions!");
+            Console.ResetColor();
             Console.WriteLine("Thank you in advance for helping us out! Feel free to share the Application with your friends/family/colleagues/circles so that it helps others as well to get the vaccine #covid19help");
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\n*************************************************************************************************************************************************************************");
-            Console.WriteLine("\nPress Any Key to Open the Links in your Browser for supporting us through LinkedIn, Github, BuyMeACoffee and Exit the Application");
+            Console.WriteLine("\nPress Any Key to Open the Links in your Browser for supporting us through LinkedIn, Github, BuyMeACoffee and Exit the Application after providing your feedback");
             var input = Console.ReadLine();
             if (input != null)
             {
-                Process.Start(new ProcessStartInfo("https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/") { UseShellExecute = true });
-                Process.Start(new ProcessStartInfo("https://github.com/SRvSaha/CoWinVaccineSlotFinder/") { UseShellExecute = true });
-                Process.Start(new ProcessStartInfo("https://www.buymeacoffee.com/srvsaha") { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo("https://shawt.io/r/sYx") { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo("https://shawt.io/r/sYy") { UseShellExecute = true });
+                Process.Start(new ProcessStartInfo("https://shawt.io/r/sYG") { UseShellExecute = true });
                 Environment.Exit(0);
             }
         }

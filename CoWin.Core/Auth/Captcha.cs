@@ -11,6 +11,7 @@ using System.Xml;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Linq;
 using CoWin.Core.Models;
 
@@ -21,6 +22,7 @@ namespace CoWin.Auth
         private readonly IConfiguration _configuration;
         private readonly Dictionary<string, string> _mapping;
         private bool[] _lookup;
+        private bool isIPThrottled = false;
         public Captcha(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -54,17 +56,19 @@ namespace CoWin.Auth
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"[WARNING] Session Expired : Regenerating Auth Token");
+                Console.ResetColor();
                 new OTPAuthenticator(_configuration).ValidateUser();
             }
-            else if (response.StatusCode == HttpStatusCode.Forbidden)
+            else if (response.StatusCode == HttpStatusCode.Forbidden || response.StatusCode == HttpStatusCode.TooManyRequests)
             {
+                isIPThrottled = false;
+                new Thread(new ThreadStart(IPThrolledNotifier)).Start();
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine($"[FATAL] Response From Server: Too many hits from your IP address, hence request has been blocked. You can try following options :\n1.Switch to a different network which will change your current IP address.\n2.Close the application and try again after sometime ");
+                Console.WriteLine($"[FATAL] Response From Server: Too many hits from your IP address, hence request has been blocked. You can try following options :\n1.(By Default) Wait for {_configuration["CoWinAPI:ThrottlingRefreshTimeInSeconds"]} seconds, the Application will Automatically resume working.\n2.Switch to a different network which will change your current IP address.\n3.Close the application and try again after sometime");
                 Console.ResetColor();
-                Console.WriteLine("\nPress Enter Key to Exit The Application .....");
-                Console.ReadLine();
-                Environment.Exit(0);
-
+                Console.WriteLine($"[INFO] If you want to change the duration of refresh time, you can increase/decrease the value of ThrottlingRefreshTimeInSeconds in Config file and restart the Application");
+                Thread.Sleep(Convert.ToInt32(_configuration["CoWinAPI:ThrottlingRefreshTimeInSeconds"]) * 1000);
+                isIPThrottled = true;
             }
             else
             {
@@ -164,6 +168,14 @@ namespace CoWin.Auth
                 }
             }
             return new string(buffer, 0, index);
+        }
+        private void IPThrolledNotifier()
+        {
+            while (!isIPThrottled)
+            {
+                Console.Beep(); // Default Frequency: 800 Hz, Default Duration of Beep: 200 ms
+                Thread.Sleep(300);
+            }
         }
     }
 }

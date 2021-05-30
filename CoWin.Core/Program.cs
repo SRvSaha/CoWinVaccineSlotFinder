@@ -6,7 +6,7 @@ using System.Diagnostics;
 namespace CoWin
 {
     public class Program
-    {   
+    {
         public static void Main()
         {
             try
@@ -35,6 +35,8 @@ namespace CoWin
             Console.WriteLine("######################################################################## DISCLAIMER ###################################################################################");
             Console.WriteLine("For the purposes of this End - User License Agreement:");
             Console.WriteLine("Agreement means this End - User License Agreement that forms the entire agreement between You and the Company regarding the use of the Application.");
+            Console.WriteLine("Company (referred to as either \"the Company\", \"We\", \"Us\" or \"Our\" in this Disclaimer) refers to CoWinVaccineSlotFinder.");
+            Console.WriteLine("Service refers to the Application.");
             Console.WriteLine("Application means the software program provided by the Company downloaded by You to a Device, named CoWinVaccineSlotFinder");
             Console.WriteLine("Content refers to content such as text, images, or other information that can be posted, uploaded, linked to or otherwise made available by You, regardless of the form of that content.");
             Console.WriteLine("Country refers to: India");
@@ -46,13 +48,18 @@ namespace CoWin
                              "Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You.But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law. To the extent any warranty exists under law that cannot be disclaimed, the Company shall be solely responsible for such warranty." +
                              "All information in the Service is provided \"AS IS\", with no guarantee of completeness, accuracy, timeliness or of the results obtained from the use of this information, and without warranty of any kind, express or implied, including, but not limited to warranties of performance, merchantability and fitness for a particular purpose." +
                               "We will not be liable to You or anyone else for any decision made or action taken in reliance on the information given by the Service or for any consequential, special or similar damages, even if advised of the possibility of such damages.");
-            Console.WriteLine("While we don't collect any of your personally identifiable information, we do collect Telemetry & Diagnostic Information for the Booking which includes State, ZIP / Postal code," +
-                              " District, PIN Code, BeneficiaryCount, App Version which helps us to improve our service. We don't sell your data" + 
+            Console.WriteLine(" We don't collect any of your personally identifiable information. We collect some metadata for App Usage Statistics which doesn't include any of personal information to help us improve our Service. " +
                               "For further details, please go through the Disclaimer, End User Lisence Agreement & the Privacy Policy, proceed further only if you accept the Terms and Conditions" +
-                              " available at https://shawt.io/r/sYw use the Application/Software");     
+                              " available at https://shawt.io/r/sYw use the Application/Software ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("DUE TO RECENT CHANGES IN THE API ACCESS POLICY BY MOHFW AVAILABLE AT https://shawt.io/r/sYF THERE WON'T BE ANY FURTHER IMPROVEMENTS/UPDATES/MODIFICATIONS/RELEASES IN THE APPLICATION. " +
+                "GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. WE RECOMMEND THAT YOU DON'T USE THE APP ANY LONGER TO SAVE YOURSELF YOUR ANY LEGAL ISSUES. " +
+                "WHILE WE DON'T NOT COLLECT OR STORE YOUR PERSONAL DATA, YET IN ORDER TO DO BOOKING USING PROTECTED APIS, APIKEY WOULD BE NEEDED, WHICH CAN BE MISUSED BY USERS. ALSO, API HITS CAN'T BE QUANTIFIED SINCE APPLICATION IS USED FROM MULTIPLE PLACES. THAT BEING SAID, THE APPLICATION WILL BE AVAILABLE FOR USE, BUT NO MAINTENANCE WILL BE DONE OF THE APPLICATION. " +
+                "USE IT AT YOUR OWN RISK.");
+            Console.ResetColor();
             Console.WriteLine("########################################################################################################################################################################\n");
             Console.WriteLine("By pressing the Y/y key for using the Application, you are agreeing to be bound by the terms and conditions of this Agreement. If You do not agree to the terms of this Agreement, you may exit the Application.");
-            Console.WriteLine("\nPress Y/y Accept the Terms and Conditions, Any other Key to Exit the Application");
+            Console.WriteLine("\nPress Y/y to Accept the Terms and Conditions, Any other Key to Exit the Application");
             Console.ResetColor();
             var input = Console.ReadLine();
             if (input == "Y" || input == "y")
