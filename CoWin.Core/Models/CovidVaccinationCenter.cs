@@ -405,7 +405,7 @@ namespace CoWiN.Models
                 Console.ResetColor();
                 isBookingSuccessful = false;
             }
-            return true;
+            return isBookingSuccessful;
         }
         private void IPThrolledNotifier()
         {
