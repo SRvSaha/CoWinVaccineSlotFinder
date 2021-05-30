@@ -96,33 +96,5 @@ namespace CoWin.Core.Models
             return (base64.Length % 4 == 0) && Regex.IsMatch(base64, @"^[a-zA-Z0-9\+/]*={0,3}$", RegexOptions.None);
         }
 
-        internal static String GetGlobalResourceValueByKey(string resourceName, string key)
-        {
-            string value = string.Empty;
-
-            try
-            {
-                ResourceManager myResourceClass = new ResourceManager(resourceName, System.Reflection.Assembly.Load("App_GlobalResources"));
-                ResourceSet resourceSet = myResourceClass.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
-
-                //Convert resource to dictionary
-                var resourceDictionary = resourceSet.Cast<DictionaryEntry>()
-                                        .ToDictionary(r => r.Key.ToString(),
-                                                      r => r.Value.ToString());
-
-                if (resourceDictionary.ContainsKey(key))
-                {
-                    value = resourceDictionary[key].ToString();
-                }
-            }
-            catch
-            {
-                throw new Exception("Error reading resource file.");
-            }
-
-            return value;
-        }
-
-
     }
 }
