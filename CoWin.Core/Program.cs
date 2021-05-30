@@ -51,9 +51,8 @@ namespace CoWin
             Console.WriteLine(" We don't collect any of your personally identifiable information. We collect some metadata for App Usage Statistics which doesn't include any of personal information to help us improve our Service. " +
                               "For further details, please go through the Disclaimer, End User Lisence Agreement & the Privacy Policy, proceed further only if you accept the Terms and Conditions" +
                               " available at https://shawt.io/r/sYw use the Application/Software ");
-            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("DUE TO RECENT CHANGES IN THE API ACCESS POLICY BY MOHFW AVAILABLE AT https://shawt.io/r/sYF THERE WON'T BE ANY FURTHER IMPROVEMENTS/UPDATES/MODIFICATIONS/RELEASES IN THE APPLICATION. " +
-                "GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. WE RECOMMEND THAT YOU DON'T USE THE APP ANY LONGER TO SAVE YOURSELF YOUR ANY LEGAL ISSUES. " +
+                "GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. WE RECOMMEND THAT YOU DON'T MISUSE THE APP TO SAVE YOURSELF YOUR LEGAL ISSUES. " +
                 "WHILE WE DON'T NOT COLLECT OR STORE YOUR PERSONAL DATA, YET IN ORDER TO DO BOOKING USING PROTECTED APIS, APIKEY WOULD BE NEEDED, WHICH CAN BE MISUSED BY USERS. ALSO, API HITS CAN'T BE QUANTIFIED SINCE APPLICATION IS USED FROM MULTIPLE PLACES. THAT BEING SAID, THE APPLICATION WILL BE AVAILABLE FOR USE, BUT NO MAINTENANCE WILL BE DONE OF THE APPLICATION. " +
                 "USE IT AT YOUR OWN RISK.");
             Console.ResetColor();

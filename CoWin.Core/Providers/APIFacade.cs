@@ -41,13 +41,13 @@ namespace CoWin.Providers
             }
         }
 
-        public IRestResponse Post(string endpoint, string body = null)
+        public IRestResponse Post(string endpoint, string body = null, bool isCowinRelatedHeadersToBeUsed = true)
         {
-            RestClient client = InitHttpClient(endpoint);
+            RestClient client = InitHttpClient(endpoint, isCowinRelatedHeadersToBeUsed);
 
             IRestRequest request = new RestRequest(Method.POST);
 
-            AddGenericHeaders(request);
+            AddGenericHeaders(request, isCowinRelatedHeadersToBeUsed);
 
             AddPostSpecificParameters(body, request);
 

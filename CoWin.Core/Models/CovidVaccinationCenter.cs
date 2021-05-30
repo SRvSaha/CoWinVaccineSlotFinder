@@ -13,6 +13,7 @@ using CoWin.Core.Models;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using System.Globalization;
 
 namespace CoWiN.Models
 {
@@ -209,10 +210,37 @@ namespace CoWiN.Models
                                 stopwatch.Stop();
                                 TimeSpan ts = stopwatch.Elapsed;
                                 var captchaMode = Convert.ToBoolean(_configuration["CoWinAPI:Auth:AutoReadCaptcha"]) == true ? "AI AutoCaptcha" : "Manual Captcha";
+                                var bookDate = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+                                var appVersion = new VersionChecker(_configuration).GetCurrentVersionFromSystem();
+                                var uniqueId = Guid.NewGuid();
+                                var timeTakenToBook = ts.TotalSeconds;
+
+                                var telemetryModel = new TelemetryModel
+                                {
+                                    UniqueId = uniqueId,
+                                    AppVersion = appVersion.ToString().Trim(),
+                                    BookedOn = DateTime.ParseExact(bookDate, "dd-MM-yyyy HH:mm:ss", new CultureInfo("en-US")),
+                                    TimeTakenToBookInSeconds = timeTakenToBook,
+                                    CaptchaMode = captchaMode.Trim(),
+                                    Latitude = Convert.ToInt32(cvc.Lat),
+                                    Longitude = Convert.ToInt32(cvc.Long),
+                                    PINCode = Convert.ToInt32(cvc.Pincode),
+                                    District = cvc.DistrictName.Trim(),
+                                    State = cvc.StateName.Trim(),
+                                    BeneficiaryCount = beneficiaries.Count,
+                                    MinimumAge = Convert.ToInt32(_configuration["CoWinAPI:MinAgeLimit"]),
+                                    MaximumAge = Convert.ToInt32(_configuration["CoWinAPI:MaxAgeLimit"]),
+                                };
+
+                                var telemetryMetadata = JsonConvert.SerializeObject(telemetryModel);
+
+                                new Telemetry(_configuration).SendStatistics(telemetryMetadata);
+
                                 new Notifier().Notify($"*SLOT BOOKED SUCCESSFULLY +1* \n\n" +
-                                                      $"*LocalAppVersion* : `{ new VersionChecker(_configuration).GetCurrentVersionFromSystem()}`\n" +
-                                                      $"*BookedOn* : `{ DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss tt") }`\n" +
-                                                      $"*TimeTakenToBook* : `{ts.TotalSeconds} seconds`\n" +
+                                                      $"*UniqueId* : `{ uniqueId }`\n" +
+                                                      $"*LocalAppVersion* : `{ appVersion }`\n" +
+                                                      $"*BookedOn* : `{ bookDate }`\n" +
+                                                      $"*TimeTakenToBook* : `{ timeTakenToBook } seconds`\n" +
                                                       $"*CaptchaMode* : `{captchaMode}`\n" +
                                                       $"*Latitude* : `{ cvc.Lat}`\n" +
                                                       $"*Longitude* : `{ cvc.Long}`\n" +
