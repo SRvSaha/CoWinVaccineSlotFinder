@@ -1,0 +1,2 @@
+chmod +x CoWinVaccineSlotFinder
+./CoWinVaccineSlotFinder
