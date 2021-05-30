@@ -28,6 +28,7 @@
     <FileVersion>4.2.0.0</FileVersion>
     <AssemblyVersion>4.2.0.0</AssemblyVersion>
     <UserSecretsId>107ac8ef-23d4-4f38-8773-00d3c45adaa5</UserSecretsId>
+    <AssemblyName>CoWinVaccineSlotFinder</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
