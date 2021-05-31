@@ -199,13 +199,13 @@ Rest of the stuff are self-explanatory.
 ### For Folks who just want to get shit done
 
 - Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) or from Releases Section of Github
-- Download the ZIP file of the Latest release for your Operating System
+- Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.0.0-windows]
 - Extract the ZIP file, you'll find two file like this:
   
  ![Application Release](data/ReleaseStructure.jpg)
  
 - Modify the settings inside `appsettings.json`
-- Double Click `CoWin.Core.exe` to RUN the Application.
+- Double Click `CoWinVaccineSlotFinder.exe` to RUN the Application.
 
 ### How to Open appsettings.json
 
@@ -222,7 +222,7 @@ Modification can be done and file to be saved again with the same name and File 
   ![BeneficiaryID](data/BeneficiaryDetails.jpg)
 
 5. Also, Once all these details are fetched, put them in the `appsettings.json`. 
-6. Run the Application CoWin.Core.EXE, that's it.
+6. Run the Application CoWinVaccineSlotFinder.EXE, that's it.
 
 > You may also see a file with the name `authToken.json` in your directory when you are running the Application. This is done so that your session information is stored locally in your device and you don't need to enter OTP manually until 15 minutes, in case you close the Application and run again, it will resume with your previous session. That is possible because of your data stored in this `authToken.json` file. However, that being said this doesn't mean that you don't have to enter OTP. You still have the dependency of entering OTP in the Application, just that if you have to close the Application due to IP Throttling or some other issue, you can resume if your Token is still valid without waiting for a new OTP.
 
