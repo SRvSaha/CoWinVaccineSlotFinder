@@ -199,7 +199,7 @@ Rest of the stuff are self-explanatory.
 
 ### For Folks who just want to get shit done
 
-- Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) or from Releases Section of Github
+- Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) or from Releases Section of Github
 - Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.0.0-windows]
 - Extract the ZIP file, you'll find two file like this:
   
