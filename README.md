@@ -4,7 +4,7 @@
 
 # Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-Software to fetch the available slots & book the appointment for COVID-19 Vaccination using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
+Cross-Platform Software to fetch the available slots & book the appointment for COVID-19 Vaccination using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
 
 [![LatestRelease][release-shield]][release-version-url]
 [![Downloads][downloads-shield]][downloads-url]
@@ -165,17 +165,19 @@ Following are some of the main features of the App:
 - [x] Verbose Mode to be Developed so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
 - [x] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
 - [x] Integration of Notification Engine with Telegram Bot
-- [x] Native Cross-Platform Support 
+- [x] Native Cross-Platform Support for Windows/Mac/Linux
 - [x] Automatically handling IP Throttling Issue
  
 ## Technical Details
 
-It's a simple hybrid Console + WinForms Application being developed using .NET Core 3.1, WinForms and C#.
+It's a simple hybrid Console Application being developed using .NET Core 3.1, WinForms and C#.
 
-_**Currently, application is bundled as a Single Standalone Executable EXE file with Runtime included and therefore no installations are needed to run the Application. However, it will only work on Windows Machines only, due to dependency on WinForms for Captcha Popup**_
+_**Currently, application is bundled as a Single Standalone Executable file with Runtime included and therefore no installations are needed to run the Application. Due to dependency on WinForms for Captcha Popup, in Windows Machine Manual Captcha is supported. However, the application can be used in Linux/Mac as well where Manual Captcha is not supported and AI Assisted Auto Captcha would suffice**_
 
 In General, to run the application, the following things are needed:
-- Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
+- [WINDOWS]: Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
+- [LINUX]: 64-bit Debian like Distros eg. Ubuntu, Mint, Kali Linux etc are supported with support for .NET Core 3.1 Runtime
+- [MACOSX]: 64-bit Mac OSX is supported with .NET Core 3.1 Runtime
 
 > [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundled in the Release so no other external dependencies to run the Application.
   _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations. Use of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) is recommended for the purpose of development. 
