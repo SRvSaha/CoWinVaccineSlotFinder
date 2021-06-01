@@ -338,7 +338,7 @@ namespace CoWiN.Models
             Console.ResetColor();
             Console.WriteLine("District: " + cvc.DistrictName);
             Console.WriteLine("FeeType: " + cvc.FeeType);
-            Console.WriteLine("DoseType: " + Enum.GetName(typeof(DoseTypeModel), Convert.ToInt16(_configuration["CoWinAPI:MinimumVaccineAvailability"])));
+            Console.WriteLine("DoseType: " + Enum.GetName(typeof(DoseTypeModel), Convert.ToInt16(_configuration["CoWinAPI:DoseType"])));
             Console.WriteLine("VaccineType: " + session.Vaccine);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("AvailableCapacity: " + GetVaccineAvailabiltyForDoseType(session).ToString());
