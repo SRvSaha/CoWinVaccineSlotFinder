@@ -14,17 +14,16 @@
     <Copyright>Saurav Saha</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>5.0.0</Version>
+    <Version>5.0.1</Version>
     <PackageProjectUrl>https://srvsaha.github.io/CoWinVaccineSlotFinder/</PackageProjectUrl>
     <NeutralLanguage></NeutralLanguage>
     <PackageId>VaccineSlotFinder</PackageId>
     <SignAssembly>true</SignAssembly>
-    <PackageReleaseNotes>1. Cross-Platform Software - now runs on Windows, Linux, MacOS
-2. Telemetry &amp; Performance Improvements
-3. Auto Handling of IP Throttling Issue Gracefully for better UX
+    <PackageReleaseNotes>1. Fixed the Issue of Application Crashing when IP gets throttled while fetching Captcha from Server
+
 </PackageReleaseNotes>
-    <FileVersion>5.0.0.0</FileVersion>
-    <AssemblyVersion>5.0.0.0</AssemblyVersion>
+    <FileVersion>5.0.1.0</FileVersion>
+    <AssemblyVersion>5.0.1.0</AssemblyVersion>
     <UserSecretsId>107ac8ef-23d4-4f38-8773-00d3c45adaa5</UserSecretsId>
     <AssemblyName>CoWinVaccineSlotFinder</AssemblyName>
   </PropertyGroup>
