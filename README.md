@@ -162,7 +162,7 @@ Following are some of the main features of the App:
 - [x] Allow Any Vaccine Type and Any Fee Type for Booking Slots; Remove Mandatory Filters on VaccineType and FeeType
 - [x] AI Assisted Auto Captcha
 - [x] Application Latest Version Check Automatically before proceeding
-- [x] Verbose Mode to be Developed so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
+- [x] Verbose Mode so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
 - [x] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
 - [x] Integration of Notification Engine with Telegram Bot
 - [x] Native Cross-Platform Support for Windows/Mac/Linux
