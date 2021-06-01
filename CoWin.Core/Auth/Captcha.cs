@@ -81,9 +81,13 @@ namespace CoWin.Auth
         }
         private string ProcessCaptcha(string captchaSvg)
         {
-            string captchadata;
+            string captchadata = "";
             string captchaSource;
             string captchaWithoutNoise = RemoveNoiseFromCaptcha(captchaSvg);
+            if (string.IsNullOrEmpty(captchaWithoutNoise))
+            {
+                return captchadata;
+            }
             Bitmap bitmapImage = ConvertCaptchSvgToImage(captchaWithoutNoise);
             if (Convert.ToBoolean(_configuration["CoWinAPI:Auth:AutoReadCaptcha"]))
             {
