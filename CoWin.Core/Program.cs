@@ -52,9 +52,9 @@ namespace CoWin
                               "For further details, please go through the Disclaimer, End User Lisence Agreement & the Privacy Policy, proceed further only if you accept the Terms and Conditions" +
                               " available at https://shawt.io/r/sYw use the Application/Software ");
             Console.WriteLine("DUE TO RECENT CHANGES IN THE API ACCESS POLICY BY MOHFW AVAILABLE AT https://shawt.io/r/sYF THERE WON'T BE ANY FURTHER IMPROVEMENTS/UPDATES/MODIFICATIONS/RELEASES IN THE APPLICATION. " +
-                "GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. WE RECOMMEND THAT YOU DON'T MISUSE THE APP TO SAVE YOURSELF YOUR LEGAL ISSUES. " +
+                "GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. WE RECOMMEND THAT YOU DON'T MISUSE THE APP TO SAVE YOURSELF FROM LEGAL ISSUES. " +
                 "WHILE WE DON'T NOT COLLECT OR STORE YOUR PERSONAL DATA, YET IN ORDER TO DO BOOKING USING PROTECTED APIS, APIKEY WOULD BE NEEDED, WHICH CAN BE MISUSED BY USERS. ALSO, API HITS CAN'T BE QUANTIFIED SINCE APPLICATION IS USED FROM MULTIPLE PLACES. THAT BEING SAID, THE APPLICATION WILL BE AVAILABLE FOR USE, BUT NO MAINTENANCE WILL BE DONE OF THE APPLICATION. " +
-                "USE IT AT YOUR OWN RISK.");
+                "STRICT LEGAL ACTIONS WILL BE TAKEN IF YOU ARE FOUND COMMERCIALIZING THE APPLICATION BY CHARGING MONEY FROM PEOPLE BY BOOKING SLOTS FOR THEM OR BY SELLING/SHARING THE APPLICATION IN EXCHANGE OF MONEY. YOU ARE ONLY ALLOWED TO USE THIS FOR PERSONAL USAGE, OTHERWISE YOU ARE VIOLATING LAW AND BE READY FOR THE STRINGENT CONSEQUENCES AFTERMATH. USE IT AT YOUR OWN RISK AFTER READING T&C PROPERLY.");
             Console.ResetColor();
             Console.WriteLine("########################################################################################################################################################################\n");
             Console.WriteLine("By pressing the Y/y key for using the Application, you are agreeing to be bound by the terms and conditions of this Agreement. If You do not agree to the terms of this Agreement, you may exit the Application.");
