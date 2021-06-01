@@ -287,7 +287,7 @@ Please Note: DO NOT Change or remove to Defaut values if you are not going to us
 // Change these values accordingly whenever you face the issue of IP being throlled by Server. 
 // You may even switch to a different network/IP/Proxy Server so that this can remove the IP Throttling issue for you
 "ThrottlingIntervalInMinutes": "<REPLACE_ME>", // In the <REPLACE_ME> Section, use the Interval of Time that is being set for throttling of IP Address. By Default it is // set to 5 which means 5 minutes i.e, in Interval of 5 minutes, 100 requests from your IP Address/Software is allowed. After that you'll receive error unless you switch to another network.
-"ThrottlingRefreshTimeInSeconds": <REPLACE_ME>, // In the <REPLACE_ME> Section, use the Interval of Waiting Time in Seconds when IP is throttled, before resuming the application again. 
+"ThrottlingRefreshTimeInSeconds": "<REPLACE_ME>", // In the <REPLACE_ME> Section, use the Interval of Waiting Time in Seconds when IP is throttled, before resuming the application again. 
 // By default, 5 seconds is set as the Refresh Time
 // Set the value Higher if you want more wait time when you IP is throttled, or Lower if you are in hurry to book (with chances of getting IP throttled more frequently) 
 "Proxy": 
