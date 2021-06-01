@@ -4,7 +4,7 @@
 
 # Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-Software to fetch the available slots & book the appointment for COVID-19 Vaccination using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
+Cross-Platform Software to fetch the available slots & book the appointment for COVID-19 Vaccination using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
 
 [![LatestRelease][release-shield]][release-version-url]
 [![Downloads][downloads-shield]][downloads-url]
@@ -26,7 +26,7 @@ Software to fetch the available slots & book the appointment for COVID-19 Vaccin
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://shawt.io/r/sYx
 
-> _**Download Latest Version of the Software by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
+> _**Download Latest Version of the Software for your Operating System by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
@@ -162,19 +162,22 @@ Following are some of the main features of the App:
 - [x] Allow Any Vaccine Type and Any Fee Type for Booking Slots; Remove Mandatory Filters on VaccineType and FeeType
 - [x] AI Assisted Auto Captcha
 - [x] Application Latest Version Check Automatically before proceeding
-- [x] Verbose Mode to be Developed so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
+- [x] Verbose Mode so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
 - [x] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
 - [x] Integration of Notification Engine with Telegram Bot
-- [ ] Native Cross-Platform Support 
+- [x] Native Cross-Platform Support for Windows/Mac/Linux
+- [x] Automatically handling IP Throttling Issue
  
 ## Technical Details
 
-It's a simple hybrid Console + WinForms Application being developed using .NET Core 3.1, WinForms and C#.
+It's a simple hybrid Console Application being developed using .NET Core 3.1, WinForms and C#.
 
-_**Currently, application is bundled as a Single Standalone Executable EXE file with Runtime included and therefore no installations are needed to run the Application. However, it will only work on Windows Machines only, due to dependency on WinForms for Captcha Popup**_
+_**Currently, application is bundled as a Single Standalone Executable file with Runtime included and therefore no installations are needed to run the Application. Due to dependency on WinForms for Captcha Popup, in Windows Machine Manual Captcha is supported. However, the application can be used in Linux/Mac as well where Manual Captcha is not supported and AI Assisted Auto Captcha would suffice**_
 
 In General, to run the application, the following things are needed:
-- Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
+- [WINDOWS]: Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
+- [LINUX]: 64-bit Debian like Distros eg. Ubuntu, Mint, Kali Linux etc are supported with support for .NET Core 3.1 Runtime
+- [MACOSX]: 64-bit Mac OSX is supported with .NET Core 3.1 Runtime
 
 > [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundled in the Release so no other external dependencies to run the Application.
   _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations. Use of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) is recommended for the purpose of development. 
@@ -198,14 +201,14 @@ Rest of the stuff are self-explanatory.
 
 ### For Folks who just want to get shit done
 
-- Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest) or from Releases Section of Github
-- Download the ZIP file of the Latest release for your Operating System
+- Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) or from Releases Section of Github
+- Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.0.0-windows]
 - Extract the ZIP file, you'll find two file like this:
   
  ![Application Release](data/ReleaseStructure.jpg)
  
 - Modify the settings inside `appsettings.json`
-- Double Click `CoWin.Core.exe` to RUN the Application.
+- Double Click `CoWinVaccineSlotFinder.exe` to RUN the Application.
 
 ### How to Open appsettings.json
 
@@ -222,7 +225,7 @@ Modification can be done and file to be saved again with the same name and File 
   ![BeneficiaryID](data/BeneficiaryDetails.jpg)
 
 5. Also, Once all these details are fetched, put them in the `appsettings.json`. 
-6. Run the Application CoWin.Core.EXE, that's it.
+6. Run the Application CoWinVaccineSlotFinder.EXE, that's it.
 
 > You may also see a file with the name `authToken.json` in your directory when you are running the Application. This is done so that your session information is stored locally in your device and you don't need to enter OTP manually until 15 minutes, in case you close the Application and run again, it will resume with your previous session. That is possible because of your data stored in this `authToken.json` file. However, that being said this doesn't mean that you don't have to enter OTP. You still have the dependency of entering OTP in the Application, just that if you have to close the Application due to IP Throttling or some other issue, you can resume if your Token is still valid without waiting for a new OTP.
 
@@ -284,6 +287,9 @@ Please Note: DO NOT Change or remove to Defaut values if you are not going to us
 // Change these values accordingly whenever you face the issue of IP being throlled by Server. 
 // You may even switch to a different network/IP/Proxy Server so that this can remove the IP Throttling issue for you
 "ThrottlingIntervalInMinutes": "<REPLACE_ME>", // In the <REPLACE_ME> Section, use the Interval of Time that is being set for throttling of IP Address. By Default it is // set to 5 which means 5 minutes i.e, in Interval of 5 minutes, 100 requests from your IP Address/Software is allowed. After that you'll receive error unless you switch to another network.
+"ThrottlingRefreshTimeInSeconds": <REPLACE_ME>, // In the <REPLACE_ME> Section, use the Interval of Waiting Time in Seconds when IP is throttled, before resuming the application again. 
+// By default, 5 seconds is set as the Refresh Time
+// Set the value Higher if you want more wait time when you IP is throttled, or Lower if you are in hurry to book (with chances of getting IP throttled more frequently) 
 "Proxy": 
 {
    "IsToBeUsed": "<REPLACE_ME>", // Use true or false, true if you are behind Proxy Server, false if you're not, in the <REPLACE_ME> section, by default false would be selected
@@ -331,6 +337,7 @@ Be default, this is how the `appsettings.json` would look like this:
     "IsThrottlingToBeUsed": true, // Use either true or false; By default true; true means IP throttling is inplace, False means IP throttling has been removed
     "ThrottlingThreshold": 100, //Number of request per IP allowed for ThrottlingInterval
     "ThrottlingIntervalInMinutes": 5,
+    "ThrottlingRefreshTimeInSeconds": 5, // Waiting Time when IP is throttled, before resuming the application again. Set the value Higher if you want more wait time when you IP is throttled, or Lower if you are in hurry to book (with chances of getting IP throttled more frequently)
     "TotalIterations": 10000,
     "SelfRegistrationPortal": "https://selfregistration.cowin.gov.in",
     "MinAgeLimit": 18,
