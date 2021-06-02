@@ -21,15 +21,15 @@ Cross-Platform Software to fetch the available slots & book the appointment for 
 [release-version-macos-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.1.0-osx/CoWinReleasesv5.1.0-osx.zip
 [release-shield-linux]: https://img.shields.io/badge/Download--In--Linux-v5.1.0--linux-9cf?style=for-the-badge
 [release-version-linux-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.1.0-linux/CoWinReleasesv5.1.0-linux.zip
-[downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge
+[downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge&color=lightgreen
 [downloads-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases
 [stars-shield]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
 [stars-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/stargazers
-[issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=red
 [issues-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/issues
-[license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=lightyellow
 [license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&color=blue
 [linkedin-url]: https://shawt.io/r/sYx
  
 > _**Download Latest Version of the Software for your Operating System by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
