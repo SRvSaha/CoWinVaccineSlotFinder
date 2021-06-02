@@ -6,15 +6,21 @@
 
 Cross-Platform Software to fetch the available slots & book the appointment for COVID-19 Vaccination India
 
-[![LatestRelease][release-shield]][release-version-url]
+[![LatestReleaseWindows][release-shield-windows]][release-version-windows-url]
+[![LatestReleaseMacOS][release-shield-macos]][release-version-macos-url]
+[![LatestReleaseLinux][release-shield-linux]][release-version-linux-url]
 [![Downloads][downloads-shield]][downloads-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[release-shield]: https://img.shields.io/github/v/release/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
-[release-version-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest
+[release-shield-windows]: https://img.shields.io/badge/Download--In--Windows-v5.1.0--windows-cyan?style=for-the-badge
+[release-version-windows-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.1.0-windows
+[release-shield-macos]: https://img.shields.io/badge/Download--In--MacOS-v5.1.0--osx-pink?style=for-the-badge
+[release-version-macos-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.1.0-osx
+[release-shield-linux]: https://img.shields.io/badge/Download--In--Linux-v5.1.0--linux-9cf?style=for-the-badge
+[release-version-linux-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.1.0-linux
 [downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge
 [downloads-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases
 [stars-shield]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
@@ -25,11 +31,23 @@ Cross-Platform Software to fetch the available slots & book the appointment for 
 [license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://shawt.io/r/sYx
-
+ 
 > _**Download Latest Version of the Software for your Operating System by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
+<br>
+<p align="center">
+<i>Loved the tool? Please consider <a href="https://buymeacoffee.com/srvsaha">donating</a> 💸 to help it improve!</i>
+</p>
+
+<p align="center">
+<a href='https://ko-fi.com/srvsaha' target='_blank'><img height='43' width="200" src='https://cdn.ko-fi.com/cdn/kofi3.png?v=2' alt='Buy Coffee for rahuldkjain' />
+</a>
+<a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="43" width="200" style="border-radius:1px" />
+</p>
+
+  
 ### DISCLAIMER
 
 
@@ -141,9 +159,6 @@ Cross-Platform Software to fetch the available slots & book the appointment for 
 > *When the Captcha pops up in the process of booking, DO NOT use your mouse to click on the Popup, you can start typing it immediately as the app would remain ready to accept your input. Once captcha is entered, then press Enter to submit. This way, it is faster than operating via Mouse, as every second matters! In case, you are unable to get your booking successful in first try, when subsequent captch pops up, you will NOT need to use your mouse and click on Popup, you can right away start typing the 5 captcha characters and press Enter! Boom, it'll work*
 
 Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot (after hiding personal information) as a New `Pull Request` in the /data/ folder or a `New Issue` in case you could successfully book through the App. Also share your feedback through issues or just comment/share/like in the associated [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/). That'll be used as References/Testimonials in the Application and will increase the credibility of the App.
-
-<a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
 
 ## Application Features
 
