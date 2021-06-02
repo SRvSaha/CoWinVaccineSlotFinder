@@ -16,11 +16,11 @@ Cross-Platform Software to fetch the available slots & book the appointment for 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 [release-shield-windows]: https://img.shields.io/badge/Download--In--Windows-v5.1.0--windows-cyan?style=for-the-badge
-[release-version-windows-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.1.0-windows
+[release-version-windows-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.1.0-windows/CowinVaccineSlotFinderv5.1.0-windows
 [release-shield-macos]: https://img.shields.io/badge/Download--In--MacOS-v5.1.0--osx-pink?style=for-the-badge
-[release-version-macos-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.1.0-osx
+[release-version-macos-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.1.0-osx/CowinVaccineSlotFinderv5.1.0-osx
 [release-shield-linux]: https://img.shields.io/badge/Download--In--Linux-v5.1.0--linux-9cf?style=for-the-badge
-[release-version-linux-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.1.0-linux
+[release-version-linux-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.1.0-linux/CowinVaccineSlotFinderv5.1.0-linux
 [downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge
 [downloads-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases
 [stars-shield]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
