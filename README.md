@@ -42,9 +42,9 @@ Cross-Platform Software to fetch the available slots & book the appointment for 
 </p>
 
 <p align="center">
-<a href='https://ko-fi.com/srvsaha' target='_blank'><img height='43' width="200" src='https://cdn.ko-fi.com/cdn/kofi3.png?v=2' alt='Buy Coffee for rahuldkjain' />
+<a href='https://ko-fi.com/srvsaha' target='_blank'><img height='43' width="200" src='https://cdn.ko-fi.com/cdn/kofi3.png?v=2' alt='Buy Coffee for srvsaha' />
 </a>
-<a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="43" width="200" style="border-radius:1px" />
+<a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="43" width="200" />
 </p>
 
   
