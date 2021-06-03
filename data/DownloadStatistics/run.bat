@@ -1,0 +1,2 @@
+python .\DownloadStatisticsChecker.py SRvSaha/CoWinVaccineSlotFinder
+pause
