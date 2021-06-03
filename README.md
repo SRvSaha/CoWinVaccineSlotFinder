@@ -2,9 +2,7 @@
   <img src="https://raw.githubusercontent.com/SRvSaha/CoWinVaccineSlotFinder/master/data/Banner.png" alt="CoWIN Vaccine Slot Finder Logo" />
 </p>
 
-# Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
-
-Cross-Platform Software to fetch the available slots & book the appointment for COVID-19 Vaccination India
+# Cross-Platform Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
 [![LatestReleaseWindows][release-shield-windows]][release-version-windows-url]
 [![LatestReleaseMacOS][release-shield-macos]][release-version-macos-url]
