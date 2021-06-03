@@ -2,34 +2,51 @@
   <img src="https://raw.githubusercontent.com/SRvSaha/CoWinVaccineSlotFinder/master/data/Banner.png" alt="CoWIN Vaccine Slot Finder Logo" />
 </p>
 
-# Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
+# Cross-Platform Real-Time Co-WIN Vaccine Slot Finder - *We Find Your Shot!*
 
-Cross-Platform Software to fetch the available slots & book the appointment for COVID-19 Vaccination using the [APISetu APIs](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/)
-
-[![LatestRelease][release-shield]][release-version-url]
+[![LatestReleaseWindows][release-shield-windows]][release-version-windows-url]
+[![LatestReleaseMacOS][release-shield-macos]][release-version-macos-url]
+[![LatestReleaseLinux][release-shield-linux]][release-version-linux-url]
 [![Downloads][downloads-shield]][downloads-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[release-shield]: https://img.shields.io/github/v/release/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
-[release-version-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/latest
-[downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge
+[release-shield-windows]: https://img.shields.io/badge/Download--Windows-v5.1.0--windows-cyan?style=for-the-badge
+[release-version-windows-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.1.0-windows/CoWinReleasesv5.1.0-windows.zip
+[release-shield-macos]: https://img.shields.io/badge/Download--MacOS-v5.1.0--osx-pink?style=for-the-badge
+[release-version-macos-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.1.0-osx/CoWinReleasesv5.1.0-osx.zip
+[release-shield-linux]: https://img.shields.io/badge/Download--Linux-v5.1.0--linux-9cf?style=for-the-badge
+[release-version-linux-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.1.0-linux/CoWinReleasesv5.1.0-linux.zip
+[downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge&color=lightgreen
 [downloads-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases
 [stars-shield]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
 [stars-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/stargazers
-[issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=red
 [issues-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/issues
-[license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=brown
 [license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&color=blue
 [linkedin-url]: https://shawt.io/r/sYx
-
-> _**Download Latest Version of the Software for your Operating System by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
+ 
+> _**Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
+<br>
+<p align="center">
+<i>Loved the tool? Please consider <a href="https://buymeacoffee.com/srvsaha">donating</a> 💸 to help it improve!</i>
+</p>
+
+<p align="center">
+  <a href='https://ko-fi.com/srvsaha' target='_blank'><img height='43' width="150" src='https://cdn.ko-fi.com/cdn/kofi3.png?v=2' alt='Buy Coffee for srvsaha' />
+  </a>
+  <a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="43" width="150" />
+  </a>
+</p>
+
+  
 ### DISCLAIMER
 
 
@@ -142,9 +159,6 @@ Cross-Platform Software to fetch the available slots & book the appointment for 
 
 Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot (after hiding personal information) as a New `Pull Request` in the /data/ folder or a `New Issue` in case you could successfully book through the App. Also share your feedback through issues or just comment/share/like in the associated [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/). That'll be used as References/Testimonials in the Application and will increase the credibility of the App.
 
-<a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
-
-
 ## Application Features
 
 Following are some of the main features of the App:
@@ -175,9 +189,9 @@ It's a simple hybrid Console Application being developed using .NET Core 3.1, Wi
 _**Currently, application is bundled as a Single Standalone Executable file with Runtime included and therefore no installations are needed to run the Application. Due to dependency on WinForms for Captcha Popup, in Windows Machine Manual Captcha is supported. However, the application can be used in Linux/Mac as well where Manual Captcha is not supported and AI Assisted Auto Captcha would suffice**_
 
 In General, to run the application, the following things are needed:
-- [WINDOWS]: Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
-- [LINUX]: 64-bit Debian like Distros eg. Ubuntu, Mint, Kali Linux etc are supported with support for .NET Core 3.1 Runtime
-- [MACOSX]: 64-bit Mac OSX is supported with .NET Core 3.1 Runtime
+- [x] **WINDOWS**: Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
+- [x] **LINUX**: 64-bit Debian like Distros eg. Ubuntu, Mint, Kali Linux etc are supported with support for .NET Core 3.1 Runtime
+- [x] **MACOSX**: 64-bit Mac OSX is supported with .NET Core 3.1 Runtime
 
 > [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundled in the Release so no other external dependencies to run the Application.
   _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations. Use of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) is recommended for the purpose of development. 
@@ -287,7 +301,7 @@ Please Note: DO NOT Change or remove to Defaut values if you are not going to us
 // Change these values accordingly whenever you face the issue of IP being throlled by Server. 
 // You may even switch to a different network/IP/Proxy Server so that this can remove the IP Throttling issue for you
 "ThrottlingIntervalInMinutes": "<REPLACE_ME>", // In the <REPLACE_ME> Section, use the Interval of Time that is being set for throttling of IP Address. By Default it is // set to 5 which means 5 minutes i.e, in Interval of 5 minutes, 100 requests from your IP Address/Software is allowed. After that you'll receive error unless you switch to another network.
-"ThrottlingRefreshTimeInSeconds": <REPLACE_ME>, // In the <REPLACE_ME> Section, use the Interval of Waiting Time in Seconds when IP is throttled, before resuming the application again. 
+"ThrottlingRefreshTimeInSeconds": "<REPLACE_ME>", // In the <REPLACE_ME> Section, use the Interval of Waiting Time in Seconds when IP is throttled, before resuming the application again. 
 // By default, 5 seconds is set as the Refresh Time
 // Set the value Higher if you want more wait time when you IP is throttled, or Lower if you are in hurry to book (with chances of getting IP throttled more frequently) 
 "Proxy": 
