@@ -191,9 +191,9 @@ It's a simple hybrid Console Application being developed using .NET Core 3.1, Wi
 _**Currently, application is bundled as a Single Standalone Executable file with Runtime included and therefore no installations are needed to run the Application. Due to dependency on WinForms for Captcha Popup, in Windows Machine Manual Captcha is supported. However, the application can be used in Linux/Mac as well where Manual Captcha is not supported and AI Assisted Auto Captcha would suffice**_
 
 In General, to run the application, the following things are needed:
-- [WINDOWS]: Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
-- [LINUX]: 64-bit Debian like Distros eg. Ubuntu, Mint, Kali Linux etc are supported with support for .NET Core 3.1 Runtime
-- [MACOSX]: 64-bit Mac OSX is supported with .NET Core 3.1 Runtime
+- [x] **WINDOWS**: Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
+- [x] **LINUX**: 64-bit Debian like Distros eg. Ubuntu, Mint, Kali Linux etc are supported with support for .NET Core 3.1 Runtime
+- [x] **MACOSX**: 64-bit Mac OSX is supported with .NET Core 3.1 Runtime
 
 > [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundled in the Release so no other external dependencies to run the Application.
   _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations. Use of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) is recommended for the purpose of development. 
