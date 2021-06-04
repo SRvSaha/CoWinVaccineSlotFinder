@@ -70,6 +70,10 @@
 - AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha (when AutoCaptcha is turned Off) for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s) or even by the Names of the Vaccination Centres within the PINCode. In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
 - If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://selfregistration.cowin.gov.in/) and cancel or re-schedule the booking. There is no option for reschedule or cancel of Booking of Slot available in the Application. There will be an X symbol on the right-top corner for each beneficiary to cancel from CoWIN Portal.
 - There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/).
+- Application has been developed solely for the purpose of helping needy people book their vaccination slots by way of automation.
+- The Application, a public use free software, assists you in a comprehensive screening of available slots and booking the same for you. **IT DOES NOT GUARANTEE A SLOT**. Only if a slot is available as per your preference, will the slot be booked.
+- Further, any use of the script for monetary, unethical, or illegal purposes is not permitted. - In case, you are found to do the same, YOU shall be solely liable for the consequences. The Developer shall and cannot be held liable for the unethical or illegal use of the same.
+- The Developer reserves their rights to take any legal action as enumerated under the law against any unethical or illegal use of the same.
 
 ## Glimpse of the Application:
 
