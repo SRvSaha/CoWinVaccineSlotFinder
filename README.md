@@ -57,7 +57,6 @@
 
 ### Important: 
 - This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. I SHOULD NOT BE DEEMED RESPONSIBLE FOR ANY LEGAL CONCERNS.**
-- This CANNOT book slots automatically. It doesn't skip any of the steps that a normal user would have to take on the official portal. You will still have to enter the OTP and Captcha. This just helps to do it from Console rather than through Official WebApps/Apps.
 - This goes without saying but, once you get your shot, please do help out any underprivileged people around you who may not have a laptop or the know-how. For instance any sort of domestic help, or the staff in your local grocery store, or literally the thousands of people who don't have the knowledge or luxury we do.
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
 - When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Vaccine, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
@@ -70,6 +69,10 @@
 - AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha (when AutoCaptcha is turned Off) for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s) or even by the Names of the Vaccination Centres within the PINCode. In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
 - If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://selfregistration.cowin.gov.in/) and cancel or re-schedule the booking. There is no option for reschedule or cancel of Booking of Slot available in the Application. There will be an X symbol on the right-top corner for each beneficiary to cancel from CoWIN Portal.
 - There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/).
+- Application has been developed solely for the purpose of helping needy people book their vaccination slots by way of automation.
+- The Application, a public use free software, assists you in a comprehensive screening of available slots and booking the same for you. **IT DOES NOT GUARANTEE A SLOT**. Only if a slot is available as per your preference, will the slot be booked.
+- Further, any use of the script for monetary, unethical, or illegal purposes is not permitted. - In case, you are found to do the same, YOU shall be solely liable for the consequences. The Developer shall and cannot be held liable for the unethical or illegal use of the same.
+- The Developer reserves their rights to take any legal action as enumerated under the law against any unethical or illegal use of the same.
 
 ## Glimpse of the Application:
 
@@ -257,8 +260,6 @@ Modification can be done and file to be saved again with the same name and File 
 // Use it in the REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO section. Suppose your Mobile Number is 8888333388 then it'll be like "Mobile" : "8888333388". 
 // *NOTE* Don't use +91 infront of your mobile number, use only 10 digit mobile number
 "DoseType":  "<REPLACE_ME>", // Use either 1 OR 2 Depending on 1st DOSE or 2nd DOSE in the <REPLACE_ME> section, by default 1 is selected for 1st Dose
-"AutoReadCaptcha": "<REPLACE_ME>", // Use either true or false in the <REPLACE_ME> section; By default false;
-// True means No need to enter captcha, Captcha will be automatically computed by AI Model, False means captcha needs to be entered manually in the Captcha Popup window
 "PINCodes": [
   "REPLACE_ME_WITH_YOUR_PIN_CODE_1",
   "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
