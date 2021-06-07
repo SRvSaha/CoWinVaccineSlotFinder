@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 namespace CoWin.Models
 {
-
-
     public partial class CovidVaccinationCenters
     {
-        [JsonProperty("centers")]
-        public List<Center> Centers { get; set; }
+        [JsonProperty("sessions")]
+        public List<Session> Sessions { get; set; }
     }
 
-    public partial class Center
+    public partial class Session
     {
         [JsonProperty("center_id")]
         public long CenterId { get; set; }
@@ -49,12 +47,6 @@ namespace CoWin.Models
         [JsonProperty("fee_type")]
         public string FeeType { get; set; }
 
-        [JsonProperty("sessions")]
-        public List<Session> Sessions { get; set; }
-    }
-
-    public partial class Session
-    {
         [JsonProperty("session_id")]
         public string SessionId { get; set; }
 
@@ -78,5 +70,11 @@ namespace CoWin.Models
 
         [JsonProperty("available_capacity_dose2")]
         public long AvailableCapacitySecondDose { get; set; }
+    }
+    public class PreferredSlot
+    {
+        public const string FirstSlot = "FIRST"; 
+        public const string LastSlot = "LAST";
+        public const string RandomSlot = "RANDOM";
     }
 }

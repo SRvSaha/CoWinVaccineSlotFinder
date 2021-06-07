@@ -13,6 +13,7 @@ namespace CoWin.Core.Models
     public class VersionChecker
     {
         private readonly IConfiguration _configuration;
+        private readonly string versionCheckingEndpoint = "https://api.github.com/repos/srvsaha/CoWINVaccineSlotFinder/releases/latest";
         public VersionChecker(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -21,9 +22,14 @@ namespace CoWin.Core.Models
         public bool EvaluateCurrentSoftwareVersion()
         {
             var latestVersionDto = GetLatestVersionDetails();
-            // Allow App to Run if there is any issue in fetching the Relases info from Github for Update Checking so that Core functionality doesn't stop
+            
             if (latestVersionDto is null)
-                return true;
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"\n[FATAL] SORRY! OUR SERVICE/APPLICATION IS DOWN, SO WE WON'T BE ABLE TO FIND YOUR SLOT AT THE MOMENT. THANKS FOR YOUR TIME. APPLICATION WILL EXIT NOW. PLEASE TRY AGAIN LATER!");
+                Console.ResetColor();
+                return false;
+            }
 
             var serverVersion = GetVersionInfoFromServer(latestVersionDto);
             var localVersion = GetCurrentVersionFromSystem();
@@ -113,7 +119,7 @@ namespace CoWin.Core.Models
 
         private VersionModel GetLatestVersionDetails()
         {
-            var endpoint = _configuration["App:LatestVersion:FetchDetailsAPIEndpoint"];
+            var endpoint = versionCheckingEndpoint;
             IRestResponse response = new APIFacade(_configuration).Get(endpoint, isCowinRelatedHeadersToBeUsed: false);
             if(response.StatusCode == System.Net.HttpStatusCode.OK)
             {

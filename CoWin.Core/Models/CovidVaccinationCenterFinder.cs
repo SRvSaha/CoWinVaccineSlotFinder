@@ -27,6 +27,7 @@ namespace CoWin.Models
         private string vaccineType;
         private int totalSearchObjects = 0;
         private double sleepInterval;
+        public static bool IS_SEARCH_TO_BE_DONE_IN_REALTIME;
 
         public CovidVaccinationCenterFinder()
         {
@@ -59,6 +60,7 @@ namespace CoWin.Models
             ValidateFilterCriteria();
             SetSleepInterval();
             AuthenticateUser();
+            SetSearchingSwitch();
             SearchForAvailableSlots();
         }
 
@@ -305,6 +307,17 @@ namespace CoWin.Models
                 searchDate = DateTime.Now.AddDays(1).ToString("dd-MM-yyyy");
             }
             vaccineType = _configuration["CoWinAPI:VaccineType"];
+        }
+        private void SetSearchingSwitch()
+        {
+            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]))
+            {
+                IS_SEARCH_TO_BE_DONE_IN_REALTIME = true;
+            }
+            else
+            {
+                IS_SEARCH_TO_BE_DONE_IN_REALTIME = false;
+            }
         }
 
         private void ShowFeedback()

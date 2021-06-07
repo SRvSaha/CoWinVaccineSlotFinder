@@ -33,11 +33,15 @@ namespace CoWin.Providers
             request.AddHeader("Accept-Language", "en_US");
             request.AddHeader("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
 
-            if (Convert.ToBoolean(_configuration["CoWinAPI:ProtectedAPI:IsToBeUsed"]) && isCowinRelatedHeadersToBeUsed)
+            if (isCowinRelatedHeadersToBeUsed)
             {
+                if (Convert.ToBoolean(_configuration["CoWinAPI:Auth:IsToBeUsed"]))
+                {
+                    request.AddHeader("Authorization", $"Bearer {OTPAuthenticator.BEARER_TOKEN}");
+                }
                 request.AddHeader("Origin", _configuration["CoWinAPI:SelfRegistrationPortal"]);
                 request.AddHeader("Referer", _configuration["CoWinAPI:SelfRegistrationPortal"]);
-                request.AddHeader("Authorization", $"Bearer {OTPAuthenticator.BEARER_TOKEN}");
+                
             }
         }
 

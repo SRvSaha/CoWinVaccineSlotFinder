@@ -29,6 +29,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Auth\Captcha.cs" />
+    <Compile Remove="Models\CaptchaModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appsettings.json" />
     <None Include="..\data\Banner.png">
       <Pack>True</Pack>
@@ -56,10 +61,6 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
     <PackageReference Include="Telegram.Bot" Version="15.7.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\CoWin.UI\CoWin.UI.csproj" />
   </ItemGroup>
 
 </Project>
