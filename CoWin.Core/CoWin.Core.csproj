@@ -14,16 +14,20 @@
     <Copyright>Saurav Saha</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>5.1.0</Version>
+    <Version>5.2.0</Version>
     <PackageProjectUrl>https://srvsaha.github.io/CoWinVaccineSlotFinder/</PackageProjectUrl>
     <NeutralLanguage></NeutralLanguage>
     <PackageId>VaccineSlotFinder</PackageId>
     <SignAssembly>true</SignAssembly>
-    <PackageReleaseNotes>1. Fixed the Auto-Download URL of the Latest Release based on OS when new Update of the App is available
-2. Fixed the Issue of Application Crashing when IP gets throttled while fetching Captcha from Server
-3. Fixed the Issue of Displaying wrong Dose Type Information while Booking Slot</PackageReleaseNotes>
-    <FileVersion>5.1.0.0</FileVersion>
-    <AssemblyVersion>5.1.0.0</AssemblyVersion>
+    <PackageReleaseNotes>1. Fixed Issue with IP Rate Limiting with fixed Refresh Threshold
+2. Removed Captcha Dependency thereby improving performance
+3. Core Algorithm Optimizations for better probability of getting slot
+4. Feature Added for Choosing Slot Preference
+5. Feature Added to Toggle Fetching Slots APIs
+6. Feature Added to Auto-Download Appointment Slip after successful booking of slot
+7. Performance Improvements and Minor fixes</PackageReleaseNotes>
+    <FileVersion>5.2.0.0</FileVersion>
+    <AssemblyVersion>5.2.0.0</AssemblyVersion>
     <UserSecretsId>107ac8ef-23d4-4f38-8773-00d3c45adaa5</UserSecretsId>
     <AssemblyName>CoWinVaccineSlotFinder</AssemblyName>
   </PropertyGroup>

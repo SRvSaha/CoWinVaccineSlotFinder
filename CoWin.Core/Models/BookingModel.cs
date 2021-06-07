@@ -20,6 +20,10 @@ namespace CoWin.Models
 
         [JsonProperty("captcha")]
         public string Captcha { get; set; }
+
+        [JsonProperty("appointment_confirmation_no")]
+        public string AppointmentConfirmationNumber { get; set; }
+
     }
 
 }

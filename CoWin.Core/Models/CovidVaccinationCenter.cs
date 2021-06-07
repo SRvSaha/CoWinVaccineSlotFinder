@@ -32,6 +32,7 @@ namespace CoWiN.Models
         private readonly string osxBeepIPThrottledCommand = "Too Many Requests from Your IP Address. Please wait or try after sometime.";
         private readonly string linuxBeepPlayer = "paplay";
         private readonly string linuxBeepIPThrottledCommand = "linux_notifier.ogg  --volume 65536";
+        private string appointmentConfirmationNumber;
 
         public CovidVaccinationCenter(IConfiguration configuration, List<string> vaccinationCentresToSearch)
         {
@@ -215,11 +216,11 @@ namespace CoWiN.Models
                         Console.ResetColor();
 
                         IS_BOOKING_SUCCESSFUL = BookAvailableSlot(session.SessionId, slot);
-
                         if (IS_BOOKING_SUCCESSFUL == true)
                         {
                             stopwatch.Stop();
                             SendNotification(session, stopwatch);
+                            DownloadAppointmentSlip();
                             return;
                         }
                         stopwatch.Stop();
@@ -231,6 +232,47 @@ namespace CoWiN.Models
                     Console.ResetColor();
                 }
             }
+        }
+
+        private void DownloadAppointmentSlip()
+        {
+            try
+            {
+                UriBuilder builder;
+                NameValueCollection queryString;
+                var fileName = "appointment_confirmation_no_" + appointmentConfirmationNumber + ".pdf";
+                builder = new UriBuilder(_configuration["CoWinAPI:ProtectedAPI:AppointmentSlipUrl"]);
+                queryString = HttpUtility.ParseQueryString(builder.Query);
+                queryString["appointment_id"] = appointmentConfirmationNumber;
+                builder.Query = queryString.ToString();
+
+                string endpoint = builder.ToString();
+
+                IRestResponse response = new APIFacade(_configuration).Get(endpoint);
+
+                if(response.StatusCode == HttpStatusCode.OK)
+                {
+                    File.WriteAllBytes(Path.Combine(Directory.GetCurrentDirectory(), fileName), response.RawBytes);
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"\n[INFO] Appointment Slip Successfully Generated and Saved here: {Path.Combine(Directory.GetCurrentDirectory(), fileName)}");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"[WARNING] ERROR WHILE DOWNLOADING APPOINTMENT SLIP FROM SERVER! Details: ResponseCode: {response.StatusDescription} ResponseContent: {response.Content}");
+                    Console.ResetColor();
+                }
+                
+            }
+            catch(Exception e)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"[WARNING] ERROR WHILE DOWNLOADING APPOINTMENT SLIP, PLEASE DOWNLOAD FROM PORTAL! Details: {e}");
+                Console.ResetColor();
+            }
+            
         }
 
         private List<Session> FilterVaccinationCentres(List<Session> vaccinationCentres)
@@ -458,6 +500,7 @@ namespace CoWiN.Models
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"[INFO] CONGRATULATIONS! Booking Success - ResponseCode: {response.StatusDescription} ResponseData: {response.Content}");
                 Console.ResetColor();
+                appointmentConfirmationNumber = JsonConvert.DeserializeObject<BookingModel>(response.Content)?.AppointmentConfirmationNumber;
                 isBookingSuccessful = true;
             }
             else if (response.StatusCode == HttpStatusCode.Forbidden || response.StatusCode == HttpStatusCode.TooManyRequests)
