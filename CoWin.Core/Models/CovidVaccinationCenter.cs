@@ -14,6 +14,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Globalization;
+using System.Runtime.InteropServices;
+using System.IO;
 
 namespace CoWiN.Models
 {
@@ -26,6 +28,10 @@ namespace CoWiN.Models
         private bool isIPThrottled = false;
         private readonly string hardRateLimitHeader = "x-amzn-ErrorType";
         private readonly string hardRateLimitHeaderValue = "AccessDeniedException";
+        private readonly string osxBeepPlayer = "say";
+        private readonly string osxBeepIPThrottledCommand = "Too Many Requests from Your IP Address. Please wait or try after sometime.";
+        private readonly string linuxBeepPlayer = "paplay";
+        private readonly string linuxBeepIPThrottledCommand = "linux_notifier.ogg  --volume 65536";
 
         public CovidVaccinationCenter(IConfiguration configuration, List<string> vaccinationCentresToSearch)
         {
@@ -274,7 +280,16 @@ namespace CoWiN.Models
             var appVersion = new VersionChecker(_configuration).GetCurrentVersionFromSystem();
             var uniqueId = Guid.NewGuid();
             var timeTakenToBook = ts.TotalSeconds;
-            var source = System.Runtime.InteropServices.OSPlatform.Windows.ToString();
+            var source = OSPlatform.Windows.ToString();
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                source = OSPlatform.Linux.ToString();
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                source = OSPlatform.OSX.ToString();
+            }
 
             var telemetryMetadata = InitTelemetryModel(session, captchaMode, bookDate, appVersion, uniqueId, timeTakenToBook, source);
             var notificationMetadata = InitNoticationModel(session, captchaMode, bookDate, appVersion, uniqueId, timeTakenToBook, source);
@@ -492,8 +507,21 @@ namespace CoWiN.Models
         {
             while (!isIPThrottled)
             {
-                Console.Beep(); // Default Frequency: 800 Hz, Default Duration of Beep: 200 ms
-                Thread.Sleep(300);
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start(new ProcessStartInfo(linuxBeepPlayer, Path.Combine(Directory.GetCurrentDirectory(), linuxBeepIPThrottledCommand)) { UseShellExecute = true });
+                    Thread.Sleep(300);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start(new ProcessStartInfo(osxBeepPlayer, osxBeepIPThrottledCommand) { UseShellExecute = true });
+                    Thread.Sleep(5000);
+                }
+                else
+                {
+                    Console.Beep(); // Default Frequency: 800 Hz, Default Duration of Beep: 200 ms
+                    Thread.Sleep(300);
+                }
             }
         }
     }

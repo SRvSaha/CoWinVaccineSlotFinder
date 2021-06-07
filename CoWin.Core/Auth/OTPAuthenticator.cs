@@ -11,6 +11,8 @@ using System.Security.Cryptography;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.IO;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace CoWin.Auth
 {
@@ -21,13 +23,18 @@ namespace CoWin.Auth
         private bool isOTPEntered = false;
         private readonly string authTokenFilename = "authToken.json";
         private bool isIPThrottled = false;
+        private readonly string osxBeepPlayer = "say";
+        private readonly string osxBeepOTPCommand = "Please Enter OTP";
+        private readonly string osxBeepIPThrottledCommand = "Too Many Requests from Your IP Address. Please wait or try after sometime.";
+        private readonly string linuxBeepPlayer = "paplay";
+        private readonly string linuxBeepIPThrottledCommand = "linux_notifier.ogg  --volume 65536";
         public OTPAuthenticator(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
         // TODO: Needs Refactoring based on SRP
-        public void ValidateUser()
+        public void ValidateUser(bool forcefullyLogout = false)
         {
             isOTPEntered = false;
             string endpoint = "";
@@ -37,23 +44,26 @@ namespace CoWin.Auth
                 endpoint = _configuration["CoWinAPI:Auth:OTPGeneratorUrl"];
             }
 
-            var token = GetBearerToken();
-            if (!string.IsNullOrEmpty(token))
+            if (!forcefullyLogout)
             {
-                // Check if user already has a valid bearer token, if yes use it.
-                if (IsValidBearerToken(token))
+                var token = GetBearerToken();
+                if (!string.IsNullOrEmpty(token))
                 {
-                    BEARER_TOKEN = token;
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"[INFO] Resuming Session for Mobile No: {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now} using the provided Bearer Token in {authTokenFilename} file");
-                    Console.ResetColor();
-                    return;
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"[WARNING] Invalid/Expired Bearer Token provided in config file. Re-generating OTP to establish session!");
-                    Console.ResetColor();
+                    // Check if user already has a valid bearer token, if yes use it.
+                    if (IsValidBearerToken(token))
+                    {
+                        BEARER_TOKEN = token;
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"[INFO] Resuming Session for Mobile No: {_configuration["CoWinAPI:Auth:Mobile"]} at {DateTime.Now} using the provided Bearer Token in {authTokenFilename} file");
+                        Console.ResetColor();
+                        return;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"[WARNING] Invalid/Expired Bearer Token provided in config file. Re-generating OTP to establish session!");
+                        Console.ResetColor();
+                    }
                 }
             }
             
@@ -223,18 +233,44 @@ namespace CoWin.Auth
         {
             while(!isOTPEntered)
             {
-                Console.Beep(500, 200);
-                Console.Beep(1000, 300);
-                Console.Beep(2000, 400);
-                Thread.Sleep(900);
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start(new ProcessStartInfo(linuxBeepPlayer, Path.Combine(Directory.GetCurrentDirectory(), linuxBeepIPThrottledCommand)) { UseShellExecute = true });
+                    Thread.Sleep(300);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start(new ProcessStartInfo(osxBeepPlayer, osxBeepOTPCommand) { UseShellExecute = true });
+                    Thread.Sleep(2000);
+                }
+                else
+                {
+                    Console.Beep(500, 200);
+                    Console.Beep(1000, 300);
+                    Console.Beep(2000, 400);
+                    Thread.Sleep(900);
+                }
             }
         }
         private void IPThrolledNotifier()
         {
             while (!isIPThrottled)
             {
-                Console.Beep(); // Default Frequency: 800 Hz, Default Duration of Beep: 200 ms
-                Thread.Sleep(300);
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start(new ProcessStartInfo(linuxBeepPlayer, Path.Combine(Directory.GetCurrentDirectory(), linuxBeepIPThrottledCommand)) { UseShellExecute = true });
+                    Thread.Sleep(300);
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    Process.Start(new ProcessStartInfo(osxBeepPlayer, osxBeepIPThrottledCommand) { UseShellExecute = true });
+                    Thread.Sleep(5000);
+                }
+                else
+                {
+                    Console.Beep(); // Default Frequency: 800 Hz, Default Duration of Beep: 200 ms
+                    Thread.Sleep(300);
+                }                
             }
         }
     }

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace CoWin.Core.Models
@@ -76,7 +77,18 @@ namespace CoWin.Core.Models
 
         private static void DownloadLatestVersion(VersionModel latestVersionDto)
         {
-            Process.Start(new ProcessStartInfo(latestVersionDto.Assets[0].BrowserDownloadUrl.AbsoluteUri) { UseShellExecute = true });
+            string downloadUrl = latestVersionDto.Assets[0].BrowserDownloadUrl.AbsoluteUri;
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                downloadUrl = downloadUrl.Replace("windows", "linux");
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                downloadUrl = downloadUrl.Replace("windows", "osx");
+            }
+
+            Process.Start(new ProcessStartInfo(downloadUrl) { UseShellExecute = true });
         }
 
         private Version GetVersionInfoFromServer(VersionModel latestVersionDto)
@@ -138,9 +150,20 @@ namespace CoWin.Core.Models
 
         private void ShowLatestVersionFeatureInfo(VersionModel latestVersionDto, Version serverVersion)
         {
+            string applicationName = latestVersionDto.Name;
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                applicationName = applicationName.Replace("windows", "linux");
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                applicationName = applicationName.Replace("windows", "osx");
+            }
+
             Console.WriteLine($"*************************************************************************************************************************************************************");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"Latest Version of the Software { latestVersionDto.Name} is { serverVersion }, Downloaded #{latestVersionDto.Assets[0].DownloadCount} times, Released on { latestVersionDto.PublishedAt.LocalDateTime} \n\nFeatures of the Updated Version:\n{latestVersionDto.Body}");
+            Console.WriteLine($"Latest Version of the Software { applicationName } is { serverVersion }, Downloaded #{latestVersionDto.Assets[0].DownloadCount} times, Released on { latestVersionDto.PublishedAt.LocalDateTime} \n\nFeatures of the Updated Version:\n{latestVersionDto.Body}");
             Console.WriteLine($"*************************************************************************************************************************************************************");
             Console.ResetColor();
 
