@@ -276,8 +276,10 @@ Modification can be done and file to be saved again with the same name and File 
 Please Note: DO NOT Change or remove to Defaut values if you are not going to use the setting for your Searching of Slot. 
 
 ``` javascript
+"ProtectedAPI": { "IsToBeUsed": "<REPLACE_ME>"} // Use true of false in the <REPLACE_ME> section. Use false if you want to search slots using Public API. By default, true to use ProtectedAPI for searching
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means any type of Vaccine
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid or "" in the <REPLACE_ME> section, by default "Free" is selected, blank implies both Free and Paid types
+"SlotPreference": "<REPLACE_ME>", // Preference of Slot of Booking, use either First or Last or Random in the <REPLACE_ME> section; Default is Last (due to higher changes of getting the slot)  
 "IsSearchToBeDoneForVaccinationCentreName": "<REPLACE_ME>", // se Either true or false in the <REPLACE_ME> section where true means you want to search for specific Centres within your PINCode/District and false means you don't want to search by CentreName. By default, false is selected
 "VaccinationCentreNames": [
     "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1",
@@ -329,15 +331,15 @@ Be default, this is how the `appsettings.json` would look like this:
 {
   "CoWinAPI": {
     "PublicAPI": {
-      "FetchCalenderByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict",
-      "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin"
+      "FetchByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict",
+      "FetchByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin"
     },
     "ProtectedAPI": {
-      "IsToBeUsed": true,
-      "FetchCalenderByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict",
-      "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin",
+      "IsToBeUsed": true, // Set this to false if you want to search slots using Public API
+      "FetchByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/findByDistrict",
+      "FetchByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/findByPin",
       "ScheduleAppointmentUrl": "https://cdn-api.co-vin.in/api/v2/appointment/schedule",
-      "CaptchaGenerationUrl": "https://cdn-api.co-vin.in/api/v2/auth/getRecaptcha",
+      "AppointmentSlipUrl": "https://cdn-api.co-vin.in/api/v2/appointment/appointmentslip/download",
       "BeneficiaryIds": [ "REPLACE_WITH_YOUR_BENEFICIARY_ID_1", "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" ]
     },
     "Auth": {
@@ -345,11 +347,10 @@ Be default, this is how the `appsettings.json` would look like this:
       "OTPGeneratorUrl": "https://cdn-api.co-vin.in/api/v2/auth/generateMobileOTP",
       "OTPValidatorUrl": "https://cdn-api.co-vin.in/api/v2/auth/validateMobileOtp",
       "Secret": "U2FsdGVkX18vDwDor+oOIG7vSUnINtlc/pxQcNiBulCm8LT5Sza+aIISKLqImbpMnRYgsN2QACPhggLWgZEpQg==",
-      "AutoReadCaptcha": false, // Use either true or false; By default false; True means No need to enter captcha, False means captcha needs to be entered manually
       "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO"
     },
     "SleepIntervalInMilliseconds": 3500,
-    "IsThrottlingToBeUsed": true, // Use either true or false; By default true; true means IP throttling is inplace, False means IP throttling has been removed
+    "IsThrottlingToBeUsed": true, // Use either true or false; By default true; True means IP throttling is inplace, False means IP throttling has been removed
     "ThrottlingThreshold": 100, //Number of request per IP allowed for ThrottlingInterval
     "ThrottlingIntervalInMinutes": 5,
     "ThrottlingRefreshTimeInSeconds": 5, // Waiting Time when IP is throttled, before resuming the application again. Set the value Higher if you want more wait time when you IP is throttled, or Lower if you are in hurry to book (with chances of getting IP throttled more frequently)
@@ -360,9 +361,10 @@ Be default, this is how the `appsettings.json` would look like this:
     "MinimumVaccineAvailability": 1,
     "VaccineType": "", // Blank Implies Any VaccineType: COVISHIELD OR COVAXIN OR SPUTNIK V; Default is any type of Vaccine
     "DoseType": 1,
-    "VaccineFeeType": "Free", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free    
+    "VaccineFeeType": "", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free    
+    "SlotPreference": "Last", // Preference of Slot of Booking, use either First or Last or Random; Default is Last (due to higher changes of getting the slot)  
     "IsSearchToBeDoneForVaccinationCentreName": false, // Set this is true if you want to search for specific Centres within your PINCode/District
-    "VaccinationCentreNames": [
+    "VaccinationCentreNames": [ // Don't change me if you are not setting IsSearchToBeDoneForVaccinationCentreName as true
       "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1",
       "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_2"
     ], // You need to put the exact names of the Vaccination Centres for which you want to search. You'll get that from CoWIN Portal
@@ -372,23 +374,17 @@ Be default, this is how the `appsettings.json` would look like this:
       "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
     ],
     "IsSearchToBeDoneByDistrict": false, // Set this is true if you want to search By District
-    "Districts": [
+    "Districts": [ // Don't change me if you are not setting IsSearchToBeDoneByDistrict as true
       "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1",
       "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2"
     ],
-    "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day; Date Searched is upto 7 days from the date in DateToSearch
+    "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day; Slots are searched ONLY FOR THE DATE in DateToSearch
   },
   "Proxy": {
     "IsToBeUsed": "false",
     "Address": ""
-  },
-  "App": {
-    "LatestVersion": {
-      "FetchDetailsAPIEndpoint": "https://api.github.com/repos/srvsaha/CoWINVaccineSlotFinder/releases/latest"
-    }
   }
 }
-
 
 ```
 
