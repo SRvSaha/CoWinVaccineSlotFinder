@@ -68,7 +68,7 @@
 - There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/).
 - Application has been developed solely for the purpose of helping needy people book their vaccination slots by way of automation.
 - The Application, a public use free software, assists you in a comprehensive screening of available slots and booking the same for you. **IT DOES NOT GUARANTEE A SLOT**. Only if a slot is available as per your preference, will the slot be booked.
-- Further, any use of the script for monetary, unethical, or illegal purposes is not permitted. - In case, you are found to do the same, YOU shall be solely liable for the consequences. The Developer shall and cannot be held liable for the unethical or illegal use of the same.
+- **Further, any use of the script for monetary, unethical, or illegal purposes is not permitted. - In case, you are found to do the same, YOU shall be solely liable for the consequences. The Developer shall and cannot be held liable for the unethical or illegal use of the same**.
 - The Developer reserves their rights to take any legal action as enumerated under the law against any unethical or illegal use of the same.
 
 ## Glimpse of the Application:
