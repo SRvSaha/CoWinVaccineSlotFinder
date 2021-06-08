@@ -11,7 +11,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 [release-shield-windows]: https://img.shields.io/badge/Download--Windows-v5.2.0--windows-cyan?style=for-the-badge
 [release-version-windows-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.2.0-windows/CoWinReleasesv5.2.0-windows.zip
@@ -27,9 +26,7 @@
 [issues-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/issues
 [license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=brown
 [license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&color=blue
-[linkedin-url]: https://shawt.io/r/sYx
- 
+
 > _**Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
