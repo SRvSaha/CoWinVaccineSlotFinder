@@ -376,6 +376,23 @@ Be default, this is how the `appsettings.json` would look like this:
 
 ```
 
+## How to run on Macbook/Linux Systems : 
+
+Latest Mac Release : https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-osx
+
+Latest Linux Release : https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-linux
+
+Download the .zip file.
+
+- Change the settings in `appsettings.json` as mentioned above.
+
+- To run the executable file open  `terminal` of your choice.
+
+- Go the the downloaded folder for eg : `Users/xyz/Downloads/CoWinReleases/`
+
+- Run the command ```bash run.sh```
+
+
 As simple as that!
 
 Enjoy and feel free to Star the Repo, if it could help you in any way!
