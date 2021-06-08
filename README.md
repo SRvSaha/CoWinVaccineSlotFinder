@@ -197,20 +197,10 @@ In General, to run the application, the following things are needed:
 > [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundled in the Release so no other external dependencies to run the Application.
   _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations. Use of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) is recommended for the purpose of development. 
 
-Currently, searching using the [findByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByDistrict) and [findByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/findByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
+Currently, searching using the [findByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByDistrict) and [findByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
  
-We have got endpoints of both the Public and Protected APIs from APISetu, but a general observation was the Public APIs return stale data as caching is done for around 30 minutes and there is API throttling of 100 requests/5 minutes from 1 IP Address. Application switched automatically between public and protected APIs for finding slot.
-
-Since the slots are gone literally in seconds, so I had to use the Protected APIs for the application.
-
-Well, what's probably going on in your mind is, how do I get the Authentication Information to call the Protected APIs?
-
-We're generating the OTP and then Validating it using the same method as CoWIN App.
-
-On validation of OTP, we get the AuthToken which is further used for the Authentication Purpose.
-
-Rest of the stuff are self-explanatory.
+There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Address. Application heutistically switches automatically to circumvent the issue for finding slot.
 
 ## How to Use:
 
@@ -393,15 +383,17 @@ Enjoy and feel free to Star the Repo, if it could help you in any way!
 ### For Developers or Curious Minds:
 
 If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Make changes in  `appsettings.json`, Ctrl + F5 and Boom!
-It will do the searching for you, but if you have turned on Auto-Captcha your booking won't work and you'll get `System.IO.InvalidDataException` exception. Reason for this is that AutoCaptcha needs an Base64 encoded Encrypted Trained Model which will be used for getting the captcha. Since it's not a good practice to HardCode it in Source Code, so it won't work unless you get the Encrypted Model and the Secret Key. 
-> Still curious about that, check out [CaptchaModel](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/CaptchaModel.cs) and [Crypto](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/Crypto.cs)
+It will do the searching for you, your booking will get done but your booking notifications won't work and you'll get `System.IO.InvalidDataException` exception. Reason for this is that Telemetry and Notification Module needs an Base64 encoded Encrypted Endpoint, API Key and Secret. Since it's not a good practice to HardCode it in Source Code, so it won't work unless you get the Encrypted API Endpoint, Telegram Bot Auth Token and the Secret Key along with similar API Endpoint and Secret Key for Telemetry.
+Unless you care about these, you can proceed, everything will work just fine! 
 
-However the standalone release for Windows has all these dependencies handled so you don't need to worry about anything! Everything will work seamlessly, we got your back!
+> Still curious about that, check out [Telemetry](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/Telemetry.cs) and [TelegramBotModel](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/TelegramBotModel.cs)
+
+However the standalone release for Windows/Linux/MacOS has all these dependencies buldled so you don't need to worry about anything! Everything will work seamlessly, we got your back!
 
 Well, want to dig deeper?
 
 So basically, you've this Project Named `CoWin.Core` which contains `appsettings.json` which performs most of the magic.
-`CoWin.UI` is just a small project for handling the Captcha. `CoWin.Tests` is used for Automated Unit Tests.
+~~`CoWin.UI` is just a small project for handling the Captcha.~~ `CoWin.Tests` is used for Automated Unit Tests.
 
 Rest of the Business Logic are there inside the  `/Models` directory. Authentication & Authorization stuffs can be found in `/Auth` directory. API consumption stuffs can be found in `/Providers` directory.
 Application begins from `Program.cs` from the `CoWin.Core` project.
