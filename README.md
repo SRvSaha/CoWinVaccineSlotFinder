@@ -200,7 +200,7 @@ In General, to run the application, the following things are needed:
 Currently, searching using the [findByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByDistrict) and [findByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
  [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
  
-There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Address. Application heutistically switches automatically to circumvent the issue for finding slot.
+There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Address. Application heuristically switches automatically to circumvent the issue for finding slot.
 
 ## How to Use:
 
