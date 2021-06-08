@@ -33,7 +33,7 @@
 
 <br>
 <p align="center">
-<i>Loved the tool? Please consider <a href="https://buymeacoffee.com/srvsaha">donating</a> 💸 to help it improve!</i>
+<i>Loved the tool? Please consider <a href="https://buymeacoffee.com/srvsaha">buying coffee</a> ☕ to help it improve!</i>
 </p>
 
 <p align="center">
