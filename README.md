@@ -223,9 +223,9 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
 
 - Get the Latest Linux Release either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-linux) or from Releases Section of Github
 
-Download the .zip file.
+ Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-osx]
 
-- Change the settings in `appsettings.json` as mentioned above.
+- Modify the settings inside `appsettings.json` as mentioned below.
 
 - To run the executable file open  `terminal` of your choice.
 
