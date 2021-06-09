@@ -133,12 +133,6 @@
 
 ![Application Sample](data/OTPValidityExpired.png)
 
-#### PRO TIP
-
-> *When the Captcha pops up in the process of booking, DO NOT use your mouse to click on the Popup, you can start typing it immediately as the app would remain ready to accept your input. Once captcha is entered, then press Enter to submit. This way, it is faster than operating via Mouse, as every second matters! In case, you are unable to get your booking successful in first try, when subsequent captch pops up, you will NOT need to use your mouse and click on Popup, you can right away start typing the 5 captcha characters and press Enter! Boom, it'll work*
-
-Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot (after hiding personal information) as a New `Pull Request` in the /data/ folder or a `New Issue` in case you could successfully book through the App. Also share your feedback through issues or just comment/share/like in the associated [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/). That'll be used as References/Testimonials in the Application and will increase the credibility of the App.
-
 ## Application Features
 
 Following are some of the main features of the App:
@@ -197,7 +191,7 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
 - Modify the settings inside `appsettings.json`
 - Double Click `CoWinVaccineSlotFinder.exe` to RUN the Application.
 
-### How to run on Macbook/Linux Systems : 
+### How to run on macOS/Linux Systems : 
 
 - Get the Latest Mac Release either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-osx) or from Releases Section of Github
 
@@ -213,7 +207,7 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
 
 - Run the command ```bash run.sh```
 
-### Troubleshooting MacOs Problems :
+### Troubleshooting macOS Problems :
 
 - If an error pops up like : `Application can't be opened because it is from an unidentified developer.`
 
