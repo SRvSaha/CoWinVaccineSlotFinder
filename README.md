@@ -109,10 +109,6 @@
  
 ![Application Sample](data/BookingWithAutoCaptcha.png)
 
-*Application Slot Booking - Using Bearer Token for Session Resuse with Manual Captcha*
- 
-![Application Sample](data/BookingWithManualCaptchaByBearerToken.png)
-
 *Successful Booking Scenario - With AI-Auto Captcha*
 
 ![Application Sample](data/AutoCaptchaSuccessfulBooking.png)
@@ -124,10 +120,6 @@
 *Unsuccessful Booking - All Slots Full*
 
 ![Application Sample](data/BookingSlotFull.png)
-
-*Unsuccessful Booking - Beneficiary Details Incorrect*
-
-![Application Sample](data/ApplicationBookingFailed.png)
 
 *Unsuccessful Booking - Server Under Heavy Load*
 
