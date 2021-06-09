@@ -237,7 +237,7 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
 
 - If an error pops up like : `Application can't be opened because it is from an unidentified developer.`
 
-- Go to **_System Prefrences -> Secuity&Privacy -> Allow apps downloaded from:** `Select App Store and identified developers`
+- Go to **System Prefrences -> Secuity&Privacy -> Allow apps downloaded from:** `Select App Store and identified developers`
 
 ### How to Open appsettings.json
 
