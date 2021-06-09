@@ -206,6 +206,8 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
 
 ### For Folks who just want to get shit done
 
+### For Windows Users: 
+
 - Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) or from Releases Section of Github
 - Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-windows]
 - Extract the ZIP file, you'll find two file like this:
@@ -214,6 +216,28 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
  
 - Modify the settings inside `appsettings.json`
 - Double Click `CoWinVaccineSlotFinder.exe` to RUN the Application.
+
+### How to run on Macbook/Linux Systems : 
+
+- Get the Latest Mac Release either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-osx) or from Releases Section of Github
+
+- Get the Latest Linux Release either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-linux) or from Releases Section of Github
+
+ Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-osx]
+
+- Modify the settings inside `appsettings.json` as mentioned below.
+
+- To run the executable file open  `terminal` of your choice.
+
+- Go the the downloaded folder for eg : `Users/xyz/Downloads/CoWinReleases/`
+
+- Run the command ```bash run.sh```
+
+### Troubleshooting MacOs Problems :
+
+- If an error pops up like : `Application can't be opened because it is from an unidentified developer.`
+
+- Go to **_System Prefrences -> Secuity&Privacy -> Allow apps downloaded from:** `Select App Store and identified developers`
 
 ### How to Open appsettings.json
 
@@ -375,23 +399,6 @@ Be default, this is how the `appsettings.json` would look like this:
 }
 
 ```
-
-## How to run on Macbook/Linux Systems : 
-
-Latest Mac Release : https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-osx
-
-Latest Linux Release : https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-linux
-
-Download the .zip file.
-
-- Change the settings in `appsettings.json` as mentioned above.
-
-- To run the executable file open  `terminal` of your choice.
-
-- Go the the downloaded folder for eg : `Users/xyz/Downloads/CoWinReleases/`
-
-- Run the command ```bash run.sh```
-
 
 As simple as that!
 
