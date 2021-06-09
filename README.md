@@ -97,21 +97,13 @@
 
 ![Application Start](data/BearerTokenInvalid.png)
 
-*Application Start - Invaid OTP  Entered. Re-Generating new OTP*
+*Application Start - Invalid OTP  Entered. Re-Generating new OTP*
 
 ![Application Start](data/InvalidOTP.png)
 
 *Application OTP Retrigger In Case OTP is not received within time. Press `Enter` to Retrigger OTP*
 
 ![Application Start](data/RetriggerOTPScenario.png)
-
-*Application Slot Booking - Captcha Input*
- 
-![Application Sample](data/Application.jpg)
-
-*Application Slot Booking - Manual Captcha Input*
- 
-![Application Sample](data/SlotBookingNewWithManualCaptcha.png)
 
 *Application Slot Booking - AI Assisted AutoCaptcha Feature*
  
@@ -120,10 +112,6 @@
 *Application Slot Booking - Using Bearer Token for Session Resuse with Manual Captcha*
  
 ![Application Sample](data/BookingWithManualCaptchaByBearerToken.png)
- 
-*Successful Booking Scenario - With Manual Captcha*
-
-![Application Sample](data/SuccessfulBooking.png)
 
 *Successful Booking Scenario - With AI-Auto Captcha*
 
