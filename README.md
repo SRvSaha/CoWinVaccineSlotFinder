@@ -35,14 +35,14 @@
 ### DISCLAIMER
 
 
-#### *__DUE TO LATEST CHANGES IN THE API ACCESS POLICY BY [MoHFW](https://www.mohfw.gov.in/pdf/CoWINAPIGuidelinesFinal240521.pdf), THERE WILL BE NO MORE COMMITS/CONTRIBUTIONS/RELEASES/MAINTENANCE IN THE PROJECT. THE PROJECT HAS BEEN PUT ON INDEFINITE HOLD. GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. EVEN THOUGH YOU MAY STILL USE THE APP, WE ADVISE NOT TO MISUSE IT, OTHERWISE YOU MIGHT FACE LEGAL ISSUES. USE IT AT YOUR OWN RISK__*
+#### *__DUE TO LATEST CHANGES IN THE API ACCESS POLICY BY [MoHFW](https://www.mohfw.gov.in/pdf/CoWINAPIGuidelinesFinal240521.pdf), THERE WILL BE NO MORE COMMITS/CONTRIBUTIONS/RELEASES/MAINTENANCE IN THE PROJECT. THE PROJECT HAS BEEN PUT ON INDEFINITE HOLD. GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. EVEN THOUGH YOU MAY STILL USE THE APP AFTER GOING THROUGH THE [T&C](https://www.cowin.gov.in/terms-condition), WE ADVISE NOT TO MISUSE IT, OTHERWISE YOU MIGHT FACE LEGAL ISSUES. USE IT AT YOUR OWN RISK__*
 
 
 > **NOTE:** _Please go through the [Disclaimer](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/DISCLAIMER.md), [End User Lisence Agreement](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/EULA.md) & the [Privacy Policy](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/PRIVACYPOLICY.md), proceed further only if you accept the [Terms and Conditions](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/T&C.md) to use the Application/Software_
 
 ### Important: 
-- This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. I SHOULD NOT BE DEEMED RESPONSIBLE FOR ANY LEGAL CONCERNS.**
-- This goes without saying but, once you get your shot, please do help out any underprivileged people around you who may not have a laptop or the know-how. For instance any sort of domestic help, or the staff in your local grocery store, or literally the thousands of people who don't have the knowledge or luxury we do.
+- This is a proof of concept project. I do NOT endorse or encourage or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. I SHOULD NOT BE HELD RESPONSIBLE FOR ANY LEGAL CONCERNS.**
+- _This goes without saying but, once you get your shot, please do help out any underprivileged people around you who may not have a laptop or the know-how. For instance any sort of domestic help, or the staff in your local grocery store, or literally the thousands of people who don't have the knowledge or luxury we do._
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
 - When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Vaccine, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
 - While selecting beneficiaries, make sure that selected beneficiaries are all taking the same dose: either first OR second.
@@ -51,7 +51,7 @@
   Please do no try to club together booking for beneficiary taking COVISHIELD with beneficiary taking COVAXIN.
 - If you're selecting multiple beneficiaries, make sure all are of the same age group (45+ or 18+) as defined by the govt.
   Please do not try to club together booking for younger and older beneficiaries.
-- AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha (when AutoCaptcha is turned Off) for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s) or even by the Names of the Vaccination Centres within the PINCode. In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
+- AUTO BOOKING is ON by default, so it books the slot by searching by PIN Code/District for the particular Vaccination Centre(s) or even by the Names of the Vaccination Centres within the PINCode. 
 - If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://selfregistration.cowin.gov.in/) and cancel or re-schedule the booking. There is no option for reschedule or cancel of Booking of Slot available in the Application. There will be an X symbol on the right-top corner for each beneficiary to cancel from CoWIN Portal.
 - There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/).
 - Application has been developed solely for the purpose of helping needy people book their vaccination slots by way of automation.
@@ -92,10 +92,6 @@
 *Application OTP Retrigger In Case OTP is not received within time. Press `Enter` to Retrigger OTP*
 
 ![Application Start](data/RetriggerOTPScenario.png)
-
-*Application Slot Booking - AI Assisted AutoCaptcha Feature*
- 
-![Application Sample](data/BookingWithAutoCaptcha.png)
 
 *Successful Booking Scenario - With AI-Auto Captcha*
 
@@ -159,8 +155,7 @@ In General, to run the application, the following things are needed:
 > [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundled in the Release so no other external dependencies to run the Application.
   _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations. Use of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) is recommended for the purpose of development. 
 
-Currently, searching using the [findByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByDistrict) and [findByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
- [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
+Currently, searching using the [findByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByDistrict) and [findByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByPin) are integrated to get all the available slots in a particular district/PINCode.
  
 There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Address. Application heuristically switches automatically to circumvent the issue for finding slot.
 
@@ -185,21 +180,29 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
 
 - Get the Latest Linux Release either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-linux) or from Releases Section of Github
 
- Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-osx]
+- Download the ZIP file of the Latest Release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-osx or CoWinReleasesv5.2.0-linux]
+
+- Extract the ZIP file
 
 - Modify the settings inside `appsettings.json` as mentioned below.
 
-- To run the executable file open  `terminal` of your choice.
-
 - Go the the downloaded folder for eg : `Users/xyz/Downloads/CoWinReleases/`
 
-- Run the command ```bash run.sh```
+- To run the executable file open  `terminal` of your choice in the Downloaded Folder Path
+
+- Run the command ```bash run.sh``` in the Terminal to Start the App
 
 ### Troubleshooting macOS Problems :
 
+- While downloading, after download is complete in the browser, it might show you that the downloaded file might contain viruses. There'll be an option to Discard or to Keep. You must keep it.
+
 - If an error pops up like : `Application can't be opened because it is from an unidentified developer.`
 
-- Go to **System Prefrences -> Secuity&Privacy -> Allow apps downloaded from:** `Select App Store and identified developers`
+- Go to **System Preferences -> Secuity & Privacy -> Allow apps downloaded from:** `Select App Store and identified developers`
+
+- Even after Allowing the App downloaded from Identified Developer, you might need to explicity allow `CoWinVaccineSlotFinder` from the above option
+
+- In case it asks your permission to `Open/Move To Bin` for the Application as it is not downloaded from AppStore, use Open otherwise it won't run
 
 ### How to Open appsettings.json
 
@@ -250,6 +253,9 @@ Modification can be done and file to be saved again with the same name and File 
 Please Note: DO NOT Change or remove to Defaut values if you are not going to use the setting for your Searching of Slot. 
 
 ``` javascript
+"MinAgeLimit": "<REPLACE_ME>", // Use either 18 or 45 in the REPLACE_ME Section. 18 means that you are searching for slots of 18+ and 45 means for 45+. By default, 18 is used.
+"MaxAgeLimit": "<REPLACE_ME>", // Use either 44 or 99 in the REPLACE_ME Section. 44 means that you are searching for slots of only 18+ (18-44) Age Group and 100 means that you are searching for only 45+ (45-99) age group. By default, 44 is used.
+"MinimumVaccineAvailability": "<REPLACE_ME>", // Use 1 or any Minumum Number that you feel should be available atleast when you are searching for slots, in the REPLACE_ME section. By default, 1 is selected as minimum availability
 "ProtectedAPI": { "IsToBeUsed": "<REPLACE_ME>"} // Use true of false in the <REPLACE_ME> section. Use false if you want to search slots using Public API. By default, true to use ProtectedAPI for searching
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means any type of Vaccine
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid or "" in the <REPLACE_ME> section, by default "Free" is selected, blank implies both Free and Paid types
