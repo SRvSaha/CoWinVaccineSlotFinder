@@ -166,7 +166,7 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
 ### For Windows Users: 
 
 - Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) or from Releases Section of Github
-- Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-windows]
+- Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-windows.zip]
 - Extract the ZIP file, you'll find two file like this:
   
  ![Application Release](data/ReleaseStructure.jpg)
@@ -180,7 +180,7 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
 
 - Get the Latest Linux Release either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-linux) or from Releases Section of Github
 
-- Download the ZIP file of the Latest Release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-osx or CoWinReleasesv5.2.0-linux]
+- Download the ZIP file of the Latest Release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-osx.zip or CoWinReleasesv5.2.0-linux.zip]
 
 - Extract the ZIP file
 
