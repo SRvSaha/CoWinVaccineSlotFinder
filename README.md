@@ -42,6 +42,7 @@
 
 ### Important: 
 - This is a proof of concept project. I do NOT endorse or encourage or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. I SHOULD NOT BE HELD RESPONSIBLE FOR ANY LEGAL CONCERNS.**
+- **FURTHER, ANY USE OF THE SCRIPT FOR MONETARY, UNETHICAL, OR ILLEGAL PURPOSES IS NOT PERMITTED. - IN CASE, YOU ARE FOUND TO DO THE SAME, YOU SHALL BE SOLELY LIABLE FOR THE CONSEQUENCES. THE DEVELOPER SHALL AND CANNOT BE HELD LIABLE FOR THE UNETHICAL OR ILLEGAL USE OF THE SAME**
 - _This goes without saying but, once you get your shot, please do help out any underprivileged people around you who may not have a laptop or the know-how. For instance any sort of domestic help, or the staff in your local grocery store, or literally the thousands of people who don't have the knowledge or luxury we do._
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
 - When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Vaccine, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
@@ -56,7 +57,6 @@
 - There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/).
 - Application has been developed solely for the purpose of helping needy people book their vaccination slots by way of automation.
 - The Application, a public use free software, assists you in a comprehensive screening of available slots and booking the same for you. **IT DOES NOT GUARANTEE A SLOT**. Only if a slot is available as per your preference, will the slot be booked.
-- **Further, any use of the script for monetary, unethical, or illegal purposes is not permitted. - In case, you are found to do the same, YOU shall be solely liable for the consequences. The Developer shall and cannot be held liable for the unethical or illegal use of the same**.
 - The Developer reserves their rights to take any legal action as enumerated under the law against any unethical or illegal use of the same.
 
 ## Glimpse of the Application:
