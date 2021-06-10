@@ -11,7 +11,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 [release-shield-windows]: https://img.shields.io/badge/Download--Windows-v5.2.0--windows-cyan?style=for-the-badge
 [release-version-windows-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.2.0-windows/CoWinReleasesv5.2.0-windows.zip
@@ -27,37 +26,24 @@
 [issues-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/issues
 [license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=brown
 [license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=for-the-badge&logo=linkedin&color=blue
-[linkedin-url]: https://shawt.io/r/sYx
- 
+
 > _**Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
-
-<br>
-<p align="center">
-<i>Loved the tool? Please consider <a href="https://buymeacoffee.com/srvsaha">donating</a> 💸 to help it improve!</i>
-</p>
-
-<p align="center">
-  <a href='https://ko-fi.com/srvsaha' target='_blank'><img height='43' width="150" src='https://cdn.ko-fi.com/cdn/kofi3.png?v=2' alt='Buy Coffee for srvsaha' />
-  </a>
-  <a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="43" width="150" />
-  </a>
-</p>
 
   
 ### DISCLAIMER
 
 
-#### *__DUE TO LATEST CHANGES IN THE API ACCESS POLICY BY [MoHFW](https://www.mohfw.gov.in/pdf/CoWINAPIGuidelinesFinal240521.pdf), THERE WILL BE NO MORE COMMITS/CONTRIBUTIONS/RELEASES/MAINTENANCE IN THE PROJECT. THE PROJECT HAS BEEN PUT ON INDEFINITE HOLD. GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. EVEN THOUGH YOU MAY STILL USE THE APP, WE ADVISE NOT TO MISUSE IT, OTHERWISE YOU MIGHT FACE LEGAL ISSUES. USE IT AT YOUR OWN RISK__*
+#### *__DUE TO LATEST CHANGES IN THE API ACCESS POLICY BY [MoHFW](https://www.mohfw.gov.in/pdf/CoWINAPIGuidelinesFinal240521.pdf), THERE WILL BE NO MORE COMMITS/CONTRIBUTIONS/RELEASES/MAINTENANCE IN THE PROJECT. THE PROJECT HAS BEEN PUT ON INDEFINITE HOLD. GRATEFUL TO EVERY CONTRIBUTORS, SUPPORTERS, USERS THAT WE COULD HELP YOU IN THE CRISIS. EVEN THOUGH YOU MAY STILL USE THE APP AFTER GOING THROUGH THE [T&C](https://www.cowin.gov.in/terms-condition), WE ADVISE NOT TO MISUSE IT, OTHERWISE YOU MIGHT FACE LEGAL ISSUES. USE IT AT YOUR OWN RISK__*
 
 
 > **NOTE:** _Please go through the [Disclaimer](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/DISCLAIMER.md), [End User Lisence Agreement](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/EULA.md) & the [Privacy Policy](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/PRIVACYPOLICY.md), proceed further only if you accept the [Terms and Conditions](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/T&C.md) to use the Application/Software_
 
 ### Important: 
-- This is a proof of concept project. I do NOT endorse or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. I SHOULD NOT BE DEEMED RESPONSIBLE FOR ANY LEGAL CONCERNS.**
-- This goes without saying but, once you get your shot, please do help out any underprivileged people around you who may not have a laptop or the know-how. For instance any sort of domestic help, or the staff in your local grocery store, or literally the thousands of people who don't have the knowledge or luxury we do.
+- This is a proof of concept project. I do NOT endorse or encourage or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. I SHOULD NOT BE HELD RESPONSIBLE FOR ANY LEGAL CONCERNS.**
+- **FURTHER, ANY USE OF THE SCRIPT FOR MONETARY, UNETHICAL, OR ILLEGAL PURPOSES IS NOT PERMITTED. - IN CASE, YOU ARE FOUND TO DO THE SAME, YOU SHALL BE SOLELY LIABLE FOR THE CONSEQUENCES. THE DEVELOPER SHALL AND CANNOT BE HELD LIABLE FOR THE UNETHICAL OR ILLEGAL USE OF THE SAME**
+- _This goes without saying but, once you get your shot, please do help out any underprivileged people around you who may not have a laptop or the know-how. For instance any sort of domestic help, or the staff in your local grocery store, or literally the thousands of people who don't have the knowledge or luxury we do._
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
 - When multiple beneficiaries are added for a single registered mobile number, all beneficiaries will get the Same Dose, Same Vaccine, Same Centre and Same Slot. In case any of this doesn't meet the requirements, booking might not be successful. 
 - While selecting beneficiaries, make sure that selected beneficiaries are all taking the same dose: either first OR second.
@@ -66,12 +52,11 @@
   Please do no try to club together booking for beneficiary taking COVISHIELD with beneficiary taking COVAXIN.
 - If you're selecting multiple beneficiaries, make sure all are of the same age group (45+ or 18+) as defined by the govt.
   Please do not try to club together booking for younger and older beneficiaries.
-- AUTO BOOKING is ON by default, so it books the slot after you enter a valid captcha (when AutoCaptcha is turned Off) for the Slot which is displayed. So, if you feel you want some particular vaccination centre(s), make sure you are searching by PIN Code for the particular Vaccination Centre(s) or even by the Names of the Vaccination Centres within the PINCode. In case, you don't want to book the slot, you might simply close the Captcha Popup, and the App will try further to book the next available slots in First-Come-First-Serve Basis.
+- AUTO BOOKING is ON by default, so it books the slot by searching by PIN Code/District for the particular Vaccination Centre(s) or even by the Names of the Vaccination Centres within the PINCode. 
 - If you accidentally book a slot, don't worry. You can always login to the [Official portal](https://selfregistration.cowin.gov.in/) and cancel or re-schedule the booking. There is no option for reschedule or cancel of Booking of Slot available in the Application. There will be an X symbol on the right-top corner for each beneficiary to cancel from CoWIN Portal.
 - There is no option to register new mobile or add beneficiaries. This can be used only after beneficiary has been added through the Official WebApp of [CoWIN](https://cowin.gov.in/).
 - Application has been developed solely for the purpose of helping needy people book their vaccination slots by way of automation.
 - The Application, a public use free software, assists you in a comprehensive screening of available slots and booking the same for you. **IT DOES NOT GUARANTEE A SLOT**. Only if a slot is available as per your preference, will the slot be booked.
-- Further, any use of the script for monetary, unethical, or illegal purposes is not permitted. - In case, you are found to do the same, YOU shall be solely liable for the consequences. The Developer shall and cannot be held liable for the unethical or illegal use of the same.
 - The Developer reserves their rights to take any legal action as enumerated under the law against any unethical or illegal use of the same.
 
 ## Glimpse of the Application:
@@ -100,33 +85,13 @@
 
 ![Application Start](data/BearerTokenInvalid.png)
 
-*Application Start - Invaid OTP  Entered. Re-Generating new OTP*
+*Application Start - Invalid OTP  Entered. Re-Generating new OTP*
 
 ![Application Start](data/InvalidOTP.png)
 
 *Application OTP Retrigger In Case OTP is not received within time. Press `Enter` to Retrigger OTP*
 
 ![Application Start](data/RetriggerOTPScenario.png)
-
-*Application Slot Booking - Captcha Input*
- 
-![Application Sample](data/Application.jpg)
-
-*Application Slot Booking - Manual Captcha Input*
- 
-![Application Sample](data/SlotBookingNewWithManualCaptcha.png)
-
-*Application Slot Booking - AI Assisted AutoCaptcha Feature*
- 
-![Application Sample](data/BookingWithAutoCaptcha.png)
-
-*Application Slot Booking - Using Bearer Token for Session Resuse with Manual Captcha*
- 
-![Application Sample](data/BookingWithManualCaptchaByBearerToken.png)
- 
-*Successful Booking Scenario - With Manual Captcha*
-
-![Application Sample](data/SuccessfulBooking.png)
 
 *Successful Booking Scenario - With AI-Auto Captcha*
 
@@ -140,10 +105,6 @@
 
 ![Application Sample](data/BookingSlotFull.png)
 
-*Unsuccessful Booking - Beneficiary Details Incorrect*
-
-![Application Sample](data/ApplicationBookingFailed.png)
-
 *Unsuccessful Booking - Server Under Heavy Load*
 
 ![Application Sample](data/ServerLoaded.png)
@@ -156,76 +117,92 @@
 
 ![Application Sample](data/OTPValidityExpired.png)
 
-#### PRO TIP
-
-> *When the Captcha pops up in the process of booking, DO NOT use your mouse to click on the Popup, you can start typing it immediately as the app would remain ready to accept your input. Once captcha is entered, then press Enter to submit. This way, it is faster than operating via Mouse, as every second matters! In case, you are unable to get your booking successful in first try, when subsequent captch pops up, you will NOT need to use your mouse and click on Popup, you can right away start typing the 5 captcha characters and press Enter! Boom, it'll work*
-
-Enjoy and feel free to Star the Repo, if it could help you in any way! Also, feel free to share screenshot (after hiding personal information) as a New `Pull Request` in the /data/ folder or a `New Issue` in case you could successfully book through the App. Also share your feedback through issues or just comment/share/like in the associated [LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:6796093424492720128/). That'll be used as References/Testimonials in the Application and will increase the credibility of the App.
-
 ## Application Features
 
 Following are some of the main features of the App:
 
 - [x] OTP Generation/Validation
 - [x] Search by Either PINCode or District or Both PINCode and District with preference to PINCode for better Searching
-- [x] Auto Retry To Fetch Slots Every 2 Seconds
-- [x] BEEP BEEP User Notifier On Slot Availability To Book the Available Slot
+- [x] Search for Slots only for Particular Centres by CentreName within PINCode/District
+- [x] Auto Retry To Fetch Slots by Dynamically computing IP Throttling Limit
+- [x] BEEP BEEP User Notifier On IP Throlling To Notify User regarding Too Many Requests
 - [x] OTP Notifier for New Session & On Timeout
-- [x] Captcha Popup Entry for Booking Slot
 - [x] Booking for Multiple Beneficiaries linked to a Registered Mobile Number 
 - [x] OTP Regeneration/Validation on Timeout/Session Expiry 
 - [x] Zero Setup Application, Just Download and Run! Easy to Use!
 - [x] No specialized Software required for modification of Config file
-- [x] Allow Any Vaccine Type and Any Fee Type for Booking Slots; Remove Mandatory Filters on VaccineType and FeeType
-- [x] AI Assisted Auto Captcha
+- [x] Allow Any Vaccine Type and Any Fee Type for Booking Slots
 - [x] Application Latest Version Check Automatically before proceeding
 - [x] Verbose Mode so that user can check each and every step as what is going on behind the scenes when slots are being fetched & processed
 - [x] Telemetry Metadata of Booking for Updating Statistics to see how the App is helping others. No Personal Information to be taken.
 - [x] Integration of Notification Engine with Telegram Bot
 - [x] Native Cross-Platform Support for Windows/Mac/Linux
-- [x] Automatically handling IP Throttling Issue
+- [x] Automatically handling IP Throttling Issue with fixed Refresh Threshold. 
+- [x] Automatically Download Appointment Slip on Successful Booking of Slot
+- [x] Feature to Choose Slot Preference for Auto-Booking
  
 ## Technical Details
 
 It's a simple hybrid Console Application being developed using .NET Core 3.1, WinForms and C#.
 
-_**Currently, application is bundled as a Single Standalone Executable file with Runtime included and therefore no installations are needed to run the Application. Due to dependency on WinForms for Captcha Popup, in Windows Machine Manual Captcha is supported. However, the application can be used in Linux/Mac as well where Manual Captcha is not supported and AI Assisted Auto Captcha would suffice**_
+_**Currently, application is bundled as a Single Standalone Executable file with Runtime included and therefore no installations are needed to run the Application. Application can be used in Windows/Linux/Mac without any external dependencies**_
 
 In General, to run the application, the following things are needed:
 - [x] **WINDOWS**: Windows 7 SP2 or higher where .NET Core 3.1 Runtime is supported, that's it. 
 - [x] **LINUX**: 64-bit Debian like Distros eg. Ubuntu, Mint, Kali Linux etc are supported with support for .NET Core 3.1 Runtime
-- [x] **MACOSX**: 64-bit Mac OSX is supported with .NET Core 3.1 Runtime
+- [x] **MACOSX**: 64-bit Mac OSX (Version 10.13 and above) is supported with .NET Core 3.1 Runtime
 
 > [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet/3.1/runtime) is bundled in the Release so no other external dependencies to run the Application.
   _FOR DEVELOPERS TO BUILD/MODIFY_ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.408-windows-x64-installer) is required to build from Source Code or to make some customizations. Use of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) is recommended for the purpose of development. 
 
-Currently, searching using the [calenderByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/calendarByDistrict) and [calendarByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/calendarByPin) are integrated to get all the available slots in a particular district/PINCode and to book the slot on First-Come-First-Serve Basis, the
- [appointmentSchedule API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-protected-v2#/Vaccination%20Appointment%20APIs/schedule) is used.
+Currently, searching using the [findByDistrict API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByDistrict) and [findByPin API](https://apisetu.gov.in/public/marketplace/api/cowin/cowin-public-v2#/Appointment%20Availability%20APIs/findByPin) are integrated to get all the available slots in a particular district/PINCode.
  
-We have got endpoints of both the Public and Protected APIs from APISetu, but a general observation was the Public APIs return stale data as caching is done for around 30 minutes and there is API throttling of 100 requests/5 minutes from 1 IP Address.
-
-Since the slots are gone literally in seconds, so I had to use the Protected APIs for the application.
-
-Well, what's probably going on in your mind is, how do I get the Authentication Information to call the Protected APIs?
-
-We're generating the OTP and then Validating it using the same method as CoWIN App.
-
-On validation of OTP, we get the AuthToken which is further used for the Authentication Purpose.
-
-Rest of the stuff are self-explanatory.
+There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Address. Application heuristically switches automatically to circumvent the issue for finding slot.
 
 ## How to Use:
 
 ### For Folks who just want to get shit done
 
+### For Windows Users: 
+
 - Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) or from Releases Section of Github
-- Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.0.0-windows]
+- Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-windows.zip]
 - Extract the ZIP file, you'll find two file like this:
   
  ![Application Release](data/ReleaseStructure.jpg)
  
 - Modify the settings inside `appsettings.json`
 - Double Click `CoWinVaccineSlotFinder.exe` to RUN the Application.
+
+### How to run on macOS/Linux Systems : 
+
+- Get the Latest Mac Release either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-osx) or from Releases Section of Github
+
+- Get the Latest Linux Release either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/tag/v5.2.0-linux) or from Releases Section of Github
+
+- Download the ZIP file of the Latest Release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.0-osx.zip or CoWinReleasesv5.2.0-linux.zip]
+
+- Extract the ZIP file
+
+- Modify the settings inside `appsettings.json` as mentioned below.
+
+- Go the the downloaded folder for eg : `Users/xyz/Downloads/CoWinReleases/`
+
+- To run the executable file open  `terminal` of your choice in the Downloaded Folder Path
+
+- Run the command ```bash run.sh``` in the Terminal to Start the App
+
+### Troubleshooting macOS Problems :
+
+- While downloading, after download is complete in the browser, it might show you that the downloaded file might contain viruses. There'll be an option to Discard or to Keep. You must keep it.
+
+- If an error pops up like : `Application can't be opened because it is from an unidentified developer.`
+
+- Go to **System Preferences -> Secuity & Privacy -> Allow apps downloaded from:** `Select App Store and identified developers`
+
+- Even after Allowing the App downloaded from Identified Developer, you might need to explicity allow `CoWinVaccineSlotFinder` from the above option
+
+- In case it asks your permission to `Open/Move To Bin` for the Application as it is not downloaded from AppStore, use Open otherwise it won't run
 
 ### How to Open appsettings.json
 
@@ -276,8 +253,13 @@ Modification can be done and file to be saved again with the same name and File 
 Please Note: DO NOT Change or remove to Defaut values if you are not going to use the setting for your Searching of Slot. 
 
 ``` javascript
+"MinAgeLimit": "<REPLACE_ME>", // Use either 18 or 45 in the REPLACE_ME Section. 18 means that you are searching for slots of 18+ and 45 means for 45+. By default, 18 is used.
+"MaxAgeLimit": "<REPLACE_ME>", // Use either 44 or 99 in the REPLACE_ME Section. 44 means that you are searching for slots of only 18+ (18-44) Age Group and 100 means that you are searching for only 45+ (45-99) age group. By default, 44 is used.
+"MinimumVaccineAvailability": "<REPLACE_ME>", // Use 1 or any Minumum Number that you feel should be available atleast when you are searching for slots, in the REPLACE_ME section. By default, 1 is selected as minimum availability
+"ProtectedAPI": { "IsToBeUsed": "<REPLACE_ME>"} // Use true of false in the <REPLACE_ME> section. Use false if you want to search slots using Public API. By default, true to use ProtectedAPI for searching
 "VaccineType": "<REPLACE_ME>", // USE EITHER COVAXIN OR COVISHIELD, OR SPUTNIK V or "" in the <REPLACE_ME> section, by default "" is selected with means any type of Vaccine
 "VaccineFeeType": "<REPLACE_ME>", // USE Either Free or Paid or "" in the <REPLACE_ME> section, by default "Free" is selected, blank implies both Free and Paid types
+"SlotPreference": "<REPLACE_ME>", // Preference of Slot of Booking, use either First or Last or Random in the <REPLACE_ME> section; Default is Last (due to higher changes of getting the slot)  
 "IsSearchToBeDoneForVaccinationCentreName": "<REPLACE_ME>", // se Either true or false in the <REPLACE_ME> section where true means you want to search for specific Centres within your PINCode/District and false means you don't want to search by CentreName. By default, false is selected
 "VaccinationCentreNames": [
     "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1",
@@ -329,15 +311,15 @@ Be default, this is how the `appsettings.json` would look like this:
 {
   "CoWinAPI": {
     "PublicAPI": {
-      "FetchCalenderByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict",
-      "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin"
+      "FetchByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict",
+      "FetchByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin"
     },
     "ProtectedAPI": {
-      "IsToBeUsed": true,
-      "FetchCalenderByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict",
-      "FetchCalenderByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin",
+      "IsToBeUsed": true, // Set this to false if you want to search slots using Public API
+      "FetchByDistrictUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/findByDistrict",
+      "FetchByPINUrl": "https://cdn-api.co-vin.in/api/v2/appointment/sessions/findByPin",
       "ScheduleAppointmentUrl": "https://cdn-api.co-vin.in/api/v2/appointment/schedule",
-      "CaptchaGenerationUrl": "https://cdn-api.co-vin.in/api/v2/auth/getRecaptcha",
+      "AppointmentSlipUrl": "https://cdn-api.co-vin.in/api/v2/appointment/appointmentslip/download",
       "BeneficiaryIds": [ "REPLACE_WITH_YOUR_BENEFICIARY_ID_1", "REPLACE_WITH_YOUR_BENEFICIARY_ID_2" ]
     },
     "Auth": {
@@ -345,11 +327,10 @@ Be default, this is how the `appsettings.json` would look like this:
       "OTPGeneratorUrl": "https://cdn-api.co-vin.in/api/v2/auth/generateMobileOTP",
       "OTPValidatorUrl": "https://cdn-api.co-vin.in/api/v2/auth/validateMobileOtp",
       "Secret": "U2FsdGVkX18vDwDor+oOIG7vSUnINtlc/pxQcNiBulCm8LT5Sza+aIISKLqImbpMnRYgsN2QACPhggLWgZEpQg==",
-      "AutoReadCaptcha": false, // Use either true or false; By default false; True means No need to enter captcha, False means captcha needs to be entered manually
       "Mobile": "REPLACE_WITH_YOUR_REGISTERED_MOBILE_NO"
     },
     "SleepIntervalInMilliseconds": 3500,
-    "IsThrottlingToBeUsed": true, // Use either true or false; By default true; true means IP throttling is inplace, False means IP throttling has been removed
+    "IsThrottlingToBeUsed": true, // Use either true or false; By default true; True means IP throttling is inplace, False means IP throttling has been removed
     "ThrottlingThreshold": 100, //Number of request per IP allowed for ThrottlingInterval
     "ThrottlingIntervalInMinutes": 5,
     "ThrottlingRefreshTimeInSeconds": 5, // Waiting Time when IP is throttled, before resuming the application again. Set the value Higher if you want more wait time when you IP is throttled, or Lower if you are in hurry to book (with chances of getting IP throttled more frequently)
@@ -361,8 +342,9 @@ Be default, this is how the `appsettings.json` would look like this:
     "VaccineType": "", // Blank Implies Any VaccineType: COVISHIELD OR COVAXIN OR SPUTNIK V; Default is any type of Vaccine
     "DoseType": 1,
     "VaccineFeeType": "Free", // Blank Implies Any VaccineFeeType: Free or Paid; Default is Free    
+    "SlotPreference": "Last", // Preference of Slot of Booking, use either First or Last or Random; Default is Last (due to higher changes of getting the slot)  
     "IsSearchToBeDoneForVaccinationCentreName": false, // Set this is true if you want to search for specific Centres within your PINCode/District
-    "VaccinationCentreNames": [
+    "VaccinationCentreNames": [ // Don't change me if you are not setting IsSearchToBeDoneForVaccinationCentreName as true
       "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_1",
       "REPLACE_ME_WITH_YOUR_VACCINATION_CENTER_NAME_2"
     ], // You need to put the exact names of the Vaccination Centres for which you want to search. You'll get that from CoWIN Portal
@@ -372,23 +354,17 @@ Be default, this is how the `appsettings.json` would look like this:
       "REPLACE_ME_WITH_YOUR_PIN_CODE_2"
     ],
     "IsSearchToBeDoneByDistrict": false, // Set this is true if you want to search By District
-    "Districts": [
+    "Districts": [ // Don't change me if you are not setting IsSearchToBeDoneByDistrict as true
       "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_1",
       "REPLACE_ME_WITH_YOUR_DISTRICT_CODE_2"
     ],
-    "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day; Date Searched is upto 7 days from the date in DateToSearch
+    "DateToSearch": "" // DD-MM-YYYY Format, Blank implies tomorrow's day; Slots are searched ONLY FOR THE DATE in DateToSearch
   },
   "Proxy": {
     "IsToBeUsed": "false",
     "Address": ""
-  },
-  "App": {
-    "LatestVersion": {
-      "FetchDetailsAPIEndpoint": "https://api.github.com/repos/srvsaha/CoWINVaccineSlotFinder/releases/latest"
-    }
   }
 }
-
 
 ```
 
@@ -399,15 +375,17 @@ Enjoy and feel free to Star the Repo, if it could help you in any way!
 ### For Developers or Curious Minds:
 
 If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Make changes in  `appsettings.json`, Ctrl + F5 and Boom!
-It will do the searching for you, but if you have turned on Auto-Captcha your booking won't work and you'll get `System.IO.InvalidDataException` exception. Reason for this is that AutoCaptcha needs an Base64 encoded Encrypted Trained Model which will be used for getting the captcha. Since it's not a good practice to HardCode it in Source Code, so it won't work unless you get the Encrypted Model and the Secret Key. 
-> Still curious about that, check out [CaptchaModel](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/CaptchaModel.cs) and [Crypto](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/Crypto.cs)
+It will do the searching for you, your booking will get done but your booking notifications won't work and you'll get `System.IO.InvalidDataException` exception. Reason for this is that Telemetry and Notification Module needs an Base64 encoded Encrypted Endpoint, API Key and Secret. Since it's not a good practice to HardCode it in Source Code, so it won't work unless you get the Encrypted API Endpoint, Telegram Bot Auth Token and the Secret Key along with similar API Endpoint and Secret Key for Telemetry.
+Unless you care about these, you can proceed, everything will work just fine! 
 
-However the standalone release for Windows has all these dependencies handled so you don't need to worry about anything! Everything will work seamlessly, we got your back!
+> Still curious about that, check out [Telemetry](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/Telemetry.cs) and [TelegramBotModel](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/CoWin.Core/Models/TelegramBotModel.cs)
+
+However the standalone release for Windows/Linux/MacOS has all these dependencies buldled so you don't need to worry about anything! Everything will work seamlessly, we got your back!
 
 Well, want to dig deeper?
 
 So basically, you've this Project Named `CoWin.Core` which contains `appsettings.json` which performs most of the magic.
-`CoWin.UI` is just a small project for handling the Captcha. `CoWin.Tests` is used for Automated Unit Tests.
+~~`CoWin.UI` is just a small project for handling the Captcha.~~ `CoWin.Tests` is used for Automated Unit Tests.
 
 Rest of the Business Logic are there inside the  `/Models` directory. Authentication & Authorization stuffs can be found in `/Auth` directory. API consumption stuffs can be found in `/Providers` directory.
 Application begins from `Program.cs` from the `CoWin.Core` project.
