@@ -31,18 +31,6 @@
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
-<br>
-<p align="center">
-<i>Loved the tool? Please consider <a href="https://buymeacoffee.com/srvsaha">buying coffee</a> ☕ to help it improve!</i>
-</p>
-
-<p align="center">
-  <a href='https://ko-fi.com/srvsaha' target='_blank'><img height='43' width="150" src='https://cdn.ko-fi.com/cdn/kofi3.png?v=2' alt='Buy Coffee for srvsaha' />
-  </a>
-  <a href="https://www.buymeacoffee.com/srvsaha" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="43" width="150" />
-  </a>
-</p>
-
   
 ### DISCLAIMER
 
