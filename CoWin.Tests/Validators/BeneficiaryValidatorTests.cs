@@ -30,15 +30,25 @@ namespace CoWin.Core.Validators.Tests
         }
 
         [TestMethod()]
-        [DataRow("395")]
-        [DataRow("Mumbai")]
+        [DataRow("Mumbai3929")]
         [DataRow("njn8893jjkfnsljdn")]
-        public void IsValid_Should_ReturnFalse_When_BeneficiaryIdIsNonDefaultButNotOf14Characters(string userEnteredDistrict)
+        public void IsValid_Should_ReturnFalse_When_BeneficiaryIdIsNonDefaultAndAlphanumeric(string userEnteredDistrict)
         {
 
             var isValid = _validator.IsValid(userEnteredDistrict);
 
             Assert.IsFalse(isValid);
+        }
+
+        [TestMethod()]
+        [DataRow("9999999999999")]
+        [DataRow("12121221")]
+        public void IsValid_Should_ReturnFalse_When_BeneficiaryIdIsNonDefaultAndIntegral(string userEnteredDistrict)
+        {
+
+            var isValid = _validator.IsValid(userEnteredDistrict);
+
+            Assert.IsTrue(isValid);
         }
 
         [TestMethod()]
