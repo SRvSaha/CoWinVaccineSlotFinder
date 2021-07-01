@@ -12,8 +12,8 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-[release-shield-windows]: https://img.shields.io/badge/Download--Windows-v5.2.1--windows-cyan?style=for-the-badge
-[release-version-windows-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.2.1-windows/CoWinReleasesv5.2.1-windows.zip
+[release-shield-windows]: https://img.shields.io/badge/Download--Windows-v5.2.2--windows-cyan?style=for-the-badge
+[release-version-windows-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.2.2-windows/CoWinReleasesv5.2.2-windows.zip
 [release-shield-macos]: https://img.shields.io/badge/Download--MacOS-v5.2.0--osx-pink?style=for-the-badge
 [release-version-macos-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.2.0-osx/CoWinReleasesv5.2.0-osx.zip
 [release-shield-linux]: https://img.shields.io/badge/Download--Linux-v5.2.0--linux-9cf?style=for-the-badge
@@ -166,7 +166,7 @@ There is API throttling (Rate-Limiting) of 100 requests/5 minutes from 1 IP Addr
 ### For Windows Users: 
 
 - Get the Latest Release of the Software either by [clicking here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) or from Releases Section of Github
-- Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.1-windows.zip]
+- Download the ZIP file of the Latest release for your Operating System [OS Name is suffix in the Release Version Name eg. CoWinReleasesv5.2.2-windows.zip]
 - Extract the ZIP file, you'll find two file like this:
   
  ![Application Release](data/ReleaseStructure.jpg)
