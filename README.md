@@ -27,9 +27,9 @@
 [license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=brown
 [license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
 
-> _**Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
+> _**Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly and follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
-> **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
+> **NOTE:** _**Watch the [Demo](#demo) & please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
   
 ### DISCLAIMER
@@ -40,8 +40,12 @@
 
 > **NOTE:** _Please go through the [Disclaimer](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/DISCLAIMER.md), [End User Lisence Agreement](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/EULA.md) & the [Privacy Policy](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/PRIVACYPOLICY.md), proceed further only if you accept the [Terms and Conditions](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/T&C.md) to use the Application/Software_
 
-### Important: 
-- This is a proof of concept project. I do NOT endorse or encourage or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. I SHOULD NOT BE HELD RESPONSIBLE FOR ANY LEGAL CONCERNS.**
+### Demo 
+
+https://user-images.githubusercontent.com/13312352/124377961-805dc480-dccc-11eb-9e9a-09964b651368.mp4
+
+## Important: 
+- This is a proof of concept project. I do NOT endorse or encourage or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. DEVELOPERS SHOULD NOT BE HELD RESPONSIBLE FOR ANY LEGAL CONCERNS.**
 - **FURTHER, ANY USE OF THE SCRIPT FOR MONETARY, UNETHICAL, OR ILLEGAL PURPOSES IS NOT PERMITTED. - IN CASE, YOU ARE FOUND TO DO THE SAME, YOU SHALL BE SOLELY LIABLE FOR THE CONSEQUENCES. THE DEVELOPER SHALL AND CANNOT BE HELD LIABLE FOR THE UNETHICAL OR ILLEGAL USE OF THE SAME**
 - _This goes without saying but, once you get your shot, please do help out any underprivileged people around you who may not have a laptop or the know-how. For instance any sort of domestic help, or the staff in your local grocery store, or literally the thousands of people who don't have the knowledge or luxury we do._
 - Do NOT use unless all the beneficiaries selected are supposed to get the same vaccine and dose. 
