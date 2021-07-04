@@ -42,7 +42,7 @@
 
 ### DEMO
 
-https://user-images.githubusercontent.com/13312352/124377961-805dc480-dccc-11eb-9e9a-09964b651368.mp4
+[Watch How It Works Here](https://user-images.githubusercontent.com/13312352/124377961-805dc480-dccc-11eb-9e9a-09964b651368.mp4)
 
 ## Important: 
 - This is a proof of concept project. I do NOT endorse or encourage or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. DEVELOPERS SHOULD NOT BE HELD RESPONSIBLE FOR ANY LEGAL CONCERNS.**
