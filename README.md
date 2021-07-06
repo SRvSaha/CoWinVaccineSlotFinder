@@ -29,7 +29,7 @@
 
 > _**Watch [Demo](#watch-demo-how-to-get-your-slot) to See How It Works & Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
-> **NOTE:** _**Watch the [Demo](#watch-demo-how-to-get-your-slot) & please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
+> **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
 ### WATCH DEMO ON HOW TO GET YOUR SLOT IN 1 MINUTE
 
