@@ -27,11 +27,11 @@
 [license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=brown
 [license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
 
-> _**Watch [Demo](#demo) to See How It Works & Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
+> _**Watch [Demo](#watch-demo-how-to-get-your-slot) to See How It Works & Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
 
-> **NOTE:** _**Watch the [Demo](#demo) & please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
+> **NOTE:** _**Watch the [Demo](#watch-demo-how-to-get-your-slot) & please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
-### WATCH DEMO HOW TO GET YOUR SLOT
+### WATCH DEMO ON HOW TO GET YOUR SLOT IN 1 MINUTE
 
 [Watch How It Works By Clicking Here](https://user-images.githubusercontent.com/13312352/124377961-805dc480-dccc-11eb-9e9a-09964b651368.mp4)
 
