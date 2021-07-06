@@ -33,7 +33,7 @@
 
 ### WATCH DEMO ON HOW TO GET YOUR SLOT IN 1 MINUTE
 
-[Watch How It Works By Clicking Here](https://user-images.githubusercontent.com/13312352/124377961-805dc480-dccc-11eb-9e9a-09964b651368.mp4)
+[Click Here To Play The Demo](https://user-images.githubusercontent.com/13312352/124377961-805dc480-dccc-11eb-9e9a-09964b651368.mp4)
 
 ### DISCLAIMER
 
