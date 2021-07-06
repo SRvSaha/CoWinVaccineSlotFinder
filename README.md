@@ -31,7 +31,10 @@
 
 > **NOTE:** _**Watch the [Demo](#demo) & please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
-  
+### WATCH DEMO HOW TO GET YOUR SLOT
+
+[Watch How It Works By Clicking Here](https://user-images.githubusercontent.com/13312352/124377961-805dc480-dccc-11eb-9e9a-09964b651368.mp4)
+
 ### DISCLAIMER
 
 
@@ -40,9 +43,6 @@
 
 > **NOTE:** _Please go through the [Disclaimer](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/DISCLAIMER.md), [End User Lisence Agreement](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/EULA.md) & the [Privacy Policy](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/PRIVACYPOLICY.md), proceed further only if you accept the [Terms and Conditions](https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/T&C.md) to use the Application/Software_
 
-### DEMO
-
-[Watch How It Works By Clicking Here](https://user-images.githubusercontent.com/13312352/124377961-805dc480-dccc-11eb-9e9a-09964b651368.mp4)
 
 ## Important: 
 - This is a proof of concept project. I do NOT endorse or encourage or condone, in any shape or form, automating any monitoring/booking tasks. **Developed for Educational Purpose; USE IT AT YOUR OWN RISK. DEVELOPERS SHOULD NOT BE HELD RESPONSIBLE FOR ANY LEGAL CONCERNS.**
