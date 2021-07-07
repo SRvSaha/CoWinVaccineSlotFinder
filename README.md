@@ -31,7 +31,7 @@
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
-## WATCH DEMO - _How To Get Your Slot In 1 Minute_
+## WATCH DEMO - _How To Get Your Slot In 60 Seconds_
 
 [Click Here To Play The Demo](https://user-images.githubusercontent.com/13312352/124377961-805dc480-dccc-11eb-9e9a-09964b651368.mp4)
 
