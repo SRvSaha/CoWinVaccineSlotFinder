@@ -376,15 +376,6 @@ As simple as that!
 
 Enjoy and feel free to Star the Repo, if it could help you in any way!
 
-## FAQs
-
-- What should be the Configuration Changes is I want to book for 18 & Above Category (which includes 45+ as well)
-> `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 100 in appSettings.json`
-- What should be the Configuration Changes is I want to book for 18-44 age group (which includes only 18 to 44 Age)
-> `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 45 in appSettings.json`
-- What should be the Configuration Changes is I want to book for 45 & Above age group (which includes only specificially for 45+)
-> `Configuration Should Be "MinAgeLimit": 45, "MaxAgeLimit": 100 in appSettings.json`
-
 ### For Developers or Curious Minds:
 
 If you have Visual Studio installed, go ahead an Clone the Repository, Open the SLN file, Make changes in  `appsettings.json`, Ctrl + F5 and Boom!
@@ -410,6 +401,15 @@ I know, I know, it's unacceptable, but folks, it's all about quick Time to Marke
 I'll be more than happy to have PRs with modifications.
 
 If you'd like to do it the hard way, clone it, build it and run it. Make sure you've the dependencies required to run the Application as mentioned in [Technical Details Section](#technical-details)
+
+## FAQs
+
+- What should be the Configuration Changes is I want to book for 18 & Above Category (which includes 45+ as well)
+> `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 100 in appSettings.json`
+- What should be the Configuration Changes is I want to book for 18-44 age group (which includes only 18 to 44 Age)
+> `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 45 in appSettings.json`
+- What should be the Configuration Changes is I want to book for 45 & Above age group (which includes only specificially for 45+)
+> `Configuration Should Be "MinAgeLimit": 45, "MaxAgeLimit": 100 in appSettings.json`
 
 
 > **NB:** appsettings.json play the major role for accessing and booking and filtration of searches. Fiddle with it! Appologies that the Code doesn't have inline documentation, but code is readable and self explanatory. In case of any suggestions or bugs or feature request, feel free to raise an Issue.
