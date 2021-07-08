@@ -412,6 +412,8 @@ If you'd like to do it the hard way, clone it, build it and run it. Make sure yo
 > `Configuration Should Be "MinAgeLimit": 45, "MaxAgeLimit": 100 in appSettings.json`
 
 
-> **NB:** appsettings.json play the major role for accessing and booking and filtration of searches. Fiddle with it! Appologies that the Code doesn't have inline documentation, but code is readable and self explanatory. In case of any suggestions or bugs or feature request, feel free to raise an Issue.
 
 Cheers!
+
+> **NB:** appsettings.json play the major role for accessing and booking and filtration of searches. Fiddle with it! Appologies that the Code doesn't have inline documentation, but code is readable and self explanatory. In case of any suggestions or bugs or feature request, feel free to raise an Issue.
+
