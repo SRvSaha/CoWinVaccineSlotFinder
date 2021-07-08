@@ -27,7 +27,7 @@
 [license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=brown
 [license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
 
-> _**Watch [Demo](#watch-demo-on-how-to-get-your-slot-in-1-minute) to See How It Works & Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done)**_
+> _**Watch [Demo](#watch-demo-on-how-to-get-your-slot-in-1-minute) to See How It Works & Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done) and read the [FAQs](#faqs)**_
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
@@ -375,6 +375,15 @@ Be default, this is how the `appsettings.json` would look like this:
 As simple as that!
 
 Enjoy and feel free to Star the Repo, if it could help you in any way!
+
+## FAQs
+
+- What should be the Configuration Changes is I want to book for 18 & Above Category (which includes 45+ as well)
+> `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 100 in appSettings.json`
+- What should be the Configuration Changes is I want to book for 18-44 age group (which includes only 18 to 44 Age)
+> `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 45 in appSettings.json`
+- What should be the Configuration Changes is I want to book for 45 & Above age group (which includes only specificially for 45+)
+> `Configuration Should Be "MinAgeLimit": 45, "MaxAgeLimit": 100 in appSettings.json`
 
 ### For Developers or Curious Minds:
 
