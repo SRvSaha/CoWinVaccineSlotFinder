@@ -407,7 +407,7 @@ If you'd like to do it the hard way, clone it, build it and run it. Make sure yo
 - What should be the Configuration Changes if I want to book for 18 & Above Category (which includes 45+ as well)
 > `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 100 in appSettings.json`
 - What should be the Configuration Changes if I want to book for 18-44 age group (which includes only 18 to 44 Age)
-> `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 45 in appSettings.json`
+> `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 44 in appSettings.json`
 - What should be the Configuration Changes if I want to book for 45 & Above age group (which includes only specificially for 45+)
 > `Configuration Should Be "MinAgeLimit": 45, "MaxAgeLimit": 100 in appSettings.json`
 - What should be the Configuration Changes if I want to First Dose ?
