@@ -404,13 +404,18 @@ If you'd like to do it the hard way, clone it, build it and run it. Make sure yo
 
 ## FAQs
 
-- What should be the Configuration Changes is I want to book for 18 & Above Category (which includes 45+ as well)
+- What should be the Configuration Changes if I want to book for 18 & Above Category (which includes 45+ as well)
 > `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 100 in appSettings.json`
-- What should be the Configuration Changes is I want to book for 18-44 age group (which includes only 18 to 44 Age)
+- What should be the Configuration Changes if I want to book for 18-44 age group (which includes only 18 to 44 Age)
 > `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 45 in appSettings.json`
-- What should be the Configuration Changes is I want to book for 45 & Above age group (which includes only specificially for 45+)
+- What should be the Configuration Changes if I want to book for 45 & Above age group (which includes only specificially for 45+)
 > `Configuration Should Be "MinAgeLimit": 45, "MaxAgeLimit": 100 in appSettings.json`
-
+- What should be the Configuration Changes if I want to First Dose ?
+> `Configuration Should Be "DoseType": 1
+- What should be the Configuration Changes if I want to Second Dose ?
+> `Configuration Should Be "DoseType": 2
+- What should be the Configuration Changes if I want to Book Specific Vaccine Type ?
+> `Configuration Should Be "VaccineType": "COVISHEILD" if you want to get Covishield, "VaccineType": "COVAXIN" if you want to get Covaxin, "VaccineType": "SPUTNIK V" 
 
 
 Cheers!
