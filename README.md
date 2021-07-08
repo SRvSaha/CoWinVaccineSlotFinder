@@ -416,6 +416,8 @@ If you'd like to do it the hard way, clone it, build it and run it. Make sure yo
 > `Configuration Should Be "DoseType": 2`
 - What should be the Configuration Changes if I want to Book Specific Vaccine Type ?
 > `Configuration Should Be "VaccineType": "COVISHEILD" if you want to get Covishield, "VaccineType": "COVAXIN" if you want to get Covaxin, "VaccineType": "SPUTNIK V" if you want to get SPUTNIK V` 
+- What should be the Configuration Changes if I want to Book Slot for Today ?
+> `By Default, the Application books slot for the Next Day on which searching is done. To book for taday, you need to use the date of today in "DateToSearch". Let's say today is 8th July 2021 and you want to book slot for today. Configuration Should Be "DateToSearch": "08-07-2021". By default, "DateToSearch" : "09-07-2021" will be used for searching slot, i.e, for next day` 
 
 
 Cheers!
