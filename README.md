@@ -49,11 +49,11 @@
 
 ![StatisticsTillToday](data/Reaktime-Stats.jpg)
 
-*Total Bookings Based on Age and OS*
+*Total Bookings Based on Age and Platform*
 
 ![StatisticsTillToday](data/Historical-Version.jpg)
 
-*Total Bookings Based on App Version*
+*Total Bookings Trendline and App Version*
 
 ![StatisticsTillToday](data/Historical-Stats.jpg)
 
