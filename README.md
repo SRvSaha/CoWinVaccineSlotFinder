@@ -10,7 +10,6 @@
 [![Downloads][downloads-shield]][downloads-url]
 ![TotalBookings][total-bookings-shield]
 ![BookingsToday][bookings-today-shield]
-[![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
@@ -24,8 +23,6 @@
 [downloads-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases
 [total-bookings-shield]: https://img.shields.io/endpoint?color=red&style=for-the-badge&url=https%3A%2F%2Fraw.githubusercontent.com%2FSRvSaha%2FCoWinVaccineSlotFinder%2Fmaster%2Fdata%2Fshields%2Fbookingsoverall.json
 [bookings-today-shield]: https://img.shields.io/endpoint?color=white&style=for-the-badge&url=https%3A%2F%2Fraw.githubusercontent.com%2FSRvSaha%2FCoWinVaccineSlotFinder%2Fmaster%2Fdata%2Fshields%2Fbookingstoday.json
-[stars-shield]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
-[stars-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/stargazers
 [issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=red
 [issues-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/issues
 [license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=brown
