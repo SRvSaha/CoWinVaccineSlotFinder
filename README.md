@@ -27,7 +27,7 @@
 [license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=brown
 [license-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/blob/master/LICENSE
 
-> _**Watch [Demo](#watch-demo-on-how-to-get-your-slot-in-1-minute) to See How It Works & Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done) and read the [FAQs](#faqs)**_
+> _**Watch [Demo](#watch-demo-on-how-to-get-your-slot-in-1-minute) to See How It Works, Check Out [App Statistics](#statistics--footprints---see-the-analytics-from-metadata-of-slot-finder) & Download Latest Version of the Software for your Operating System by clicking the above links or by clicking [here](https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases) & kindly follow the steps mentioned in [How To Use](#for-folks-who-just-want-to-get-shit-done) and read the [FAQs](#faqs)**_
 
 > **NOTE:** _**Please make sure [these changes](#configuration-changes) are done in [Config file `appsettings.json`](#configuration-changes) before running the Software**_
 
