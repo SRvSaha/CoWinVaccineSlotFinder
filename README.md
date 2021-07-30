@@ -22,8 +22,8 @@
 [release-version-linux-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases/download/v5.2.0-linux/CoWinReleasesv5.2.0-linux.zip
 [downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge&color=lightgreen
 [downloads-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases
-[total-bookings-shield]: https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fraw.githubusercontent.com%2FSRvSaha%2FCoWinVaccineSlotFinder%2Fmaster%2Fdata%2Fshields%2Fbookingsoverall.json
-[bookings-today-shield]: https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fraw.githubusercontent.com%2FSRvSaha%2FCoWinVaccineSlotFinder%2Fmaster%2Fdata%2Fshields%2Fbookingstoday.json
+[total-bookings-shield]: https://img.shields.io/endpoint?color=red&style=for-the-badge&url=https%3A%2F%2Fraw.githubusercontent.com%2FSRvSaha%2FCoWinVaccineSlotFinder%2Fmaster%2Fdata%2Fshields%2Fbookingsoverall.json
+[bookings-today-shield]: https://img.shields.io/endpoint?color=white&style=for-the-badge&url=https%3A%2F%2Fraw.githubusercontent.com%2FSRvSaha%2FCoWinVaccineSlotFinder%2Fmaster%2Fdata%2Fshields%2Fbookingstoday.json
 [stars-shield]: https://img.shields.io/github/stars/SRvSaha/CoWinVaccineSlotFinder.svg?style=for-the-badge
 [stars-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/stargazers
 [issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=red
