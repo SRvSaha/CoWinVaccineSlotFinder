@@ -56,7 +56,7 @@
 
 *Bookings Today vs Overall vs Yesterday*
 
-![StatisticsTillToday](data/Reaktime-Stats.jpg)
+![StatisticsTillToday](data/statistics/Realtime_Booking_Comparision.jpg)
 
 *Total Bookings Based on Age and Platform*
 
