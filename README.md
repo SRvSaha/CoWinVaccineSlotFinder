@@ -38,13 +38,13 @@
 
 ## STATISTICS & FOOTPRINTS - _See the Analytics from metadata of Slot Finder_
 
-*Total Bookings till Date*
+*Total Bookings Analysis till Date*
 
-![StatisticsTillToday](data/Historical.png)
+![StatisticsTillToday](data/statistics/Historical_Report.png)
 
-*Total Bookings Today*
+*Total Bookings Analysis for Today*
 
-![StatisticsTillToday](data/Realtime.jpg)
+![StatisticsTillToday](data/statistics/Realtime_Report.png)
 
 *Bookings Today vs Overall vs Yesterday*
 
