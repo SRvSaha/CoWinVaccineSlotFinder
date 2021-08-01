@@ -46,6 +46,14 @@
 
 ![StatisticsTillToday](data/statistics/Realtime_Report.png)
 
+*Summary of Total Bookings Analysis till Date*
+
+![StatisticsTillToday](data/statistics/Historical_Summary.jpg)
+
+*Summary Total Bookings Analysis for Today*
+
+![StatisticsTillToday](data/statistics/Realtime_Summary.jpg)
+
 *Bookings Today vs Overall vs Yesterday*
 
 ![StatisticsTillToday](data/Reaktime-Stats.jpg)
