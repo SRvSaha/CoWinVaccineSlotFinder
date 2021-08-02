@@ -22,7 +22,7 @@
 [downloads-shield]: https://img.shields.io/github/downloads/srvsaha/CoWinVaccineSlotFinder/total.svg?style=for-the-badge&color=lightgreen
 [downloads-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/releases
 [total-bookings-shield]: https://img.shields.io/endpoint?color=blue&style=for-the-badge&url=https://vaccineslotfindertelemetry.azurewebsites.net/api/overallanalytics
-[bookings-today-shield]: https://img.shields.io/endpoint?color=yellow&style=for-the-badge&url=https://vaccineslotfindertelemetry.azurewebsites.net/api/dailyanalytics
+[bookings-today-shield]: https://img.shields.io/endpoint?color=violet&style=for-the-badge&url=https://vaccineslotfindertelemetry.azurewebsites.net/api/dailyanalytics
 [issues-shield]: https://img.shields.io/github/issues/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=red
 [issues-url]: https://github.com/SRvSaha/CoWinVaccineSlotFinder/issues
 [license-shield]: https://img.shields.io/github/license/SRvSaha/CoWinVaccineSlotFinder?style=for-the-badge&color=brown
