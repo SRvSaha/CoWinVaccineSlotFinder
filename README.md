@@ -50,6 +50,10 @@
 
 ![StatisticsTillToday](data/statistics/Historical_Summary.jpg)
 
+*Overall Bookings from Difference Places till Date*
+
+![StatisticsTillToday](data/statistics/Historical_Districts_Footfall.jpg)
+
 *Summary Total Bookings Analysis for Today*
 
 ![StatisticsTillToday](data/statistics/Realtime_Summary.jpg)
@@ -60,11 +64,11 @@
 
 *Total Bookings Based on Age and Platform*
 
-![StatisticsTillToday](data/Historical-Version.jpg)
+![StatisticsTillToday](data/statistics/Historical_AgeWise_Platformwise.jpg)
 
 *Total Bookings Trendline and App Version*
 
-![StatisticsTillToday](data/Historical-Stats.jpg)
+![StatisticsTillToday](data/statistics/Historical_Daywise_VersionWise.jpg)
 
 
 ### DISCLAIMER
