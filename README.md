@@ -50,13 +50,13 @@
 
 ![StatisticsTillToday](data/statistics/Historical_Summary.jpg)
 
-*Overall Bookings from Difference Places till Date*
-
-![StatisticsTillToday](data/statistics/Historical_Districts_Footfall.jpg)
-
 *Summary Total Bookings Analysis for Today*
 
 ![StatisticsTillToday](data/statistics/Realtime_Summary.jpg)
+
+*Overall Bookings from Different Places till Date*
+
+![StatisticsTillToday](data/statistics/Historical_Districts_Footfall.jpg)
 
 *Bookings Today vs Overall vs Yesterday*
 
