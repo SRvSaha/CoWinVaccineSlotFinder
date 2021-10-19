@@ -460,3 +460,4 @@ Cheers!
 
 > **NB:** appsettings.json play the major role for accessing and booking and filtration of searches. Fiddle with it! Appologies that the Code doesn't have inline documentation, but code is readable and self explanatory. In case of any suggestions or bugs or feature request, feel free to raise an Issue.
 
+> Contact us for any further queries or bug report by mailing us at [Vaccine Slot Finder](mailto:vaccineslotfinder@outlook.com?subject=[GitHub]%20README%20VaccineSlotFinder)
