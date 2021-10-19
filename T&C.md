@@ -60,6 +60,6 @@ You acknowledge that you have read this Agreement and agree to all its terms and
 Contacting us
 -------------
 
-If you would like to contact us to understand more about this Agreement or wish to contact us concerning any matter relating to it, you may do so via the [contact form](https://srvsaha.github.io/CoWinVaccineSlotFinder).
+If you would like to contact us to understand more about this Agreement or wish to contact us concerning any matter relating to it, you may do so via e-mail at [Vaccine Slot Finder](mailto:vaccineslotfinder@outlook.com?subject=[GitHub]%20Terms&Conditions%20VaccineSlotFinder)
 
 This document was last updated on May 23, 2021
