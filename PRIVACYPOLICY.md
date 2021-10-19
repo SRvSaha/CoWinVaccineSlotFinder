@@ -170,3 +170,4 @@ Contact Us
 If you have any questions about this Privacy Policy, You can contact us:
 
 *   By visiting this page on our website: [https://srvsaha.github.io/CoWinVaccineSlotFinder/](https://srvsaha.github.io/CoWinVaccineSlotFinder/)
+*   By mailing us at [Vaccine Slot Finder](mailto:vaccineslotfinder@outlook.com?subject=[GitHub]%20Issue%20VaccineSlotFinder)
