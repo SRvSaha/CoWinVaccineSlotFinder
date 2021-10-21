@@ -46,10 +46,6 @@
 
 ![StatisticsTillToday](data/statistics/Realtime_Report.png)
 
-*Download Statistics of Last 3 Versions*
-
-![StatisticsDownloads](data/DownloadStatistics/Downloads.jpg)
-
 *Summary of Total Bookings Analysis till Date*
 
 ![StatisticsTillToday](data/statistics/Historical_Summary.jpg)
