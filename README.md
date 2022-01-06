@@ -446,7 +446,7 @@ If you'd like to do it the hard way, clone it, build it and run it. Make sure yo
 
 - What should be the Configuration Changes if I want to book for 15-18 age group (which includes only 15 to 18 Age)
 > `Configuration Should Be "MinAgeLimit": 15, "MaxAgeLimit": 18 in appSettings.json`
-> - What should be the Configuration Changes if I want to book for 15 & Above Category (which includes 15+, 18+ & 45+ as well)
+- What should be the Configuration Changes if I want to book for 15 & Above Category (which includes 15+, 18+ & 45+ as well)
 > `Configuration Should Be "MinAgeLimit": 15, "MaxAgeLimit": 100 in appSettings.json`
 - What should be the Configuration Changes if I want to book for 18 & Above Category (which includes 45+ as well)
 > `Configuration Should Be "MinAgeLimit": 18, "MaxAgeLimit": 100 in appSettings.json`
